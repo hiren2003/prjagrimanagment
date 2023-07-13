@@ -2,19 +2,25 @@ package com.project.agriculturemanagmentapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.renderscript.ScriptGroup;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.ToggleButton;
 
 public class Language extends AppCompatActivity {
 
     ToggleButton tgleng, tglhnd, tglgjr, tgltml, tglknd, tglurd, tgltlg, tglbgl, tglpjb, tglmlylm;
+    ImageButton btnsublang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language);
+        btnsublang=findViewById(R.id.btnsublang);
         tgleng = findViewById(R.id.tgleng);
         tglhnd = findViewById(R.id.tglhnd);
         tglgjr = findViewById(R.id.tglgjr);
@@ -35,6 +41,14 @@ public class Language extends AppCompatActivity {
         tglbgl.setTextOn("বাংলা");
         tglpjb.setTextOn("پَن٘جابی");
         tglmlylm.setTextOn("മലയാളം");
+        tgleng.setChecked(true);
+        tgleng.setTextColor(getResources().getColor(R.color.Dark_green));
+        btnsublang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Language.this,MainActivity.class));
+            }
+        });
         tgleng.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

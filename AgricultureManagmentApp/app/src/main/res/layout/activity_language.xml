@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".Language">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <ToggleButton
+            android:id="@+id/tgleng"
+            android:layout_width="170dp"
+            android:layout_height="100dp"
+            android:background="@drawable/bgtoggle"
+            android:textSize="25dp"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:textOff="English"
+            android:text="English"
+            android:textColor="@color/Dark_red"
+            />
+
+        <ToggleButton
+            android:id="@+id/tglhnd"
+            android:layout_width="170dp"
+            android:layout_height="100dp"
+            android:background="@drawable/bgtoggle"
+            android:textSize="25dp"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:text="हिन्दी"
+            android:textOff="हिन्दी"
+            android:textColor="@color/Dark_red"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <ToggleButton
+            android:id="@+id/tglgjr"
+            android:layout_width="170dp"
+            android:layout_height="100dp"
+            android:background="@drawable/bgtoggle"
+            android:textSize="25dp"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:text="ગુજરાતી"
+            android:textOff="ગુજરાતી"
+            android:textColor="@color/Dark_red"
+            />
+
+        <ToggleButton
+            android:id="@+id/tgltml"
+            android:layout_width="170dp"
+            android:layout_height="100dp"
+            android:background="@drawable/bgtoggle"
+            android:textSize="25dp"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:text="தமிழ்"
+            android:textOff="தமிழ்"
+            android:textColor="@color/Dark_red"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <ToggleButton
+            android:id="@+id/tglknd"
+            android:layout_width="170dp"
+            android:layout_height="100dp"
+            android:background="@drawable/bgtoggle"
+            android:textSize="25dp"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:textOff="ಕನ್ನಡ"
+            android:text="ಕನ್ನಡ"
+            android:textColor="@color/Dark_red"
+            />
+
+        <ToggleButton
+            android:id="@+id/tglurd"
+            android:layout_width="170dp"
+            android:layout_height="100dp"
+            android:background="@drawable/bgtoggle"
+            android:textSize="25dp"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:textOff="اردو"
+            android:text="اردو"
+            android:textColor="@color/Dark_red"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_horizontal">
+
+    <ToggleButton
+        android:id="@+id/tgltlg"
+        android:layout_width="170dp"
+        android:layout_height="100dp"
+        android:background="@drawable/bgtoggle"
+        android:textSize="25dp"
+        android:layout_margin="10dp"
+        android:textAlignment="center"
+        android:textOff="తెలుగు"
+        android:text="తెలుగు"
+        android:textColor="@color/Dark_red"
+        />
+
+    <ToggleButton
+        android:id="@+id/tglbgl"
+        android:layout_width="170dp"
+        android:layout_height="100dp"
+        android:background="@drawable/bgtoggle"
+        android:textSize="25dp"
+        android:layout_margin="10dp"
+        android:textAlignment="center"
+        android:textOff="বাংলা"
+        android:text="বাংলা"
+        android:textColor="@color/Dark_red"
+        />
+
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <ToggleButton
+            android:id="@+id/tglpjb"
+            android:layout_width="170dp"
+            android:layout_height="100dp"
+            android:background="@drawable/bgtoggle"
+            android:textSize="25dp"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:textOff="پَن٘جابی"
+            android:text="پَن٘جابی"
+            android:textColor="@color/Dark_red"
+            />
+
+        <ToggleButton
+            android:id="@+id/tglmlylm"
+            android:layout_width="170dp"
+            android:layout_height="100dp"
+            android:background="@drawable/bgtoggle"
+            android:textSize="25dp"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:textOff="മലയാളം"
+            android:text="മലയാളം"
+            android:textColor="@color/Dark_red"
+            />
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:background="@drawable/border_green"
+        app:srcCompat="@drawable/baseline_arrow_forward_24"
+        app:tint="#8BC34A"
+        />
+
+</LinearLayout>
+

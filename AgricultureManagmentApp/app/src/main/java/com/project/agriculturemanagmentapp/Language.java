@@ -3,6 +3,8 @@ package com.project.agriculturemanagmentapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.renderscript.ScriptGroup;
 import android.view.View;
@@ -11,14 +13,19 @@ import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ToggleButton;
 
+import java.util.Locale;
+
 public class Language extends AppCompatActivity {
 
     ToggleButton tgleng, tglhnd, tglgjr, tgltml, tglknd, tglurd, tgltlg, tglbgl, tglpjb, tglmlylm;
     ImageButton btnsublang;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor sedit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setLanguage();
         setContentView(R.layout.activity_language);
         btnsublang=findViewById(R.id.btnsublang);
         tgleng = findViewById(R.id.tgleng);
@@ -31,6 +38,9 @@ public class Language extends AppCompatActivity {
         tglbgl = findViewById(R.id.tglbgl);
         tglpjb = findViewById(R.id.tglpjb);
         tglmlylm = findViewById(R.id.tglmlylm);
+        btnsublang=findViewById(R.id.btnsublang);
+        sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+        sedit = sharedPreferences.edit();
         tgleng.setTextOn("English");
         tglhnd.setTextOn("हिन्दी");
         tglgjr.setTextOn("ગુજરાતી");
@@ -46,6 +56,18 @@ public class Language extends AppCompatActivity {
         btnsublang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(tgleng.isChecked()){sedit.putString("getlen","en");}
+                if(tglhnd.isChecked()){sedit.putString("getlen","hi");}
+                if(tglgjr.isChecked()){sedit.putString("getlen","gu");}
+                if(tglknd.isChecked()){sedit.putString("getlen","kn");}
+                if(tglmlylm.isChecked()){sedit.putString("getlen","ml");}
+                if(tglpjb.isChecked()){sedit.putString("getlen","pa");}
+                if(tgltml.isChecked()){sedit.putString("getlen","ta");}
+                if(tgltlg.isChecked()){sedit.putString("getlen","te");}
+                if(tglurd.isChecked()){sedit.putString("getlen","ur");}
+                if(tglbgl.isChecked()){sedit.putString("getlen","bn");}
+                sedit.apply();
+                sedit.commit();
                 startActivity(new Intent(Language.this,MainActivity.class));
             }
         });
@@ -201,6 +223,16 @@ public class Language extends AppCompatActivity {
             tglmlylm.setChecked(false);
             tglmlylm.setTextColor(red);
         }
-
     }
+    public void setLanguage(){
+        SharedPreferences sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
+        SharedPreferences.Editor sedit=sharedPreferences.edit();
+        String lang=sharedPreferences.getString("getlen","");
+        Locale locale=new Locale(lang,"rnIN");
+        Locale.setDefault(locale);
+        Configuration configuration=new Configuration();
+        configuration.locale = locale;
+        getBaseContext().getResources().updateConfiguration(configuration,getBaseContext().getResources().getDisplayMetrics());
+    }
+
 }

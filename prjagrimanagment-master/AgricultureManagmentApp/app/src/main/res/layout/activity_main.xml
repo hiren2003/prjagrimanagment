@@ -50,6 +50,7 @@
                app:counterEnabled="true"
                app:counterMaxLength="15"
                app:prefixTextColor="@color/black"
+               android:background="@drawable/background"
                app:prefixText="@string/mrmrs"
                >
 
@@ -57,7 +58,6 @@
                    android:id="@+id/edtuname"
                    android:textColor="@color/black"
                    android:layout_width="match_parent"
-                   android:background="@drawable/background"
                    android:layout_height="60dp"
                    android:shadowColor="@color/black"
                    android:maxLength="15" />
@@ -74,13 +74,13 @@
                app:prefixTextColor="@color/black"
                app:startIconDrawable="@drawable/baseline_call_24"
                app:startIconTint="#3E6018"
+               android:background="@drawable/background"
                app:prefixText="+91"
                >
 
                <com.google.android.material.textfield.TextInputEditText
                    android:id="@+id/edtmo"
                    android:layout_width="match_parent"
-                   android:background="@drawable/background"
                    android:textColor="@color/black"
                    android:shadowColor="@color/black"
                    android:layout_height="60dp"

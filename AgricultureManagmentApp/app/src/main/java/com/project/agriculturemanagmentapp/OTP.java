@@ -24,6 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.concurrent.TimeUnit;
 
@@ -35,6 +36,8 @@ public class OTP extends AppCompatActivity {
     SharedPreferences.Editor sedit;
     ProgressBar progressBar;
     TextView txt;
+    FirebaseDatabase firebaseDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,14 +46,15 @@ public class OTP extends AppCompatActivity {
         Uname = i.getStringExtra("uname");
         Mobile = i.getStringExtra("mo");
         VerificationId = i.getStringExtra("vid");
+        firebaseDatabase=FirebaseDatabase.getInstance();
         EditText sms1 = findViewById(R.id.sms1);
         EditText sms2 = findViewById(R.id.sms2);
         EditText sms3 = findViewById(R.id.sms3);
         EditText sms4 = findViewById(R.id.sms4);
         EditText sms5 = findViewById(R.id.sms5);
         EditText sms6 = findViewById(R.id.sms6);
-        txt=findViewById(R.id.txt);
-        progressBar=findViewById(R.id.progressBar2);
+        txt = findViewById(R.id.txt);
+        progressBar = findViewById(R.id.progressBar2);
         txtmo = findViewById(R.id.txtmo);
         txtmo.setText(txtmo.getText() + " " + Mobile);
         RelativeLayout btnverify = findViewById(R.id.btnverify);
@@ -214,13 +218,13 @@ public class OTP extends AppCompatActivity {
                             sedit.putString("mo", Mobile);
                             sedit.apply();
                             sedit.commit();
+                   //         firebaseDatabase.getReference().child("Users").child(Mobile).setValue(new clsUserModel(Uname,Mobile));
                             startActivity(intent);
                             finish();
-                        }
-                        else {
+                        } else {
                             txt.setVisibility(View.VISIBLE);
                             progressBar.setVisibility(View.GONE);
-                            Toast.makeText(OTP.this,getResources().getString(R.string.Signin_Failed), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(OTP.this, getResources().getString(R.string.Signin_Failed), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

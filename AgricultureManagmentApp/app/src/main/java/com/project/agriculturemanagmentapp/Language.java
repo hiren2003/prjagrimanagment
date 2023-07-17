@@ -17,7 +17,7 @@ import java.util.Locale;
 
 public class Language extends AppCompatActivity {
 
-    ToggleButton tgleng, tglhnd, tglgjr, tgltml, tglknd, tglurd, tgltlg, tglbgl, tglpjb, tglmlylm;
+    ToggleButton tgleng, tglhnd, tglgjr, tgltml, tglknd, tglurd, tgltlg, tglbgl, tglpjb, tglmlylm,tglmrt;
     ImageButton btnsublang;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor sedit;
@@ -27,7 +27,7 @@ public class Language extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setLanguage();
         setContentView(R.layout.activity_language);
-        btnsublang=findViewById(R.id.btnsublang);
+        btnsublang = findViewById(R.id.btnsublang);
         tgleng = findViewById(R.id.tgleng);
         tglhnd = findViewById(R.id.tglhnd);
         tglgjr = findViewById(R.id.tglgjr);
@@ -37,8 +37,9 @@ public class Language extends AppCompatActivity {
         tglurd = findViewById(R.id.tglurd);
         tglbgl = findViewById(R.id.tglbgl);
         tglpjb = findViewById(R.id.tglpjb);
+        tglmrt=findViewById(R.id.tglmrt);
         tglmlylm = findViewById(R.id.tglmlylm);
-        btnsublang=findViewById(R.id.btnsublang);
+        btnsublang = findViewById(R.id.btnsublang);
         sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
         sedit = sharedPreferences.edit();
         tgleng.setTextOn("English");
@@ -51,34 +52,57 @@ public class Language extends AppCompatActivity {
         tglbgl.setTextOn("বাংলা");
         tglpjb.setTextOn("پَن٘جابی");
         tglmlylm.setTextOn("മലയാളം");
+        tglmrt.setTextOn("Marathi");
         tgleng.setChecked(true);
         tgleng.setTextColor(getResources().getColor(R.color.Dark_green));
         btnsublang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(tgleng.isChecked()){sedit.putString("getlen","en");}
-                if(tglhnd.isChecked()){sedit.putString("getlen","hi");}
-                if(tglgjr.isChecked()){sedit.putString("getlen","gu");}
-                if(tglknd.isChecked()){sedit.putString("getlen","kn");}
-                if(tglmlylm.isChecked()){sedit.putString("getlen","ml");}
-                if(tglpjb.isChecked()){sedit.putString("getlen","pa");}
-                if(tgltml.isChecked()){sedit.putString("getlen","ta");}
-                if(tgltlg.isChecked()){sedit.putString("getlen","te");}
-                if(tglurd.isChecked()){sedit.putString("getlen","ur");}
-                if(tglbgl.isChecked()){sedit.putString("getlen","bn");}
+                if (tgleng.isChecked()) {
+                    sedit.putString("getlen", "en");
+                }
+                if (tglhnd.isChecked()) {
+                    sedit.putString("getlen", "hi");
+                }
+                if (tglgjr.isChecked()) {
+                    sedit.putString("getlen", "gu");
+                }
+                if (tglknd.isChecked()) {
+                    sedit.putString("getlen", "kn");
+                }
+                if (tglmlylm.isChecked()) {
+                    sedit.putString("getlen", "ml");
+                }
+                if (tglpjb.isChecked()) {
+                    sedit.putString("getlen", "pa");
+                }
+                if (tgltml.isChecked()) {
+                    sedit.putString("getlen", "ta");
+                }
+                if (tgltlg.isChecked()) {
+                    sedit.putString("getlen", "te");
+                }
+                if (tglurd.isChecked()) {
+                    sedit.putString("getlen", "ur");
+                }
+                if (tglbgl.isChecked()) {
+                    sedit.putString("getlen", "bn");
+                }
+                if (tglmrt.isChecked()) {
+                    sedit.putString("getlen", "mr");
+                }
                 sedit.apply();
                 sedit.commit();
-                startActivity(new Intent(Language.this,MainActivity.class));
+                startActivity(new Intent(Language.this, MainActivity.class));
             }
         });
         tgleng.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    selelang(tgleng,true);
-                }
-                else{
-                    selelang(tgleng,false);
+                if (isChecked) {
+                    selelang(tgleng, true);
+                } else {
+                    selelang(tgleng, false);
                 }
             }
         });
@@ -89,6 +113,16 @@ public class Language extends AppCompatActivity {
                     selelang(tglhnd, true);
                 } else {
                     selelang(tglhnd, false);
+                }
+            }
+        });
+        tglmrt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    selelang(tglmrt, true);
+                } else {
+                    selelang(tglmrt, false);
                 }
             }
         });
@@ -198,6 +232,8 @@ public class Language extends AppCompatActivity {
             tglpjb.setTextColor(red);
             tglmlylm.setChecked(false);
             tglmlylm.setTextColor(red);
+            tglmrt.setChecked(false);
+            tglmrt.setTextColor(red);
             toggleButton.setTextColor(green);
             toggleButton.setChecked(true);
         } else {
@@ -220,19 +256,22 @@ public class Language extends AppCompatActivity {
             tglbgl.setTextColor(red);
             tglpjb.setChecked(false);
             tglpjb.setTextColor(red);
+            tglmrt.setChecked(false);
+            tglmrt.setTextColor(red);
             tglmlylm.setChecked(false);
             tglmlylm.setTextColor(red);
         }
     }
-    public void setLanguage(){
-        SharedPreferences sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
-        SharedPreferences.Editor sedit=sharedPreferences.edit();
-        String lang=sharedPreferences.getString("getlen","");
-        Locale locale=new Locale(lang,"rnIN");
+
+    public void setLanguage() {
+        SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+        SharedPreferences.Editor sedit = sharedPreferences.edit();
+        String lang = sharedPreferences.getString("getlen", "");
+        Locale locale = new Locale(lang, "rnIN");
         Locale.setDefault(locale);
-        Configuration configuration=new Configuration();
+        Configuration configuration = new Configuration();
         configuration.locale = locale;
-        getBaseContext().getResources().updateConfiguration(configuration,getBaseContext().getResources().getDisplayMetrics());
+        getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
     }
 
 }

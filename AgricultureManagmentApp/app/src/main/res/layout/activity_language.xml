@@ -173,7 +173,18 @@
             />
 
     </LinearLayout>
-
+    <ToggleButton
+        android:id="@+id/tglmrt"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:background="@drawable/bgtoggle"
+        android:textSize="25dp"
+        android:layout_margin="10dp"
+        android:textAlignment="center"
+        android:textOff="Marathi"
+        android:text="Marathi"
+        android:textColor="@color/Dark_red"
+        />
     <ImageButton
         android:id="@+id/btnsublang"
         android:layout_width="350dp"

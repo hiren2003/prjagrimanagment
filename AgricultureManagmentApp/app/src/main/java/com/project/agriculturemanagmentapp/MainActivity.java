@@ -38,9 +38,10 @@ public class MainActivity extends AppCompatActivity {
     TextInputEditText edtuname, edtmo;
     RelativeLayout btngetotp;
     FirebaseAuth mAuth;
-     String VerificationId,SmsCode;
-     ProgressBar progressBar;
-     TextView txt;
+    String VerificationId, SmsCode;
+    ProgressBar progressBar;
+    TextView txt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
         edtuname = findViewById(R.id.edtuname);
         edtmo = findViewById(R.id.edtmo);
         btngetotp = findViewById(R.id.btngetotp);
-        txt=findViewById(R.id.txt);
-        progressBar=findViewById(R.id.progressBar2);
-        mAuth= FirebaseAuth.getInstance();
+        txt = findViewById(R.id.txt);
+        progressBar = findViewById(R.id.progressBar2);
+        mAuth = FirebaseAuth.getInstance();
         btngetotp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,28 +83,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallBack = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-    @Override
-    public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-        super.onCodeSent(s, forceResendingToken);
-        VerificationId=s;
-        Intent intent= new Intent(MainActivity.this,OTP.class);
-        intent.putExtra("uname",edtuname.getText().toString());
-        intent.putExtra("mo",edtmo.getText().toString());
-        intent.putExtra("vid",VerificationId);
-        Toast.makeText(MainActivity.this, getResources().getString(R.string.Code_sent), Toast.LENGTH_SHORT).show();
-        startActivity(intent);
-        finish();
-    }
+        @Override
+        public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+            super.onCodeSent(s, forceResendingToken);
+            VerificationId = s;
+            Intent intent = new Intent(MainActivity.this, OTP.class);
+            intent.putExtra("uname", edtuname.getText().toString());
+            intent.putExtra("mo", edtmo.getText().toString());
+            intent.putExtra("vid", VerificationId);
+            Toast.makeText(MainActivity.this, getResources().getString(R.string.Code_sent), Toast.LENGTH_SHORT).show();
+            startActivity(intent);
+            finish();
+        }
 
-    @Override
-    public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+        @Override
+        public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
 
-    }
-    @Override
-    public void onVerificationFailed(@NonNull FirebaseException e) {
-        txt.setVisibility(View.VISIBLE);
-        progressBar.setVisibility(View.GONE);
-        Toast.makeText(MainActivity.this,getResources().getString(R.string.Verification_Failed), Toast.LENGTH_SHORT).show();
-    }
-};
+        }
+
+        @Override
+        public void onVerificationFailed(@NonNull FirebaseException e) {
+            txt.setVisibility(View.VISIBLE);
+            progressBar.setVisibility(View.GONE);
+            Toast.makeText(MainActivity.this, getResources().getString(R.string.Verification_Failed), Toast.LENGTH_SHORT).show();
+        }
+    };
 }

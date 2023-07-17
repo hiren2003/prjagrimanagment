@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#C2DD9E"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -24,13 +25,13 @@
                android:fontFamily="@font/andika"
                android:text="LOGIN"
                android:textAlignment="center"
-               android:textColor="#3D552C"
+               android:textColor="#417823"
                android:textSize="30dp"
                android:textStyle="bold" />
 
            <com.airbnb.lottie.LottieAnimationView
-               android:layout_width="250dp"
-               android:layout_height="250dp"
+               android:layout_width="280dp"
+               android:layout_height="280dp"
                android:layout_gravity="center_horizontal"
                android:layout_marginTop="50dp"
                android:layout_marginBottom="50dp"
@@ -43,22 +44,27 @@
                android:layout_height="wrap_content"
                app:hintEnabled="true"
                android:hint="@string/name"
-               app:hintTextColor="@color/black"
+               app:boxBackgroundColor="#98B17B"
+               app:boxCornerRadiusBottomEnd="10sp"
+               app:boxCornerRadiusBottomStart="10dp"
+               app:boxCornerRadiusTopEnd="10dp"
+               app:boxCornerRadiusTopStart="10dp"
+               app:hintTextColor="@color/white"
                app:startIconDrawable="@drawable/baseline_account_circle_24"
                app:startIconTint="#3E6018"
                style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
                app:counterEnabled="true"
                app:counterMaxLength="15"
-               app:prefixTextColor="@color/black"
-               android:background="@drawable/background"
+               app:prefixTextColor="@color/white"
                app:prefixText="@string/mrmrs"
                >
 
                <com.google.android.material.textfield.TextInputEditText
                    android:id="@+id/edtuname"
-                   android:textColor="@color/black"
+                   android:textColor="@color/white"
                    android:layout_width="match_parent"
                    android:layout_height="60dp"
+
                    android:shadowColor="@color/black"
                    android:maxLength="15" />
 
@@ -69,19 +75,24 @@
                android:layout_height="wrap_content"
                android:hint="@string/mobile_number"
                app:counterEnabled="true"
+               app:boxCornerRadiusBottomEnd="10sp"
+               app:boxCornerRadiusBottomStart="10dp"
+               app:boxCornerRadiusTopEnd="10dp"
+               app:boxCornerRadiusTopStart="10dp"
                app:counterMaxLength="10"
-               app:hintTextColor="@color/black"
-               app:prefixTextColor="@color/black"
+               app:boxBackgroundColor="#98B17B"
+               app:hintTextColor="@color/white"
+               app:prefixTextColor="@color/white"
+               android:layout_marginTop="5dp"
                app:startIconDrawable="@drawable/baseline_call_24"
                app:startIconTint="#3E6018"
-               android:background="@drawable/background"
                app:prefixText="+91"
                >
 
                <com.google.android.material.textfield.TextInputEditText
                    android:id="@+id/edtmo"
                    android:layout_width="match_parent"
-                   android:textColor="@color/black"
+                   android:textColor="@color/white"
                    android:shadowColor="@color/black"
                    android:layout_height="60dp"
                    android:inputType="number"
@@ -105,7 +116,7 @@
                    android:textColor="#FFFFFF"
                    android:textSize="20dp" />
 
-               <ProgressBar
+               <androidx.core.widget.ContentLoadingProgressBar
                    android:id="@+id/progressBar2"
                    style="?android:attr/progressBarStyle"
                    android:layout_width="wrap_content"
@@ -113,7 +124,7 @@
                    android:progressTint="#8BC34A"
                    android:foregroundTint="#8BC34A"
                    android:visibility="gone"
-                   android:backgroundTint="#8BC34A"
+                   android:backgroundTint="#73A637"
                    />
 
            </RelativeLayout>

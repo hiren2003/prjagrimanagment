@@ -1,9 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#C2DD9E"
     android:layout_height="match_parent"
     tools:context=".SplashActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center"
+       android:layout_margin="20sp"
+       android:fontFamily="@font/allerta"
+       android:text="Agro farm"
+       android:textColor="#134957"
+       android:textSize="30dp"
+       android:textStyle="bold" />
+   <com.airbnb.lottie.LottieAnimationView
+       android:layout_width="350dp"
+       android:layout_height="500dp"
+       android:layout_marginTop="20sp"
+       android:layout_gravity="center_vertical"
+       android:layout_marginStart="30dp"
+       app:lottie_autoPlay="true"
+       app:lottie_loop="true"
+       app:lottie_rawRes="@raw/farms"/>
+
+   <ProgressBar
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:progressTint="#214204"
+       android:progressBackgroundTint="@color/black"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="50sp"/>
+</LinearLayout>

@@ -49,6 +49,7 @@ public class OTP extends AppCompatActivity {
         EditText sms4 = findViewById(R.id.sms4);
         EditText sms5 = findViewById(R.id.sms5);
         EditText sms6 = findViewById(R.id.sms6);
+
         txt=findViewById(R.id.txt);
         progressBar=findViewById(R.id.progressBar2);
         txtmo = findViewById(R.id.txtmo);

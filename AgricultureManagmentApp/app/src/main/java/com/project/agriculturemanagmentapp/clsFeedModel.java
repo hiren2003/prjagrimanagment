@@ -1,17 +1,17 @@
 package com.project.agriculturemanagmentapp;
 
 public class clsFeedModel {
-    String prfpc,uname,date,post,des,key;
+    String prfpc,uname,date,post,des,key,key2;
 
-    public clsFeedModel(String prfpc, String uname, String date, String post, String des, String key) {
+    public clsFeedModel(String prfpc, String uname, String date, String post, String des, String key, String key2) {
         this.prfpc = prfpc;
         this.uname = uname;
         this.date = date;
         this.post = post;
         this.des = des;
         this.key = key;
+        this.key2=key2;
     }
-
     public String getKey() {
         return key;
     }
@@ -21,6 +21,14 @@ public class clsFeedModel {
     }
 
     public clsFeedModel() {
+    }
+
+    public String getKey2() {
+        return key2;
+    }
+
+    public void setKey2(String key2) {
+        this.key2 = key2;
     }
 
     public String getDes() {

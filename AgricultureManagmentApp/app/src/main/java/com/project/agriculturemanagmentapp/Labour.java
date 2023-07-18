@@ -1,6 +1,5 @@
 package com.project.agriculturemanagmentapp;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,9 +11,13 @@ import android.view.ViewGroup;
 
 import com.google.android.material.tabs.TabLayout;
 
-public class Feed extends Fragment {
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link Labour#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class Labour extends Fragment {
 
-    Context context;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -24,14 +27,21 @@ public class Feed extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Feed() {
+    public Labour() {
         // Required empty public constructor
     }
-    public Feed(Context context) {
-        this.context=context;
-    }
-    public static Feed newInstance(String param1, String param2) {
-        Feed fragment = new Feed();
+
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment Labour.
+     */
+    // TODO: Rename and change types and number of parameters
+    public static Labour newInstance(String param1, String param2) {
+        Labour fragment = new Labour();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -49,14 +59,14 @@ public class Feed extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+   public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_feed, container, false);
-        ViewPager viewPager=view.findViewById(R.id.vpfeed);
-        TabLayout tabLayout=view.findViewById(R.id.tbllytfeed);
-        VpAdapterFeed vpAdapterFeed=new VpAdapterFeed(getChildFragmentManager(),getContext());
-        viewPager.setAdapter(vpAdapterFeed);
-        tabLayout.setupWithViewPager(viewPager);
+        View view = inflater.inflate(R.layout.fragment_labour, container, false);
+        ViewPager vp=view.findViewById(R.id.vplabour);
+        TabLayout tb=view.findViewById(R.id.tbllytlabour);
+        VpAdapterLabour vpAdapterLabour=new VpAdapterLabour(getChildFragmentManager(),getContext());
+        vp.setAdapter(vpAdapterLabour);
+        tb.setupWithViewPager(vp);
         return view;
     }
 }

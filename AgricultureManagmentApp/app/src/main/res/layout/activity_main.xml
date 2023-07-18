@@ -28,15 +28,16 @@
                 android:textSize="30dp"
                 android:textStyle="bold" />
 
-            <com.airbnb.lottie.LottieAnimationView
+            <ImageView
+                android:id="@+id/prfpc"
                 android:layout_width="250dp"
                 android:layout_height="250dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="50dp"
-                app:lottie_autoPlay="true"
-                app:lottie_loop="true"
-                app:lottie_rawRes="@raw/loginnew" />
+                android:scaleType="centerInside"
+                android:src="@drawable/baseline_add_a_photo_24"
+                />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"

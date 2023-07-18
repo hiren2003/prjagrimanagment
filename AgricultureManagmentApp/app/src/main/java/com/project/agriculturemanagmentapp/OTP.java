@@ -31,7 +31,7 @@ import java.util.concurrent.TimeUnit;
 public class OTP extends AppCompatActivity {
     TextView txtmo;
     FirebaseAuth mAuth;
-    String VerificationId, Mobile, Uname, SmsCode;
+    String VerificationId, Mobile, Uname, SmsCode,url;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor sedit;
     ProgressBar progressBar;
@@ -46,6 +46,7 @@ public class OTP extends AppCompatActivity {
         Uname = i.getStringExtra("uname");
         Mobile = i.getStringExtra("mo");
         VerificationId = i.getStringExtra("vid");
+        url=i.getStringExtra("url");
         firebaseDatabase=FirebaseDatabase.getInstance();
         EditText sms1 = findViewById(R.id.sms1);
         EditText sms2 = findViewById(R.id.sms2);
@@ -216,9 +217,10 @@ public class OTP extends AppCompatActivity {
                             Intent intent = new Intent(OTP.this, Home.class);
                             sedit.putString("uname", Uname);
                             sedit.putString("mo", Mobile);
+                            sedit.putString("url",url);
                             sedit.apply();
                             sedit.commit();
-                   //         firebaseDatabase.getReference().child("Users").child(Mobile).setValue(new clsUserModel(Uname,Mobile));
+                            firebaseDatabase.getReference().child("Users_List").child(Mobile).setValue(new clsUserModel(Uname,Mobile,url));
                             startActivity(intent);
                             finish();
                         } else {

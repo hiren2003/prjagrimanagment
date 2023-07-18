@@ -10,6 +10,7 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -31,7 +32,7 @@ import com.google.firebase.storage.FirebaseStorage;
  * create an instance of this fragment.
  */
 public class Myfeed extends Fragment {
-
+    RcFeedAdapter rcFeedAdapter;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -81,16 +82,33 @@ public class Myfeed extends Fragment {
         SharedPreferences sharedPreferences= getContext().getSharedPreferences("data", Context.MODE_PRIVATE);
         String mo=sharedPreferences.getString("mo","123456789");
         FirebaseRecyclerOptions<clsFeedModel> options=new FirebaseRecyclerOptions.Builder<clsFeedModel>()
-                .setQuery(FirebaseDatabase.getInstance().getReference().child("user").child(mo).child("post"), clsFeedModel.class)
+                .setQuery(FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Feed"), clsFeedModel.class)
                 .build();
-        RcFeedAdapter rcFeedAdapter =new RcFeedAdapter(options,getContext());
+        rcFeedAdapter=new RcFeedAdapter(options,getContext(),true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(rcFeedAdapter);
         addfeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), add_feed.class));
+                startActivity(new Intent(getContext(),add_feed.class));
             }
         });
         return view;
+    }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        rcFeedAdapter.startListening();
+    }
+
+    // Function to tell the app to stop getting
+    // data from database on stopping of the activity
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        rcFeedAdapter.stopListening();
     }
 }

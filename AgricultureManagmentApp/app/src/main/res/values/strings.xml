@@ -21,4 +21,17 @@
     <string name="My_Feed">My Feed</string>
     <string name="Description">Description</string>
     <string name="Upload">Upload</string>
+    <string name="Post_Uploaded">Post Uploaded</string>
+    <string name="Post_Deleted">Post Deleted</string>
+    <string name="Labour_mobile_number">Worker Mobile Number</string>
+    <string name="Labour_Vacancy">Worker Vacancy</string>
+    <string name="My_Labour_Vacancy">My Worker Vacancy</string>
+    <string name="Labour_Managment">Worker Managment</string>
+    <string name="Add_Labour">Add Worker</string>
+    <string name="Labour_name">Worker Name</string>
+    <string name="wages">wages</string>
+    <string name="Place_of_work">Place of work</string>
+    <string name="Select_date">Select Date</string>
+    <string name="Additional_Description">Additional Description</string>
+    <string name="Save_Detail">Save Detail</string>
 </resources>

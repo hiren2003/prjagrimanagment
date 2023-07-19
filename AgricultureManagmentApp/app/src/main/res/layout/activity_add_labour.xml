@@ -74,7 +74,6 @@
                 android:hint="@string/Place_of_work"
                 app:hintEnabled="true"
                 app:hintTextColor="@color/black"
-                app:prefixText="@string/mrmrs"
                 app:prefixTextColor="@color/black"
                 app:startIconDrawable="@drawable/baseline_location_on_24"
                 app:startIconTint="#3E6018">
@@ -99,7 +98,6 @@
                 android:hint="@string/wages"
                 app:hintEnabled="true"
                 app:hintTextColor="@color/black"
-                app:prefixText="@string/mrmrs"
                 app:prefixTextColor="@color/black"
                 app:startIconDrawable="@drawable/baseline_currency_rupee_24"
                 app:startIconTint="#3E6018">
@@ -110,6 +108,7 @@
                     android:layout_height="60dp"
                     android:fontFamily="@font/allerta"
                     android:maxLength="15"
+                    android:inputType="numberSigned"
                     android:shadowColor="@color/black"
                     android:textColor="@color/black" />
 
@@ -124,15 +123,14 @@
                 app:counterMaxLength="300"
                 app:hintEnabled="true"
                 app:hintTextColor="@color/black"
-                app:prefixText="@string/mrmrs"
                 app:prefixTextColor="@color/black"
-                app:startIconDrawable="@drawable/baseline_account_circle_24"
+                app:startIconDrawable="@drawable/baseline_description_24"
                 app:startIconTint="#3E6018">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtldes"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="wrap_content"
                     android:fontFamily="@font/allerta"
                     android:maxLength="300"
                     android:shadowColor="@color/black"
@@ -140,6 +138,7 @@
 
             </com.google.android.material.textfield.TextInputLayout>
             <RelativeLayout
+                android:id="@+id/rldate"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="5dp"
@@ -155,11 +154,7 @@
                     android:textColor="#8BC34A"
                     android:textSize="20dp" />
             </RelativeLayout>
-            <ImageView
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/baseline_add_a_photo_24" />
+
             <RelativeLayout
                 android:id="@+id/btnsavedetail"
                 android:layout_width="match_parent"
@@ -183,7 +178,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/andika"
-                    android:text="@string/send_otp"
+                    android:text="@string/Save_data"
                     android:textColor="#FFFFFF"
                     android:textSize="20dp" />
 

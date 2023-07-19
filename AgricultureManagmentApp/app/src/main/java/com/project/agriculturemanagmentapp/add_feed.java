@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
@@ -81,6 +82,7 @@ public class add_feed extends AppCompatActivity {
                                     public void onSuccess(Void unused) {
                                         progressBar.setVisibility(View.GONE);
                                         txt.setVisibility(View.VISIBLE);
+                                        Toast.makeText(add_feed.this, getResources().getString(R.string.Data_Added_Sucessfully), Toast.LENGTH_SHORT).show();
                                         finish();
                                     }
                                 });}

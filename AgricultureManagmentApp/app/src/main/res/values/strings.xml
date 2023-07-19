@@ -34,4 +34,20 @@
     <string name="Select_date">Select Date</string>
     <string name="Additional_Description">Additional Description</string>
     <string name="Save_Detail">Save Detail</string>
+    <string name="Data_Added_Sucessfully">Data Added Sucessfully</string>
+    <string name="Hello">Hello</string>
+    <string name="msg1">Your Wages Detail are Following</string>
+    <string name="Worker_name">Name of Worker</string>
+    <string name="loc">Location of Work</string>
+    <string name="date">Date</string>
+    <string name="Wages">Wages</string>
+    <string name="Sender">Sender</string>
+    <string name="Save_data">Save_data</string>
+    <string name="Delete_data">Delete Data</string>
+    <string name="msgdlt">Do You Want To Delete This Data ?</string>
+<string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="msg2">Your Wages Detail of</string>
+    <string name="msg3">is Deleted</string>
+    <string name="Required_Field">Required Field</string>
 </resources>

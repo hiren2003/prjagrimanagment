@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/background"
     tools:context=".MainActivity">
 
     <androidx.core.widget.NestedScrollView
@@ -35,6 +36,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="50dp"
+                android:background="@drawable/imgback"
+                android:fitsSystemWindows="true"
                 android:scaleType="centerInside"
                 android:src="@drawable/baseline_add_a_photo_24"
                 />
@@ -44,14 +47,19 @@
                 android:layout_height="wrap_content"
                 app:hintEnabled="true"
                 android:hint="@string/name"
+                app:boxBackgroundColor="#BCD69F"
+                app:boxCornerRadiusBottomEnd="10sp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
                 app:hintTextColor="@color/black"
                 app:startIconDrawable="@drawable/baseline_account_circle_24"
                 app:startIconTint="#3E6018"
-                style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                style="@style/CustomOutlineBox"
                 app:counterEnabled="true"
+                android:textColorHint="@color/black"
                 app:counterMaxLength="15"
-                app:prefixTextColor="@color/black"
-                android:background="@drawable/background"
+                app:prefixTextColor="#0C4A0A"
                 app:prefixText="@string/mrmrs"
                 >
 
@@ -71,13 +79,21 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/mobile_number"
                 app:counterEnabled="true"
+                app:boxCornerRadiusBottomEnd="10sp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
                 app:counterMaxLength="10"
+                app:boxBackgroundColor="#BCD69F"
                 app:hintTextColor="@color/black"
-                app:prefixTextColor="@color/black"
+                app:prefixTextColor="#0C4A0A"
+                style="@style/CustomOutlineBox"
+                android:layout_marginTop="5dp"
+                android:textColorHint="@color/black"
                 app:startIconDrawable="@drawable/baseline_call_24"
                 app:startIconTint="#3E6018"
-                android:background="@drawable/background"
                 app:prefixText="+91"
+
                 >
 
                 <com.google.android.material.textfield.TextInputEditText

@@ -16,6 +16,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -67,6 +68,10 @@ public class MainActivity extends AppCompatActivity {
         txt = findViewById(R.id.txt);
         progressBar = findViewById(R.id.progressBar2);
         mAuth = FirebaseAuth.getInstance();
+
+        Window window=this.getWindow();
+        window.setStatusBarColor(this.getResources().getColor(R.color.background));
+
         prfpc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

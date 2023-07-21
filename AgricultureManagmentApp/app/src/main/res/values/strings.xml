@@ -45,9 +45,16 @@
     <string name="Save_data">Save_data</string>
     <string name="Delete_data">Delete Data</string>
     <string name="msgdlt">Do You Want To Delete This Data ?</string>
-<string name="yes">Yes</string>
+    <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="msg2">Your Wages Detail of</string>
     <string name="msg3">is Deleted</string>
     <string name="Required_Field">Required Field</string>
+    <string name="language">Language</string>
+    <string name="log_Out">Log Out</string>
+    <string name="Rate_us">Rate us</string>
+    <string name="Contact_us">Contact us</string>
+    <string name="Share_app">Share app</string>
+    <string name="Goverment_scheme">Goverment scheme</string>
+    <string name="Term_Condition">Term&amp;Condition</string>
 </resources>

@@ -17,7 +17,9 @@
             android:exported="false" />
         <activity
             android:name=".add_labour"
-            android:exported="true"></activity>
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".add_feed"
             android:exported="false" />
@@ -33,15 +35,17 @@
         <activity
             android:name=".Home"
             android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="true"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

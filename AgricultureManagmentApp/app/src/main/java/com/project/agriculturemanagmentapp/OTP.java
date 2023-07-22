@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -42,6 +43,10 @@ public class OTP extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp);
+
+        Window window=this.getWindow();
+        window.setStatusBarColor(this.getResources().getColor(R.color.background));
+
         Intent i = getIntent();
         Uname = i.getStringExtra("uname");
         Mobile = i.getStringExtra("mo");

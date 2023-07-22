@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     android:padding="10dp"
     tools:context=".OTP">
     <LinearLayout
@@ -26,7 +27,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/andika"
             android:text="@string/Otp_Sent_to"
+            android:textColor="#2A4C17"
             android:textSize="20dp" />
         <LinearLayout
             android:layout_width="wrap_content"
@@ -40,6 +43,7 @@
                 android:layout_height="50dp"
                 android:inputType="numberSigned"
                 android:layout_margin="2dp"
+                style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
                 android:background="@drawable/border_green"
                 android:gravity="center"
                 android:fontFamily="@font/allerta"
@@ -125,6 +129,9 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:gravity="center"
+            android:layout_marginTop="20sp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
             android:background="@drawable/sendotp">
             <TextView
                 android:id="@+id/txt"

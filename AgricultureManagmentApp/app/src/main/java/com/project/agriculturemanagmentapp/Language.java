@@ -8,6 +8,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.renderscript.ScriptGroup;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
@@ -25,6 +26,9 @@ public class Language extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Window window=this.getWindow();
+        window.setStatusBarColor(this.getResources().getColor(R.color.background));
+
         setLanguage();
         setContentView(R.layout.activity_language);
         btnsublang = findViewById(R.id.btnsublang);

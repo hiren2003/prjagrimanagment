@@ -93,7 +93,7 @@ public class Language extends AppCompatActivity {
                 }
                 sedit.apply();
                 sedit.commit();
-                startActivity(new Intent(Language.this, MainActivity.class));
+              //  startActivity(new Intent(Language.this, MainActivity.class));
             }
         });
         tgleng.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -272,6 +272,7 @@ public class Language extends AppCompatActivity {
         Configuration configuration = new Configuration();
         configuration.locale = locale;
         getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
+        recreate();
     }
 
 }

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.SmsManager;
@@ -25,6 +26,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.UploadTask;
 
 import java.util.Calendar;
+import java.util.Locale;
 import java.util.Stack;
 
 public class add_labour extends AppCompatActivity {
@@ -41,6 +43,7 @@ boolean isDateSelected=false;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_labour);
+        setLanguage();
         edtlname=findViewById(R.id.edtlname);
         edtlmo=findViewById(R.id.edtlmo);
         edtlplace=findViewById(R.id.edtlplace);
@@ -117,5 +120,20 @@ boolean isDateSelected=false;
                 }
 
         });
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        setLanguage();
+    }
+
+    public void setLanguage() {
+        SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+        String lang = sharedPreferences.getString("getlen", "en");
+        Locale locale = new Locale(lang, "rnIN");
+        Locale.setDefault(locale);
+        Configuration configuration = new Configuration();
+        configuration.locale = locale;
+        getBaseContext().getResources().updateConfiguration(configuration,getBaseContext().getResources().getDisplayMetrics());
     }
 }

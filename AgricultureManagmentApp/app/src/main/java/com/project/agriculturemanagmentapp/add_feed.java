@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -26,6 +27,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.util.Calendar;
+import java.util.Locale;
 
 public class add_feed extends AppCompatActivity {
     ActivityResultLauncher<String> launcher;
@@ -39,6 +41,7 @@ public class add_feed extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_feed);
+        setLanguage();
         txt=findViewById(R.id.txt);
         FirebaseStorage firebaseStorage=FirebaseStorage.getInstance();
         firebaseAuth=FirebaseAuth.getInstance();
@@ -92,5 +95,19 @@ public class add_feed extends AppCompatActivity {
             }
         });
     }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        setLanguage();
+    }
 
+    public void setLanguage() {
+        SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+        String lang = sharedPreferences.getString("getlen", "en");
+        Locale locale = new Locale(lang, "rnIN");
+        Locale.setDefault(locale);
+        Configuration configuration = new Configuration();
+        configuration.locale = locale;
+        getBaseContext().getResources().updateConfiguration(configuration,getBaseContext().getResources().getDisplayMetrics());
+    }
 }

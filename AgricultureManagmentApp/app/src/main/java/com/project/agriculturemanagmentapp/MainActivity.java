@@ -57,19 +57,21 @@ public class MainActivity extends AppCompatActivity {
     ActivityResultLauncher<String> launcher;
     Uri uri;
     String uri2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setLanguage();
         edtuname = findViewById(R.id.edtuname);
         edtmo = findViewById(R.id.edtmo);
         btngetotp = findViewById(R.id.btngetotp);
-        prfpc=findViewById(R.id.prfpc);
+        prfpc = findViewById(R.id.prfpc);
         txt = findViewById(R.id.txt);
         progressBar = findViewById(R.id.progressBar2);
         mAuth = FirebaseAuth.getInstance();
 
-        Window window=this.getWindow();
+        Window window = this.getWindow();
         window.setStatusBarColor(this.getResources().getColor(R.color.background));
 
         prfpc.setOnClickListener(new View.OnClickListener() {
@@ -78,11 +80,11 @@ public class MainActivity extends AppCompatActivity {
                 launcher.launch("image/*");
             }
         });
-  launcher = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
+        launcher = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
             public void onActivityResult(Uri result) {
                 prfpc.setImageURI(result);
-                uri=result;
+                uri = result;
             }
         });
 
@@ -98,14 +100,14 @@ public class MainActivity extends AppCompatActivity {
                         txt.setVisibility(View.GONE);
                         progressBar.setVisibility(View.VISIBLE);
                         sendOtp();
-                        reference=FirebaseStorage.getInstance().getReference().child("User_Profiles").child(edtmo.getText().toString());
+                        reference = FirebaseStorage.getInstance().getReference().child("User_Profiles").child(edtmo.getText().toString());
                         reference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                             @Override
                             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                                 reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                     @Override
                                     public void onSuccess(Uri uri) {
-                                        uri2=uri.toString();
+                                        uri2 = uri.toString();
                                     }
                                 });
                             }
@@ -137,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("uname", edtuname.getText().toString());
             intent.putExtra("mo", edtmo.getText().toString());
             intent.putExtra("vid", VerificationId);
-            intent.putExtra("url",uri2);
+            intent.putExtra("url", uri2);
             Toast.makeText(MainActivity.this, getResources().getString(R.string.Code_sent), Toast.LENGTH_SHORT).show();
             startActivity(intent);
             finish();
@@ -155,4 +157,21 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, getResources().getString(R.string.Verification_Failed), Toast.LENGTH_SHORT).show();
         }
     };
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        setLanguage();
+    }
+
+    public void setLanguage() {
+        SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+        String lang = sharedPreferences.getString("getlen", "en");
+        Locale locale = new Locale(lang, "rnIN");
+        Locale.setDefault(locale);
+        Configuration configuration = new Configuration();
+        configuration.locale = locale;
+        getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
+    }
+
 }

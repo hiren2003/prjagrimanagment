@@ -5,11 +5,15 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+
+import java.util.Locale;
 
 public class Home extends AppCompatActivity {
 MeowBottomNavigation btmnv;
@@ -18,6 +22,7 @@ FrameLayout frameLayout;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        setLanguage();
         btmnv=findViewById(R.id.btmnv);
         frameLayout =findViewById(R.id.fmlayout);
         btmnv.show(3,true);
@@ -51,5 +56,15 @@ FrameLayout frameLayout;
     protected void onStart() {
         super.onStart();
         btmnv.show(3,true);
+        setLanguage();
+    }
+    public void setLanguage() {
+        SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+        String lang = sharedPreferences.getString("getlen", "en");
+        Locale locale = new Locale(lang, "rnIN");
+        Locale.setDefault(locale);
+        Configuration configuration = new Configuration();
+        configuration.locale = locale;
+        getBaseContext().getResources().updateConfiguration(configuration,getBaseContext().getResources().getDisplayMetrics());
     }
 }

@@ -22,6 +22,7 @@ public class Language extends AppCompatActivity {
     ImageButton btnsublang;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor sedit;
+    String curlang="en";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,40 +65,51 @@ public class Language extends AppCompatActivity {
             public void onClick(View v) {
                 if (tgleng.isChecked()) {
                     sedit.putString("getlen", "en");
+                    curlang="en";
                 }
                 if (tglhnd.isChecked()) {
                     sedit.putString("getlen", "hi");
+                    curlang="hi";
                 }
                 if (tglgjr.isChecked()) {
                     sedit.putString("getlen", "gu");
+                    curlang="gu";
                 }
                 if (tglknd.isChecked()) {
                     sedit.putString("getlen", "kn");
+                    curlang="kn";
                 }
                 if (tglmlylm.isChecked()) {
                     sedit.putString("getlen", "ml");
+                    curlang="ml";
                 }
                 if (tglpjb.isChecked()) {
                     sedit.putString("getlen", "pa");
+                    curlang="pa";
                 }
                 if (tgltml.isChecked()) {
                     sedit.putString("getlen", "ta");
+                    curlang="ta";
                 }
                 if (tgltlg.isChecked()) {
                     sedit.putString("getlen", "te");
+                    curlang="te";
                 }
                 if (tglurd.isChecked()) {
                     sedit.putString("getlen", "ur");
+                    curlang="ur";
                 }
                 if (tglbgl.isChecked()) {
                     sedit.putString("getlen", "bn");
+                    curlang="bn";
                 }
                 if (tglmrt.isChecked()) {
                     sedit.putString("getlen", "mr");
+                    curlang="mr";
                 }
                 sedit.apply();
                 sedit.commit();
-              //  startActivity(new Intent(Language.this, MainActivity.class));
+                    startActivity(new Intent(Language.this, Home.class));
             }
         });
         tgleng.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -269,13 +281,12 @@ public class Language extends AppCompatActivity {
 
     public void setLanguage() {
         SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
-        SharedPreferences.Editor sedit = sharedPreferences.edit();
-        String lang = sharedPreferences.getString("getlen", "");
+        String lang = sharedPreferences.getString("getlen", "en");
         Locale locale = new Locale(lang, "rnIN");
         Locale.setDefault(locale);
         Configuration configuration = new Configuration();
         configuration.locale = locale;
-        getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
+        getBaseContext().getResources().updateConfiguration(configuration,getBaseContext().getResources().getDisplayMetrics());
         recreate();
     }
 

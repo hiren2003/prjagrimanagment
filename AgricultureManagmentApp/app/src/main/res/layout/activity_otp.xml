@@ -155,22 +155,13 @@
         </RelativeLayout>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Not_Recieved_Otp"
-            android:visibility="gone"
-            android:textSize="20dp"
-            android:layout_margin="5dp"
-            android:layout_gravity="center_horizontal"
-            />
-        <TextView
             android:id="@+id/txtretry"
             android:layout_width="wrap_content"
-            android:visibility="gone"
             android:layout_height="wrap_content"
-            android:text="@string/Resend_otp"
+            android:text="@string/Change_Detail"
             android:textSize="20dp"
-            android:layout_margin="5dp"
+            android:visibility="gone"
+            android:layout_margin="30dp"
             android:layout_gravity="center_horizontal"
             android:textColor="#0520B9"
             />

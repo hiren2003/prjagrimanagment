@@ -55,6 +55,7 @@
     <string name="Rate_us">Rate us</string>
     <string name="Contact_us">Contact us</string>
     <string name="Share_app">Share app</string>
+    <string name="Change_Detail">Change Detail</string>
     <string name="Goverment_scheme">Goverment scheme</string>
     <string name="Term_Condition">Term&amp;Condition</string>
 </resources>

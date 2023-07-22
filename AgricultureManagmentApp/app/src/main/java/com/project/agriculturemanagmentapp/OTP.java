@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -27,6 +28,7 @@ import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class OTP extends AppCompatActivity {
@@ -36,17 +38,16 @@ public class OTP extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor sedit;
     ProgressBar progressBar;
-    TextView txt;
+    TextView txt,txtretry;
     FirebaseDatabase firebaseDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp);
-
+        setLanguage();
         Window window=this.getWindow();
         window.setStatusBarColor(this.getResources().getColor(R.color.background));
-
         Intent i = getIntent();
         Uname = i.getStringExtra("uname");
         Mobile = i.getStringExtra("mo");
@@ -56,6 +57,7 @@ public class OTP extends AppCompatActivity {
         EditText sms1 = findViewById(R.id.sms1);
         EditText sms2 = findViewById(R.id.sms2);
         EditText sms3 = findViewById(R.id.sms3);
+        txtretry=findViewById(R.id.txtretry);
         EditText sms4 = findViewById(R.id.sms4);
         EditText sms5 = findViewById(R.id.sms5);
         EditText sms6 = findViewById(R.id.sms6);
@@ -68,6 +70,12 @@ public class OTP extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
         sedit = sharedPreferences.edit();
+        txtretry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(OTP.this,MainActivity.class));
+            }
+        });
         sms1.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -223,6 +231,7 @@ public class OTP extends AppCompatActivity {
                             sedit.putString("uname", Uname);
                             sedit.putString("mo", Mobile);
                             sedit.putString("url",url);
+                            sedit.putBoolean("islogin",true);
                             sedit.apply();
                             sedit.commit();
                             firebaseDatabase.getReference().child("Users_List").child(Mobile).setValue(new clsUserModel(Uname,Mobile,url));
@@ -235,7 +244,25 @@ public class OTP extends AppCompatActivity {
                         }
                     }
                 });
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        setLanguage();
+    }
 
+    public void setLanguage() {
+        SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+        String lang = sharedPreferences.getString("getlen", "en");
+        Locale locale = new Locale(lang, "rnIN");
+        Locale.setDefault(locale);
+        Configuration configuration = new Configuration();
+        configuration.locale = locale;
+        getBaseContext().getResources().updateConfiguration(configuration,getBaseContext().getResources().getDisplayMetrics());
+    }
+
+    @Override
+    public void onBackPressed() {
 
     }
 }

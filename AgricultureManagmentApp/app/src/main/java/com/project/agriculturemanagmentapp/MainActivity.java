@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView prfpc;
     StorageReference reference;
     ActivityResultLauncher<String> launcher;
-    Uri uri;
+    Uri uri=null;
     String uri2;
 
     @Override
@@ -96,6 +96,8 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     if (edtmo.getText().toString().length() != 10) {
                         edtmo.setError(getResources().getString(R.string.Invalid_MobileNumber));
+                    } else if (uri==null) {
+                        Toast.makeText(MainActivity.this, getResources().getString(R.string.Select_Image),Toast.LENGTH_SHORT).show();
                     } else {
                         txt.setVisibility(View.GONE);
                         progressBar.setVisibility(View.VISIBLE);

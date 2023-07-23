@@ -12,29 +12,40 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AgricultureManagmentApp"
         tools:targetApi="31">
+
         <activity
-            android:name=".Navigation"
-            android:exported="false" />
-        <activity
-            android:name=".add_labour"
-            android:exported="true">
+            android:name=".add_labour_vacancy"
+            android:exported="true" >
 
         </activity>
         <activity
+            android:name=".Navigation"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".add_labour"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".add_feed"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Language"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Introduction"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".OTP"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Home"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,9 +54,11 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="YOUR_API_KEY" />
 
         <meta-data
             android:name="preloaded_fonts"

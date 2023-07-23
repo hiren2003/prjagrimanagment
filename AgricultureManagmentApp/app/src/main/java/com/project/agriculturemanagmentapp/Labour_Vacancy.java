@@ -1,12 +1,22 @@
 package com.project.agriculturemanagmentapp;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +24,8 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class Labour_Vacancy extends Fragment {
+RcVacancyAdapter rcVacancyAdapter;
+RcVacancyAdapter rcOtherVacancyAdapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -58,7 +70,44 @@ public class Labour_Vacancy extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_labour__vacancy, container, false);
+        View view = inflater.inflate(R.layout.fragment_labour__vacancy, container, false);
+        RecyclerView rcmy=view.findViewById(R.id.rcmyvacancy);
+        RecyclerView rcother=view.findViewById(R.id.rcothervacancy);
+        ExtendedFloatingActionButton fltaddvacancy=view.findViewById(R.id.fltaddvacancy);
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("data", Context.MODE_PRIVATE);
+        String mo = sharedPreferences.getString("mo", "1234567890");
+        rcmy.setLayoutManager(new LinearLayoutManager(getContext()));
+        rcother.setLayoutManager(new LinearLayoutManager(getContext()));
+        FirebaseRecyclerOptions<clsVacancyModel> options=new FirebaseRecyclerOptions.Builder<clsVacancyModel>()
+                .setQuery(FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("MyVacancy"),clsVacancyModel.class)
+                .build();
+        FirebaseRecyclerOptions<clsVacancyModel> options2=new FirebaseRecyclerOptions.Builder<clsVacancyModel>()
+                .setQuery(FirebaseDatabase.getInstance().getReference().child("Labour_Vacancy"),clsVacancyModel.class)
+                .build();
+        rcVacancyAdapter=new RcVacancyAdapter(options,getContext(),true);
+        rcOtherVacancyAdapter=new RcVacancyAdapter(options2,getContext(),false);
+        rcother.setAdapter(rcOtherVacancyAdapter);
+        rcmy.setAdapter(rcVacancyAdapter);
+        fltaddvacancy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), add_labour_vacancy.class));
+            }
+        });
+        return  view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        rcVacancyAdapter.startListening();
+        rcOtherVacancyAdapter.startListening();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        rcVacancyAdapter.stopListening();
+        rcOtherVacancyAdapter.stopListening();
     }
 }

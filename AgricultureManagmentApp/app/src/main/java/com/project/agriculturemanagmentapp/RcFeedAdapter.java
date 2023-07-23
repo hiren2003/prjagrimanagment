@@ -92,9 +92,9 @@ public class RcFeedAdapter extends FirebaseRecyclerAdapter<clsFeedModel,RcFeedAd
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             prfpc=itemView.findViewById(R.id.profilepc);
+            txtuname=itemView.findViewById(R.id.txtuname);
             imgpost=itemView.findViewById(R.id.imgfeed);
             txtdate=itemView.findViewById(R.id.txtdate);
-            txtuname=itemView.findViewById(R.id.txtuname);
             btndelete=itemView.findViewById(R.id.btndelete);
             txtdes=itemView.findViewById(R.id.txtdes);
         }

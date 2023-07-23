@@ -55,7 +55,22 @@
     <string name="Rate_us">Rate us</string>
     <string name="Contact_us">Contact us</string>
     <string name="Share_app">Share app</string>
-    <string name="Change_Detail">Change Detail</string>
     <string name="Goverment_scheme">Goverment scheme</string>
     <string name="Term_Condition">Term&amp;Condition</string>
+    <string name="Change_Detail">Change Detail</string>
+    <string name="Add_Vacancy">Add Vacancy</string>
+    <string name="Interested_Labour">Interested Labour will Contact through this number</string>
+    <string name="Select_Image">Select Image</string>
+    <string name="State">State</string>
+    <string name="District">District</string>
+    <string name="Tehsil">Tehsil</string>
+    <string name="city_town_village">city/town/village</string>
+    <string name="Owner_name">Name of Owner</string>
+    <string name="Work_type">Type of Work</string>
+    <string name="Wages_Type">Wages Type</string>
+    <string name="Fix_Wages">Fix Wages</string>
+    <string name="On_Partenership">On Partenership</string>
+    <string name="Extected_Income">Expected Annual Income</string>
+    <string name="Work_Duration">Work Duration(In Month)</string>
+    <string name="Interest">I am interested in your vacancy for farmer</string>
 </resources>

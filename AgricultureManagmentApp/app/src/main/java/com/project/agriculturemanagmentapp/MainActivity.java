@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setLanguage();
+
         edtuname = findViewById(R.id.edtuname);
         edtmo = findViewById(R.id.edtmo);
         btngetotp = findViewById(R.id.btngetotp);

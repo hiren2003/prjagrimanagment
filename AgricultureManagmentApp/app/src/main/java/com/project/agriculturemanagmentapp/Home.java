@@ -25,7 +25,6 @@ FrameLayout frameLayout;
         setContentView(R.layout.activity_home);
         Window window = this.getWindow();
         window.setStatusBarColor(this.getResources().getColor(R.color.background));
-
         setLanguage();
         btmnv=findViewById(R.id.btmnv);
         frameLayout =findViewById(R.id.fmlayout);

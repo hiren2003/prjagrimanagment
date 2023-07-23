@@ -109,7 +109,18 @@ public class Language extends AppCompatActivity {
                 }
                 sedit.apply();
                 sedit.commit();
+                sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
+                boolean isLogin=sharedPreferences.getBoolean("islogin",false);
+                if(isLogin){
                     startActivity(new Intent(Language.this, Home.class));
+                    recreate();
+                    finish();
+                }
+                else{
+                    startActivity(new Intent(Language.this, MainActivity.class));
+                    recreate();
+                    finish();
+                }
             }
         });
         tgleng.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

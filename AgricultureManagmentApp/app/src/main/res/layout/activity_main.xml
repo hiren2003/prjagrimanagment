@@ -22,31 +22,65 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/andika"
                 android:text="LOGIN"
                 android:textAlignment="center"
-                android:textColor="#3D552C"
-                android:fontFamily="@font/andika"
+                android:textColor="#144C0A"
                 android:textSize="30dp"
                 android:textStyle="bold" />
 
-            <ImageView
+           <androidx.cardview.widget.CardView
+               android:layout_width="200dp"
+               android:layout_height="200dp"
+               app:cardCornerRadius="150dp"
+               android:layout_gravity="center_horizontal"
+               android:layout_marginTop="50dp"
+               android:fitsSystemWindows="true"
+               android:backgroundTint="@color/background"
+               android:layout_marginBottom="20sp">
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/prfpc"
-                android:layout_width="250dp"
-                android:layout_height="250dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="50dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:background="@color/background"
                 android:layout_marginBottom="50dp"
-                android:fitsSystemWindows="true"
-                android:scaleType="centerInside"
-                android:src="@drawable/upload"
-                />
+                android:layout_gravity="center_horizontal"
+                app:civ_border_width="2dp"
+                android:src="@drawable/adddd"
+                app:civ_border_color="#93AA78"/>
+
+
+           </androidx.cardview.widget.CardView>
+
+<!--            <ImageView&ndash;&gt;-->
+            <!--                   android:id="@+id/prfpc"-->
+            <!--                   android:layout_width="100dp"-->
+            <!--                   android:layout_height="100dp"-->
+            <!--                   android:layout_gravity="center_horizontal"-->
+            <!--                   android:layout_marginTop="50dp"-->
+            <!--                   android:layout_marginBottom="50dp"-->
+            <!--                   android:background="@drawable/imgback"-->
+            <!--                   android:fitsSystemWindows="true"-->
+            <!--                   android:src="@drawable/camera1"-->
+            <!--                   >-->
+            <!--&lt;!&ndash;                   <com.airbnb.lottie.LottieAnimationView&ndash;&gt;-->
+            <!--&lt;!&ndash;                       android:layout_width="200dp"&ndash;&gt;-->
+            <!--&lt;!&ndash;                       android:layout_height="200dp"&ndash;&gt;-->
+            <!--&lt;!&ndash;                       android:layout_gravity="center_horizontal"&ndash;&gt;-->
+            <!--&lt;!&ndash;                       app:lottie_rawRes="@raw/icon"&ndash;&gt;-->
+            <!--&lt;!&ndash;                       android:layout_marginTop="30dp"&ndash;&gt;-->
+            <!--&lt;!&ndash;                       android:fitsSystemWindows="true"&ndash;&gt;-->
+            <!--&lt;!&ndash;                       android:scaleType="centerInside"/>&ndash;&gt;-->
+
+            <!--               </ImageView>-->
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:hintEnabled="true"
                 android:hint="@string/name"
-                app:boxBackgroundColor="#BCD69F"
+                app:boxBackgroundColor="#A5B38E"
                 app:boxCornerRadiusBottomEnd="10sp"
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
@@ -55,6 +89,7 @@
                 app:startIconDrawable="@drawable/baseline_account_circle_24"
                 app:startIconTint="#3E6018"
                 style="@style/CustomOutlineBox"
+                android:layout_marginTop="70dp"
                 app:counterEnabled="true"
                 android:textColorHint="@color/black"
                 app:counterMaxLength="15"
@@ -83,7 +118,7 @@
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:counterMaxLength="10"
-                app:boxBackgroundColor="#BCD69F"
+                app:boxBackgroundColor="#A5B38E"
                 app:hintTextColor="@color/black"
                 app:prefixTextColor="#0C4A0A"
                 style="@style/CustomOutlineBox"

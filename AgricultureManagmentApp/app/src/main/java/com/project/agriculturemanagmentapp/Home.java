@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
@@ -22,6 +23,9 @@ FrameLayout frameLayout;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        Window window = this.getWindow();
+        window.setStatusBarColor(this.getResources().getColor(R.color.background));
+
         setLanguage();
         btmnv=findViewById(R.id.btmnv);
         frameLayout =findViewById(R.id.fmlayout);

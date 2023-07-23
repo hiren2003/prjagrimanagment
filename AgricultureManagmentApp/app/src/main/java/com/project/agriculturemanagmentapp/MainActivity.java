@@ -26,6 +26,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -45,6 +46,8 @@ import com.google.firebase.storage.UploadTask;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class MainActivity extends AppCompatActivity {
     TextInputEditText edtuname, edtmo;
     RelativeLayout btngetotp;
@@ -52,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     String VerificationId, SmsCode;
     ProgressBar progressBar;
     TextView txt;
-    ImageView prfpc;
+    CircleImageView prfpc;
     StorageReference reference;
     ActivityResultLauncher<String> launcher;
     Uri uri=null;

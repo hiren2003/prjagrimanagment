@@ -91,7 +91,9 @@ RcVacancyAdapter rcOtherVacancyAdapter;
         fltaddvacancy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), add_labour_vacancy.class));
+                startActivity(new Intent(getContext(),
+
+                        add_labour_vacancy.class));
             }
         });
         return  view;

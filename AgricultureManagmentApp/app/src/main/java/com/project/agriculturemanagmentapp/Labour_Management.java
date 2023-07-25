@@ -1,10 +1,14 @@
 package com.project.agriculturemanagmentapp;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,6 +21,8 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.FirebaseDatabase;
+
+import static android.Manifest.permission.SEND_SMS;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -81,7 +87,12 @@ RcLabourAdapter rcLabourAdapter;
         btnAddWorker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), add_labour.class));
+                if(ActivityCompat.checkSelfPermission(getContext(),SEND_SMS)== PackageManager.PERMISSION_DENIED){
+                    ActivityCompat.requestPermissions(getActivity(),new String[]{SEND_SMS},101);
+                }
+                else{
+                    startActivity(new Intent(getContext(),add_labour.class));
+                }
             }
         });
         return view;
@@ -98,4 +109,5 @@ RcLabourAdapter rcLabourAdapter;
         super.onStart();
         rcLabourAdapter.startListening();
     }
+
 }

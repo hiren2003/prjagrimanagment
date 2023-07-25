@@ -57,7 +57,7 @@ public class Language extends AppCompatActivity {
         tglbgl.setTextOn("বাংলা");
         tglpjb.setTextOn("پَن٘جابی");
         tglmlylm.setTextOn("മലയാളം");
-        tglmrt.setTextOn("Marathi");
+        tglmrt.setTextOn("मराठी");
         tgleng.setChecked(true);
         tgleng.setTextColor(getResources().getColor(R.color.Dark_green));
         btnsublang.setOnClickListener(new View.OnClickListener() {

@@ -58,7 +58,6 @@ FrameLayout frameLayout;
     @Override
     protected void onStart() {
         super.onStart();
-        btmnv.show(3,true);
         setLanguage();
     }
     public void setLanguage() {

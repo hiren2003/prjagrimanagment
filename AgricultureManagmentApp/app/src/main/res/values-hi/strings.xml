@@ -57,4 +57,20 @@
     <string name="Share_app">ऐप शेयर करें</string>
     <string name="Goverment_scheme">सरकारी योजना</string>
     <string name="Term_Condition">अवधि और शर्त</string>
+    <string name="Change_Detail">विवरण बदलें</string>
+    <string name="Add_Vacancy">रिक्ति जोड़ें</string>
+    <string name="Interested_Labour">इच्छुक श्रमिक इस नंबर के माध्यम से संपर्क करेंगे</string>
+    <string name="Select_Image">छवि चुने</string>
+    <string name="State">राज्य</string>
+    <string name="District">ज़िला</string>
+    <string name="Tehsil">तहसील</string>
+    <string name="city_town_village">शहर/कस्बा/गाँव</string>
+    <string name="Owner_name">मालिक का नाम</string>
+    <string name="Work_type">काम के प्रकार</string>
+    <string name="Wages_Type">मजदूरी का प्रकार</string>
+    <string name="Fix_Wages">वेतन तय करो</string>
+    <string name="On_Partenership">साझेदारी पर</string>
+    <string name="Extected_Income">अपेक्षित वार्षिक आय</string>
+    <string name="Work_Duration">कार्य अवधि(माह में)</string>
+    <string name="Interest">मुझे किसान के लिए आपकी रिक्ति में दिलचस्पी है</string>
 </resources>

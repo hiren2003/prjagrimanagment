@@ -57,4 +57,20 @@
     <string name="Share_app">ആപ്പ് പങ്കിടുക</string>
     <string name="Goverment_scheme">സർക്കാർ പദ്ധതി</string>
     <string name="Term_Condition">നിബന്ധനയും വ്യവസ്ഥയും</string>
+    <string name="Change_Detail">വിശദാംശങ്ങൾ മാറ്റുക</string>
+    <string name="Add_Vacancy">ഒഴിവ് ചേർക്കുക</string>
+    <string name="Interested_Labour">താൽപ്പര്യമുള്ള തൊഴിലാളികൾ ഈ നമ്പറിൽ ബന്ധപ്പെടുക</string>
+    <string name="Select_Image">ചിത്രം തിരഞ്ഞെടുക്കുക</string>
+    <string name="State">സംസ്ഥാനം</string>
+    <string name="District">ജില്ല</string>
+    <string name="Tehsil">തഹസിൽ</string>
+    <string name="city_town_village">നഗരം/നഗരം/ഗ്രാമം</string>
+    <string name="Owner_name">ഉടമയുടെ പേര്</string>
+    <string name="Work_type">ജോലിയുടെ തരം</string>
+    <string name="Wages_Type">കൂലി തരം</string>
+    <string name="Fix_Wages">വേതനം നിശ്ചയിക്കുക</string>
+    <string name="On_Partenership">പങ്കാളിത്തത്തിൽ</string>
+    <string name="Extected_Income">പ്രതീക്ഷിക്കുന്ന വാർഷിക വരുമാനം</string>
+    <string name="Work_Duration">ജോലി ദൈർഘ്യം (മാസത്തിൽ)</string>
+    <string name="Interest">കർഷകനുള്ള നിങ്ങളുടെ ഒഴിവിൽ എനിക്ക് താൽപ്പര്യമുണ്ട്</string>
 </resources>

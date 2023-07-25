@@ -57,4 +57,20 @@
     <string name="Share_app">ਐਪ ਨੂੰ ਸਾਂਝਾ ਕਰੋ</string>
     <string name="Goverment_scheme">ਸਰਕਾਰੀ ਸਕੀਮ</string>
     <string name="Term_Condition">ਮਿਆਦ ਅਤੇ ਸ਼ਰਤ</string>
+    <string name="Change_Detail">ਵੇਰਵਾ ਬਦਲੋ</string>
+    <string name="Add_Vacancy">ਖਾਲੀ ਥਾਂ ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="Interested_Labour">ਚਾਹਵਾਨ ਲੇਬਰ ਇਸ ਨੰਬਰ ਤੇ ਸੰਪਰਕ ਕਰਨ</string>
+    <string name="Select_Image">ਚਿੱਤਰ ਚੁਣੋ</string>
+    <string name="State">ਰਾਜ</string>
+    <string name="District">ਜ਼ਿਲ੍ਹਾ</string>
+    <string name="Tehsil">ਤਹਿਸੀਲ</string>
+    <string name="city_town_village">ਸ਼ਹਿਰ/ਕਸਬੇ/ਪਿੰਡ</string>
+    <string name="Owner_name">ਮਾਲਕ ਦਾ ਨਾਮ</string>
+    <string name="Work_type">ਕੰਮ ਦੀ ਕਿਸਮ</string>
+    <string name="Wages_Type">ਮਜ਼ਦੂਰੀ ਦੀ ਕਿਸਮ</string>
+    <string name="Fix_Wages">ਉਜਰਤਾਂ ਫਿਕਸ ਕਰੋ</string>
+    <string name="On_Partenership">ਭਾਈਵਾਲੀ \'ਤੇ</string>
+    <string name="Extected_Income">ਅਨੁਮਾਨਿਤ ਸਾਲਾਨਾ ਆਮਦਨ</string>
+    <string name="Work_Duration">ਕੰਮ ਦੀ ਮਿਆਦ (ਮਹੀਨੇ ਵਿੱਚ)</string>
+    <string name="Interest">ਮੈਨੂੰ ਕਿਸਾਨ ਲਈ ਤੁਹਾਡੀ ਖਾਲੀ ਥਾਂ ਵਿੱਚ ਦਿਲਚਸਪੀ ਹੈ</string>
 </resources>

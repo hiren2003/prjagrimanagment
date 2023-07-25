@@ -57,4 +57,20 @@
     <string name="Share_app">యాప్‌ను భాగస్వామ్యం చేయండి</string>
     <string name="Goverment_scheme">ప్రభుత్వ పథకం</string>
     <string name="Term_Condition">టర్మ్ మరియు షరతు</string>
+    <string name="Change_Detail">వివరాలను మార్చండి</string>
+    <string name="Add_Vacancy">ఖాళీని జోడించండి</string>
+    <string name="Interested_Labour">ఆసక్తి గల కార్మికులు ఈ నంబర్ ద్వారా సంప్రదించాలి</string>
+    <string name="Select_Image">చిత్రాన్ని ఎంచుకోండి</string>
+    <string name="State">రాష్ట్రం</string>
+    <string name="District">జిల్లా</string>
+    <string name="Tehsil">తహసీల్</string>
+    <string name="city_town_village">నగరం/పట్టణం/గ్రామం</string>
+    <string name="Owner_name">యజమాని పేరు</string>
+    <string name="Work_type">రకమైన పని</string>
+    <string name="Wages_Type">వేతనాల రకం</string>
+    <string name="Fix_Wages">వేతనాలను పరిష్కరించండి</string>
+    <string name="On_Partenership">భాగస్వామ్యంపై</string>
+    <string name="Extected_Income">ఆశించిన వార్షిక ఆదాయం</string>
+    <string name="Work_Duration">పని వ్యవధి (నెలలో)</string>
+    <string name="Interest">రైతు కోసం మీ ఖాళీపై నాకు ఆసక్తి ఉంది</string>
 </resources>

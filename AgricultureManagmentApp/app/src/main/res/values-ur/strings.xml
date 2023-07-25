@@ -57,4 +57,20 @@
     <string name="Share_app">ایپ شیئر کریں۔</string>
     <string name="Goverment_scheme">حکومتی اسکیم</string>
     <string name="Term_Condition">ٹرم اور  شرط</string>
+    <string name="Change_Detail">تفصیل تبدیل کریں۔</string>
+    <string name="Add_Vacancy">خالی جگہ شامل کریں۔</string>
+    <string name="Interested_Labour">دلچسپی رکھنے والے مزدور اس نمبر پر رابطہ کریں۔</string>
+    <string name="Select_Image">تصویر منتخب کریں۔</string>
+    <string name="State">حالت</string>
+    <string name="District">ضلع</string>
+    <string name="Tehsil">تحصیل</string>
+    <string name="city_town_village">شہر/قصبہ/گاؤں</string>
+    <string name="Owner_name">مالک کا نام</string>
+    <string name="Work_type">کام کی نوعیت</string>
+    <string name="Wages_Type">اجرت کی قسم</string>
+    <string name="Fix_Wages">اجرت طے کریں۔</string>
+    <string name="On_Partenership">شراکت داری پر</string>
+    <string name="Extected_Income">متوقع سالانہ آمدنی</string>
+    <string name="Work_Duration">کام کا دورانیہ (ماہ میں)</string>
+    <string name="Interest">مجھے کسان کے لیے آپ کی خالی جگہ میں دلچسپی ہے۔</string>
 </resources>

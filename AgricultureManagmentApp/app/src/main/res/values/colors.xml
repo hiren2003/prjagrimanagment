@@ -11,4 +11,5 @@
     <color name="text_color_hint">#4A8A4B</color>
     <color name="green">#0B5E0C</color>
     <color name="statusbarmain">#B6D68C</color>
+    <color name="feedcolor">#ADD8E6</color>
 </resources>

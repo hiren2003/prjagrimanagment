@@ -62,7 +62,6 @@ public class add_feed extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
         String mo = sharedPreferences.getString("mo", "1234567890");
         ImageView img = findViewById(R.id.imgfeed);
-        TextView open = findViewById(R.id.opencamara);
         RelativeLayout upload = findViewById(R.id.btnupload);
         RelativeLayout cancel = findViewById(R.id.btncancel);
         TextInputEditText textInputEditText = findViewById(R.id.edtdes);

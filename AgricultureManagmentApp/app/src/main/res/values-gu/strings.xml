@@ -21,6 +21,7 @@
     <string name="My_Feed">મારી ફીડ</string>
     <string name="Description">વર્ણન</string>
     <string name="Upload">અપલોડ કરો</string>
+    <string name="cancel">રદ કરો</string>
     <string name="Post_Uploaded">પોસ્ટ અપલોડ કરી</string>
     <string name="Post_Deleted">પોસ્ટ કાઢી નાખી</string>
     <string name="Labour_mobile_number">કામદાર મોબાઈલ નંબર</string>
@@ -57,4 +58,21 @@
     <string name="Share_app">એપ્લિકેશન શેર કરો</string>
     <string name="Goverment_scheme">સરકારી યોજના</string>
     <string name="Term_Condition">ટર્મ અને શરત</string>
+    <string name="Change_Detail">વિગત બદલો</string>
+    <string name="Add_Vacancy">ખાલી જગ્યા ઉમેરો</string>
+    <string name="Interested_Labour">રસ ધરાવતા શ્રમિકો આ નંબર દ્વારા સંપર્ક કરશે</string>
+    <string name="Select_Image">છબી પસંદ કરો</string>
+    <string name="State">રાજ્ય</string>
+    <string name="District">જિલ્લો</string>
+    <string name="Tehsil">તહસીલ</string>
+    <string name="city_town_village">શહેર/નગર/ગામ</string>
+    <string name="Owner_name">માલિકનું નામ</string>
+    <string name="Work_type">કામનો પ્રકાર</string>
+    <string name="Wages_Type">વેતનનો પ્રકાર</string>
+    <string name="Fix_Wages">ફિક્સ વેતન</string>
+    <string name="On_Partenership">ભાગીદારી પર</string>
+    <string name="Extected_Income">અપેક્ષિત વાર્ષિક આવક</string>
+    <string name="Work_Duration">કામનો સમયગાળો (મહિનામાં)</string>
+    <string name="Interest">મને ખેડૂત માટેની તમારી ખાલી જગ્યામાં રસ છે</string>
+    <string name="Opencamara">કૅમેરો ખોલો</string>
 </resources>

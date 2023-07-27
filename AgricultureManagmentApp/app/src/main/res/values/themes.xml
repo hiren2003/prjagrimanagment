@@ -10,5 +10,11 @@
         <item name="hintTextColor">@color/green</item>
         <item name="android:cursorVisible">@color/green</item>
     </style>
+    <style name="CustomOutlineBoxnew" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">#063050</item>
+        <item name="android:textColorHint">#4A808A</item>
+        <item name="hintTextColor">#0B575E</item>
+        <item name="android:cursorVisible">@color/green</item>
+    </style>
     <style name="Theme.AgricultureManagmentApp" parent="Base.Theme.AgricultureManagmentApp" />
 </resources>

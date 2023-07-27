@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="@android.permission.CAMERA"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,61 +15,58 @@
         android:theme="@style/Theme.AgricultureManagmentApp"
         tools:targetApi="31">
         <activity
-            android:name=".add_cultivation_product"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".add_animal"
-            android:exported="false" />
-        <activity
-            android:name=".Resell_Category"
-            android:exported="false" />
-        <activity
             android:name=".splashActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="true">
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+        </activity>
         <activity
             android:name=".Navigation"
-            android:exported="false"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity
             android:name=".add_labour_vacancy"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".add_labour"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".add_feed"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Language"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Introduction"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".OTP"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Home"
-            android:exported="true"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:exported="false">
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".add_labour"
+            android:screenOrientation="portrait"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name=".add_feed"
+            android:screenOrientation="portrait"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".Language"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".Introduction"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".OTP"
+            android:screenOrientation="portrait"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".Home"
             android:exported="false"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            />
+
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:exported="false"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

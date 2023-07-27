@@ -21,6 +21,7 @@
     <string name="My_Feed">எனது ஊட்டம்</string>
     <string name="Description">விளக்கம்</string>
     <string name="Upload">பதிவேற்றவும்</string>
+    <string name="cancel">ரத்து செய்</string>
     <string name="Post_Uploaded">இடுகை பதிவேற்றப்பட்டது</string>
     <string name="Post_Deleted">இடுகை நீக்கப்பட்டது</string>
     <string name="Labour_mobile_number">பணியாளரின் மொபைல் எண்</string>
@@ -57,4 +58,21 @@
     <string name="Share_app">பயன்பாட்டைப் பகிரவும்</string>
     <string name="Goverment_scheme">அரசு திட்டம்</string>
     <string name="Term_Condition">கால மற்றும் amp;நிபந்தனை</string>
+    <string name="Change_Detail">விவரங்களை மாற்றவும்</string>
+    <string name="Add_Vacancy">காலியிடத்தைச் சேர்க்கவும்</string>
+    <string name="Interested_Labour">ஆர்வமுள்ள தொழிலாளர்கள் இந்த எண்ணில் தொடர்பு கொள்ளவும்</string>
+    <string name="Select_Image">படத்தைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="State">நிலை</string>
+    <string name="District">மாவட்டம்</string>
+    <string name="Tehsil">தாலுகா</string>
+    <string name="city_town_village">நகரம்/நகரம்/கிராமம்</string>
+    <string name="Owner_name">உரிமையாளரின் பெயர்</string>
+    <string name="Work_type">வேலை தன்மை</string>
+    <string name="Wages_Type">ஊதிய வகை</string>
+    <string name="Fix_Wages">ஊதியத்தை நிர்ணயிக்கவும்</string>
+    <string name="On_Partenership">பார்ட்னர்ஷிப்பில்</string>
+    <string name="Extected_Income">எதிர்பார்க்கப்படும் ஆண்டு வருமானம்</string>
+    <string name="Work_Duration">வேலை காலம் (மாதத்தில்)</string>
+    <string name="Interest">விவசாயிக்கான உங்கள் காலியிடத்தில் நான் ஆர்வமாக உள்ளேன்</string>
+    <string name="Opencamara">புகைப்படக்கருவியை திற</string>
 </resources>

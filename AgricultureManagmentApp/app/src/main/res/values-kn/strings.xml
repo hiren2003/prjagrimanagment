@@ -21,6 +21,7 @@
     <string name="My_Feed">ನನ್ನ ಫೀಡ್</string>
     <string name="Description">ವಿವರಣೆ</string>
     <string name="Upload">ಅಪ್ಲೋಡ್ ಮಾಡಿ</string>
+    <string name="cancel">ರದ್ದುಮಾಡಿ</string>
     <string name="Post_Uploaded">ಪೋಸ್ಟ್ ಅಪ್‌ಲೋಡ್ ಮಾಡಲಾಗಿದೆ</string>
     <string name="Post_Deleted">ಪೋಸ್ಟ್ ಅಳಿಸಲಾಗಿದೆ</string>
     <string name="Labour_mobile_number">ಕೆಲಸಗಾರರ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ</string>
@@ -57,4 +58,21 @@
     <string name="Share_app">ಅಪ್ಲಿಕೇಶನ್ ಹಂಚಿಕೊಳ್ಳಿ</string>
     <string name="Goverment_scheme">ಸರ್ಕಾರದ ಯೋಜನೆ</string>
     <string name="Term_Condition">ಅವಧಿ ಮತ್ತು ಷರತ್ತು</string>
+    <string name="Change_Detail">ವಿವರವನ್ನು ಬದಲಾಯಿಸಿ</string>
+    <string name="Add_Vacancy">ಖಾಲಿ ಹುದ್ದೆಯನ್ನು ಸೇರಿಸಿ</string>
+    <string name="Interested_Labour">ಆಸಕ್ತ ಕಾರ್ಮಿಕರು ಈ ಸಂಖ್ಯೆ ಮೂಲಕ ಸಂಪರ್ಕಿಸುತ್ತಾರೆ</string>
+    <string name="Select_Image">ಚಿತ್ರವನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="State">ರಾಜ್ಯ</string>
+    <string name="District">ಜಿಲ್ಲೆ</string>
+    <string name="Tehsil">ತಹಸಿಲ್</string>
+    <string name="city_town_village">ನಗರ/ಪಟ್ಟಣ/ಗ್ರಾಮ</string>
+    <string name="Owner_name">ಮಾಲೀಕರ ಹೆಸರು</string>
+    <string name="Work_type">ಕೆಲಸದ ವಿಧ</string>
+    <string name="Wages_Type">ವೇತನದ ಪ್ರಕಾರ</string>
+    <string name="Fix_Wages">ವೇತನವನ್ನು ನಿಗದಿಪಡಿಸಿ</string>
+    <string name="On_Partenership">ಪಾಲುದಾರಿಕೆಯಲ್ಲಿ</string>
+    <string name="Extected_Income">ನಿರೀಕ್ಷಿತ ವಾರ್ಷಿಕ ಆದಾಯ</string>
+    <string name="Work_Duration">ಕೆಲಸದ ಅವಧಿ (ತಿಂಗಳಲ್ಲಿ)</string>
+    <string name="Interest">ರೈತರಿಗಾಗಿ ನಿಮ್ಮ ಖಾಲಿ ಹುದ್ದೆಯಲ್ಲಿ ನಾನು ಆಸಕ್ತಿ ಹೊಂದಿದ್ದೇನೆ</string>
+    <string name="Opencamara">ಕ್ಯಾಮರಾ ತೆರೆಯಿರಿ</string>
 </resources>

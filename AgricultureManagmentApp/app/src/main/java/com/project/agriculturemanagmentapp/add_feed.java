@@ -3,14 +3,21 @@ package com.project.agriculturemanagmentapp;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.PackageManagerCompat;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -30,19 +37,23 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class add_feed extends AppCompatActivity {
+        public static  final  int  CAMERA_PERM_CODE =101;
+        public static  final  int  CAMERA_REQUEST_CODE =101;
     ActivityResultLauncher<String> launcher;
     String url;
     StorageReference reference;
     Uri uri1;
     FirebaseAuth firebaseAuth;
     ProgressBar progressBar;
-    TextView txt;
+    TextView txt,open;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_feed);
         setLanguage();
+        Window window = this.getWindow();
+        window.setStatusBarColor(this.getResources().getColor(R.color.feedcolor));
         txt = findViewById(R.id.txt);
         FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();
@@ -52,6 +63,7 @@ public class add_feed extends AppCompatActivity {
         String mo = sharedPreferences.getString("mo", "1234567890");
         ImageView img = findViewById(R.id.imgfeed);
         RelativeLayout upload = findViewById(R.id.btnupload);
+        RelativeLayout cancel = findViewById(R.id.btncancel);
         TextInputEditText textInputEditText = findViewById(R.id.edtdes);
         launcher = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
@@ -101,7 +113,43 @@ public class add_feed extends AppCompatActivity {
             }
 
         });
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+//        open.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                askCameraPermission();
+//            }
+//        });
     }
+
+//    private void askCameraPermission() {
+//        if(ContextCompat.checkSelfPermission(this,Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+//            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CAMERA},CAMERA_PERM_CODE);
+//        }else{
+//            openCamera();
+//        }
+//    }
+//
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//        if (grantResults.length < 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//            openCamera();
+//        } else {
+//            Toast.makeText(this, "camara is  required", Toast.LENGTH_LONG).show();
+//        }
+//
+//    }
+//
+//    private void openCamera() {
+//        Toast.makeText(this,"camara open  required",Toast.LENGTH_LONG).show();
+//
+//    }
 
     @Override
     protected void onStart() {

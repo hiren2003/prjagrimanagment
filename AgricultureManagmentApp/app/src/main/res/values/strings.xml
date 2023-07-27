@@ -73,4 +73,17 @@
     <string name="Extected_Income">Expected Annual Income</string>
     <string name="Work_Duration">Work Duration(In Month)</string>
     <string name="Interest">I am interested in your vacancy for farmer</string>
+    <string name="sell">Sell</string>
+    <string-array name="arrprdttp">
+        <item>Vegatable</item>
+        <item>Fruits</item>
+        <item>Pulses</item>
+        <item>Grains</item>
+        <item>Other</item>
+    </string-array>
+    <string name="Name_of_product">Name of product</string>
+    <string name="specie">specie</string>
+    <string name="Quantity">Quantity(In KiloGram)</string>
+    <string name="Price">Price(Per KiloGram)</string>
+    <string name="Total_Payment">Total Payment</string>
 </resources>

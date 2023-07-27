@@ -111,6 +111,7 @@ boolean isDateSelected=false;
                                     getResources().getString(R.string.Wages)+" : "+edtlwages.getText().toString()+"\n"+
                                     getResources().getString(R.string.Sender)+" : "+sharedPreferences.getString("uname","unknown");
                                    SmsManager smsManager= SmsManager.getDefault();
+                            Toast.makeText(add_labour.this, edtlmo.getText().toString(), Toast.LENGTH_SHORT).show();
                                 smsManager.sendTextMessage("+91"+edtlmo.getText().toString(),null,msg,null,null);
                             Toast.makeText(add_labour.this, getResources().getString(R.string.Data_Added_Sucessfully), Toast.LENGTH_SHORT).show();
                             finish();

@@ -1,21 +1,23 @@
 package com.project.agriculturemanagmentapp;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 
-import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
-public class Feed extends Fragment {
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link Resell#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class Resell extends Fragment {
 
-    Context context;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -25,14 +27,21 @@ public class Feed extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Feed() {
+    public Resell() {
         // Required empty public constructor
     }
-    public Feed(Context context) {
-        this.context=context;
-    }
-    public static Feed newInstance(String param1, String param2) {
-        Feed fragment = new Feed();
+
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment Resell.
+     */
+    // TODO: Rename and change types and number of parameters
+    public static Resell newInstance(String param1, String param2) {
+        Resell fragment = new Resell();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -52,12 +61,15 @@ public class Feed extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_feed, container, false);
-        ViewPager viewPager=view.findViewById(R.id.vpfeed);
-        TabLayout tabLayout=view.findViewById(R.id.tbllytfeed);
-        VpAdapterFeed vpAdapterFeed=new VpAdapterFeed(getChildFragmentManager(),getContext());
-        viewPager.setAdapter(vpAdapterFeed);
-        tabLayout.setupWithViewPager(viewPager);
-        return view;
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_resell, container, false);
+        ExtendedFloatingActionButton fltsell=view.findViewById(R.id.fltsell);
+        fltsell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), Resell_Category.class));
+            }
+        });
+        return  view;
     }
 }

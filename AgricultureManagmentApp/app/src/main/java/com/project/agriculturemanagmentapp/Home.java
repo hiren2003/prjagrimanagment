@@ -1,6 +1,8 @@
 package com.project.agriculturemanagmentapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 
@@ -8,6 +10,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
@@ -19,6 +24,7 @@ import java.util.Locale;
 public class Home extends AppCompatActivity {
 MeowBottomNavigation btmnv;
 FrameLayout frameLayout;
+Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +32,12 @@ FrameLayout frameLayout;
         Window window = this.getWindow();
         window.setStatusBarColor(this.getResources().getColor(R.color.background));
         setLanguage();
+        SharedPreferences sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
         btmnv=findViewById(R.id.btmnv);
+        toolbar=findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(getResources().getString(R.string.Hello)+",");
+        getSupportActionBar().setSubtitle(sharedPreferences.getString("uname","man"));
         frameLayout =findViewById(R.id.fmlayout);
         btmnv.show(3,true);
         btmnv.add(new MeowBottomNavigation.Model(1, R.drawable.feed2));
@@ -34,7 +45,6 @@ FrameLayout frameLayout;
         btmnv.add(new MeowBottomNavigation.Model(3,R.drawable.house));
         btmnv.add(new MeowBottomNavigation.Model(4,R.drawable.baseline_sell_24));
         btmnv.add(new MeowBottomNavigation.Model(5,R.drawable.online_store));
-        btmnv.add(new MeowBottomNavigation.Model(6,R.drawable.baseline_account_circle_24));
         btmnv.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
     @Override
     public Unit invoke(MeowBottomNavigation.Model model) {
@@ -44,15 +54,23 @@ FrameLayout frameLayout;
         } else if (model.getId()==2) {
             frameLayout.removeAllViews();
             getSupportFragmentManager().beginTransaction().add(R.id.fmlayout,new Labour()).commit();
-        } else if (model.getId()==6) {
-            startActivity(new Intent(Home.this, Navigation.class));
-            overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
-        } else {
+        } else if (model.getId()==4) {
             frameLayout.removeAllViews();
+            getSupportFragmentManager().beginTransaction().add(R.id.fmlayout,new Resell()).commit();
+        } else {
+
         }
         return null;
     }
 });
+    }
+
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        startActivity(new Intent(Home.this, Navigation.class));
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

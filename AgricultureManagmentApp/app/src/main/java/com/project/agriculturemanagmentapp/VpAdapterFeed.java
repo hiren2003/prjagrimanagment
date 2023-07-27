@@ -1,6 +1,7 @@
 package com.project.agriculturemanagmentapp;
 
 import android.content.Context;
+import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,18 +11,23 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 public class VpAdapterFeed extends FragmentPagerAdapter {
 Context context;
+    RelativeLayout r1,r2;
     public VpAdapterFeed(@NonNull FragmentManager fm, Context context) {
         super(fm);
         this.context=context;
+        this.r1=r1;
+        this.r2=r2;
     }
 
     @NonNull
     @Override
     public Fragment getItem(int position) {
     if(position==0){
+
         return new ShowFeed();
     }
     else{
+
         return new Myfeed();
     }
     }

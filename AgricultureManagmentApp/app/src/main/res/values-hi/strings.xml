@@ -21,6 +21,7 @@
     <string name="My_Feed">एरा भोजन</string>
     <string name="Description">विवरण</string>
     <string name="Upload">अपलोड</string>
+    <string name="cancel">रद्द करना</string>
     <string name="Post_Uploaded">पोस्ट अपलोड किया गया</string>
     <string name="Post_Deleted">पोस्ट हटा दिया गया</string>
     <string name="Labour_mobile_number">कार्यकर्ता मोबाइल नंबर</string>
@@ -73,4 +74,5 @@
     <string name="Extected_Income">अपेक्षित वार्षिक आय</string>
     <string name="Work_Duration">कार्य अवधि(माह में)</string>
     <string name="Interest">मुझे किसान के लिए आपकी रिक्ति में दिलचस्पी है</string>
+    <string name="Opencamara">कैमरा खोलो</string>
 </resources>

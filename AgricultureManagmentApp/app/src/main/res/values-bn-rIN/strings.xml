@@ -22,6 +22,11 @@
     <string name="My_Feed">আমার খাবার</string>
     <string name="Description">বর্ণনা</string>
     <string name="Upload">আপলোড করুন</string>
+    <string name="cancel">বাতিল করুন</string>
+    <string name="cancel">বাতিল করুন</string>
+    <string name="cancel">বাতিল করুন</string>
+    <string name="cancel">বাতিল করুন</string>
+    <string name="cancel">বাতিল করুন</string>
     <string name="Post_Uploaded">পোস্ট আপলোড করা হয়েছে</string>
     <string name="Post_Deleted">পোস্ট মুছে ফেলা হয়েছে</string>
     <string name="Labour_mobile_number">কর্মীর মোবাইল নম্বর</string>
@@ -74,4 +79,5 @@
     <string name="Extected_Income">প্রত্যাশিত বার্ষিক আয়</string>
     <string name="Work_Duration">কাজের সময়কাল (মাসে)</string>
     <string name="Interest">আমি কৃষকের জন্য আপনার শূন্যপদে আগ্রহী</string>
+    <string name="Opencamara">খোলা ক্যামেরা</string>
 </resources>

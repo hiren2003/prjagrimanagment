@@ -21,6 +21,11 @@
     <string name="My_Feed">My Feed</string>
     <string name="Description">Description</string>
     <string name="Upload">Upload</string>
+    <string name="cancel">Cancel</string>
+    <string name="cancel">Cancel</string>
+    <string name="cancel">Cancel</string>
+    <string name="cancel">Cancel</string>
+    <string name="cancel">Cancel</string>
     <string name="Post_Uploaded">Post Uploaded</string>
     <string name="Post_Deleted">Post Deleted</string>
     <string name="Labour_mobile_number">Worker Mobile Number</string>
@@ -73,5 +78,6 @@
     <string name="Extected_Income">Expected Annual Income</string>
     <string name="Work_Duration">Work Duration(In Month)</string>
     <string name="Interest">I am interested in your vacancy for farmer</string>
+    <string name="Opencamara">Open camera</string>
 
 </resources>

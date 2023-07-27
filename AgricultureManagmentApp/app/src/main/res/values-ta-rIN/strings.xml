@@ -21,6 +21,7 @@
     <string name="My_Feed">எனது ஊட்டம்</string>
     <string name="Description">விளக்கம்</string>
     <string name="Upload">பதிவேற்றவும்</string>
+    <string name="cancel">ரத்து செய்</string>
     <string name="Post_Uploaded">இடுகை பதிவேற்றப்பட்டது</string>
     <string name="Post_Deleted">இடுகை நீக்கப்பட்டது</string>
     <string name="Labour_mobile_number">பணியாளரின் மொபைல் எண்</string>
@@ -73,4 +74,5 @@
     <string name="Extected_Income">எதிர்பார்க்கப்படும் ஆண்டு வருமானம்</string>
     <string name="Work_Duration">வேலை காலம் (மாதத்தில்)</string>
     <string name="Interest">விவசாயிக்கான உங்கள் காலியிடத்தில் நான் ஆர்வமாக உள்ளேன்</string>
+    <string name="Opencamara">புகைப்படக்கருவியை திற</string>
 </resources>

@@ -21,6 +21,7 @@
     <string name="My_Feed">నా ఫీడ్</string>
     <string name="Description">వివరణ</string>
     <string name="Upload">అప్‌లోడ్ చేయండి</string>
+    <string name="cancel">రద్దు చేయండి</string>
     <string name="Post_Uploaded">పోస్ట్ అప్‌లోడ్ చేయబడింది</string>
     <string name="Post_Deleted">పోస్ట్ తొలగించబడింది</string>
     <string name="Labour_mobile_number">వర్కర్ మొబైల్ నంబర్</string>
@@ -73,4 +74,5 @@
     <string name="Extected_Income">ఆశించిన వార్షిక ఆదాయం</string>
     <string name="Work_Duration">పని వ్యవధి (నెలలో)</string>
     <string name="Interest">రైతు కోసం మీ ఖాళీపై నాకు ఆసక్తి ఉంది</string>
+    <string name="Opencamara">కెమెరా తెరువు</string>
 </resources>

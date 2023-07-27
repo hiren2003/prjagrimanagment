@@ -21,6 +21,7 @@
     <string name="My_Feed">എന്റെ ഫീഡ്</string>
     <string name="Description">വിവരണം</string>
     <string name="Upload">അപ്‌ലോഡ് ചെയ്യുക</string>
+    <string name="cancel">റദ്ദാക്കുക</string>
     <string name="Post_Uploaded">പോസ്റ്റ് അപ്ലോഡ് ചെയ്തു</string>
     <string name="Post_Deleted">പോസ്റ്റ് ഡിലീറ്റ് ചെയ്തു</string>
     <string name="Labour_mobile_number">തൊഴിലാളി മൊബൈൽ നമ്പർ</string>
@@ -73,4 +74,5 @@
     <string name="Extected_Income">പ്രതീക്ഷിക്കുന്ന വാർഷിക വരുമാനം</string>
     <string name="Work_Duration">ജോലി ദൈർഘ്യം (മാസത്തിൽ)</string>
     <string name="Interest">കർഷകനുള്ള നിങ്ങളുടെ ഒഴിവിൽ എനിക്ക് താൽപ്പര്യമുണ്ട്</string>
+    <string name="Opencamara">ക്യാമറ തുറക്കുക</string>
 </resources>

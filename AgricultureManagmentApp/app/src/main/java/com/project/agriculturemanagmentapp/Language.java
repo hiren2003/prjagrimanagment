@@ -30,7 +30,7 @@ public class Language extends AppCompatActivity {
         Window window=this.getWindow();
         window.setStatusBarColor(this.getResources().getColor(R.color.background));
 
-        setLanguage();
+//        setLanguage();
         setContentView(R.layout.activity_language);
         btnsublang = findViewById(R.id.btnsublang);
         tgleng = findViewById(R.id.tgleng);

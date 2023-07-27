@@ -21,6 +21,7 @@
     <string name="My_Feed">ਮੇਰੀ ਫੀਡ</string>
     <string name="Description">ਵਰਣਨ</string>
     <string name="Upload">ਅੱਪਲੋਡ ਕਰੋ</string>
+    <string name="cancel">ਰੱਦ ਕਰੋ</string>
     <string name="Post_Uploaded">ਪੋਸਟ ਅੱਪਲੋਡ ਕੀਤੀ ਗਈ</string>
     <string name="Post_Deleted">ਪੋਸਟ ਮਿਟਾਈ ਗਈ</string>
     <string name="Labour_mobile_number">ਵਰਕਰ ਦਾ ਮੋਬਾਈਲ ਨੰਬਰ</string>
@@ -73,4 +74,5 @@
     <string name="Extected_Income">ਅਨੁਮਾਨਿਤ ਸਾਲਾਨਾ ਆਮਦਨ</string>
     <string name="Work_Duration">ਕੰਮ ਦੀ ਮਿਆਦ (ਮਹੀਨੇ ਵਿੱਚ)</string>
     <string name="Interest">ਮੈਨੂੰ ਕਿਸਾਨ ਲਈ ਤੁਹਾਡੀ ਖਾਲੀ ਥਾਂ ਵਿੱਚ ਦਿਲਚਸਪੀ ਹੈ</string>
+    <string name="Opencamara">ਕੈਮਰਾ ਖੋਲ੍ਹੋ</string>
 </resources>

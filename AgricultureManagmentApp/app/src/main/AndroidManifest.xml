@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="@android.permission.CAMERA"/>
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,59 +12,75 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AgricultureManagmentApp"
         tools:targetApi="31">
+        <activity android:name=".add_cultivation_product"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".show_CultivationProduct"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".add_tools_categories"
+            android:exported="true" />
+        <activity
+            android:name=".add_animal"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Resell_Category"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
         <activity
             android:name=".splashActivity"
-            android:screenOrientation="portrait"
-            android:exported="true">
-                <intent-filter>
-                    <action android:name="android.intent.action.MAIN" />
-                    <category android:name="android.intent.category.LAUNCHER" />
-                </intent-filter>
+            android:exported="true"
+            android:screenOrientation="portrait">
+
         </activity>
         <activity
             android:name=".Navigation"
-            android:screenOrientation="portrait"
-            android:exported="false"/>
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".add_labour_vacancy"
-            android:screenOrientation="portrait"
-            android:exported="false">
-        </activity>
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".add_labour"
-            android:screenOrientation="portrait"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".add_feed"
-            android:screenOrientation="portrait"
-            android:exported="false">
-        </activity>
+            android:exported="false"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".Language"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Introduction"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".OTP"
-            android:screenOrientation="portrait"
-            android:exported="false">
-        </activity>
-
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Home"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            />
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait"
-            android:exported="false"></activity>
+            android:exported="false"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="preloaded_fonts"
@@ -76,7 +90,8 @@
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
-
     <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <uses-permission android:name="@android.permission.CAMERA" />
 
 </manifest>

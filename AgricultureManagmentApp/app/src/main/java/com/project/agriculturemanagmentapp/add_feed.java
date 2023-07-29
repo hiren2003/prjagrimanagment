@@ -37,8 +37,8 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class add_feed extends AppCompatActivity {
-        public static  final  int  CAMERA_PERM_CODE =101;
-        public static  final  int  CAMERA_REQUEST_CODE =101;
+    public static  final  int  CAMERA_PERM_CODE =101;
+    public static  final  int  CAMERA_REQUEST_CODE =101;
     ActivityResultLauncher<String> launcher;
     String url;
     StorageReference reference;

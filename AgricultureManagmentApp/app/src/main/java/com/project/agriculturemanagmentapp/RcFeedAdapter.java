@@ -52,9 +52,9 @@ public class RcFeedAdapter extends FirebaseRecyclerAdapter<clsFeedModel,RcFeedAd
                 .load(model.getPrfpc())
                 .circleCrop()
                 .into(holder.prfpc);
-        Glide.with(context)
-                .load(model.getPost())
-                .into(holder.imgpost);
+     //   Glide.with(context)
+       //         .load(model.getPost())
+         //       .into(holder.imgpost);
         holder.btndelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

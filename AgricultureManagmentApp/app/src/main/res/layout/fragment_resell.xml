@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Resell">
 <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
     android:id="@+id/fltsell"
@@ -12,6 +13,18 @@
     android:layout_alignParentEnd="true"
     android:layout_margin="20dp"
     android:text="@string/sell"/>
-
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tbresell"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        app:tabIndicatorColor="#038808"
+        app:tabTextColor="#038808"
+        android:visibility="visible">
+    </com.google.android.material.tabs.TabLayout>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vpresell"
+        android:layout_marginTop="?actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

@@ -13,15 +13,18 @@
         android:theme="@style/Theme.AgricultureManagmentApp"
         tools:targetApi="31">
         <activity android:name=".add_cultivation_product"
+            android:screenOrientation="portrait"
             android:exported="true">
 
         </activity>
         <activity
             android:name=".show_CultivationProduct"
+            android:screenOrientation="portrait"
             android:exported="true">
         </activity>
         <activity
             android:name=".add_tools_categories"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".add_animal"
@@ -36,6 +39,11 @@
             android:name=".splashActivity"
             android:exported="true"
             android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
         <activity
@@ -71,11 +79,7 @@
             android:name=".Home"
             android:exported="true"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"

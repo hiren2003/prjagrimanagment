@@ -97,6 +97,8 @@
     <string name="Write_Share">Write And Share</string>
     <string name="Write_Something">Write Something Here...</string>
     <string name="Month">Month</string>
+    <string name="Myvacancy">My Vacancy</string>
+    <string name="Vacancy">Vacancy</string>
     <string-array name="arrprdttp">
         <item>Vegatable</item>
         <item>Fruits</item>

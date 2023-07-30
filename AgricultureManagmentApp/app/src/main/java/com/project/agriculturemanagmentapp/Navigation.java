@@ -46,6 +46,12 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc;
                 finish();
             }
         });
+        rvtc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Navigation.this, Term_Conditions.class));
+            }
+        });
         rvloout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

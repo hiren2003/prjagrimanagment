@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="50dp"
             >
             <TextView
                 android:id="@+id/txtuname"
@@ -88,7 +88,7 @@
     </FrameLayout>
     <ImageView
         android:id="@+id/imgfeed"
-        android:scaleType="fitXY"
+        android:scaleType="centerInside"
         android:layout_width="match_parent"
         android:layout_height="350dp"
         android:fitsSystemWindows="true"

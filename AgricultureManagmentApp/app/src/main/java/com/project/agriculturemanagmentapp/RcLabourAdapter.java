@@ -39,7 +39,7 @@ public class RcLabourAdapter extends FirebaseRecyclerAdapter<clsLaborModel,RcLab
         holder.txtlloc.setText(model.getLloc());
         holder.txtldec.setText(model.getLdes());
         holder.txtldate.setText(model.getLdate());
-        holder.txtlwages.setText("$ "+model.getLwages());
+        holder.txtlwages.setText("₹ "+model.getLwages());
         holder.rv.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {

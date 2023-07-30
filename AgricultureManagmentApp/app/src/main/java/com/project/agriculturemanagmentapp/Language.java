@@ -12,14 +12,16 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
 import android.widget.ToggleButton;
 
 import java.util.Locale;
 
 public class Language extends AppCompatActivity {
 
-    ToggleButton tgleng, tglhnd, tglgjr, tgltml, tglknd, tglurd, tgltlg, tglbgl, tglpjb, tglmlylm,tglmrt;
+    RadioButton tgleng, tglhnd, tglgjr, tgltml, tglknd, tglurd, tgltlg, tglbgl, tglpjb, tglmlylm,tglmrt;
     ImageButton btnsublang;
+    RadioButton eng;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor sedit;
     String curlang="en";
@@ -28,10 +30,10 @@ public class Language extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Window window=this.getWindow();
-        window.setStatusBarColor(this.getResources().getColor(R.color.background));
+        window.setStatusBarColor(this.getResources().getColor(R.color.langback));
         setContentView(R.layout.activity_language);
         btnsublang = findViewById(R.id.btnsublang);
-        tgleng = findViewById(R.id.tgleng);
+        tgleng=findViewById(R.id.tgleng);
         tglhnd = findViewById(R.id.tglhnd);
         tglgjr = findViewById(R.id.tglgjr);
         tgltml = findViewById(R.id.tgltml);
@@ -45,17 +47,7 @@ public class Language extends AppCompatActivity {
         btnsublang = findViewById(R.id.btnsublang);
         sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
         sedit = sharedPreferences.edit();
-        tgleng.setTextOn("English");
-        tglhnd.setTextOn("हिन्दी");
-        tglgjr.setTextOn("ગુજરાતી");
-        tgltml.setTextOn("தமிழ்");
-        tglknd.setTextOn("ಕನ್ನಡ");
-        tglurd.setTextOn("اردو");
-        tgltlg.setTextOn("తెలుగు");
-        tglbgl.setTextOn("বাংলা");
-        tglpjb.setTextOn("پَن٘جابی");
-        tglmlylm.setTextOn("മലയാളം");
-        tglmrt.setTextOn("मराठी");
+
         tgleng.setChecked(true);
         tgleng.setTextColor(getResources().getColor(R.color.Dark_green));
         btnsublang.setOnClickListener(new View.OnClickListener() {
@@ -233,7 +225,7 @@ public class Language extends AppCompatActivity {
         });
     }
 
-    public void selelang(ToggleButton toggleButton, Boolean isChecked) {
+    public void selelang(RadioButton radioButton, Boolean isChecked) {
         if (isChecked) {
             int red = getResources().getColor(R.color.Dark_red);
             int green = getResources().getColor(R.color.Dark_green);
@@ -259,8 +251,8 @@ public class Language extends AppCompatActivity {
             tglmlylm.setTextColor(red);
             tglmrt.setChecked(false);
             tglmrt.setTextColor(red);
-            toggleButton.setTextColor(green);
-            toggleButton.setChecked(true);
+            radioButton.setTextColor(green);
+            radioButton.setChecked(true);
         } else {
             int red = getResources().getColor(R.color.Dark_red);
             tgleng.setChecked(false);

@@ -57,8 +57,13 @@
         android:layout_height="30dp"
         android:layout_alignParentEnd="true"
         android:layout_gravity="end"
-        android:src="@drawable/baseline_delete_24" />
+        android:src="@drawable/delete" />
 </RelativeLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:background="#525151"
+        android:layout_margin="5dp"
+        android:layout_height="2dp"/>
     <TextView
         android:id="@+id/txtdes"
         android:layout_width="wrap_content"
@@ -69,13 +74,26 @@
         android:textColor="#121212"
         android:layout_margin="7dp"
         android:textSize="15dp" />
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content">
+        <VideoView
+            android:id="@+id/videoview"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:scaleType="fitCenter"
+            android:visibility="gone"
+            android:layout_gravity="center_horizontal"
+           />
+    </FrameLayout>
     <ImageView
         android:id="@+id/imgfeed"
         android:scaleType="centerInside"
         android:layout_width="match_parent"
-        android:src="@drawable/otpver"
         android:layout_height="350dp"
         android:fitsSystemWindows="true"
+        android:visibility="gone"
         />
 
 </LinearLayout>

@@ -1,17 +1,27 @@
 package com.project.agriculturemanagmentapp;
 
 public class clsFeedModel {
-    String prfpc,uname,date,post,des,key,key2;
+    String prfpc, uname, date, post, des, key, key2, mediatype;
 
-    public clsFeedModel(String prfpc, String uname, String date, String post, String des, String key, String key2) {
+    public String getMediatype() {
+        return mediatype;
+    }
+
+    public void setMediatype(String mediatype) {
+        this.mediatype = mediatype;
+    }
+
+    public clsFeedModel(String prfpc, String uname, String date, String post, String des, String key, String key2, String mediatype) {
         this.prfpc = prfpc;
         this.uname = uname;
         this.date = date;
         this.post = post;
         this.des = des;
         this.key = key;
-        this.key2=key2;
+        this.key2 = key2;
+        this.mediatype = mediatype;
     }
+
     public String getKey() {
         return key;
     }

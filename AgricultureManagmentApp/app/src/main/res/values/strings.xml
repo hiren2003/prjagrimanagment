@@ -92,6 +92,11 @@
     <string name="qty">Quntity:</string>
     <string name="prc">Price:₹</string>
     <string name="Data_Uploading">Data Uploading</string>
+    <string name="add_Video">Add Video</string>
+    <string name="add_Photo">Add Photo</string>
+    <string name="Write_Share">Write And Share</string>
+    <string name="Write_Something">Write Something Here...</string>
+    <string name="Month">Month</string>
     <string-array name="arrprdttp">
         <item>Vegatable</item>
         <item>Fruits</item>

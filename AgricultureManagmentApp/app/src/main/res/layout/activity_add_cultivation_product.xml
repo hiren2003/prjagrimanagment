@@ -300,7 +300,7 @@
                 android:layout_height="50dp"
                 android:textSize="20dp"
                 android:backgroundTint="#8BC34A"
-                android:text="btnsavedata"
+                android:text="@string/Save_data"
                 />
         </LinearLayout>
     </ScrollView>

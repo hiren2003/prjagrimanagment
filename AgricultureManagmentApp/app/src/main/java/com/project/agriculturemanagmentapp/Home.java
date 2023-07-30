@@ -72,7 +72,6 @@ Toolbar toolbar;
         startActivity(new Intent(Home.this, Navigation.class));
         return super.onOptionsItemSelected(item);
     }
-
     @Override
     protected void onStart() {
         super.onStart();

@@ -299,4 +299,8 @@ public class Language extends AppCompatActivity {
         recreate();
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
 }

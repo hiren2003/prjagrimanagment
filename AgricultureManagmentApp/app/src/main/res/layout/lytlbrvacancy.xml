@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:minHeight="180dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="30dp">
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginBottom="10dp"
+    android:minHeight="180dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="20dp"
+    >
 
 <RelativeLayout
     android:layout_width="match_parent"
@@ -60,104 +57,130 @@
 
         </LinearLayout>
 <FrameLayout
-    android:layout_width="0dp"
-    android:layout_height="20dp"/>
-        <TextView
-            android:id="@+id/txtoname"
+    android:layout_width="match_parent"
+    android:background="#525151"
+    android:layout_margin="5dp"
+    android:layout_height="2dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/suitcase"/>
+   <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginStart="10dp"
+       android:orientation="vertical">
+       <TextView
+           android:id="@+id/worktype"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Farming"
+           android:textStyle="bold"
+           android:textColor="#000"
+           android:fontFamily="@font/allerta"
+           android:textSize="15dp" />
+       <TextView
+           android:id="@+id/txtwtype"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Partenership"
+           android:textColor="#000"
+           android:fontFamily="@font/allerta"
+           android:textSize="15dp" />
+   </LinearLayout>
+        </LinearLayout>
+     <LinearLayout
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="5dp"
+         android:orientation="horizontal">
+         <ImageView
+             android:layout_width="20dp"
+             android:layout_height="20dp"
+             android:src="@drawable/clock"/>
+         <TextView
+             android:id="@+id/txtduration"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="12 Months"
+             android:textStyle="bold"
+             android:textColor="#000"
+             android:fontFamily="@font/allerta"
+             android:layout_marginStart="10dp"
+             android:textSize="15dp" />
+     </LinearLayout>
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="John Thomsan"
-            android:textStyle="bold"
-            android:textColor="#000"
-            android:fontFamily="@font/allerta"
-            android:textSize="15dp" />
-        <TextView
-            android:id="@+id/txtwtype"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Wage Type : Partenership"
-            android:textStyle="bold"
-            android:textColor="#000"
-            android:fontFamily="@font/allerta"
-            android:textSize="15dp" />
-        <TextView
-            android:id="@+id/txtduration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Duration : 12 Months"
-            android:textStyle="bold"
-            android:textColor="#000"
-            android:fontFamily="@font/allerta"
-            android:textSize="15dp" />
-        <TextView
-            android:id="@+id/txtWages"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:text="$ 2000"
-            android:textColor="#000"
-            android:textStyle="bold"
-            android:fontFamily="@font/allerta"
-            android:textSize="15dp" />
-        <TextView
-            android:id="@+id/worktype"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Type Of Work : Farming"
-            android:textStyle="bold"
-            android:textColor="#000"
-            android:fontFamily="@font/allerta"
-            android:textSize="15dp" />
-        <TextView
-            android:id="@+id/txtvlg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Village : Simada gam"
-            android:textStyle="bold"
-            android:textColor="#000"
-            android:fontFamily="@font/allerta"
-            android:textSize="15dp" />
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/salary"/>
 
-        <TextView
-            android:id="@+id/txttehsil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tehsil : Varachha"
-            android:textStyle="bold"
-            android:textColor="#000"
-            android:fontFamily="@font/allerta"
-            android:textSize="15dp" />
+            <TextView
+                android:id="@+id/txtWages"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/allerta"
+                android:text="$ 2000"
+                android:textColor="#000"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/txtdis"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="District : Surat"
-            android:textStyle="bold"
-            android:textColor="#000"
-            android:fontFamily="@font/allerta"
-            android:textSize="15dp" />
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/place"/>
+            <TextView
+                android:id="@+id/txtvlg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Village : Simada gam"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/allerta"
+                android:textSize="15dp" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/txtstate"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="#000"
-            android:fontFamily="@font/allerta"
-            android:text="State : Gujrat"
-            android:textSize="15dp" />
-        <TextView
-            android:id="@+id/txtdes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="#000"
-            android:layout_marginEnd="110dp"
-            android:fontFamily="@font/allerta"
-            android:text="hello i am hiren i am farmer looking for greate people"
-            android:layout_alignParentBottom="true"
-            android:textSize="15dp" />
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/description"/>
+
+            <TextView
+                android:id="@+id/txtdes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="110dp"
+                android:fontFamily="@font/allerta"
+                android:text="hello i am hiren i am farmer looking for greate people"
+                android:layout_alignParentBottom="true"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+
 
     </LinearLayout>
 <androidx.appcompat.widget.LinearLayoutCompat
@@ -173,31 +196,33 @@
         android:orientation="horizontal">
         <ImageView
             android:id="@+id/imgwhatsapp"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/instagram"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/whatsapp"
             android:visibility="gone"
             android:layout_alignParentTop="true"
+            android:layout_margin="5dp"
             android:layout_alignParentEnd="true"
             />
 
         <ImageView
             android:id="@+id/imgcall"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:visibility="gone"
-            android:src="@drawable/baseline_call_24"
+            android:layout_margin="5dp"
+            android:src="@drawable/phone"
             />
         <ImageView
             android:id="@+id/imgdlt"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:visibility="gone"
-            android:src="@drawable/baseline_delete_24"
+            android:layout_margin="5dp"
+            android:src="@drawable/delete"
             />
 
     </LinearLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>
 </RelativeLayout>
     </androidx.cardview.widget.CardView>
-</RelativeLayout>

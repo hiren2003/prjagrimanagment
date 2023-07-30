@@ -9,6 +9,7 @@ import android.os.Bundle;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -90,7 +91,39 @@ public class Myfeed extends Fragment {
         addfeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(),add_feed.class));
+                BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(getContext());
+                View v1=LayoutInflater.from(getContext()).inflate(R.layout.lytaddfeed,null,false);
+                CardView cdfeed = v1.findViewById(R.id.cdfeed);
+                CardView cdvideo=v1.findViewById(R.id.cdvideo);
+                CardView cdwc=v1.findViewById(R.id.cdwc);
+                cdfeed.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(getContext(),add_feed.class));
+                        bottomSheetDialog.cancel();
+                    }
+                });
+                cdvideo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(getContext(),add_video.class));
+                        bottomSheetDialog.cancel();
+                    }
+                });
+                cdwc.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(getContext(), Write_share.class));
+                        bottomSheetDialog.cancel();
+                    }
+                });
+                bottomSheetDialog.setContentView(v1);
+                bottomSheetDialog.setCancelable(true);
+                bottomSheetDialog.setCanceledOnTouchOutside(true);
+                bottomSheetDialog.setDismissWithAnimation(true);
+                bottomSheetDialog.show();
+
+
             }
         });
         return view;

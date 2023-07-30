@@ -43,17 +43,13 @@ public class RcVacancyAdapter extends FirebaseRecyclerAdapter<clsVacancyModel,Rc
             holder.imgcall.setVisibility(View.VISIBLE);
             holder.imgwhat.setVisibility(View.VISIBLE);
         }
-        holder.txtoname.setText(context.getResources().getString(R.string.Owner_name)+" : "+model.getOname());
-        holder.txtwtype.setText(context.getResources().getString(R.string.Wages_Type)+" : "+model.getWtype());
-        holder.txtdur.setText(context.getResources().getString(R.string.Work_Duration)+" : "+model.getWdur());
-        holder.txtworktype.setText(context.getResources().getString(R.string.Work_type)+" : "+model.getTwork());
-        holder.txtvlg.setText(context.getResources().getString(R.string.city_town_village)+" : "+model.getVillage());
-        holder.txttehsil.setText(context.getResources().getString(R.string.Tehsil)+" : "+model.getTehsil());
-        holder.txtdis.setText(context.getResources().getString(R.string.District)+" : "+model.getDistrict());
-        holder.txtstate.setText(context.getResources().getString(R.string.State)+" : "+model.getState());
+        holder.txtwtype.setText(model.getWtype());
+        holder.txtdur.setText(model.getWdur()+context.getResources().getString(R.string.Month));
+        holder.txtworktype.setText(model.getTwork());
+        holder.txtvlg.setText(model.getVillage()+","+model.getTehsil()+","+model.getDistrict()+","+model.getState()+".");
         holder.txtdate.setText(context.getResources().getString(R.string.date)+" : "+model.getDate());
-        holder.txtdes.setText(context.getResources().getString(R.string.Description)+" : "+model.getDes());
-        holder.txtWage.setText(context.getResources().getString(R.string.Extected_Income)+"\n"+"$ "+model.getEamt());
+        holder.txtdes.setText(model.getDes());
+        holder.txtWage.setText("₹"+model.getEamt());
         holder.txtuname.setText(model.getUname());
         Glide.with(context)
                 .load(model.getPrfpc())
@@ -97,19 +93,15 @@ public class RcVacancyAdapter extends FirebaseRecyclerAdapter<clsVacancyModel,Rc
         return  viewHolder;
     }
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txtoname,txtwtype,txtdur,txtworktype,txtvlg,txttehsil,txtdis,txtstate,txtdes,txtdate,txtWage;
+        TextView txtoname,txtwtype,txtdur,txtworktype,txtvlg,txtdes,txtdate,txtWage;
         ImageView imgwhat,imgcall,prfpc,imgdlt;
         TextView txtuname;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtoname=itemView.findViewById(R.id.txtoname);
             txtwtype=itemView.findViewById(R.id.txtwtype);
             txtdur=itemView.findViewById(R.id.txtduration);
             txtworktype=itemView.findViewById(R.id.worktype);
             txtvlg=itemView.findViewById(R.id.txtvlg);
-            txttehsil=itemView.findViewById(R.id.txttehsil);
-            txtdis=itemView.findViewById(R.id.txtdis);
-            txtstate=itemView.findViewById(R.id.txtstate);
             txtdes=itemView.findViewById(R.id.txtdes);
             txtdate=itemView.findViewById(R.id.txtdate);
             txtWage=itemView.findViewById(R.id.txtWages);

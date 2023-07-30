@@ -2,12 +2,16 @@ package com.project.agriculturemanagmentapp;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -41,10 +45,32 @@ public class RcFeedAdapter extends FirebaseRecyclerAdapter<clsFeedModel,RcFeedAd
     @Override
     protected void onBindViewHolder(@NonNull RcFeedAdapter.ViewHolder holder, int position, @NonNull clsFeedModel model) {
 
+if (model.mediatype.equals("1")){
+    holder.imgpost.setVisibility(View.VISIBLE);
+    Glide.with(context)
+            .load(model.getPost())
+            .into(holder.imgpost);
+    holder.txtdes.setText(model.des);
+
+}
+     else if (model.mediatype.equals("2")) {
+          holder.videoView.setVisibility(View.VISIBLE);
+          holder.videoView.setVideoURI(Uri.parse(model.post));
+          MediaController mediaController=new MediaController(context);
+          mediaController.setAnchorView(holder.videoView);
+          mediaController.setMediaPlayer(holder.videoView);
+          holder.videoView.setMediaController(mediaController);
+         // mediaController.requestFocus();
+        //  holder.videoView.start();
+          holder.txtdes.setText(model.des);
+
+}
+     else{
+       holder.txtdes.setText(model.des);
+}
         SharedPreferences sharedPreferences= context.getSharedPreferences("data",Context.MODE_PRIVATE);
         holder.txtuname.setText(model.getUname());
         holder.txtdate.setText(model.getDate());
-        holder.txtdes.setText(model.getDes());
         if (isMyFeed){
             holder.btndelete.setVisibility(View.VISIBLE);
         }
@@ -52,9 +78,6 @@ public class RcFeedAdapter extends FirebaseRecyclerAdapter<clsFeedModel,RcFeedAd
                 .load(model.getPrfpc())
                 .circleCrop()
                 .into(holder.prfpc);
-     Glide.with(context)
-                .load(model.getPost())
-               .into(holder.imgpost);
         holder.btndelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,6 +112,7 @@ public class RcFeedAdapter extends FirebaseRecyclerAdapter<clsFeedModel,RcFeedAd
         ImageView prfpc,imgpost;
         TextView txtuname,txtdes,txtdate;
         ImageView btndelete;
+        VideoView videoView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             prfpc=itemView.findViewById(R.id.profilepc);
@@ -97,6 +121,7 @@ public class RcFeedAdapter extends FirebaseRecyclerAdapter<clsFeedModel,RcFeedAd
             txtdate=itemView.findViewById(R.id.txtdate);
             btndelete=itemView.findViewById(R.id.btndelete);
             txtdes=itemView.findViewById(R.id.txtdes);
+            videoView=itemView.findViewById(R.id.videoview);
         }
     }
 }

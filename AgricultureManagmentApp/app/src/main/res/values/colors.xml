@@ -7,9 +7,10 @@
     <color name="Dark_green">#137413</color>
     <color name="Light_green">#afeaaf</color>
     <color name="background">#B6D68C</color>
+    <color name="langback">#51A41E</color>
     <color name="text_input_layout_stroke_color">#065007</color>
     <color name="text_color_hint">#4A8A4B</color>
     <color name="green">#0B5E0C</color>
     <color name="statusbarmain">#B6D68C</color>
-    <color name="feedcolor">#ADD8E6</color>
+    <color name="feedcolor">#305900</color>
 </resources>

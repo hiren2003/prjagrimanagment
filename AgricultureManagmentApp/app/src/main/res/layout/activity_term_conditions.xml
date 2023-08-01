@@ -36,10 +36,6 @@
                 android:textSize="15dp"
                 android:fontFamily="@font/andika"
                 android:text="
-    \n 1.Account Creation:
-   \n  -Users must create an account to access the app's features.
-    \n -They must provide accurate and up-to-date information during the registration process.
-    \n -Users are responsible for maintaining the confidentiality of their account credentials.
 
     \n 2.Farmer Social Networking:
     \n -The app provides a platform for users to post and share content in the Farmer Social Networking section.

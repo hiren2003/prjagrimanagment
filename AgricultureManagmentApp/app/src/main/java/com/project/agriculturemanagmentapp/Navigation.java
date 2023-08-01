@@ -64,5 +64,11 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc;
                 System.exit(0);
             }
         });
+        cous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Navigation.this, Contact_us.class));
+            }
+        });
     }
 }

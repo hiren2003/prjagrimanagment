@@ -101,6 +101,7 @@
     <string name="Vacancy">Vacancy</string>
     <string name="internet_on">Please! Turn On Your internet</string>
     <string name="Network_error">Network error</string>
+    <string name="msgsent">Message Sent</string>
     <string-array name="arrprdttp">
         <item>Vegatable</item>
         <item>Fruits</item>

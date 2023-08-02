@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@color/Light_green"
+    tools:context=".EditprofileActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/abeezee"
+        android:gravity="center_horizontal"
+        android:text="Edit Profile"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/prfpc"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/editprocama"
+
+        />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="20dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/baloo_tammudu_2_medium"
+                android:text="Name :"
+                android:layout_marginTop="25dp"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/baloo_tammudu_2_medium"
+                android:text="E-mail :"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/baloo_tammudu_2_medium"
+                android:text="Mobile number :"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/mobile"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/baloo_tammudu_2_medium"
+                android:text="Date of birth :"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/baloo_tammudu_2_medium"
+                android:text="Gender:"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="2dp"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="2dp"/>
+        </LinearLayout>
+            </RadioGroup>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/baloo_tammudu_2_medium"
+                android:text="State :"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/state"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/baloo_tammudu_2_medium"
+                android:text="Address :"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

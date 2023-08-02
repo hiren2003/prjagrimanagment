@@ -1,20 +1,18 @@
 package com.project.agriculturemanagmentapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
-import com.project.agriculturemanagmentapp.databinding.ActivityAddLabourVacancyBinding;
 
 import java.util.Calendar;
 
@@ -40,7 +38,8 @@ public class add_labour_vacancy extends AppCompatActivity {
         edtdes = findViewById(R.id.edtdes);
         rdbfixwages = findViewById(R.id.rdbfixwages);
         rdbprtsp = findViewById(R.id.rdbprtsp);
-
+        Window window = this.getWindow();
+        window.setStatusBarColor(this.getResources().getColor(R.color.loginback));
         SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
         btnsavedetail.setOnClickListener(new View.OnClickListener() {
             @Override

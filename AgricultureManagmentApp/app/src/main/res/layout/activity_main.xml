@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/background"
+    android:orientation="vertical" android:background="@drawable/page"
     tools:context=".MainActivity">
 
     <androidx.core.widget.NestedScrollView
@@ -36,19 +35,18 @@
                android:layout_gravity="center_horizontal"
                android:layout_marginTop="50dp"
                android:fitsSystemWindows="true"
-               android:backgroundTint="@color/background"
+               android:backgroundTint="#A2C356"
                android:layout_marginBottom="20sp">
             <de.hdodenhof.circleimageview.CircleImageView
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/prfpc"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
-                android:background="@color/background"
+                android:background="#367C23"
                 android:layout_marginBottom="50dp"
                 android:layout_gravity="center_horizontal"
-                app:civ_border_width="2dp"
                 android:src="@drawable/adddd"
-                app:civ_border_color="#93AA78"/>
+              />
 
 
            </androidx.cardview.widget.CardView>
@@ -80,7 +78,7 @@
                 android:layout_height="wrap_content"
                 app:hintEnabled="true"
                 android:hint="@string/name"
-                app:boxBackgroundColor="#A5B38E"
+                app:boxBackgroundColor="#70AA36"
                 app:boxCornerRadiusBottomEnd="10sp"
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
@@ -118,7 +116,7 @@
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:counterMaxLength="10"
-                app:boxBackgroundColor="#A5B38E"
+                app:boxBackgroundColor="#70AA36"
                 app:hintTextColor="@color/black"
                 app:prefixTextColor="#0C4A0A"
                 style="@style/CustomOutlineBox"

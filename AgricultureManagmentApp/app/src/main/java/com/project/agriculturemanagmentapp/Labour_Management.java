@@ -82,7 +82,10 @@ RcLabourAdapter rcLabourAdapter;
                 .setQuery(FirebaseDatabase.getInstance().getReference().child("Labor_data").child(sharedPreferences.getString("mo","1234567890")), clsLaborModel.class)
                 .build();
         rcLabourAdapter=new RcLabourAdapter(options,getContext());
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
+        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setStackFromEnd(true);
+        recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(rcLabourAdapter);
         btnAddWorker.setOnClickListener(new View.OnClickListener() {
             @Override

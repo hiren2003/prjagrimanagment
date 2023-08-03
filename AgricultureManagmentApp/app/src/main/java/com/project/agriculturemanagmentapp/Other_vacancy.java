@@ -69,7 +69,10 @@ public class Other_vacancy extends Fragment {
         FirebaseRecyclerOptions<clsVacancyModel> options2=new FirebaseRecyclerOptions.Builder<clsVacancyModel>()
                 .setQuery(FirebaseDatabase.getInstance().getReference().child("Labour_Vacancy"),clsVacancyModel.class)
                 .build();
-        rcother.setLayoutManager(new LinearLayoutManager(getContext()));
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
+        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setStackFromEnd(true);
+        rcother.setLayoutManager(linearLayoutManager);
         rcOtherVacancyAdapter=new RcVacancyAdapter(options2,getContext(),false);
         rcother.setAdapter(rcOtherVacancyAdapter);
         return view;

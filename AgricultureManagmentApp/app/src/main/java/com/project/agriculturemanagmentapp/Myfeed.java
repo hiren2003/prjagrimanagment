@@ -18,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -85,8 +86,11 @@ public class Myfeed extends Fragment {
         FirebaseRecyclerOptions<clsFeedModel> options=new FirebaseRecyclerOptions.Builder<clsFeedModel>()
                 .setQuery(FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Feed"), clsFeedModel.class)
                 .build();
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
+        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setStackFromEnd(true);
         rcFeedAdapter=new RcFeedAdapter(options,getContext(),true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(rcFeedAdapter);
         addfeed.setOnClickListener(new View.OnClickListener() {
             @Override

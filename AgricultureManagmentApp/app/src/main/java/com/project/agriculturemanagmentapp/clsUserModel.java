@@ -3,12 +3,57 @@ package com.project.agriculturemanagmentapp;
 public class clsUserModel {
     String uname;
     String mo;
-    String url;
+    String url,email,dob,gender,address,state;
 
-    public clsUserModel(String uname, String mo, String url) {
+    public clsUserModel(String uname, String mo, String url, String email, String dob, String gender, String address, String state) {
         this.uname = uname;
         this.mo = mo;
         this.url = url;
+        this.email = email;
+        this.dob = dob;
+        this.gender = gender;
+        this.address = address;
+        this.state = state;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     public clsUserModel(String uname, String mo) {

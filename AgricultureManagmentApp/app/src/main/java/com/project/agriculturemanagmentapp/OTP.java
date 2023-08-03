@@ -234,7 +234,7 @@ public class OTP extends AppCompatActivity {
                             sedit.putBoolean("islogin",true);
                             sedit.apply();
                             sedit.commit();
-                            firebaseDatabase.getReference().child("Users_List").child(Mobile).setValue(new clsUserModel(Uname,Mobile,url));
+                            firebaseDatabase.getReference().child("Users_List").child(Mobile).setValue(new clsUserModel(Uname,Mobile,url," "," "," "," "," "));
                             startActivity(intent);
                             finish();
                         } else {

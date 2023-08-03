@@ -71,7 +71,10 @@ public class ShowFeed extends Fragment {
         FirebaseRecyclerOptions<clsFeedModel> options=new FirebaseRecyclerOptions.Builder<clsFeedModel>()
                 .setQuery(firebaseDatabase.getReference().child("Feed"), clsFeedModel.class)
                 .build();
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
+        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setStackFromEnd(true);
+        recyclerView.setLayoutManager(linearLayoutManager);
          rcFeedAdapter =new RcFeedAdapter(options,getContext(),false);
          recyclerView.setAdapter(rcFeedAdapter);
         return view;

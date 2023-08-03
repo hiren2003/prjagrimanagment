@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class RcLabourAdapter extends FirebaseRecyclerAdapter<clsLaborModel,RcLabourAdapter.ViewHolder> {
@@ -85,7 +86,7 @@ public class RcLabourAdapter extends FirebaseRecyclerAdapter<clsLaborModel,RcLab
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtlname,txtlmo,txtlloc,txtldec,txtldate,txtlwages;
-        RelativeLayout rv;
+        CardView rv;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtlname=itemView.findViewById(R.id.txtlname);

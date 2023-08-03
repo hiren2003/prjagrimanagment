@@ -75,5 +75,32 @@
     <string name="Work_Duration">Work Duration(In Month)</string>
     <string name="Interest">I am interested in your vacancy for farmer</string>
     <string name="Opencamara">Open camera</string>
+    <string name="sell">Sell</string>
+    <string name="Name_of_product">Name of product</string>
+    <string name="specie">specie</string>
+    <string name="Quantity">Quantity(In KiloGram)</string>
+    <string name="Price">Price(Per KiloGram)</string>
+    <string name="Total_Payment">Total Payment</string>
+    <string name="Choose_Image">Choose Image</string>
+    <string name="Category">Category</string>
+    <string name="Kilogram">Kilogram</string>
+    <string name="animals">animals</string>
+    <string name="Cultivation_Product">Cultivation_Product</string>
+    <string name="Tools_Accesories">Tools&amp;Accesories</string>
+    <string name="My_Product">My Product</string>
+    <string name="Interest2">I am interested in your Product</string>
+    <string name="qty">Quntity:</string>
+    <string name="prc">Price:₹</string>
+    <string name="Data_Uploading">Data Uploading</string>
+    <string name="add_Video">Add Video</string>
+    <string name="add_Photo">Add Photo</string>
+    <string name="Write_Share">Write And Share</string>
+    <string name="Write_Something">Write Something Here...</string>
+    <string name="Month">Month</string>
+    <string name="Myvacancy">My Vacancy</string>
+    <string name="Vacancy">Vacancy</string>
+    <string name="internet_on">Please! Turn On Your internet</string>
+    <string name="Network_error">Network error</string>
+    <string name="msgsent">Message Sent</string>
 
 </resources>

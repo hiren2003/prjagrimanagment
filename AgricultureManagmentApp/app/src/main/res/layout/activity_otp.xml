@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@drawable/page"
     android:padding="10dp"
     tools:context=".OTP">
     <LinearLayout
@@ -32,10 +32,11 @@
             android:layout_marginTop="20sp"
             android:fontFamily="@font/andika"
             android:text="@string/Otp_Sent_to"
-            android:textColor="#2A4C17"
+            android:textColor="#000000"
             android:textSize="25dp" />
+
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="326dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="20dp"
@@ -56,76 +57,76 @@
                 android:inputType="numberSigned"
                 android:maxLength="1"
                 tools:ignore="Labelfor" />
+
             <EditText
                 android:id="@+id/sms2"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:inputType="numberSigned"
                 android:layout_margin="2dp"
-                android:fontFamily="@font/allerta"
                 android:background="@drawable/border_green"
+                android:fontFamily="@font/allerta"
                 android:gravity="center"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
+                android:inputType="numberSigned"
                 android:maxLength="1"
-                tools:ignore="Labelfor"
-                />
+                tools:ignore="Labelfor" />
+
             <EditText
                 android:id="@+id/sms3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:inputType="numberSigned"
                 android:layout_margin="2dp"
                 android:background="@drawable/border_green"
+                android:fontFamily="@font/allerta"
                 android:gravity="center"
                 android:imeOptions="actionNext"
-                android:fontFamily="@font/allerta"
                 android:importantForAutofill="no"
+                android:inputType="numberSigned"
                 android:maxLength="1"
-                tools:ignore="Labelfor"
-                />
+                tools:ignore="Labelfor" />
+
             <EditText
                 android:id="@+id/sms4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:inputType="numberSigned"
                 android:layout_margin="2dp"
                 android:background="@drawable/border_green"
+                android:fontFamily="@font/allerta"
                 android:gravity="center"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
-                android:fontFamily="@font/allerta"
+                android:inputType="numberSigned"
                 android:maxLength="1"
-                tools:ignore="Labelfor"
-                />
+                tools:ignore="Labelfor" />
+
             <EditText
                 android:id="@+id/sms5"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:inputType="numberSigned"
                 android:layout_margin="2dp"
-                android:fontFamily="@font/allerta"
                 android:background="@drawable/border_green"
+                android:fontFamily="@font/allerta"
                 android:gravity="center"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
+                android:inputType="numberSigned"
                 android:maxLength="1"
-                tools:ignore="Labelfor"
-                />
+                tools:ignore="Labelfor" />
+
             <EditText
                 android:id="@+id/sms6"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:inputType="numberSigned"
                 android:layout_margin="2dp"
-                android:fontFamily="@font/allerta"
                 android:background="@drawable/border_green"
+                android:fontFamily="@font/allerta"
                 android:gravity="center"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
+                android:inputType="numberSigned"
                 android:maxLength="1"
-                tools:ignore="Labelfor"
-                />
+                tools:ignore="Labelfor" />
         </LinearLayout>
 
         <RelativeLayout

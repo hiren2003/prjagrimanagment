@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         Window window = this.getWindow();
-        window.setStatusBarColor(this.getResources().getColor(R.color.background));
+        window.setStatusBarColor(this.getResources().getColor(R.color.loginback));
 
         prfpc.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,37 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Home">
-<androidx.appcompat.widget.Toolbar
+<LinearLayout
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="?actionBarSize"
-    android:background="#038808"
-    app:navigationIcon="@drawable/man"
-    app:title=" "
-    >
-</androidx.appcompat.widget.Toolbar>
-    <FrameLayout
-        android:id="@+id/fmlayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="?actionBarSize"
-        android:layout_marginBottom="75dp" />
+    android:gravity="center_vertical"
+    android:background="#038808">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+        <ImageView
+            android:id="@+id/prfpc"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/labour"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Hello"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:fontFamily="@font/allerta"/>
+            <TextView
+                android:id="@+id/txtname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="John Thomsan"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:fontFamily="@font/allerta"/>
+        </LinearLayout>
 
-    <com.etebarian.meowbottomnavigation.MeowBottomNavigation
-        android:id="@+id/btmnv"
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:layout_alignParentBottom="true"
-        app:mbn_backgroundBottomColor="#FFFFFF"
-        app:mbn_circleColor="#038808"
-        app:mbn_countBackgroundColor="#ff6f00"
-        app:mbn_countTextColor="#ffffff"
-        app:mbn_defaultIconColor="#A8C7D6"
-        app:mbn_rippleColor="#2f424242"
-        app:mbn_selectedIconColor="#EFF3EF"
-        app:mbn_shadowColor="#1f212121" />
-</RelativeLayout>
+    </LinearLayout>
+</LinearLayout>
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <FrameLayout
+           android:id="@+id/fmlayout"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_marginBottom="75dp" />
+
+       <com.etebarian.meowbottomnavigation.MeowBottomNavigation
+           android:id="@+id/btmnv"
+           android:layout_width="match_parent"
+           android:layout_height="75dp"
+           android:layout_alignParentBottom="true"
+           app:mbn_backgroundBottomColor="#FFFFFF"
+           app:mbn_circleColor="#038808"
+           app:mbn_countBackgroundColor="#ff6f00"
+           app:mbn_countTextColor="#ffffff"
+           app:mbn_defaultIconColor="#A8C7D6"
+           app:mbn_rippleColor="#2f424242"
+           app:mbn_selectedIconColor="#EFF3EF"
+           app:mbn_shadowColor="#1f212121" />
+   </RelativeLayout>
+</LinearLayout>

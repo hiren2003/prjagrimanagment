@@ -13,10 +13,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 
 import java.util.Locale;
@@ -24,7 +29,9 @@ import java.util.Locale;
 public class Home extends AppCompatActivity {
 MeowBottomNavigation btmnv;
 FrameLayout frameLayout;
-Toolbar toolbar;
+LinearLayout toolbar;
+ImageView prfpc;
+TextView txtname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,10 +42,20 @@ Toolbar toolbar;
         SharedPreferences sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
         btmnv=findViewById(R.id.btmnv);
         toolbar=findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(getResources().getString(R.string.Hello)+",");
-        getSupportActionBar().setSubtitle(sharedPreferences.getString("uname","man"));
+        prfpc=findViewById(R.id.prfpc);
         frameLayout =findViewById(R.id.fmlayout);
+        txtname=findViewById(R.id.txtname);
+        txtname.setText(sharedPreferences.getString("uname","man"));
+        Glide.with(this)
+                .load(sharedPreferences.getString("url","null"))
+                .circleCrop()
+                .into(prfpc);
+        prfpc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Home.this, Navigation.class));
+            }
+        });
         btmnv.show(3,true);
         btmnv.add(new MeowBottomNavigation.Model(1, R.drawable.feed2));
         btmnv.add(new MeowBottomNavigation.Model(2, R.drawable.labour));
@@ -67,11 +84,7 @@ Toolbar toolbar;
 
 
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        startActivity(new Intent(Home.this, Navigation.class));
-        return super.onOptionsItemSelected(item);
-    }
+
     @Override
     protected void onStart() {
         super.onStart();

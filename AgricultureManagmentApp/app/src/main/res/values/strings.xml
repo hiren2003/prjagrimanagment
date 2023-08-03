@@ -103,6 +103,9 @@
     <string name="Network_error">Network error</string>
     <string name="msgsent">Message Sent</string>
     <string name="Update_Profile">Update_Profile</string>
+    <string name="Scheme_name">Scheme name</string>
+    <string name="Add_Scheme">Add Scheme</string>
+    <string name="Applicable_region">Applicable region</string>
     <string-array name="arrprdttp">
         <item>Vegatable</item>
         <item>Fruits</item>

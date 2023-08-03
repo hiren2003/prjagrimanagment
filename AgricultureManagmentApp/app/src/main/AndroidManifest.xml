@@ -2,13 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-feature
-        android:name="android.hardware.telephony"
-        android:required="false" />
-
-    <uses-permission android:name="android.permission.SEND_SMS" />
-    <uses-permission android:name="@android.permission.CAMERA" />
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -20,12 +13,17 @@
         android:theme="@style/Theme.AgricultureManagmentApp"
         tools:targetApi="31">
         <activity
+            android:name=".add_gov_scheme"
+            android:exported="false" />
+        <activity
+            android:name=".govermentScheme"
+            android:exported="false" />
+        <activity
             android:name=".EditprofileActivity"
-            android:exported="false" >
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".Contact_us"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Term_Conditions"
             android:exported="false" />
@@ -106,5 +104,12 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <uses-permission android:name="@android.permission.CAMERA" />
 
 </manifest>

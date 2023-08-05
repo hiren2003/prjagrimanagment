@@ -4,23 +4,27 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
+
     <style name="CustomOutlineBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="boxStrokeColor">@color/text_input_layout_stroke_color</item>
         <item name="android:textColorHint">@color/text_color_hint</item>
         <item name="hintTextColor">@color/green</item>
         <item name="android:cursorVisible">@color/green</item>
     </style>
+
     <style name="CustomOutlineBoxnew" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="boxStrokeColor">#5A8F0B</item>
         <item name="android:textColorHint">#213207</item>
         <item name="hintTextColor">#273E05</item>
         <item name="android:cursorVisible">@color/green</item>
     </style>
+
     <style name="Add_vacancy" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="boxStrokeColor">#1E5A04</item>
         <item name="android:textColorHint">#000000</item>
         <item name="hintTextColor">#273E05</item>
         <item name="android:cursorVisible">@color/green</item>
     </style>
+
     <style name="Theme.AgricultureManagmentApp" parent="Base.Theme.AgricultureManagmentApp" />
 </resources>

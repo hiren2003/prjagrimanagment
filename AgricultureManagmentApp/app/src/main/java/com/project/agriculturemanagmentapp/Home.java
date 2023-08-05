@@ -29,8 +29,8 @@ import java.util.Locale;
 public class Home extends AppCompatActivity {
 MeowBottomNavigation btmnv;
 FrameLayout frameLayout;
-LinearLayout toolbar;
-ImageView prfpc;
+RelativeLayout toolbar;
+ImageView prfpc,imgcart,imgorder;
 TextView txtname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +43,10 @@ TextView txtname;
         btmnv=findViewById(R.id.btmnv);
         toolbar=findViewById(R.id.toolbar);
         prfpc=findViewById(R.id.prfpc);
+        imgcart=findViewById(R.id.imgcart);
         frameLayout =findViewById(R.id.fmlayout);
         txtname=findViewById(R.id.txtname);
+        imgorder=findViewById(R.id.imgorder);
         txtname.setText(sharedPreferences.getString("uname","man"));
         Glide.with(this)
                 .load(sharedPreferences.getString("url","null"))
@@ -54,6 +56,18 @@ TextView txtname;
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Home.this, Navigation.class));
+            }
+        });
+        imgorder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Home.this,MyOrder.class));
+            }
+        });
+        imgcart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Home.this,Cart.class));
             }
         });
         btmnv.show(3,true);
@@ -74,12 +88,16 @@ TextView txtname;
         } else if (model.getId()==4) {
             frameLayout.removeAllViews();
             getSupportFragmentManager().beginTransaction().add(R.id.fmlayout,new Resell()).commit();
+        } else if (model.getId()==5) {
+            frameLayout.removeAllViews();
+            getSupportFragmentManager().beginTransaction().add(R.id.fmlayout,new E_commrce()).commit();
         } else {
 
         }
         return null;
     }
 });
+
     }
 
 

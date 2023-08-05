@@ -31,7 +31,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
-public class OTP extends AppCompatActivity {
+public class
+
+OTP extends AppCompatActivity {
     TextView txtmo;
     FirebaseAuth mAuth;
     String VerificationId, Mobile, Uname, SmsCode,url;

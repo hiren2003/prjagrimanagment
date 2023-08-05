@@ -87,4 +87,16 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc;
             }
         });
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Glide.with(this)
+                .load(sharedPreferences.getString("url","null"))
+                .circleCrop()
+                .error(getDrawable(R.drawable.baseline_warning_24))
+                .into(imgprfpc);
+        txtuname.setText(sharedPreferences.getString("uname","null"));
+        txtumo.setText("+91 "+sharedPreferences.getString("mo","null"));
+    }
 }

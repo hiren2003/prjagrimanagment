@@ -33,10 +33,12 @@ import java.util.Calendar;
 public class add_cultivation_product extends AppCompatActivity {
     String[] arrprdttp;
     Spinner spntype;
-    ImageView imgprdt;
-    Button btnchooseimg;
-Uri selectedimg;
+
+
 String key="";
+    Uri selectedimg;
+    Button btnchooseimg;
+ImageView imgprdt;
 Button btnsavedata;
 SharedPreferences sharedPreferences;
 TextInputEditText edtpname,edtspeice,edtqty,edtprc,edtstate,edtdistrict,edttehsil,edtvillage,edtdescription,edtmo;

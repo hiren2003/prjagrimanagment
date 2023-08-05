@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".add_ecomm">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:orientation="vertical">
+        <Spinner
+            android:id="@+id/category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="50dp"
+            android:padding="10dp"
+            android:background="@drawable/border_green"
+            />
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background"
+            android:hint="@string/Name_of_product"
+            app:counterEnabled="true"
+            app:counterMaxLength="15"
+            app:hintEnabled="true"
+            app:hintTextColor="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtpname"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:fontFamily="@font/allerta"
+                android:maxLength="15"
+                android:shadowColor="@color/black"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/background"
+            android:hint="Price"
+            app:counterEnabled="true"
+            app:counterMaxLength="15"
+            app:hintEnabled="true"
+            app:hintTextColor="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtprc"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:fontFamily="@font/allerta"
+                android:inputType="numberDecimal"
+                android:maxLength="15"
+                android:shadowColor="@color/black"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background"
+            android:hint="@string/Product_Description"
+            app:counterEnabled="true"
+            app:hintEnabled="true"
+            app:hintTextColor="@color/black"
+            app:prefixTextColor="@color/black"
+            app:startIconTint="#3E6018">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtdes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/allerta"
+            android:shadowColor="@color/black"
+            android:textAlignment="viewStart"
+            android:gravity="top"
+            android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background"
+            android:hint="@string/Specification"
+            app:counterEnabled="true"
+            app:hintEnabled="true"
+            app:hintTextColor="@color/black"
+            app:prefixTextColor="@color/black"
+            app:startIconTint="#3E6018">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtspe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/allerta"
+                android:shadowColor="@color/black"
+                android:textAlignment="viewStart"
+                android:gravity="top"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background"
+            android:hint="@string/Recommandation"
+            app:counterEnabled="true"
+            app:hintEnabled="true"
+            app:hintTextColor="@color/black"
+            app:prefixTextColor="@color/black"
+            app:startIconTint="#3E6018">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtrecom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/allerta"
+                android:shadowColor="@color/black"
+                android:textAlignment="viewStart"
+                android:gravity="top"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:id="@+id/btnchooseimage"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textSize="20dp"
+            android:backgroundTint="#8BC34A"
+            android:text="@string/Choose_Image"
+            />
+        <ImageView
+            android:id="@+id/imgprdt"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:scaleType="fitCenter"
+            android:visibility="gone"
+            android:layout_margin="10dp"
+            android:src="@drawable/upload" />
+        <Button
+            android:id="@+id/btnsavedata"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textSize="20dp"
+            android:backgroundTint="#8BC34A"
+            android:text="@string/add_product"
+            />
+    </LinearLayout>
+</ScrollView>
+</LinearLayout>

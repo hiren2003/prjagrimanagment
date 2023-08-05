@@ -13,6 +13,25 @@
         android:theme="@style/Theme.AgricultureManagmentApp"
         tools:targetApi="31">
         <activity
+            android:name=".MyOrder"
+            android:exported="false" />
+        <activity
+            android:name=".Myorder"
+            android:exported="false"
+            android:label="@string/title_activity_myorder"
+            android:theme="@style/Theme.AgricultureManagmentApp" />
+        <activity
+            android:name=".Cart"
+            android:exported="false" />
+        <activity
+            android:name=".show_ecom_prdt"
+            android:exported="false" />
+        <activity
+            android:name=".add_ecomm"
+            android:exported="true"
+            android:label="@string/title_activity_add_ecomm"
+            android:theme="@style/Theme.AgricultureManagmentApp" />
+        <activity
             android:name=".add_gov_scheme"
             android:exported="false" />
         <activity
@@ -108,8 +127,11 @@
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.SEND_SMS" />
-
     <uses-permission android:name="@android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

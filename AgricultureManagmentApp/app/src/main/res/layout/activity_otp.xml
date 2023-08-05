@@ -4,25 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/page"
+    android:background="#f4f4f4"
     android:padding="10dp"
     tools:context=".OTP">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:gravity="center_horizontal"
-        >
+        android:orientation="vertical">
+
         <com.airbnb.lottie.LottieAnimationView
             android:layout_width="250dp"
             android:layout_height="250dp"
-            app:lottie_autoPlay="true"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="10dp"
+            app:lottie_autoPlay="true"
             app:lottie_loop="true"
-            android:layout_gravity="center_horizontal"
-            app:lottie_rawRes="@raw/otp"
-            />
+            app:lottie_rawRes="@raw/otp" />
 
         <TextView
             android:id="@+id/txtmo"
@@ -133,30 +133,30 @@
             android:id="@+id/btnverify"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:gravity="center"
+            android:layout_marginLeft="15dp"
             android:layout_marginTop="20sp"
             android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/sendotp">
+            android:background="@drawable/sendotp"
+            android:gravity="center">
+
             <TextView
                 android:id="@+id/txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/andika"
                 android:text="@string/Verify_Otp"
-                android:textSize="20dp"
-                android:textColor="#FFFFFF"/>
+                android:textColor="#FFFFFF"
+                android:textSize="20dp" />
 
             <ProgressBar
                 android:id="@+id/progressBar2"
                 style="?android:attr/progressBarStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:progressTint="#8BC34A"
-                android:foregroundTint="#8BC34A"
-                android:visibility="gone"
                 android:backgroundTint="#8BC34A"
-                />
+                android:foregroundTint="#8BC34A"
+                android:progressTint="#8BC34A"
+                android:visibility="gone" />
 
         </RelativeLayout>
 
@@ -164,12 +164,11 @@
             android:id="@+id/txtretry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Change_Detail"
-            android:textSize="20dp"
-            android:visibility="gone"
-            android:layout_margin="30dp"
             android:layout_gravity="center_horizontal"
+            android:layout_margin="30dp"
+            android:text="@string/Change_Detail"
             android:textColor="#0520B9"
-            />
+            android:textSize="20dp"
+            android:visibility="gone" />
     </LinearLayout>
 </RelativeLayout>

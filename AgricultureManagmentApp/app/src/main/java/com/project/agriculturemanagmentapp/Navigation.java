@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -14,8 +15,9 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 public class Navigation extends AppCompatActivity {
-ImageView imgprfpc,profile;
-TextView txtuname,txtumo;
+ImageView imgprfpc;
+Button profile;
+TextView txtuname,txtumo,close;
 SharedPreferences sharedPreferences;
 RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc;
     @Override
@@ -23,7 +25,7 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
         Window window = this.getWindow();
-        window.setStatusBarColor(this.getResources().getColor(R.color.green));
+        window.setStatusBarColor(this.getResources().getColor(R.color.drawer));
         txtumo=findViewById(R.id.txtumo);
         txtuname=findViewById(R.id.txtuname);
         profile=findViewById(R.id.profile);
@@ -35,6 +37,7 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc;
         rvshareapp=findViewById(R.id.rvshareapp);
         rvloout=findViewById(R.id.rvloout);
         rvtc=findViewById(R.id.rvtc);
+        close=findViewById(R.id.close);
         sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
         Glide.with(this)
                 .load(sharedPreferences.getString("url","null"))
@@ -86,6 +89,18 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc;
                 startActivity(new Intent(Navigation.this,EditprofileActivity.class));
             }
         });
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 
     @Override

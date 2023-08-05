@@ -4,30 +4,43 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#65D66A"
+    android:background="#f4f4f4"
     android:padding="20dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:fontFamily="@font/droid_sans_bold"
-        android:text="Add Post"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:textSize="25dp" />
+
 <LinearLayout
     android:layout_width="wrap_content"
     android:orientation="vertical"
     android:layout_gravity="center_horizontal"
     android:layout_height="wrap_content">
-    <VideoView
-        android:id="@+id/imgfeed"
+    <TextView
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/averia_libre"
+        android:text="Add video"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textColor="#E9EF5288"
+        android:textSize="25dp" />
+    <LinearLayout
+        android:layout_width="350dp"
         android:layout_height="350dp"
-        android:layout_gravity="center_horizontal"
-        android:padding="90dp"
-        android:fitsSystemWindows="true" />
+        android:background="@drawable/feedback"
+        android:orientation="horizontal">
+
+        <VideoView
+            android:id="@+id/imgfeed"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="25dp"
+            style="@style/CustomOutlineBox"
+            android:padding="90dp"
+            android:fitsSystemWindows="true" />
+
+    </LinearLayout>
+
 </LinearLayout>
     <!--    <TextView-->
     <!--        android:layout_width="wrap_content"-->
@@ -44,11 +57,11 @@
         android:layout_height="wrap_content"
         android:hint="@string/Description"
         app:startIconDrawable="@drawable/baseline_description_24"
-        app:startIconTint="#22578F"
-        android:layout_margin="10dp"
+        app:startIconTint="#E9EA5488"
         style="@style/CustomOutlineBoxnew"
-        app:boxBackgroundColor="#C1D9E4"
+        app:boxBackgroundColor="#E9ECC0CF"
         app:boxCornerRadiusBottomEnd="15sp"
+        android:layout_marginTop="20dp"
         app:boxCornerRadiusBottomStart="15dp"
         app:boxCornerRadiusTopEnd="15dp"
         app:boxCornerRadiusTopStart="15dp"
@@ -56,18 +69,23 @@
         app:hintTextColor="@color/black">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtdes"
-            android:layout_width="match_parent"
+            android:layout_width="320dp"
+            android:layout_gravity="center_horizontal"
             android:layout_height="wrap_content"
             android:textColorHint="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <RelativeLayout
         android:id="@+id/btnupload"
-        android:layout_width="match_parent"
+        android:layout_width="320dp"
         android:layout_height="60dp"
         android:gravity="center"
-        android:layout_margin="10dp"
-        android:background="@drawable/uploadfeedback">
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/videodra">
 
         <TextView
             android:id="@+id/txt"
@@ -93,10 +111,11 @@
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/btncancel"
-        android:layout_width="match_parent"
+        android:layout_width="320dp"
         android:layout_height="60dp"
         android:gravity="center"
         android:layout_marginLeft="10dp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginRight="10dp"
         android:background="@drawable/cancelfees">
 

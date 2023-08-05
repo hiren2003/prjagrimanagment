@@ -94,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         btngetotp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (edtuname.getText().toString().isEmpty()) {
                     edtuname.setError(getResources().getString(R.string.Username_Required));
                 } else {

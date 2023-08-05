@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/page"
+    android:background="#f4f4f4"
     tools:context=".MainActivity">
 
     <androidx.core.widget.NestedScrollView
@@ -25,7 +25,7 @@
                 android:fontFamily="@font/andika"
                 android:text="LOGIN"
                 android:textAlignment="center"
-                android:textColor="#144C0A"
+                android:textColor="#1A630D"
                 android:textSize="30dp"
                 android:textStyle="bold" />
 
@@ -46,7 +46,7 @@
                 android:background="#367C23"
                 android:layout_marginBottom="50dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/adddd"
+                android:src="@drawable/adddd1"
               />
 
 
@@ -79,23 +79,21 @@
                 android:layout_height="wrap_content"
                 app:hintEnabled="true"
                 android:hint="@string/name"
-                app:boxBackgroundColor="#70AA36"
+                app:boxBackgroundColor="#D5D5D5"
                 app:boxCornerRadiusBottomEnd="10sp"
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:hintTextColor="@color/black"
                 app:startIconDrawable="@drawable/baseline_account_circle_24"
-                app:startIconTint="#3E6018"
+                app:startIconTint="#1A630D"
                 style="@style/CustomOutlineBox"
                 android:layout_marginTop="70dp"
                 app:counterEnabled="true"
                 android:textColorHint="@color/black"
                 app:counterMaxLength="15"
-                app:prefixTextColor="#0C4A0A"
-                app:prefixText="@string/mrmrs"
-                >
-
+                app:prefixTextColor="#040404"
+                app:prefixText="@string/mrmrs">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtuname"
                     android:layout_width="match_parent"
@@ -104,9 +102,7 @@
                     android:fontFamily="@font/allerta"
                     android:shadowColor="@color/black"
                     android:textColor="@color/black" />
-
             </com.google.android.material.textfield.TextInputLayout>
-
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -117,35 +113,31 @@
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:counterMaxLength="10"
-                app:boxBackgroundColor="#70AA36"
+                app:boxBackgroundColor="#D5D5D5"
                 app:hintTextColor="@color/black"
-                app:prefixTextColor="#0C4A0A"
+                app:prefixTextColor="#1A630D"
                 style="@style/CustomOutlineBox"
                 android:layout_marginTop="5dp"
                 android:textColorHint="@color/black"
                 app:startIconDrawable="@drawable/baseline_call_24"
-                app:startIconTint="#3E6018"
-                app:prefixText="+91"
-
-                >
-
+                app:startIconTint="#1A630D"
+                app:prefixText="+91">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtmo"
                     android:layout_width="match_parent"
-                    android:textColor="@color/black"
-                    android:shadowColor="@color/black"
                     android:layout_height="60dp"
+                    android:fontFamily="@font/allerta"
                     android:inputType="number"
                     android:maxLength="10"
-                    android:fontFamily="@font/allerta"
-                    />
+                    android:shadowColor="@color/black"
+                    android:textColor="@color/black" />
             </com.google.android.material.textfield.TextInputLayout>
             <RelativeLayout
                 android:id="@+id/btngetotp"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:gravity="center"
-                android:layout_marginTop="20sp"
+                android:layout_marginTop="50sp"
                 android:background="@drawable/sendotp">
 
                 <TextView

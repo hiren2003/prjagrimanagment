@@ -1,5 +1,6 @@
 package com.project.agriculturemanagmentapp;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -30,7 +31,7 @@ public class Language extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Window window=this.getWindow();
-        window.setStatusBarColor(this.getResources().getColor(R.color.langback));
+        window.setStatusBarColor(this.getResources().getColor(R.color.lan));
         setContentView(R.layout.activity_language);
         btnsublang = findViewById(R.id.btnsublang);
         tgleng=findViewById(R.id.tgleng);
@@ -293,6 +294,9 @@ public class Language extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        Intent i = new Intent(Language.this,Navigation.class);
+        startActivity(i);
 
     }
+
 }

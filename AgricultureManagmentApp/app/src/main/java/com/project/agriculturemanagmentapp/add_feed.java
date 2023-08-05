@@ -53,7 +53,7 @@ public class add_feed extends AppCompatActivity {
         setContentView(R.layout.activity_add_feed);
         setLanguage();
         Window window = this.getWindow();
-        window.setStatusBarColor(this.getResources().getColor(R.color.feedcolor));
+        window.setStatusBarColor(this.getResources().getColor(R.color.lan));
         txt = findViewById(R.id.txt);
         FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();

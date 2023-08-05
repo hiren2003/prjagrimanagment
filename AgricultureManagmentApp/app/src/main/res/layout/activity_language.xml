@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/greenback"
+    android:background="#f4f4f4"
     tools:context=".Language">
 
     <TextView
@@ -18,7 +18,8 @@
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/average_sans"
         android:text="Select Language"
-        android:textColor="#86BD61"
+        android:textColor="#4DAC0C"
+        android:textStyle="bold"
         android:textSize="30dp" />
 
    <androidx.core.widget.NestedScrollView
@@ -499,7 +500,7 @@
             android:layout_height="60dp"
             android:layout_marginTop="20sp"
             android:layout_margin="10dp"
-            android:background="@drawable/border_green"
+            android:background="#4DAC0C"
             app:srcCompat="@drawable/baseline_arrow_forward_24"
             app:tint="#FFFFFF"
 

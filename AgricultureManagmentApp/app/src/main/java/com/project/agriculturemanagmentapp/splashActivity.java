@@ -25,7 +25,7 @@ public class splashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         Window window = this.getWindow();
-        window.setStatusBarColor(this.getResources().getColor(R.color.background));
+        window.setStatusBarColor(this.getResources().getColor(R.color.lan));
         sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
         boolean isLogin = sharedPreferences.getBoolean("islogin", false);
         new Handler().postDelayed(new Runnable() {

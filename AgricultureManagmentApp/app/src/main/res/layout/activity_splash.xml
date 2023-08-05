@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/greenback"
+    android:background="#f4f4f4"
     android:layout_height="match_parent"
     tools:context=".splashActivity">
 <!--    //C2DD9E-->
@@ -15,7 +15,7 @@
         android:layout_margin="20sp"
         android:fontFamily="@font/andika"
         android:text="Agro farm"
-        android:textColor="#144C0A"
+        android:textColor="#4DAC0C"
         android:textSize="40dp"
         android:textStyle="bold" />
 <!--    <com.airbnb.lottie.LottieAnimationView-->

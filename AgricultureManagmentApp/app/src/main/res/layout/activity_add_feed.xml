@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@drawable/greenback"
+    android:background="#f4f4f4"
     android:padding="20dp">
 
    <androidx.core.widget.NestedScrollView
@@ -16,16 +16,17 @@
            android:layout_width="match_parent"
            android:layout_height="match_parent"
             android:orientation="vertical">
+
            <TextView
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:layout_margin="10dp"
-               android:fontFamily="@font/droid_sans_bold"
+               android:fontFamily="@font/averia_libre"
                android:text="Add Post"
-               android:textStyle="bold"
                android:textAlignment="center"
-               android:textColor="#203C12"
-               android:textSize="25dp" />
+               android:textColor="#4DAC0C"
+               android:textSize="25dp"
+               android:textStyle="bold" />
            <ImageView
                android:id="@+id/imgfeed"
                android:layout_width="match_parent"
@@ -64,7 +65,10 @@
                android:layout_width="match_parent"
                android:layout_height="60dp"
                android:gravity="center"
-               android:layout_margin="10dp"
+               android:layout_marginTop="20dp"
+               android:layout_marginLeft="10dp"
+               android:layout_marginRight="10dp"
+               android:layout_marginBottom="10dp"
                android:background="@drawable/uploadfeedback">
 
                <TextView

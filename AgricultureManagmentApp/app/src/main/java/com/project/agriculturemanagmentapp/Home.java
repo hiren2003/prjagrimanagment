@@ -52,6 +52,9 @@ TextView txtname;
                 .load(sharedPreferences.getString("url","null"))
                 .circleCrop()
                 .into(prfpc);
+
+        frameLayout.removeAllViews();
+        getSupportFragmentManager().beginTransaction().add(R.id.fmlayout,new frghome()).commit();
         prfpc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,6 +88,9 @@ TextView txtname;
         } else if (model.getId()==2) {
             frameLayout.removeAllViews();
             getSupportFragmentManager().beginTransaction().add(R.id.fmlayout,new Labour()).commit();
+        } else if (model.getId()==3) {
+            frameLayout.removeAllViews();
+            getSupportFragmentManager().beginTransaction().add(R.id.fmlayout,new frghome()).commit();
         } else if (model.getId()==4) {
             frameLayout.removeAllViews();
             getSupportFragmentManager().beginTransaction().add(R.id.fmlayout,new Resell()).commit();

@@ -19,7 +19,7 @@ ImageView imgprfpc;
 Button profile;
 TextView txtuname,txtumo,close;
 SharedPreferences sharedPreferences;
-RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc;
+RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc,rvnews;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +29,7 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc;
         txtumo=findViewById(R.id.txtumo);
         txtuname=findViewById(R.id.txtuname);
         profile=findViewById(R.id.profile);
+        rvnews=findViewById(R.id.rvnews);
         imgprfpc=findViewById(R.id.imgprfpc);
         rvlang=findViewById(R.id.rvlang);
         rvgv=findViewById(R.id.rvgv);
@@ -39,6 +40,10 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc;
         rvtc=findViewById(R.id.rvtc);
         close=findViewById(R.id.close);
         sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
+        String mo=sharedPreferences.getString("mo","1234567890");
+        if(mo.equals("7229005896")||mo.equals("9824945298")||mo.equals("9879295483")||mo.equals("9737063396")){
+            rvnews.setVisibility(View.VISIBLE);
+        }
         Glide.with(this)
                 .load(sharedPreferences.getString("url","null"))
                 .circleCrop()
@@ -87,6 +92,12 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc;
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Navigation.this,EditprofileActivity.class));
+            }
+        });
+        rvnews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Navigation.this, add_news.class));
             }
         });
         close.setOnClickListener(new View.OnClickListener() {

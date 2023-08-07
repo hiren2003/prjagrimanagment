@@ -102,4 +102,22 @@
     <string name="internet_on">దయచేసి! మీ ఇంటర్నెట్‌ని ఆన్ చేయండి</string>
     <string name="Network_error">నెట్వర్క్ లోపం</string>
     <string name="msgsent">సందేశం పంపబడింది</string>
+    <string name="Update_Profile">అప్‌డేట్_ప్రొఫైల్</string>
+    <string name="Scheme_name">పథకం పేరు</string>
+    <string name="Add_Scheme">పథకాన్ని జోడించండి</string>
+    <string name="Applicable_region">వర్తించే ప్రాంతం</string>
+    <string name="title_activity_add_ecomm">ecomm జోడించండి</string>
+    <string name="first_fragment_label">మొదటి భాగం</string>
+    <string name="second_fragment_label">రెండవ భాగం</string>
+    <string name="next">తరువాత</string>
+    <string name="previous">మునుపటి</string>
+    <string name="Product_Description">ఉత్పత్తి వివరణ</string>
+    <string name="Recommandation">సిఫార్సు</string>
+    <string name="Specification">స్పెసిఫికేషన్</string>
+    <string name="add_product">ఉత్పత్తిని జోడించండి</string>
+    <string name="add_to_cart">కార్ట్‌కి జోడించండి</string>
+    <string name="qty2">పరిమాణం</string>
+    <string name="Headline">శీర్షిక</string>
+    <string name="Publish_news">వార్తలను ప్రచురించండి</string>
+    <string name="title_activity_myorder">నా ఆజ్ఞ</string>
 </resources>

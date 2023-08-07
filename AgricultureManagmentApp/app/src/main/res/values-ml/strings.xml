@@ -102,4 +102,22 @@
     <string name="internet_on">ദയവായി! നിങ്ങളുടെ ഇന്റർനെറ്റ് ഓണാക്കുക</string>
     <string name="Network_error">നെറ്റ്‌വർക്ക് പിശക്</string>
     <string name="msgsent">സന്ദേശം അയച്ചു</string>
+    <string name="Update_Profile">അപ്‌ഡേറ്റ്_പ്രൊഫൈൽ</string>
+    <string name="Scheme_name">സ്കീമിന്റെ പേര്</string>
+    <string name="Add_Scheme">സ്കീം ചേർക്കുക</string>
+    <string name="Applicable_region">ബാധകമായ പ്രദേശം</string>
+    <string name="title_activity_add_ecomm">ecomm ചേർക്കുക</string>
+    <string name="first_fragment_label">ആദ്യ ശകലം</string>
+    <string name="second_fragment_label">രണ്ടാമത്തെ ശകലം</string>
+    <string name="next">അടുത്തത്</string>
+    <string name="previous">മുമ്പത്തെ</string>
+    <string name="Product_Description">ഉൽപ്പന്ന വിവരണം</string>
+    <string name="Recommandation">ശുപാർശ</string>
+    <string name="Specification">സ്പെസിഫിക്കേഷൻ</string>
+    <string name="add_product">ഉൽപ്പന്നം ചേർക്കുക</string>
+    <string name="add_to_cart">കാർട്ടിലേക്ക് ചേർക്കുക</string>
+    <string name="qty2">അളവ്</string>
+    <string name="Headline">തലക്കെട്ട്</string>
+    <string name="Publish_news">വാർത്തകൾ പ്രസിദ്ധീകരിക്കുക</string>
+    <string name="title_activity_myorder">മയോർഡർ</string>
 </resources>

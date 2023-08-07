@@ -102,4 +102,22 @@
     <string name="internet_on">தயவு செய்து! உங்கள் இணையத்தை இயக்கவும்</string>
     <string name="Network_error">நெட்வொர்க் பிழை</string>
     <string name="msgsent">செய்தி அனுப்பப்பட்டது</string>
+    <string name="Update_Profile">சுயவிவரத்தைப் புதுப்பிக்கவும்</string>
+    <string name="Scheme_name">திட்டத்தின் பெயர்</string>
+    <string name="Add_Scheme">திட்டத்தைச் சேர்க்கவும்</string>
+    <string name="Applicable_region">பொருந்தக்கூடிய பகுதி</string>
+    <string name="title_activity_add_ecomm">ecomm ஐ சேர்க்கவும்</string>
+    <string name="first_fragment_label">முதல் துண்டு</string>
+    <string name="second_fragment_label">இரண்டாவது துண்டு</string>
+    <string name="next">அடுத்தது</string>
+    <string name="previous">முந்தைய</string>
+    <string name="Product_Description">தயாரிப்பு விளக்கம்</string>
+    <string name="Recommandation">பரிந்துரை</string>
+    <string name="Specification">விவரக்குறிப்பு</string>
+    <string name="add_product">தயாரிப்பு சேர்க்க</string>
+    <string name="add_to_cart">பெட்டகத்தில் சேர்</string>
+    <string name="qty2">அளவு</string>
+    <string name="Headline">தலைப்பு</string>
+    <string name="Publish_news">செய்திகளை வெளியிடுங்கள்</string>
+    <string name="title_activity_myorder">என் ஆர்டர்</string>
 </resources>

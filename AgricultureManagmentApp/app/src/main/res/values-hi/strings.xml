@@ -102,4 +102,22 @@
     <string name="internet_on">कृपया! अपना इंटरनेट चालू करें</string>
     <string name="Network_error">नेटवर्क त्रुटि</string>
     <string name="msgsent">संदेश भेजा गया</string>
+    <string name="Update_Profile">प्रोफ़ाइल अपडेट करें</string>
+    <string name="Scheme_name">योजना का नाम</string>
+    <string name="Add_Scheme">योजना जोड़ें</string>
+    <string name="Applicable_region">लागू क्षेत्र</string>
+    <string name="title_activity_add_ecomm">ईकॉम जोड़ें</string>
+    <string name="first_fragment_label">पहला टुकड़ा</string>
+    <string name="second_fragment_label">दूसरा टुकड़ा</string>
+    <string name="next">अगला</string>
+    <string name="previous">पहले का</string>
+    <string name="Product_Description">उत्पाद वर्णन</string>
+    <string name="Recommandation">अनुशंसा</string>
+    <string name="Specification">विनिर्देश</string>
+    <string name="add_product">उत्पाद जोड़ें</string>
+    <string name="add_to_cart">कार्ट में जोड़ें</string>
+    <string name="qty2">मात्रा</string>
+    <string name="Headline">शीर्षक</string>
+    <string name="Publish_news">समाचार प्रकाशित करें</string>
+    <string name="title_activity_myorder">मेरे आदेश</string>
 </resources>

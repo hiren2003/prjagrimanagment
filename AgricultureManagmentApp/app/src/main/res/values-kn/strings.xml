@@ -102,4 +102,22 @@
     <string name="internet_on">ದಯವಿಟ್ಟು! ನಿಮ್ಮ ಇಂಟರ್ನೆಟ್ ಅನ್ನು ಆನ್ ಮಾಡಿ</string>
     <string name="Network_error">ನೆಟ್‌ವರ್ಕ್ ದೋಷ</string>
     <string name="msgsent">ಸಂದೇಶ ಕಳುಹಿಸಲಾಗಿದೆ</string>
+    <string name="Update_Profile">ಅಪ್‌ಡೇಟ್_ಪ್ರೊಫೈಲ್</string>
+    <string name="Scheme_name">ಯೋಜನೆಯ ಹೆಸರು</string>
+    <string name="Add_Scheme">ಸ್ಕೀಮ್ ಸೇರಿಸಿ</string>
+    <string name="Applicable_region">ಅನ್ವಯವಾಗುವ ಪ್ರದೇಶ</string>
+    <string name="title_activity_add_ecomm">ecomm ಸೇರಿಸಿ</string>
+    <string name="first_fragment_label">ಮೊದಲ ತುಣುಕು</string>
+    <string name="second_fragment_label">ಎರಡನೇ ತುಣುಕು</string>
+    <string name="next">ಮುಂದೆ</string>
+    <string name="previous">ಹಿಂದಿನ</string>
+    <string name="Product_Description">ಉತ್ಪನ್ನ ವಿವರಣೆ</string>
+    <string name="Recommandation">ಶಿಫಾರಸು</string>
+    <string name="Specification">ನಿರ್ದಿಷ್ಟತೆ</string>
+    <string name="add_product">ಉತ್ಪನ್ನವನ್ನು ಸೇರಿಸಿ</string>
+    <string name="add_to_cart">ಕಾರ್ಟ್ಗೆ ಸೇರಿಸಿ</string>
+    <string name="qty2">ಪ್ರಮಾಣ</string>
+    <string name="Headline">ಶೀರ್ಷಿಕೆ</string>
+    <string name="Publish_news">ಸುದ್ದಿ ಪ್ರಕಟಿಸಿ</string>
+    <string name="title_activity_myorder">ಮೈಯೋರ್ಡರ್</string>
 </resources>

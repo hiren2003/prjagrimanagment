@@ -103,4 +103,22 @@
     <string name="internet_on">অনুগ্রহ! আপনার ইন্টারনেট চালু করুন</string>
     <string name="Network_error">নেটওয়ার্ক ত্রুটি</string>
     <string name="msgsent">বার্তা পাঠানো</string>
+    <string name="Update_Profile">প্রফাইল হালনাগাদ</string>
+    <string name="Scheme_name">স্কিমের নাম</string>
+    <string name="Add_Scheme">স্কিম যোগ করুন</string>
+    <string name="Applicable_region">প্রযোজ্য অঞ্চল</string>
+    <string name="title_activity_add_ecomm">ecomm যোগ করুন</string>
+    <string name="first_fragment_label">প্রথম খণ্ড</string>
+    <string name="second_fragment_label">দ্বিতীয় খণ্ড</string>
+    <string name="next">পরবর্তী</string>
+    <string name="previous">আগে</string>
+    <string name="Product_Description">পণ্যের বর্ণনা</string>
+    <string name="Recommandation">সুপারিশ</string>
+    <string name="Specification">স্পেসিফিকেশন</string>
+    <string name="add_product">পণ্য যোগ করুন</string>
+    <string name="add_to_cart">কার্টে যোগ করুন</string>
+    <string name="qty2">পরিমাণ</string>
+    <string name="Headline">শিরোনাম</string>
+    <string name="Publish_news">খবর প্রকাশ করুন</string>
+    <string name="title_activity_myorder">আমার আদেশ</string>
 </resources>

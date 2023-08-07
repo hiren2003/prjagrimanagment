@@ -102,4 +102,22 @@
     <string name="internet_on">ਕ੍ਰਿਪਾ! ਆਪਣਾ ਇੰਟਰਨੈੱਟ ਚਾਲੂ ਕਰੋ</string>
     <string name="Network_error">ਨੈੱਟਵਰਕ ਗੜਬੜ</string>
     <string name="msgsent">ਸੁਨੇਹਾ ਭੇਜਿਆ</string>
+    <string name="Update_Profile">ਅੱਪਡੇਟ_ਪ੍ਰੋਫਾਈਲ</string>
+    <string name="Scheme_name">ਸਕੀਮ ਦਾ ਨਾਮ</string>
+    <string name="Add_Scheme">ਸਕੀਮ ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="Applicable_region">ਲਾਗੂ ਖੇਤਰ</string>
+    <string name="title_activity_add_ecomm">ecomm ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="first_fragment_label">ਪਹਿਲਾ ਟੁਕੜਾ</string>
+    <string name="second_fragment_label">ਦੂਜਾ ਟੁਕੜਾ</string>
+    <string name="next">ਅਗਲਾ</string>
+    <string name="previous">ਪਿਛਲਾ</string>
+    <string name="Product_Description">ਉਤਪਾਦ ਵਰਣਨ</string>
+    <string name="Recommandation">ਸਿਫਾਰਸ਼</string>
+    <string name="Specification">ਨਿਰਧਾਰਨ</string>
+    <string name="add_product">ਉਤਪਾਦ ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="add_to_cart">ਠੇਲ੍ਹੇ ਵਿੱਚ ਪਾਓ</string>
+    <string name="qty2">ਮਾਤਰਾ</string>
+    <string name="Headline">ਸਿਰਲੇਖ</string>
+    <string name="Publish_news">ਖ਼ਬਰਾਂ ਪ੍ਰਕਾਸ਼ਿਤ ਕਰੋ</string>
+    <string name="title_activity_myorder">ਮੇਰਾ ਹੁਕਮ</string>
 </resources>

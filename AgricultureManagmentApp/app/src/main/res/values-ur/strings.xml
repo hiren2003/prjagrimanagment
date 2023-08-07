@@ -102,4 +102,22 @@
     <string name="internet_on">برائے مہربانی! اپنا انٹرنیٹ آن کریں۔</string>
     <string name="Network_error">نیٹ ورک کی خرابی۔</string>
     <string name="msgsent">پیغام چلا گیا</string>
+    <string name="Update_Profile">پروفائل کو اپ ڈیٹ کریں۔</string>
+    <string name="Scheme_name">اسکیم کا نام</string>
+    <string name="Add_Scheme">اسکیم شامل کریں۔</string>
+    <string name="Applicable_region">قابل اطلاق علاقہ</string>
+    <string name="title_activity_add_ecomm">ecomm شامل کریں۔</string>
+    <string name="first_fragment_label">پہلا ٹکڑا</string>
+    <string name="second_fragment_label">دوسرا ٹکڑا</string>
+    <string name="next">اگلے</string>
+    <string name="previous">پچھلا</string>
+    <string name="Product_Description">مصنوعات کی وضاحت</string>
+    <string name="Recommandation">سفارش</string>
+    <string name="Specification">تفصیلات</string>
+    <string name="add_product">مصنوعات شامل کریں</string>
+    <string name="add_to_cart">ٹوکری میں شامل کریں</string>
+    <string name="qty2">مقدار</string>
+    <string name="Headline">سرخی</string>
+    <string name="Publish_news">خبریں شائع کریں۔</string>
+    <string name="title_activity_myorder">میرا حکم</string>
 </resources>

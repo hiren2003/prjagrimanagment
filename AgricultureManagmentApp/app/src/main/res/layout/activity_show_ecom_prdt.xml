@@ -43,6 +43,7 @@
             android:background="@drawable/background"
             android:hint="@string/qty2"
             app:hintEnabled="true"
+            android:visibility="gone"
             app:hintTextColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText

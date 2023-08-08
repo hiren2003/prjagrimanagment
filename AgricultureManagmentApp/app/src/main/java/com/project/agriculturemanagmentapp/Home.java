@@ -23,6 +23,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+import com.gauravk.bubblenavigation.BubbleNavigationLinearView;
+import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
 
 import java.util.Locale;
 
@@ -32,6 +34,7 @@ FrameLayout frameLayout;
 RelativeLayout toolbar;
 ImageView prfpc,imgcart,imgorder;
 TextView txtname;
+BubbleNavigationLinearView bubbleNavigationLinearView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +50,7 @@ TextView txtname;
         frameLayout =findViewById(R.id.fmlayout);
         txtname=findViewById(R.id.txtname);
         imgorder=findViewById(R.id.imgorder);
+        bubbleNavigationLinearView=findViewById(R.id.bottom_navigation_view_linear);
         txtname.setText(sharedPreferences.getString("uname","man"));
         Glide.with(this)
                 .load(sharedPreferences.getString("url","null"))
@@ -82,19 +86,19 @@ TextView txtname;
         btmnv.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
     @Override
     public Unit invoke(MeowBottomNavigation.Model model) {
-        if(model.getId()==1){
+        if(model.getId()==0){
             frameLayout.removeAllViews();
             getSupportFragmentManager().beginTransaction().add(R.id.fmlayout,new Feed()).commit();
-        } else if (model.getId()==2) {
+        } else if (model.getId()==1) {
             frameLayout.removeAllViews();
             getSupportFragmentManager().beginTransaction().add(R.id.fmlayout,new Labour()).commit();
-        } else if (model.getId()==3) {
+        } else if (model.getId()==2) {
             frameLayout.removeAllViews();
             getSupportFragmentManager().beginTransaction().add(R.id.fmlayout,new frghome()).commit();
-        } else if (model.getId()==4) {
+        } else if (model.getId()==3) {
             frameLayout.removeAllViews();
             getSupportFragmentManager().beginTransaction().add(R.id.fmlayout,new Resell()).commit();
-        } else if (model.getId()==5) {
+        } else if (model.getId()==4) {
             frameLayout.removeAllViews();
             getSupportFragmentManager().beginTransaction().add(R.id.fmlayout,new E_commrce()).commit();
         } else {
@@ -103,6 +107,30 @@ TextView txtname;
         return null;
     }
 });
+        bubbleNavigationLinearView.setCurrentActiveItem(2);
+        bubbleNavigationLinearView.setNavigationChangeListener(new BubbleNavigationChangeListener() {
+            @Override
+            public void onNavigationChanged(View view, int position) {
+                if(position==0){
+                    frameLayout.removeAllViews();
+                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout,new Feed()).commit();
+                } else if (position==1) {
+                    frameLayout.removeAllViews();
+                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout,new Labour()).commit();
+                } else if (position==2) {
+                    frameLayout.removeAllViews();
+                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout,new frghome()).commit();
+                } else if (position==3) {
+                    frameLayout.removeAllViews();
+                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout,new Resell()).commit();
+                } else if (position==4) {
+                    frameLayout.removeAllViews();
+                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout,new E_commrce()).commit();
+                } else {
+
+                }
+            }
+        });
 
     }
 

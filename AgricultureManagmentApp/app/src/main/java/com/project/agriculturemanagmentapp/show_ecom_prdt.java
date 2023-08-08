@@ -51,27 +51,24 @@ public class show_ecom_prdt extends AppCompatActivity {
         btn = intent.getIntExtra("btn", 0);
         if (btn == 1) {
             btncart.setVisibility(View.VISIBLE);
-            reference = FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").child(key);
         } else if (btn == 2) {
             btnorder.setVisibility(View.VISIBLE);
             edtqty.setVisibility(View.VISIBLE);
             btnrmcart.setVisibility(View.VISIBLE);
-            reference = FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").child(key);
         } else if (btn == 3) {
             btncancelorder.setVisibility(View.VISIBLE);
-            edtqty.setInputType(InputType.TYPE_NULL);
             edtqty.setVisibility(View.VISIBLE);
         }
-         reference = FirebaseDatabase.getInstance().getReference().child("ECommerce").child(key);
+        reference = FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").child(key);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 model = snapshot.getValue(clsEcommModel.class);
                 Glide.with(show_ecom_prdt.this)
-                        .load(model.getImg())
+                                .load(model.getImg())
                         .into(imageView);
                 txtpname.setText(model.getPname());
-                txtprice.setText(model.getPrice());
+                txtprice.setText("₹"+model.getPrice());
                 txtdes.setText(model.getDes());
                 txtspec.setText(model.getDpec());
                 txtrecom.setText(model.getRecomm());
@@ -108,8 +105,8 @@ public class show_ecom_prdt extends AppCompatActivity {
                 String date = java.util.Calendar.getInstance().get(java.util.Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(java.util.Calendar.MONTH) + "/" + java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);
                 FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Myorder").child(model.getKey()).setValue(model);
                 FirebaseDatabase.getInstance().getReference().child("Orders").child(date).child(model.getKey()).setValue(model);
-                finish();
-            }
+                FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Cart").child(model.getKey()).removeValue();
+                finish();            }
         });
         btncancelorder.setOnClickListener(new View.OnClickListener() {
             @Override

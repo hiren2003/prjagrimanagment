@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,52 +14,78 @@
         tools:targetApi="31">
         <activity
             android:name=".add_news"
-            android:exported="true" >
-
-        </activity>
+            android:exported="false"
+            android:screenOrientation="portrait"
+            />
         <activity android:name=".MyOrder"
-            android:exported="false"/>
+            android:exported="false"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".User_option"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".User_list"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".admin_home"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".Cart"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".show_ecom_prdt"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".add_ecomm"
             android:exported="true"
-            android:label="@string/title_activity_add_ecomm"
-            android:theme="@style/Theme.AgricultureManagmentApp" />
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".add_gov_scheme"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".govermentScheme"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".EditprofileActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".Contact_us"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".Term_Conditions"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".Write_share"
-            android:exported="true" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".add_video"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".add_cultivation_product"
             android:exported="false"
@@ -121,7 +146,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Home"
-            android:exported="true"
+            android:exported="false"
             android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"

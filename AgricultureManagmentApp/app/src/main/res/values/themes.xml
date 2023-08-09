@@ -27,4 +27,6 @@
     </style>
 
     <style name="Theme.AgricultureManagmentApp" parent="Base.Theme.AgricultureManagmentApp" />
+    <style name="SheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+    </style>
 </resources>

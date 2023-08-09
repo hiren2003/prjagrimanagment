@@ -500,7 +500,7 @@
             android:layout_height="60dp"
             android:layout_marginTop="20sp"
             android:layout_margin="10dp"
-            android:background="#4DAC0C"
+            android:background="@drawable/sendotp"
             app:srcCompat="@drawable/baseline_arrow_forward_24"
             app:tint="#FFFFFF"
 

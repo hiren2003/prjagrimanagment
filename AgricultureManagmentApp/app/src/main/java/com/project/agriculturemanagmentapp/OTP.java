@@ -49,7 +49,7 @@ OTP extends AppCompatActivity {
         setContentView(R.layout.activity_otp);
         setLanguage();
         Window window=this.getWindow();
-        window.setStatusBarColor(this.getResources().getColor(R.color.background));
+        window.setStatusBarColor(this.getResources().getColor(R.color.lan));
         Intent i = getIntent();
         Uname = i.getStringExtra("uname");
         Mobile = i.getStringExtra("mo");

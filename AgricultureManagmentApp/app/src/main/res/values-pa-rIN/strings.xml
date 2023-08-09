@@ -120,4 +120,11 @@
     <string name="Headline">ਸਿਰਲੇਖ</string>
     <string name="Publish_news">ਖ਼ਬਰਾਂ ਪ੍ਰਕਾਸ਼ਿਤ ਕਰੋ</string>
     <string name="title_activity_myorder">ਮੇਰਾ ਹੁਕਮ</string>
+    <string name="Animal">ਜਾਨਵਰ</string>
+    <string name="Breed">ਨਸਲ</string>
+    <string name="Age">ਉਮਰ</string>
+    <string name="Weight">ਭਾਰ</string>
+    <string name="Gender">ਲਿੰਗ</string>
+    <string name="Milk_Production">ਦੁੱਧ ਉਤਪਾਦਨ (/Ltr)</string>
+    <string name="year">ਸਾਲ</string>
 </resources>

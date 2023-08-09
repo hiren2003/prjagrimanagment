@@ -121,4 +121,11 @@
     <string name="Headline">শিরোনাম</string>
     <string name="Publish_news">খবর প্রকাশ করুন</string>
     <string name="title_activity_myorder">আমার আদেশ</string>
+    <string name="Animal">পশু</string>
+    <string name="Breed">বংশবৃদ্ধি</string>
+    <string name="Age">বয়স</string>
+    <string name="Weight">ওজন</string>
+    <string name="Gender">লিঙ্গ</string>
+    <string name="Milk_Production">দুধ উৎপাদন (/লিটার)</string>
+    <string name="year">বছর</string>
 </resources>

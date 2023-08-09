@@ -120,4 +120,11 @@
     <string name="Headline">ಶೀರ್ಷಿಕೆ</string>
     <string name="Publish_news">ಸುದ್ದಿ ಪ್ರಕಟಿಸಿ</string>
     <string name="title_activity_myorder">ಮೈಯೋರ್ಡರ್</string>
+    <string name="Animal">ಪ್ರಾಣಿ</string>
+    <string name="Breed">ತಳಿ</string>
+    <string name="Age">ವಯಸ್ಸು</string>
+    <string name="Weight">ತೂಕ</string>
+    <string name="Gender">ಲಿಂಗ</string>
+    <string name="Milk_Production">ಹಾಲು ಉತ್ಪಾದನೆ (/Ltr)</string>
+    <string name="year">ವರ್ಷ</string>
 </resources>

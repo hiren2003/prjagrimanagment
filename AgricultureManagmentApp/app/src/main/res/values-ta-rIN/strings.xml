@@ -120,4 +120,11 @@
     <string name="Headline">தலைப்பு</string>
     <string name="Publish_news">செய்திகளை வெளியிடுங்கள்</string>
     <string name="title_activity_myorder">என் ஆர்டர்</string>
+    <string name="Animal">விலங்கு</string>
+    <string name="Breed">இனம்</string>
+    <string name="Age">வயது</string>
+    <string name="Weight">எடை</string>
+    <string name="Gender">பாலினம்</string>
+    <string name="Milk_Production">பால் உற்பத்தி (/லிட்டர்)</string>
+    <string name="year">ஆண்டு</string>
 </resources>

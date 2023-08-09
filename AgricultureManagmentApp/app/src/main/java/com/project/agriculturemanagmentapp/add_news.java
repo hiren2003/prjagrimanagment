@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -30,6 +31,8 @@ public class add_news extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_news);
+        Window window=this.getWindow();
+        window.setStatusBarColor(this.getResources().getColor(R.color.lan));
         lang=findViewById(R.id.lang);
         imageView=findViewById(R.id.imgnews);
         btnpnews=findViewById(R.id.btnpublishnews);

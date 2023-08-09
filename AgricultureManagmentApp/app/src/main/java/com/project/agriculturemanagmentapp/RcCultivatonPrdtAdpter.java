@@ -2,10 +2,12 @@ package com.project.agriculturemanagmentapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -52,7 +54,8 @@ public class RcCultivatonPrdtAdpter extends FirebaseRecyclerAdapter<ClsCultivati
                 intent.putExtra("key",model.getKey());
                 //  context.startActivity(intent);
                 View view=LayoutInflater.from(context).inflate(R.layout.activity_show_cultivation_product,null,false);
-                BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(context);
+                BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(context,R.style.SheetDialog);
+                bottomSheetDialog.setDismissWithAnimation(true);
                 bottomSheetDialog.setContentView(view);
                 {
                     ImageButton btnwhatsapp,btncall;
@@ -77,6 +80,13 @@ public class RcCultivatonPrdtAdpter extends FirebaseRecyclerAdapter<ClsCultivati
                     txtvillage=view.findViewById(R.id.txtVillage);
                     txtdes=view.findViewById(R.id.txtdes);
                     prfpc=view.findViewById(R.id.profilepc);
+                    FrameLayout btncancel=view.findViewById(R.id.btncancel);
+btncancel.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        bottomSheetDialog.cancel();
+    }
+});
                     btnwhatsapp.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

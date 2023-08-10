@@ -120,4 +120,11 @@
     <string name="Headline">હેડલાઇન</string>
     <string name="Publish_news">સમાચાર પ્રકાશિત કરો</string>
     <string name="title_activity_myorder">મારા ઓર્ડર</string>
+    <string name="Animal">પ્રાણી</string>
+    <string name="Breed">જાતિ</string>
+    <string name="Age">ઉંમર</string>
+    <string name="Weight">વજન</string>
+    <string name="Gender">જાતિ</string>
+    <string name="Milk_Production">દૂધ ઉત્પાદન (/લિટર)</string>
+    <string name="year">વર્ષ</string>
 </resources>

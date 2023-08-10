@@ -120,4 +120,11 @@
     <string name="Headline">శీర్షిక</string>
     <string name="Publish_news">వార్తలను ప్రచురించండి</string>
     <string name="title_activity_myorder">నా ఆజ్ఞ</string>
+    <string name="Animal">జంతువు</string>
+    <string name="Breed">జాతి</string>
+    <string name="Age">వయస్సు</string>
+    <string name="Weight">బరువు</string>
+    <string name="Gender">లింగం</string>
+    <string name="Milk_Production">పాల ఉత్పత్తి (/లీటర్)</string>
+    <string name="year">సంవత్సరం</string>
 </resources>

@@ -120,4 +120,11 @@
     <string name="Headline">शीर्षक</string>
     <string name="Publish_news">समाचार प्रकाशित करें</string>
     <string name="title_activity_myorder">मेरे आदेश</string>
+    <string name="Animal">जानवर</string>
+    <string name="Breed">नस्ल</string>
+    <string name="Age">आयु</string>
+    <string name="Weight">वज़न</string>
+    <string name="Gender">लिंग</string>
+    <string name="Milk_Production">दूध उत्पादन(/लीटर)</string>
+    <string name="year">वर्ष</string>
 </resources>

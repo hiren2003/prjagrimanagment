@@ -120,5 +120,12 @@
     <string name="Headline">Headline</string>
     <string name="Publish_news">Publish news</string>
     <string name="title_activity_myorder">Myorder</string>
+    <string name="Animal">Animal</string>
+    <string name="Breed">Breed</string>
+    <string name="Age">Age</string>
+    <string name="Weight">Weight</string>
+    <string name="Gender">Gender</string>
+    <string name="Milk_Production">Milk Production(/Ltr)</string>
+    <string name="year">Year</string>
 
 </resources>

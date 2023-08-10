@@ -120,4 +120,11 @@
     <string name="Headline">سرخی</string>
     <string name="Publish_news">خبریں شائع کریں۔</string>
     <string name="title_activity_myorder">میرا حکم</string>
+    <string name="Animal">جانور</string>
+    <string name="Breed">نسل</string>
+    <string name="Age">عمر</string>
+    <string name="Weight">وزن</string>
+    <string name="Gender">صنف</string>
+    <string name="Milk_Production">دودھ کی پیداوار (/Ltr)</string>
+    <string name="year">سال</string>
 </resources>

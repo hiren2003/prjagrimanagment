@@ -120,4 +120,11 @@
     <string name="Headline">തലക്കെട്ട്</string>
     <string name="Publish_news">വാർത്തകൾ പ്രസിദ്ധീകരിക്കുക</string>
     <string name="title_activity_myorder">മയോർഡർ</string>
+    <string name="Animal">മൃഗം</string>
+    <string name="Breed">ഇനം</string>
+    <string name="Age">പ്രായം</string>
+    <string name="Weight">ഭാരം</string>
+    <string name="Gender">ലിംഗഭേദം</string>
+    <string name="Milk_Production">പാൽ ഉത്പാദനം(/ലിറ്റർ)</string>
+    <string name="year">വർഷം</string>
 </resources>

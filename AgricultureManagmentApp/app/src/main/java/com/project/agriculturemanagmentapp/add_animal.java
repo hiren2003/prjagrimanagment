@@ -76,7 +76,42 @@ public class add_animal extends AppCompatActivity {
         btnsavedata.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                String key=FirebaseDatabase.getInstance().getReference().child("animals").push().getKey();
+                StorageReference firebaseStorage=FirebaseStorage.getInstance().getReference().child("animals").child(key);
+                firebaseStorage.putFile(selectedimg).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        firebaseStorage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                SharedPreferences sharedPreferences1=getSharedPreferences("data",MODE_PRIVATE);
+                                clsAnimalModel clsAnimalModel=new clsAnimalModel(
+                                        key,
+                                        spntype.getSelectedItem().toString(),
+                                        edtspeice.getText().toString().toString(),
+                                        edtyear.getText().toString(),
+                                        edtmonth.getText().toString(),
+                                        edtmilk.getText().toString(),
+                                        edtweight.getText().toString(),
+                                        edtmo.getText().toString(),
+                                        edtprc.getText().toString(),
+                                        edtstate.getText().toString(),
+                                        edtdistrict.getText().toString(),
+                                        edttehsil.getText().toString(),
+                                        edtvillage.getText().toString(),
+                                        edtdescription.getText().toString(),
+                                        uri.toString(),
+                                        sharedPreferences1.getString("uname","null"),
+                                        sharedPreferences1.getString("url","unknown"),
+                                        Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR)
+                                        );
+                                FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences1.getString("mo","1234567890")).child("Resell").child("animal").child(key).setValue(clsAnimalModel);
+                                FirebaseDatabase.getInstance().getReference().child("animals").child(key).setValue(clsAnimalModel);
+                                finish();
+                            }
+                        });
+                    }
+                });
                     }
                 });
 

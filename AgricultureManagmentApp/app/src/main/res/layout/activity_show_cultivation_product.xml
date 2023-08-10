@@ -11,6 +11,7 @@
        android:id="@+id/btncancel"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
+       android:layout_marginBottom="10dp"
        android:layout_centerHorizontal="true"
        android:layout_marginTop="10dp">
        <ImageView
@@ -19,13 +20,11 @@
            android:foregroundGravity="center_vertical"
            android:src="@drawable/cancel" />
    </FrameLayout>
-<androidx.core.widget.NestedScrollView
-    android:layout_width="match_parent"
-    android:layout_marginTop="100dp"
-    android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:padding="10dp"
         android:background="@drawable/layfeedback"
         android:orientation="vertical">
         <LinearLayout
@@ -44,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-            android:layout_marginStart="10dp"
+                android:layout_marginStart="10dp"
                 >
                 <TextView
                     android:id="@+id/txtuname"
@@ -69,262 +68,286 @@
             android:background="#525151"
             android:layout_margin="10dp"
             android:layout_height="2dp"/>
-
-        <ImageView
-            android:id="@+id/imgprdt"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_margin="10dp"
-            android:scaleType="fitXY"
-            />
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:orientation="horizontal">
-            <TextView
+            android:layout_height="match_parent">
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/Category"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:textColor="#000000"
-                />
-            <TextView
-                android:id="@+id/txtpcategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=":  Fruits"
-                android:layout_marginLeft="10dp"
-                android:textSize="20dp"
-                android:textColor="#000000"
-                />
-        </LinearLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Name_of_product"
-            android:textSize="10dp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            />
-        <TextView
-            android:id="@+id/txtpname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sugar Cane"
-            android:textSize="20dp"
-            android:textColor="#000000"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/specie"
-            android:textSize="10dp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            />
-        <TextView
-            android:id="@+id/txtspeice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sugar Cane"
-            android:textSize="20dp"
-            android:textColor="#000000"
-            />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Quantity"
-            android:textSize="10dp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            />
-        <TextView
-            android:id="@+id/txtpqty"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="200 Kilogram"
-            android:textSize="20dp"
-            android:textColor="#000000"
-            />
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Price"
-            android:textSize="10dp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            />
-        <TextView
-            android:id="@+id/txtprc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="$500"
-            android:textSize="20dp"
-            android:textColor="#000000"
-            />
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Total_Payment"
-            android:textSize="10dp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            />
-        <TextView
-            android:id="@+id/txtpayable"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="$500000"
-            android:textSize="20dp"
-            android:textColor="#000000"
-            />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
+
+                <ImageView
+                    android:id="@+id/imgprdt"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_margin="10dp"
+                    android:scaleType="fitXY"
+                    />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/State"
-                    android:textColor="#000000"
+                    android:text="@string/Category"
                     android:textSize="10dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/txtstate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Gujrat"
+                    android:textStyle="bold"
                     android:textColor="#000000"
-                    android:textSize="20dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:orientation="vertical">
-
+                    android:fontFamily="@font/mavenpro"
+                    />
+                <TextView
+                    android:id="@+id/txtpcategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fruits"
+                    android:fontFamily="@font/mavenpro"
+                    android:textSize="20dp"
+                    android:textColor="#000000"
+                    />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/District"
-                    android:textColor="#000000"
+                    android:text="@string/Name_of_product"
                     android:textSize="10dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/txtdistrict"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Surat"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/mavenpro"
                     android:textColor="#000000"
-                    android:textSize="20dp" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                    />
+                <TextView
+                    android:id="@+id/txtpname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sugar Cane"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/mavenpro"
+                    android:textColor="#000000"
+                    />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/Tehsil"
+                    android:text="@string/specie"
                     android:textSize="10dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/mavenpro"
+                    android:textColor="#000000"
+                    />
+                <TextView
+                    android:id="@+id/txtspeice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sugar Cane"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/mavenpro"
+                    android:textColor="#000000"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Quantity"
+                    android:textSize="10dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/mavenpro"
+                    android:textColor="#000000"
+                    />
+                <TextView
+                    android:id="@+id/txtpqty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="200 Kilogram"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/mavenpro"
+                    android:textColor="#000000"
+                    />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Price"
+                    android:textSize="10dp"
+                    android:fontFamily="@font/mavenpro"
                     android:textStyle="bold"
                     android:textColor="#000000"
                     />
                 <TextView
-                    android:id="@+id/txttehsil"
+                    android:id="@+id/txtprc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Surat"
+                    android:text="$500"
+                    android:fontFamily="@font/mavenpro"
                     android:textSize="20dp"
                     android:textColor="#000000"
                     />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:orientation="vertical">
+
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/city_town_village"
+                    android:text="@string/Total_Payment"
                     android:textSize="10dp"
                     android:textStyle="bold"
                     android:textColor="#000000"
+                    android:fontFamily="@font/mavenpro"
                     />
                 <TextView
-                    android:id="@+id/txtVillage"
+                    android:id="@+id/txtpayable"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Surat"
+                    android:text="$500000"
+                    android:fontFamily="@font/mavenpro"
                     android:textSize="20dp"
                     android:textColor="#000000"
                     />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/State"
+                            android:fontFamily="@font/mavenpro"
+                            android:textColor="#000000"
+                            android:textSize="10dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtstate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Gujrat"
+                            android:fontFamily="@font/mavenpro"
+                            android:textColor="#000000"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/District"
+                            android:textColor="#000000"
+                            android:fontFamily="@font/mavenpro"
+                            android:textSize="10dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtdistrict"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Surat"
+                            android:textColor="#000000"
+                            android:fontFamily="@font/mavenpro"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/Tehsil"
+                            android:textSize="10dp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/mavenpro"
+                            android:textColor="#000000"
+                            />
+                        <TextView
+                            android:id="@+id/txttehsil"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Surat"
+                            android:textSize="20dp"
+                            android:fontFamily="@font/mavenpro"
+                            android:textColor="#000000"
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/city_town_village"
+                            android:textSize="10dp"
+                            android:fontFamily="@font/mavenpro"
+                            android:textStyle="bold"
+                            android:textColor="#000000"
+                            />
+                        <TextView
+                            android:id="@+id/txtVillage"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Surat"
+                            android:fontFamily="@font/mavenpro"
+                            android:textSize="20dp"
+                            android:textColor="#000000"
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Description"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/mavenpro"
+                    android:textSize="10dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtdes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="This is Description"                    android:fontFamily="@font/mavenpro"
+                    android:textColor="#000000"
+                    android:textSize="20dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageButton
+                        android:id="@+id/btnwhatsapp"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/whatsapp"
+                        android:scaleType="centerInside"
+                        android:backgroundTint="#CFE8B2"
+                        android:layout_weight="1"/>
+                    <ImageButton
+                        android:id="@+id/btncall"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/phone"
+                        android:scaleType="centerInside"
+                        android:backgroundTint="#E2D987"
+                        android:layout_weight="1"/>
+
+                </LinearLayout>
+
             </LinearLayout>
 
-        </LinearLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Description"
-            android:textColor="#000000"
-            android:textSize="10dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/txtdes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="This is Description"
-            android:textColor="#000000"
-            android:textSize="20dp" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageButton
-                android:id="@+id/btnwhatsapp"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:src="@drawable/whatsapp"
-                android:scaleType="centerInside"
-                android:backgroundTint="#CFE8B2"
-                android:layout_weight="1"/>
-            <ImageButton
-                android:id="@+id/btncall"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:src="@drawable/phone"
-                android:scaleType="centerInside"
-                android:backgroundTint="#E2D987"
-                android:layout_weight="1"/>
-
-        </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
 
     </LinearLayout>
-
-</androidx.core.widget.NestedScrollView>
 </RelativeLayout>

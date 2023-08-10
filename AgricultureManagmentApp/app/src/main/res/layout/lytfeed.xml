@@ -104,7 +104,26 @@
         android:fitsSystemWindows="true"
         android:visibility="gone"
         />
-
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:background="#525151"
+        android:layout_margin="10dp"
+        android:layout_height="2dp"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal">
+        <ImageView
+            android:id="@+id/share"
+            android:scaleType="centerInside"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:fitsSystemWindows="true"
+            android:src="@drawable/share2"
+            />
+    </LinearLayout>
 </LinearLayout>
 
 </androidx.cardview.widget.CardView>

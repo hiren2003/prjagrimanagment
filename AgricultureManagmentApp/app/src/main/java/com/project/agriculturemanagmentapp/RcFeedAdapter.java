@@ -1,6 +1,7 @@
 package com.project.agriculturemanagmentapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -26,6 +27,8 @@ import com.squareup.picasso.Picasso;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
+
+import static androidx.core.content.ContextCompat.startActivity;
 
 public class RcFeedAdapter extends FirebaseRecyclerAdapter<clsFeedModel,RcFeedAdapter.ViewHolder> {
     /**
@@ -78,6 +81,22 @@ if (model.mediatype.equals("1")){
                 .load(model.getPrfpc())
                 .circleCrop()
                 .into(holder.prfpc);
+        holder.imgshare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+                intent.putExtra(android.content.Intent.EXTRA_SUBJECT,model.getDes());
+                intent.setType("text/plain");
+                if (model.mediatype.equals("1")){
+                    intent.putExtra(android.content.Intent.EXTRA_TEXT, model.getPost()+"\n"+model.getDes());
+                }
+                else{
+                    intent.putExtra(android.content.Intent.EXTRA_TEXT,model.getDes());
+                }
+                context.startActivity(Intent.createChooser(intent,"Choose App"));
+            }
+
+        });
         holder.btndelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,7 +128,7 @@ if (model.mediatype.equals("1")){
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView prfpc,imgpost;
+        ImageView prfpc,imgpost,imgshare;
         TextView txtuname,txtdes,txtdate;
         ImageView btndelete;
         VideoView videoView;
@@ -122,6 +141,8 @@ if (model.mediatype.equals("1")){
             btndelete=itemView.findViewById(R.id.btndelete);
             txtdes=itemView.findViewById(R.id.txtdes);
             videoView=itemView.findViewById(R.id.videoview);
+            imgshare=itemView.findViewById(R.id.share);
+
         }
     }
 }

@@ -1,6 +1,8 @@
 package com.project.agriculturemanagmentapp;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -17,6 +19,8 @@ import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -25,7 +29,10 @@ import com.squareup.picasso.Picasso;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import static androidx.core.content.ContextCompat.startActivity;
 
 public class RcFeedAdapter extends FirebaseRecyclerAdapter<clsFeedModel,RcFeedAdapter.ViewHolder> {
     /**
@@ -78,6 +85,60 @@ if (model.mediatype.equals("1")){
                 .load(model.getPrfpc())
                 .circleCrop()
                 .into(holder.prfpc);
+        holder.imgshare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+                intent.putExtra(android.content.Intent.EXTRA_SUBJECT,model.getDes());
+                intent.setType("text/plain");
+                if (model.mediatype.equals("1")){
+                    intent.putExtra(android.content.Intent.EXTRA_TEXT, model.getPost()+"\n"+model.getDes());
+                }
+                else{
+                    intent.putExtra(android.content.Intent.EXTRA_TEXT,model.getDes());
+                }
+                context.startActivity(Intent.createChooser(intent,"Choose App"));
+            }
+
+        });
+        holder.imgcomment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(context);
+                View view=LayoutInflater.from(context).inflate(R.layout.lytcomments,null,false);
+                ImageView addcomment=view.findViewById(R.id.postcomment);
+                TextInputEditText edtcomment=view.findViewById(R.id.edtcomment);
+                RecyclerView rccomment=view.findViewById(R.id.rccomment);
+                FirebaseRecyclerOptions<clsCommentModel> options=new FirebaseRecyclerOptions.Builder<clsCommentModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Feed_Comments").child(model.getKey()), clsCommentModel.class)
+                        .build();
+                rccomment.setLayoutManager(new LinearLayoutManager(context));
+                RccommentAdapter rccommentAdapter=new RccommentAdapter(options,context,model.getKey());
+                rccomment.setAdapter(rccommentAdapter);
+                rccommentAdapter.startListening();
+                bottomSheetDialog.setDismissWithAnimation(true);
+                bottomSheetDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialog) {
+                        rccommentAdapter.stopListening();
+                    }
+                });
+                addcomment.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SharedPreferences sharedPreferences = context.getSharedPreferences("data", Context.MODE_PRIVATE);
+                        String mo = sharedPreferences.getString("mo", "1234567890");
+                        String key = FirebaseDatabase.getInstance().getReference().child("Feed").child(model.getKey()).child("comments").push().getKey();
+                        clsCommentModel clsCommentModel = new clsCommentModel(key, sharedPreferences.getString("uname", "unknown"), sharedPreferences.getString("url", "null").toString(), edtcomment.getText().toString());
+                        FirebaseDatabase.getInstance().getReference().child("Feed_Comments").child(model.getKey()).child(key).setValue(clsCommentModel);
+                        edtcomment.setText("");
+                        Toast.makeText(context, "Comment Added", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                bottomSheetDialog.setContentView(view);
+                bottomSheetDialog.show();
+            }
+        });
         holder.btndelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,7 +170,7 @@ if (model.mediatype.equals("1")){
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView prfpc,imgpost;
+        ImageView prfpc,imgpost,imgshare,imgcomment;
         TextView txtuname,txtdes,txtdate;
         ImageView btndelete;
         VideoView videoView;
@@ -122,6 +183,8 @@ if (model.mediatype.equals("1")){
             btndelete=itemView.findViewById(R.id.btndelete);
             txtdes=itemView.findViewById(R.id.txtdes);
             videoView=itemView.findViewById(R.id.videoview);
+            imgshare=itemView.findViewById(R.id.share);
+            imgcomment=itemView.findViewById(R.id.comment);
         }
     }
 }

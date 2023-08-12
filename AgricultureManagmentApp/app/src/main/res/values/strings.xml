@@ -130,6 +130,8 @@
     <string name="year">Year</string>
     <string name="month">Month</string>
     <string name="Price2">Price</string>
+    <string name="KiloGram2">KiloGram</string>
+    <string name="Milk_Production2">Milk Production/Ltr</string>
     <string-array name="animal_type">
         <item>Sheep</item>
         <item>Goat</item>

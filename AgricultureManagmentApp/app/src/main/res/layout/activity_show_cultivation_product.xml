@@ -5,342 +5,559 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/srcview"
-    android:background="#00000000"
+    android:background="@drawable/topsellbackl"
     tools:context=".show_CultivationProduct">
    <FrameLayout
        android:id="@+id/btncancel"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_marginBottom="10dp"
        android:layout_centerHorizontal="true"
        android:layout_marginTop="10dp">
        <ImageView
            android:layout_width="50dp"
            android:layout_height="50dp"
            android:foregroundGravity="center_vertical"
-           android:src="@drawable/cancel" />
+           android:src="@drawable/close" />
    </FrameLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:padding="10dp"
-        android:background="@drawable/layfeedback"
+        android:layout_marginTop="90dp"
         android:orientation="vertical">
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageView
-                android:id="@+id/profilepc"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/baseline_account_circle_24"
-                />
+            android:background="@drawable/layfeedback"
+            android:orientation="vertical">
             <LinearLayout
                 android:layout_width="wrap_content"
+                android:layout_marginTop="20dp"
+                android:id="@+id/hh"
+                android:layout_below="@id/btncancel"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/layfeedback"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginStart="10dp"
-                >
-                <TextView
-                    android:id="@+id/txtuname"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="John Thomsan"
-                    android:textSize="15dp"
-                    android:fontFamily="@font/alegreya_sc_bold"
-                    android:textStyle="bold"
-                    />
-                <TextView
-                    android:id="@+id/txtdate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="12/10/2023"
-                    />
-            </LinearLayout>
-
-        </LinearLayout>
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:background="#525151"
-            android:layout_margin="10dp"
-            android:layout_height="2dp"/>
-        <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-
+                android:orientation="horizontal">
                 <ImageView
-                    android:id="@+id/imgprdt"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:layout_margin="10dp"
-                    android:scaleType="fitXY"
-                    />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Category"
-                    android:textSize="10dp"
-                    android:textStyle="bold"
-                    android:textColor="#000000"
-                    android:fontFamily="@font/mavenpro"
-                    />
-                <TextView
-                    android:id="@+id/txtpcategory"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Fruits"
-                    android:fontFamily="@font/mavenpro"
-                    android:textSize="20dp"
-                    android:textColor="#000000"
-                    />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Name_of_product"
-                    android:textSize="10dp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/mavenpro"
-                    android:textColor="#000000"
-                    />
-                <TextView
-                    android:id="@+id/txtpname"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Sugar Cane"
-                    android:textSize="20dp"
-                    android:fontFamily="@font/mavenpro"
-                    android:textColor="#000000"
-                    />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/specie"
-                    android:textSize="10dp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/mavenpro"
-                    android:textColor="#000000"
-                    />
-                <TextView
-                    android:id="@+id/txtspeice"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Sugar Cane"
-                    android:textSize="20dp"
-                    android:fontFamily="@font/mavenpro"
-                    android:textColor="#000000"
-                    />
+                    android:id="@+id/profilepc"
+                    android:layout_width="40dp"
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Quantity"
-                    android:textSize="10dp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/mavenpro"
-                    android:textColor="#000000"
-                    />
-                <TextView
-                    android:id="@+id/txtpqty"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="200 Kilogram"
-                    android:textSize="20dp"
-                    android:fontFamily="@font/mavenpro"
-                    android:textColor="#000000"
-                    />
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Price"
-                    android:textSize="10dp"
-                    android:fontFamily="@font/mavenpro"
-                    android:textStyle="bold"
-                    android:textColor="#000000"
-                    />
-                <TextView
-                    android:id="@+id/txtprc"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="$500"
-                    android:fontFamily="@font/mavenpro"
-                    android:textSize="20dp"
-                    android:textColor="#000000"
-                    />
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Total_Payment"
-                    android:textSize="10dp"
-                    android:textStyle="bold"
-                    android:textColor="#000000"
-                    android:fontFamily="@font/mavenpro"
-                    />
-                <TextView
-                    android:id="@+id/txtpayable"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="$500000"
-                    android:fontFamily="@font/mavenpro"
-                    android:textSize="20dp"
-                    android:textColor="#000000"
+                    android:layout_height="40dp"
+                    android:src="@drawable/baseline_account_circle_24"
                     />
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="10dp"
+                    >
+                    <TextView
+                        android:id="@+id/txtuname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="John Thomsan"
+                        android:textSize="15dp"
+                        android:fontFamily="@font/alegreya_sc_bold"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:id="@+id/txtdate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/lightt"
+                        android:textSize="15dp"
+                        android:text="12/10/2023"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:background="@color/frame"
+                android:layout_below="@+id/hh"
+                android:layout_margin="12dp"
+                android:layout_height="2dp"/>
+        </LinearLayout>
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#f4f4f4"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="290dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imgprdt"
+                        android:layout_width="300dp"
+                        android:layout_height="250dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        />
+                </LinearLayout>
+                <FrameLayout
+                    android:layout_width="20dp"
+                    android:layout_gravity="center"
+                    android:background="#39C139"
+                    android:layout_below="@+id/hh"
+                    android:layout_margin="12dp"
+                    android:layout_height="4dp"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:orientation="horizontal">
 
+                    <TextView
+                        android:id="@+id/txtpname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/arial"
+                        android:text="Sugar Cane"
+                        android:textColor="#000000"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="15dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:layout_gravity="center_horizontal"
+                            android:text="@string/Category"
+                            android:textColor="@color/lightt"
+                            android:textSize="15dp"
+                             />
+
+                        <TextView
+                            android:id="@+id/txtpcategory"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Fruits"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/federo"
+                            android:layout_gravity="center_horizontal"
+                            android:textColor="#000000"
+                            android:textSize="15dp" />
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:layout_width="2dp"
+                        android:layout_gravity="center"
+                        android:background="@color/frame"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_height="50dp"/>
+                    <LinearLayout
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:text="@string/Category"
+                            android:layout_gravity="center_horizontal"
+                            android:textColor="@color/lightt"
+                            android:textSize="15dp"
+                            />
+
+                        <TextView
+                            android:id="@+id/txtpmobile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Fruits"
+                            android:fontFamily="@font/federo"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#000000"
+                            android:textStyle="bold"
+                            android:textSize="15dp" />
+
+
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:layout_width="2dp"
+                        android:layout_gravity="center"
+                        android:background="@color/frame"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_height="50dp"/>
+                    <LinearLayout
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:text="@string/mobile_no"
+                            android:textColor="@color/lightt"
+                            android:textSize="15dp"
+                            android:layout_gravity="center_horizontal"
+                             />
+
+                        <TextView
+                            android:id="@+id/txtpnn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="98249 45785"
+                            android:fontFamily="@font/federo"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#000000"
+                            android:textStyle="bold"
+                            android:textSize="15dp" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+                <FrameLayout
+                    android:layout_width="350dp"
+                    android:background="@color/frame"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_below="@+id/hh"
+                    android:layout_margin="12dp"
+                    android:layout_height="2dp"/>
+               <LinearLayout
+                   android:layout_width="370dp"
+                   android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                   android:orientation="horizontal">
+                   <LinearLayout
+                       android:layout_width="130dp"
+                       android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                       android:layout_marginLeft="20dp"
+                       android:orientation="vertical">
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:text="Specie"
+                           android:textSize="15dp"
+                           android:layout_gravity="center_horizontal"
+                           android:textColor="@color/lightt"
+                           />
+                       <TextView
+                           android:id="@+id/txtspeice"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:text="Sugar Cane"
+                           android:layout_marginTop="5dp"
+                           android:textSize="15dp"
+                           android:textStyle="bold"
+                           android:textColor="#000000"
+                           />
+                   </LinearLayout>
+                   <FrameLayout
+                       android:layout_width="2dp"
+                       android:layout_gravity="center"
+                       android:background="@color/frame"
+                       android:layout_marginLeft="40dp"
+                       android:layout_height="50dp"/>
+                   <LinearLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center_vertical"
+                       android:layout_marginLeft="30dp"
+                       android:orientation="vertical">
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:text="Quantity(In kg)"
+                           android:textSize="15dp"
+                           android:textColor="@color/lightt"
+                           />
+                       <TextView
+                           android:id="@+id/txtpqty"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:text="200 Kilogram"
+                           android:layout_marginTop="5dp"
+                           android:textSize="15dp"
+                           android:textStyle="bold"
+                           android:textColor="#000000"
+                           />
+                   </LinearLayout>
+               </LinearLayout>
+                <LinearLayout
+                    android:layout_width="370dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Price(In kg)"
+                            android:textSize="15dp"
+                            android:textColor="@color/lightt"
+                            />
+                        <TextView
+                            android:id="@+id/txtprc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="$500"
+                            android:textSize="15dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#000000"
+                            />
+
+                    </LinearLayout>
+                    <FrameLayout
+                        android:layout_width="2dp"
+                        android:layout_gravity="center"
+                        android:background="@color/frame"
+                        android:layout_marginLeft="30dp"
+                        android:layout_height="50dp"/>
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/Total_Payment"
+                            android:textSize="15dp"
+                            android:textColor="@color/lightt"
+                            />
+                        <TextView
+                            android:id="@+id/txtpayable"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="$500000"
+                            android:textSize="15dp"
+                            android:layout_marginTop="5dp"
+                            android:textStyle="bold"
+                            android:textColor="#000000"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="370dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
                         android:orientation="vertical">
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/State"
-                            android:fontFamily="@font/mavenpro"
-                            android:textColor="#000000"
-                            android:textSize="10dp"
-                            android:textStyle="bold" />
+                            android:textColor="@color/lightt"
+                            android:textSize="15dp" />
 
                         <TextView
                             android:id="@+id/txtstate"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Gujrat"
-                            android:fontFamily="@font/mavenpro"
                             android:textColor="#000000"
-                            android:textSize="20dp" />
+                            android:textStyle="bold"
+                            android:layout_marginTop="5dp"
+                            android:textSize="15dp" />
                     </LinearLayout>
-
+                    <FrameLayout
+                        android:layout_width="2dp"
+                        android:layout_gravity="center"
+                        android:background="@color/frame"
+                        android:layout_marginLeft="30dp"
+                        android:layout_height="50dp"/>
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="30dp"
                         android:orientation="vertical">
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/District"
-                            android:textColor="#000000"
-                            android:fontFamily="@font/mavenpro"
-                            android:textSize="10dp"
-                            android:textStyle="bold" />
+                            android:textColor="@color/lightt"
+                            android:textSize="15dp"
+                             />
 
                         <TextView
                             android:id="@+id/txtdistrict"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Surat"
+                            android:layout_marginTop="5dp"
                             android:textColor="#000000"
-                            android:fontFamily="@font/mavenpro"
-                            android:textSize="20dp" />
+                            android:textSize="15dp"
+                            android:textStyle="bold"/>
                     </LinearLayout>
 
                 </LinearLayout>
 
+
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="370dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
                     android:orientation="horizontal">
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="140dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
                         android:orientation="vertical">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/Tehsil"
-                            android:textSize="10dp"
-                            android:textStyle="bold"
-                            android:fontFamily="@font/mavenpro"
-                            android:textColor="#000000"
+                            android:textSize="15dp"
+                            android:textColor="@color/lightt"
                             />
                         <TextView
                             android:id="@+id/txttehsil"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
                             android:text="Surat"
-                            android:textSize="20dp"
-                            android:fontFamily="@font/mavenpro"
+                            android:textSize="15dp"
+                            android:textStyle="bold"
                             android:textColor="#000000"
                             />
                     </LinearLayout>
+                    <FrameLayout
+                        android:layout_width="2dp"
+                        android:layout_gravity="center"
+                        android:background="@color/frame"
+                        android:layout_marginLeft="30dp"
+                        android:layout_height="50dp"/>
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="30dp"
                         android:orientation="vertical">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/city_town_village"
-                            android:textSize="10dp"
-                            android:fontFamily="@font/mavenpro"
-                            android:textStyle="bold"
-                            android:textColor="#000000"
+                            android:textSize="15dp"
+                            android:textColor="@color/lightt"
                             />
                         <TextView
                             android:id="@+id/txtVillage"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Surat"
-                            android:fontFamily="@font/mavenpro"
-                            android:textSize="20dp"
+                            android:textSize="15dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="5dp"
                             android:textColor="#000000"
                             />
                     </LinearLayout>
 
                 </LinearLayout>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Description"
-                    android:textColor="#000000"
-                    android:fontFamily="@font/mavenpro"
-                    android:textSize="10dp"
-                    android:textStyle="bold" />
+               <LinearLayout
+                   android:layout_width="370dp"
+                   android:layout_height="match_parent"
+                   android:layout_gravity="center_horizontal"
+                   android:layout_marginTop="15dp"
+                   android:orientation="vertical">
 
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="20dp"
+                       android:text="@string/Description"
+                       android:textColor="@color/lightt"
+                       android:textSize="15dp" />
+
+                   <TextView
+                       android:id="@+id/txtdes"
+                       android:layout_width="330dp"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="start"
+                       android:text="This is Description"
+                       android:textColor="#000000"
+                       android:textStyle="bold"
+                       android:layout_marginLeft="20dp"
+                       android:layout_marginTop="5dp"
+                       android:textSize="15dp" />
+               </LinearLayout>
                 <TextView
-                    android:id="@+id/txtdes"
-                    android:layout_width="match_parent"
+                    android:layout_width="330dp"
                     android:layout_height="wrap_content"
-                    android:text="This is Description"                    android:fontFamily="@font/mavenpro"
-                    android:textColor="#000000"
-                    android:textSize="20dp" />
+                    android:layout_gravity="start"
+                    android:text="Share here.."
+                    android:textColor="@color/lightt"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="15dp"
+                    android:textSize="15dp" />
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="370dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center_horizontal"
                     android:orientation="horizontal">
                     <ImageButton
                         android:id="@+id/btnwhatsapp"
-                        android:layout_width="0dp"
+                        android:layout_width="10dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/whatsapp"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/whatsapp1"
+                        android:backgroundTint="#DDDCDC"
                         android:scaleType="centerInside"
-                        android:backgroundTint="#CFE8B2"
                         android:layout_weight="1"/>
                     <ImageButton
                         android:id="@+id/btncall"
-                        android:layout_width="0dp"
+                        android:layout_width="10dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/phone"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/phone1"
+                        android:backgroundTint="#DDDCDC"
                         android:scaleType="centerInside"
-                        android:backgroundTint="#E2D987"
                         android:layout_weight="1"/>
 
                 </LinearLayout>

@@ -77,12 +77,13 @@
     <string name="Interest">I am interested in your vacancy for farmer</string>
     <string name="sell">Sell</string>
     <string name="Name_of_product">Name of product</string>
-    <string name="specie">specie</string>
+    <string name="specie">Specie</string>
     <string name="Quantity">Quantity(In KiloGram)</string>
     <string name="Price">Price(Per KiloGram)</string>
     <string name="Total_Payment">Total Payment</string>
     <string name="Choose_Image">Choose Image</string>
     <string name="Category">Category</string>
+    <string name="mobile_no">Mobile no.</string>
     <string name="Kilogram">Kilogram</string>
     <string name="animals">animals</string>
     <string name="Cultivation_Product">Cultivation_Product</string>

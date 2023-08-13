@@ -10,6 +10,8 @@
     <color name="Light_green">#afeaaf</color>
     <color name="background">#B6D68C</color>
     <color name="loginback">#f4f4f4</color>
+    <color name="frame">#e3e7ea</color>
+    <color name="lightt">#6b747b</color>
     <color name="langback">#51A41E</color>
     <color name="text_input_layout_stroke_color">#065007</color>
     <color name="text_color_hint">#4A8A4B</color>

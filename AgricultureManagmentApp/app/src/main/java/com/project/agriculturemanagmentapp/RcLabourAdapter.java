@@ -8,6 +8,8 @@ import android.telephony.SmsManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -35,6 +37,8 @@ public class RcLabourAdapter extends FirebaseRecyclerAdapter<clsLaborModel,RcLab
 
     @Override
     protected void onBindViewHolder(@NonNull RcLabourAdapter.ViewHolder holder, int position, @NonNull clsLaborModel model) {
+        Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
+        holder.itemView.setAnimation(anim);
         holder.txtlname.setText(model.getLname());
         holder.txtlmo.setText(model.getLmo());
         holder.txtlloc.setText(model.getLloc());

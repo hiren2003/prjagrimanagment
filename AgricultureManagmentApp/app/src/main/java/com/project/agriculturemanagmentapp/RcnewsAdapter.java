@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,6 +34,8 @@ public class RcnewsAdapter extends FirebaseRecyclerAdapter<clsNewsModel,RcnewsAd
 
     @Override
     protected void onBindViewHolder(@NonNull RcnewsAdapter.ViewHolder holder, int position, @NonNull clsNewsModel model) {
+        Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
+        holder.itemView.setAnimation(anim);
         holder.txtheadline.setText(model.getHeadline());
         holder.txtdes.setText(model.getDescription());
         Glide.with(context)

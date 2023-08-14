@@ -2,12 +2,22 @@ package com.project.agriculturemanagmentapp;
 
 public class clsCommentModel {
     String key,uname,prfpc,comment;
+    String mo;
 
-    public clsCommentModel(String key, String uname, String prfpc, String comment) {
+    public clsCommentModel(String key, String uname, String prfpc, String comment, String mo) {
         this.key = key;
         this.uname = uname;
         this.prfpc = prfpc;
         this.comment = comment;
+        this.mo = mo;
+    }
+
+    public String getMo() {
+        return mo;
+    }
+
+    public void setMo(String mo) {
+        this.mo = mo;
     }
 
     public clsCommentModel() {

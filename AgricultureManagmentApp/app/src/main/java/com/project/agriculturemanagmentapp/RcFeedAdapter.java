@@ -9,6 +9,8 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.TextView;
@@ -51,7 +53,11 @@ public class RcFeedAdapter extends FirebaseRecyclerAdapter<clsFeedModel,RcFeedAd
 
     @Override
     protected void onBindViewHolder(@NonNull RcFeedAdapter.ViewHolder holder, int position, @NonNull clsFeedModel model) {
-
+        Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
+        holder.itemView.setAnimation(anim);
+        if(!model.getDes().isEmpty()){
+            holder.txtdes.setVisibility(View.VISIBLE);
+        }
 if (model.mediatype.equals("1")){
     holder.imgpost.setVisibility(View.VISIBLE);
     Glide.with(context)
@@ -129,7 +135,7 @@ if (model.mediatype.equals("1")){
                         SharedPreferences sharedPreferences = context.getSharedPreferences("data", Context.MODE_PRIVATE);
                         String mo = sharedPreferences.getString("mo", "1234567890");
                         String key = FirebaseDatabase.getInstance().getReference().child("Feed").child(model.getKey()).child("comments").push().getKey();
-                        clsCommentModel clsCommentModel = new clsCommentModel(key, sharedPreferences.getString("uname", "unknown"), sharedPreferences.getString("url", "null").toString(), edtcomment.getText().toString());
+                        clsCommentModel clsCommentModel = new clsCommentModel(key, sharedPreferences.getString("uname", "unknown"), sharedPreferences.getString("url", "null").toString(), edtcomment.getText().toString(),sharedPreferences.getString("mo", "1234567890").toString());
                         FirebaseDatabase.getInstance().getReference().child("Feed_Comments").child(model.getKey()).child(key).setValue(clsCommentModel);
                         edtcomment.setText("");
                         Toast.makeText(context, "Comment Added", Toast.LENGTH_SHORT).show();

@@ -1,9 +1,12 @@
 package com.project.agriculturemanagmentapp;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,6 +35,12 @@ public class RccommentAdapter extends FirebaseRecyclerAdapter<clsCommentModel,Rc
 
     @Override
     protected void onBindViewHolder(@NonNull RccommentAdapter.ViewHolder holder, int position, @NonNull clsCommentModel model) {
+        Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
+        holder.itemView.setAnimation(anim);
+        SharedPreferences sharedPreferences= context.getSharedPreferences("data",Context.MODE_PRIVATE);
+        if(model.getMo().toString().equals(sharedPreferences.getString("mo", "1234567890").toString())){
+            holder.btndelete.setVisibility(View.VISIBLE);
+        }
      holder.txtuname.setText(model.getUname());
         holder.txtcomment.setText(model.getComment());
         Glide.with(context)
@@ -39,6 +48,7 @@ public class RccommentAdapter extends FirebaseRecyclerAdapter<clsCommentModel,Rc
                 .circleCrop()
                 .into(holder.prfpc);
         holder.btndelete.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 FirebaseDatabase.getInstance().getReference().child("Feed_Comments").child(parent_key).child(model.getKey()).removeValue();

@@ -7,6 +7,8 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -41,6 +43,8 @@ public class RcCultivatonPrdtAdpter extends FirebaseRecyclerAdapter<ClsCultivati
 
     @Override
     protected void onBindViewHolder(@NonNull RcCultivatonPrdtAdpter.ViewHolder holder, int position, @NonNull ClsCultivationProductModel model) {
+        Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
+        holder.itemView.setAnimation(anim);
         holder.txtprdt.setText(model.getPname());
         holder.txtprc.setText(context.getResources().getString(R.string.prc)+model.getPrice()+"/K.G.");
         holder.txtqty.setText(model.getQty()+" K.G.");
@@ -59,7 +63,7 @@ public class RcCultivatonPrdtAdpter extends FirebaseRecyclerAdapter<ClsCultivati
                 bottomSheetDialog.setContentView(view);
                 {
                     ImageButton btnwhatsapp,btncall;
-                    TextView txtcategory,txtpname,txtspecie,txtqty,txtprc,txtpayment,txtstate,txttehsil,txtdistrict,txtvillage,txtdes,txtuname,txtdate;
+                    TextView txtcategory,txtpname,txtspecie,txtqty,txtprc,txtpayment,txtstate,txttehsil,txtpnn,txtdistrict,txtvillage,txtdes,txtuname,txtdate,txtsname;
                     String key;
                     ImageView imgprdt,prfpc;
                     ClsCultivationProductModel clsCultivationProductModel;
@@ -74,11 +78,13 @@ public class RcCultivatonPrdtAdpter extends FirebaseRecyclerAdapter<ClsCultivati
                     imgprdt=view.findViewById(R.id.imgprdt);
                     txtuname=view.findViewById(R.id.txtuname);
                     txtdate=view.findViewById(R.id.txtdate);
+                    txtsname=view.findViewById(R.id.txtsname);
                     txtstate=view.findViewById(R.id.txtstate);
                     txttehsil=view.findViewById(R.id.txttehsil);
                     txtdistrict=view.findViewById(R.id.txtdistrict);
                     txtvillage=view.findViewById(R.id.txtVillage);
                     txtdes=view.findViewById(R.id.txtdes);
+                    txtpnn=view.findViewById(R.id.txtpnn);
                     prfpc=view.findViewById(R.id.profilepc);
                     FrameLayout btncancel=view.findViewById(R.id.btncancel);
 btncancel.setOnClickListener(new View.OnClickListener() {
@@ -118,6 +124,7 @@ btncancel.setOnClickListener(new View.OnClickListener() {
                     txtspecie.setText(model.getSpecie());
                     txtqty.setText(model.getQty());
                     txtprc.setText(model.getPrice());
+                    txtpnn.setText(model.getMo());
                     txtpayment.setText(model.getPayment());
                     txtstate.setText(model.getState());
                     txttehsil.setText(model.getTehsil());
@@ -126,6 +133,7 @@ btncancel.setOnClickListener(new View.OnClickListener() {
                     txtdes.setText(model.getDes());
                     txtuname.setText(model.getUname());
                     txtdate.setText(model.getDate());
+                    txtsname.setText(model.getSname());
                 }
                 bottomSheetDialog.show();
             }
@@ -153,4 +161,5 @@ btncancel.setOnClickListener(new View.OnClickListener() {
             cd=itemView.findViewById(R.id.cdlyt);
         }
     }
+
 }

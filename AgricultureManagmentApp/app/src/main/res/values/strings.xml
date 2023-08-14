@@ -132,6 +132,8 @@
     <string name="month">Month</string>
     <string name="Price2">Price</string>
     <string name="KiloGram2">KiloGram</string>
+    <string name="choose_cat">Choose Category</string>
+    <string name="Seller_name">Seller name</string>
     <string name="Milk_Production2">Milk Production/Ltr</string>
     <string-array name="animal_type">
         <item>Sheep</item>
@@ -143,7 +145,7 @@
         <item>Horse</item>
         <item>Other animal</item>
     </string-array>
-        <string-array name="language">
+    <string-array name="language">
         <item>English</item>
         <item>Hindi</item>
         <item>Gujarati</item>

@@ -182,14 +182,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="start"
-                            android:text="@string/Category"
+                            android:text="@string/Seller_name"
                             android:layout_gravity="center_horizontal"
                             android:textColor="@color/lightt"
                             android:textSize="15dp"
                             />
 
                         <TextView
-                            android:id="@+id/txtpmobile"
+                            android:id="@+id/txtsname"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"

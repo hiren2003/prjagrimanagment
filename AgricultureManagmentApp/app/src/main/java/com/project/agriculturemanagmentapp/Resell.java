@@ -1,5 +1,6 @@
 package com.project.agriculturemanagmentapp;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
@@ -75,6 +77,7 @@ public class Resell extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getContext(), Resell_Category.class));
+
             }
         });
         return  view;

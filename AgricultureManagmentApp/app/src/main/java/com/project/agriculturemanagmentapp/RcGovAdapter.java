@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,6 +36,8 @@ Context context;
 
     @Override
     protected void onBindViewHolder(@NonNull RcGovAdapter.ViewHolder holder, int position, @NonNull clsgovmodel model) {
+        Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
+        holder.itemView.setAnimation(anim);
         Glide.with(context)
                 .load(model.url)
                 .into(holder.imageView);

@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -37,6 +39,8 @@ public class RcEcommAdapter extends FirebaseRecyclerAdapter<clsEcommModel, RcEco
 
     @Override
     protected void onBindViewHolder(@NonNull RcEcommAdapter.ViewHolder holder, int position, @NonNull clsEcommModel model) {
+        Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
+        holder.itemView.setAnimation(anim);
         holder.txtpname.setText(model.getPname());
         holder.txtprice.setText("₹"+model.getPrice());
         Glide.with(context)

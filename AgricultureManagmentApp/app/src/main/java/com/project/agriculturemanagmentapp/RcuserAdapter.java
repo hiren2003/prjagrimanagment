@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,6 +33,8 @@ public class RcuserAdapter extends FirebaseRecyclerAdapter<clsUserModel,RcuserAd
 
     @Override
     protected void onBindViewHolder(@NonNull RcuserAdapter.ViewHolder holder, int position, @NonNull clsUserModel model) {
+        Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
+        holder.itemView.setAnimation(anim);
         holder.txtpname.setText(model.getUname()); 
         holder.txtprice.setText("+91 "+model.getMo());
         Glide.with(context)

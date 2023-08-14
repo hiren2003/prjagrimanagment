@@ -26,7 +26,7 @@ CardView cdanimal,cdagrprdt,cdta;
         cdagrprdt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Resell_Category.this, add_cultivation_product.class));
+                startActivity(new Intent(Resell_Category.this, category_cultivation.class));
                 finish();
             }
         });

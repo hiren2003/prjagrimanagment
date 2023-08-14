@@ -8,6 +8,8 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,6 +38,8 @@ public class RcVacancyAdapter extends FirebaseRecyclerAdapter<clsVacancyModel,Rc
 
     @Override
     protected void onBindViewHolder(@NonNull RcVacancyAdapter.ViewHolder holder, int position, @NonNull clsVacancyModel model) {
+        Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
+        holder.itemView.setAnimation(anim);
         if (isMy){
             holder.imgdlt.setVisibility(View.VISIBLE);
         }

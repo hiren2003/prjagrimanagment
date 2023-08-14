@@ -1,9 +1,9 @@
 package com.project.agriculturemanagmentapp;
 
 public class ClsCultivationProductModel {
-    String category,pname,specie,qty,price,payment,state,district,tehsil,village,des,img,prfpc,uname,mo,date,key;
+    String category,pname,specie,qty,price,payment,state,district,tehsil,village,des,img,prfpc,uname,mo,date,key,sname;
 
-    public ClsCultivationProductModel(String category, String pname, String specie, String qty, String price, String payment, String state, String district, String tehsil, String village, String des, String img, String prfpc, String uname, String mo, String date, String key) {
+    public ClsCultivationProductModel(String category, String pname, String specie, String qty, String price, String payment, String state, String district, String tehsil, String village, String des, String img, String prfpc, String uname, String mo, String date, String key, String sname) {
         this.category = category;
         this.pname = pname;
         this.specie = specie;
@@ -21,7 +21,17 @@ public class ClsCultivationProductModel {
         this.mo = mo;
         this.date = date;
         this.key = key;
+        this.sname = sname;
     }
+
+    public String getSname() {
+        return sname;
+    }
+
+    public void setSname(String sname) {
+        this.sname = sname;
+    }
+
     public String getKey() {
         return key;
     }

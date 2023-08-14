@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -38,6 +40,8 @@ public class RcAnimalAdapter extends FirebaseRecyclerAdapter<clsAnimalModel,RcAn
 
     @Override
     protected void onBindViewHolder(@NonNull RcAnimalAdapter.ViewHolder holder, int position, @NonNull clsAnimalModel model) {
+        Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
+        holder.itemView.setAnimation(anim);
         Glide.with(context)
                 .load(model.img)
                 .into(holder.imgprdt);

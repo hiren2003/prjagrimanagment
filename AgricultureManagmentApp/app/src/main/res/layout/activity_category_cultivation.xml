@@ -16,8 +16,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/choose_cat"
                 android:textStyle="bold"
-
-
                 android:fontFamily="@font/mavenpro"
                 android:textSize="50dp"/>
             <androidx.cardview.widget.CardView

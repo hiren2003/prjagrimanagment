@@ -1,6 +1,7 @@
 package com.project.agriculturemanagmentapp;
 
 import android.content.Context;
+import android.content.Intent;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,9 +11,10 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 public class VpAdapterResell extends FragmentPagerAdapter {
     Context context;
+
     public VpAdapterResell(@NonNull FragmentManager fm, Context context) {
         super(fm);
-        this.context=context;
+        this.context = context;
     }
 
     @NonNull
@@ -20,15 +22,12 @@ public class VpAdapterResell extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         if (position == 0) {
             return new Cultivation_Product();
-        }
-        else if (position==1){
+        } else if (position == 1) {
             return new animals();
-        }
-        else if(position==2){
+        } else if (position == 2) {
             return new toos_accesories();
-        }
-        else{
-return new myproduct();
+        } else {
+            return new MyProducts();
         }
     }
 
@@ -40,16 +39,13 @@ return new myproduct();
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        if(position==0){
+        if (position == 0) {
             return context.getResources().getString(R.string.Cultivation_Product);
-        }
-        else if (position==1){
-            return  context.getResources().getString(R.string.animals);
-        }
-        else if(position==2){
+        } else if (position == 1) {
+            return context.getResources().getString(R.string.animals);
+        } else if (position == 2) {
             return context.getResources().getString(R.string.Tools_Accesories);
-        }
-        else{
+        } else {
             return context.getResources().getString(R.string.My_Product);
         }
     }

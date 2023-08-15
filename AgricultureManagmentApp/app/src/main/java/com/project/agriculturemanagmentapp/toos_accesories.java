@@ -3,10 +3,15 @@ package com.project.agriculturemanagmentapp;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,7 +19,7 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class toos_accesories extends Fragment {
-
+RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -59,6 +64,26 @@ public class toos_accesories extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_toos_accesories, container, false);
+        View view= inflater.inflate(R.layout.fragment_toos_accesories, container, false);
+        RecyclerView recyclerView=view.findViewById(R.id.rctoolacce);
+        FirebaseRecyclerOptions<clsToolsAccessoriesModel> options=new FirebaseRecyclerOptions.Builder<clsToolsAccessoriesModel>()
+                .setQuery( FirebaseDatabase.getInstance().getReference().child("Tools&Accessories"),clsToolsAccessoriesModel.class)
+                .build();
+        rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(options,getContext());
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+        recyclerView.setAdapter(rcToolsAccesoriesAdapter);
+        return  view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        rcToolsAccesoriesAdapter.startListening();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        rcToolsAccesoriesAdapter.stopListening();
     }
 }

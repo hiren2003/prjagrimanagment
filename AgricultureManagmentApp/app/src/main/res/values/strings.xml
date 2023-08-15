@@ -135,6 +135,16 @@
     <string name="choose_cat">Choose Category</string>
     <string name="Seller_name">Seller name</string>
     <string name="Milk_Production2">Milk Production/Ltr</string>
+    <string name="Usage">Usage</string>
+    <string name="Cuti_prd">Cultivation Product</string>
+    <string name="MyAnimal">Animals</string>
+    <string name="Toolsacc">Tools&amp;Accesories</string>
+    <string-array name="toolstype">
+        <item>Tools</item>
+        <item>Accessories</item>
+        <item>Vehicles</item>
+        <item>Other</item>
+    </string-array>
     <string-array name="animal_type">
         <item>Sheep</item>
         <item>Goat</item>

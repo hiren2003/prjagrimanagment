@@ -33,7 +33,7 @@ CardView cdanimal,cdagrprdt,cdta;
         cdta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Resell_Category.this, add_tools_categories.class));
+                startActivity(new Intent(Resell_Category.this,add_tools_accesories.class));
                 finish();
             }
         });

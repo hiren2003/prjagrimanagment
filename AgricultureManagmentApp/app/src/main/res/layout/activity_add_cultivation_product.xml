@@ -25,6 +25,22 @@
                 android:visibility="gone"
                 android:background="@drawable/border_green"
                 />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Grains"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/mavenpro"
+                android:textColor="@color/black"
+                android:textSize="40dp"/>
+            <FrameLayout
+                android:layout_width="120dp"
+                android:background="#28C828"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_height="2dp"/>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
@@ -43,7 +59,12 @@
                 </RelativeLayout>
 
             </androidx.cardview.widget.CardView>
-
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:background="@color/frame"
+                android:layout_below="@+id/hh"
+                android:layout_margin="12dp"
+                android:layout_height="2dp"/>
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
                 android:layout_width="match_parent"

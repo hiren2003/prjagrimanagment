@@ -1,15 +1,21 @@
 package com.project.agriculturemanagmentapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
 
+import com.google.android.material.card.MaterialCardView;
+
 public class category_cultivation extends AppCompatActivity {
-CheckBox rdbfruits,rdbgrains,rdbpulses,rdbvegatable,rdbothers;
+MaterialCardView rdbfruits,rdbpulses,rdbvegatable,rdbgrains,rdbothers;
+Button next;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,76 +25,142 @@ CheckBox rdbfruits,rdbgrains,rdbpulses,rdbvegatable,rdbothers;
         rdbpulses=findViewById(R.id.rdbpulses);
         rdbvegatable=findViewById(R.id.rdbvegatable);
         rdbothers=findViewById(R.id.rdbothers);
-        rdbvegatable.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        next=findViewById(R.id.btn);
+        rdbgrains.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(!rdbvegatable.isChecked()){
-                    uncheck();
-                }
-                else{
-                    uncheck();
-                    rdbvegatable.setChecked(true);
-                    startActivity(new Intent(category_cultivation.this,add_cultivation_product.class).putExtra("category",4));
-                }
+            public void onClick(View view) {
+                rdbgrains.setChecked(!rdbgrains.isChecked());
+                rdbfruits.setChecked(false);
+                rdbpulses.setChecked(false);
+                rdbvegatable.setChecked(false);
+                rdbothers.setChecked(false);
             }
         });
-        rdbgrains.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        rdbfruits.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(!rdbgrains.isChecked()){
-                    uncheck();
-                }
-                else{
-                    uncheck();
-                    rdbgrains.setChecked(true);
-                    startActivity(new Intent(category_cultivation.this,add_cultivation_product.class).putExtra("category",1));
-                }
+            public void onClick(View view) {
+                rdbfruits.setChecked(!rdbfruits.isChecked());
+                rdbothers.setChecked(false);
+                rdbpulses.setChecked(false);
+                rdbvegatable.setChecked(false);
+                rdbgrains.setChecked(false);
             }
-        }); rdbothers.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        });
+        rdbpulses.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(!rdbothers.isChecked()){
-                    uncheck();
-                }
-                else{
-                    uncheck();
-                    rdbothers.setChecked(true);
-                    startActivity(new Intent(category_cultivation.this,add_cultivation_product.class).putExtra("category",0));
-                }
+            public void onClick(View view) {
+                rdbpulses.setChecked(!rdbpulses.isChecked());
+                rdbothers.setChecked(false);
+                rdbgrains.setChecked(false);
+                rdbvegatable.setChecked(false);
+                rdbfruits.setChecked(false);
             }
-        }); rdbpulses.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        });
+        rdbvegatable.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(!rdbpulses.isChecked()){
-                    uncheck();
-                }
-                else{
-                    uncheck();
-                    rdbpulses.setChecked(true);
-                    startActivity(new Intent(category_cultivation.this,add_cultivation_product.class).putExtra("category",3));
-                }
-            }
-        }); rdbfruits.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(!rdbfruits.isChecked()){
-                    uncheck();
-                }
-                else{
-                    uncheck();
-                    rdbfruits.setChecked(true);
-                    startActivity(new Intent(category_cultivation.this,add_cultivation_product.class).putExtra("category",4));
-                }
+            public void onClick(View view) {
+                rdbvegatable.setChecked(!rdbvegatable.isChecked());
+                rdbothers.setChecked(false);
+                rdbpulses.setChecked(false);
+                rdbgrains.setChecked(false);
+                rdbfruits.setChecked(false);
             }
         });
 
+
+        rdbothers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rdbothers.setChecked(!rdbothers.isChecked());
+                rdbgrains.setChecked(false);
+                rdbpulses.setChecked(false);
+                rdbvegatable.setChecked(false);
+                rdbfruits.setChecked(false);
+
+            }
+        });
+
+
+    next.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+
+        if (rdbgrains.isChecked()) {
+            startActivity(new Intent(category_cultivation.this, add_cultivation_product.class).putExtra("category", 1));
+        } else if (rdbfruits.isChecked()) {
+            startActivity(new Intent(category_cultivation.this,add_cultivation_product.class).putExtra("category",2));
+        }else if(rdbpulses.isChecked()){
+            startActivity(new Intent(category_cultivation.this, add_cultivation_product.class).putExtra("category", 3));
+        } else if (rdbvegatable.isChecked()) {
+            startActivity(new Intent(category_cultivation.this, add_cultivation_product.class).putExtra("category", 4));
+        }else if (rdbothers.isChecked()){
+            startActivity(new Intent(category_cultivation.this, add_cultivation_product.class).putExtra("category", 0));
+        }
     }
-    public void uncheck(){
-        rdbothers.setChecked(false);
-        rdbvegatable.setChecked(false);
-        rdbpulses.setChecked(false);
-        rdbgrains.setChecked(false);
-        rdbfruits.setChecked(false);
+
+});
+
+
+//    }else if(rdbfruits.isChecked()){
+//            startActivity(new Intent(category_cultivation.this,add_cultivation_product.class).putExtra("category",1));
+//        }else if (rdbpulses.isChecked()){
+//            startActivity(new Intent(category_cultivation.this, add_cultivation_product.class).putExtra("category", 2));
+//        }else if(rdbvegatable.isChecked()){
+//            startActivity(new Intent(category_cultivation.this, add_cultivation_product.class).putExtra("category", 3));
+//        } else if (rdbgrains.isChecked()) {
+//            startActivity(new Intent(category_cultivation.this, add_cultivation_product.class).putExtra("category", 4));
+//        }}
+//        rdbfruits.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                rdbothers.setChecked(rdbothers.isChecked());
+//
+//                if(rdbfruits.isChecked()){
+//                    startActivity(new Intent(category_cultivation.this,add_cultivation_product.class).putExtra("category",1));
+//
+//                }
+//            }
+//        });
+//        rdbpulses.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+////                rdbfruits.setChecked(!rdbfruits.isChecked());
+//                if (rdbpulses.SeChecked() && !rdbgrains.isChecked() && !rdbfruits.isChecked() && !rdbvegatable.isChecked() && !rdbothers.isChecked()) {
+//                    startActivity(new Intent(category_cultivation.this, add_cultivation_product.class).putExtra("category", 2));
+//                }
+//            }
+//        });
+//        rdbvegatable.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(rdbvegatable.isChecked() && !rdbgrains.isChecked() && !rdbpulses.isChecked() && !rdbfruits.isChecked() && !rdbothers.isChecked()) {
+//                    startActivity(new Intent(category_cultivation.this, add_cultivation_product.class).putExtra("category", 3));
+//                }
+//            }
+//        });
+//
+//        rdbgrains.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+////                rdbgrains.setChecked(!rdbgrains.isChecked());
+//                if(rdbgrains.isChecked() && !rdbvegatable.isChecked() && !rdbpulses.isChecked() && !rdbfruits.isChecked() && !rdbothers.isChecked()) {
+//
+//                    startActivity(new Intent(category_cultivation.this, add_cultivation_product.class).putExtra("category", 4));
+//                }
+//            }
+//        });
+
+
+
 
     }
+
+    //    public void uncheck(){
+//        rdbothers.setChecked(false);
+//        rdbvegatable.setChecked(false);
+//        rdbpulses.setChecked(false);
+//        rdbgrains.setChecked(false);
+//        rdbfruits.setChecked(false);
+//
+//    }
 }

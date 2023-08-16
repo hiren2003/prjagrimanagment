@@ -13,7 +13,7 @@
         style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/background"
+        android:background="@drawable/curvebackground"
         android:hint="@string/Write_Something"
         app:counterEnabled="true"
         app:counterMaxLength="300"

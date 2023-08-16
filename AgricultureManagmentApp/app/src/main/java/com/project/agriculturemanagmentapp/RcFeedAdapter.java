@@ -36,7 +36,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import static androidx.core.content.ContextCompat.startActivity;
 
-public class RcFeedAdapter extends FirebaseRecyclerAdapter<clsFeedModel,RcFeedAdapter.ViewHolder> {
+public class RcFeedAdapter extends FirebaseRecyclerAdapter<clsFeedModel, RcFeedAdapter.ViewHolder> {
     /**
      * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
      * {@link FirebaseRecyclerOptions} for configuration options.
@@ -45,46 +45,41 @@ public class RcFeedAdapter extends FirebaseRecyclerAdapter<clsFeedModel,RcFeedAd
      */
     Context context;
     boolean isMyFeed;
-    public RcFeedAdapter(@NonNull FirebaseRecyclerOptions<clsFeedModel> options,Context context,boolean isMyFeed) {
+
+    public RcFeedAdapter(@NonNull FirebaseRecyclerOptions<clsFeedModel> options, Context context, boolean isMyFeed) {
         super(options);
-        this.context=context;
-        this.isMyFeed=isMyFeed;
+        this.context = context;
+        this.isMyFeed = isMyFeed;
     }
 
     @Override
     protected void onBindViewHolder(@NonNull RcFeedAdapter.ViewHolder holder, int position, @NonNull clsFeedModel model) {
         Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
         holder.itemView.setAnimation(anim);
-        if(!model.getDes().isEmpty()){
+        if (model.mediatype.equals("1")) {
             holder.txtdes.setVisibility(View.VISIBLE);
+            holder.imgpost.setVisibility(View.VISIBLE);
+            Glide.with(context)
+                    .load(model.getPost())
+                    .into(holder.imgpost);
+            holder.txtdes.setText(model.des);
+        } else if (model.mediatype.equals("2")) {
+            holder.txtdes.setVisibility(View.VISIBLE);
+            holder.videoView.setVisibility(View.VISIBLE);
+            holder.videoView.setVideoURI(Uri.parse(model.post));
+            MediaController mediaController = new MediaController(context);
+            mediaController.setAnchorView(holder.videoView);
+            mediaController.setMediaPlayer(holder.videoView);
+            holder.videoView.setMediaController(mediaController);
+            holder.txtdes.setText(model.des);
+        } else {
+            holder.txtdes.setVisibility(View.VISIBLE);
+            holder.txtdes.setText(model.des);
         }
-if (model.mediatype.equals("1")){
-    holder.imgpost.setVisibility(View.VISIBLE);
-    Glide.with(context)
-            .load(model.getPost())
-            .into(holder.imgpost);
-    holder.txtdes.setText(model.des);
-
-}
-     else if (model.mediatype.equals("2")) {
-          holder.videoView.setVisibility(View.VISIBLE);
-          holder.videoView.setVideoURI(Uri.parse(model.post));
-          MediaController mediaController=new MediaController(context);
-          mediaController.setAnchorView(holder.videoView);
-          mediaController.setMediaPlayer(holder.videoView);
-          holder.videoView.setMediaController(mediaController);
-         // mediaController.requestFocus();
-        //  holder.videoView.start();
-          holder.txtdes.setText(model.des);
-
-}
-     else{
-       holder.txtdes.setText(model.des);
-}
-        SharedPreferences sharedPreferences= context.getSharedPreferences("data",Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = context.getSharedPreferences("data", Context.MODE_PRIVATE);
         holder.txtuname.setText(model.getUname());
         holder.txtdate.setText(model.getDate());
-        if (isMyFeed){
+        if (isMyFeed) {
             holder.btndelete.setVisibility(View.VISIBLE);
         }
         Glide.with(context)
@@ -95,31 +90,30 @@ if (model.mediatype.equals("1")){
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(android.content.Intent.ACTION_SEND);
-                intent.putExtra(android.content.Intent.EXTRA_SUBJECT,model.getDes());
+                intent.putExtra(android.content.Intent.EXTRA_SUBJECT, model.getDes());
                 intent.setType("text/plain");
-                if (model.mediatype.equals("1")){
-                    intent.putExtra(android.content.Intent.EXTRA_TEXT, model.getPost()+"\n"+model.getDes());
+                if (model.mediatype.equals("1")) {
+                    intent.putExtra(android.content.Intent.EXTRA_TEXT, model.getPost() + "\n" + model.getDes());
+                } else {
+                    intent.putExtra(android.content.Intent.EXTRA_TEXT, model.getDes());
                 }
-                else{
-                    intent.putExtra(android.content.Intent.EXTRA_TEXT,model.getDes());
-                }
-                context.startActivity(Intent.createChooser(intent,"Choose App"));
+                context.startActivity(Intent.createChooser(intent, "Choose App"));
             }
 
         });
         holder.imgcomment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(context);
-                View view=LayoutInflater.from(context).inflate(R.layout.lytcomments,null,false);
-                ImageView addcomment=view.findViewById(R.id.postcomment);
-                TextInputEditText edtcomment=view.findViewById(R.id.edtcomment);
-                RecyclerView rccomment=view.findViewById(R.id.rccomment);
-                FirebaseRecyclerOptions<clsCommentModel> options=new FirebaseRecyclerOptions.Builder<clsCommentModel>()
+                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(context);
+                View view = LayoutInflater.from(context).inflate(R.layout.lytcomments, null, false);
+                ImageView addcomment = view.findViewById(R.id.postcomment);
+                TextInputEditText edtcomment = view.findViewById(R.id.edtcomment);
+                RecyclerView rccomment = view.findViewById(R.id.rccomment);
+                FirebaseRecyclerOptions<clsCommentModel> options = new FirebaseRecyclerOptions.Builder<clsCommentModel>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("Feed_Comments").child(model.getKey()), clsCommentModel.class)
                         .build();
                 rccomment.setLayoutManager(new LinearLayoutManager(context));
-                RccommentAdapter rccommentAdapter=new RccommentAdapter(options,context,model.getKey());
+                RccommentAdapter rccommentAdapter = new RccommentAdapter(options, context, model.getKey());
                 rccomment.setAdapter(rccommentAdapter);
                 rccommentAdapter.startListening();
                 bottomSheetDialog.setDismissWithAnimation(true);
@@ -135,7 +129,7 @@ if (model.mediatype.equals("1")){
                         SharedPreferences sharedPreferences = context.getSharedPreferences("data", Context.MODE_PRIVATE);
                         String mo = sharedPreferences.getString("mo", "1234567890");
                         String key = FirebaseDatabase.getInstance().getReference().child("Feed").child(model.getKey()).child("comments").push().getKey();
-                        clsCommentModel clsCommentModel = new clsCommentModel(key, sharedPreferences.getString("uname", "unknown"), sharedPreferences.getString("url", "null").toString(), edtcomment.getText().toString(),sharedPreferences.getString("mo", "1234567890").toString());
+                        clsCommentModel clsCommentModel = new clsCommentModel(key, sharedPreferences.getString("uname", "unknown"), sharedPreferences.getString("url", "null").toString(), edtcomment.getText().toString(), sharedPreferences.getString("mo", "1234567890").toString());
                         FirebaseDatabase.getInstance().getReference().child("Feed_Comments").child(model.getKey()).child(key).setValue(clsCommentModel);
                         edtcomment.setText("");
                         Toast.makeText(context, "Comment Added", Toast.LENGTH_SHORT).show();
@@ -148,13 +142,13 @@ if (model.mediatype.equals("1")){
         holder.btndelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo","134567890")).child("Feed").child(model.getKey()).removeValue(new DatabaseReference.CompletionListener() {
+                FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "134567890")).child("Feed").child(model.getKey()).removeValue(new DatabaseReference.CompletionListener() {
                     @Override
                     public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
                         FirebaseDatabase.getInstance().getReference().child("Feed").child(model.key2).removeValue(new DatabaseReference.CompletionListener() {
                             @Override
                             public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                                FirebaseStorage.getInstance().getReference().child("feedimg").child(sharedPreferences.getString("mo","134567890")).child(model.key2).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                FirebaseStorage.getInstance().getReference().child("feedimg").child(sharedPreferences.getString("mo", "134567890")).child(model.key2).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
                                         Toast.makeText(context, context.getResources().getString(R.string.Post_Deleted), Toast.LENGTH_SHORT).show();
@@ -167,30 +161,32 @@ if (model.mediatype.equals("1")){
             }
         });
     }
+
     @NonNull
     @Override
     public RcFeedAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(context).inflate(R.layout.lytfeed,parent,false);
-        ViewHolder viewHolder=new ViewHolder(view);
+        View view = LayoutInflater.from(context).inflate(R.layout.lytfeed, parent, false);
+        ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView prfpc,imgpost,imgshare,imgcomment;
-        TextView txtuname,txtdes,txtdate;
+        ImageView prfpc, imgpost, imgshare, imgcomment;
+        TextView txtuname, txtdes, txtdate;
         ImageView btndelete;
         VideoView videoView;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            prfpc=itemView.findViewById(R.id.profilepc);
-            txtuname=itemView.findViewById(R.id.txtuname);
-            imgpost=itemView.findViewById(R.id.imgfeed);
-            txtdate=itemView.findViewById(R.id.txtdate);
-            btndelete=itemView.findViewById(R.id.btndelete);
-            txtdes=itemView.findViewById(R.id.txtdes);
-            videoView=itemView.findViewById(R.id.videoview);
-            imgshare=itemView.findViewById(R.id.share);
-            imgcomment=itemView.findViewById(R.id.comment);
+            prfpc = itemView.findViewById(R.id.profilepc);
+            txtuname = itemView.findViewById(R.id.txtuname);
+            imgpost = itemView.findViewById(R.id.imgfeed);
+            txtdate = itemView.findViewById(R.id.txtdate);
+            btndelete = itemView.findViewById(R.id.btndelete);
+            txtdes = itemView.findViewById(R.id.txtdes);
+            videoView = itemView.findViewById(R.id.videoview);
+            imgshare = itemView.findViewById(R.id.share);
+            imgcomment = itemView.findViewById(R.id.comment);
         }
     }
 }

@@ -40,10 +40,9 @@
             style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/background"
+            android:background="@drawable/curvebackground"
             android:hint="@string/qty2"
             app:hintEnabled="true"
-            android:visibility="gone"
             app:hintTextColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText

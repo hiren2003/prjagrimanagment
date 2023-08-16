@@ -3,17 +3,25 @@ package com.project.agriculturemanagmentapp;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.FirebaseDatabase;
@@ -39,15 +47,17 @@ public class add_ecomm extends AppCompatActivity {
         imgprdt=findViewById(R.id.imgprdt);
         edtdes=findViewById(R.id.edtdes);
         edtspe=findViewById(R.id.edtspe);
-        edtrecomm=findViewById(R.id.edtspe);
+        edtrecomm=findViewById(R.id.edtrecom);
         edtpname=findViewById(R.id.edtpname);
         edtprice=findViewById(R.id.edtprc);
         ActivityResultLauncher<String> launcher=registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
             public void onActivityResult(Uri result) {
                 imgprdt.setImageURI(result);
-                imgprdt.setVisibility(View.VISIBLE);
-                selectedimg=result;
+                if(result!=null){
+                    imgprdt.setVisibility(View.VISIBLE);
+                }
+                selectedimg = result;
             }
         });
         btnchooseimg.setOnClickListener(new View.OnClickListener() {
@@ -60,24 +70,101 @@ public class add_ecomm extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item, arr);
         spntype.setAdapter(adapter);
         btnsavedata.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                String key= FirebaseDatabase.getInstance().getReference().child("ECommerce").push().getKey();
-                StorageReference reference= FirebaseStorage.getInstance().getReference().child("Ecommerce").child(key);
-                reference.putFile(selectedimg).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                            @Override
-                            public void onSuccess(Uri uri) {
-                                FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").child(key).setValue(new clsEcommModel(key,edtpname.getText().toString(),uri.toString(),edtprice.getText().toString(),edtspe.getText().toString(),edtdes.getText().toString(),edtrecomm.getText().toString(),"0"));
-                                FirebaseDatabase.getInstance().getReference().child("ECommerce").child(spntype.getSelectedItem().toString()).child(key).setValue(new clsEcommModel(key,edtpname.getText().toString(),uri.toString(),edtprice.getText().toString(),edtspe.getText().toString(),edtdes.getText().toString(),edtrecomm.getText().toString(),"0"));
-                                finish();
-                            }
-                        });
-                    }
-                });
+                if (edtpname.getText().toString().trim().isEmpty()) {
+                    show_toast(getResources().getString(R.string.Please_Enter_Pname), false);
+                    edtpname.requestFocus();
+                }
+                else if (edtprice.getText().toString().trim().isEmpty()) {
+                    show_toast(getResources().getString(R.string.Please_Enter_Price), false);
+                    edtprice.requestFocus();
+                }
+                else if (edtdes.getText().toString().trim().isEmpty()) {
+                    show_toast(getResources().getString(R.string.Please_Enter_Description), false);
+                    edtdes.requestFocus();
+                }
+                else if (edtspe.getText().toString().trim().isEmpty()) {
+                    show_toast(getResources().getString(R.string.Please_Enter_Specification), false);
+                    edtspe.requestFocus();
+                }
+                else if (edtrecomm.getText().toString().trim().isEmpty()) {
+                    show_toast(getResources().getString(R.string.Please_Enter_Recommandation), false);
+                    edtrecomm.requestFocus();
+                }
+                else if(selectedimg==null){
+                    show_toast(getResources().getString(R.string.Please_Enter_Image), false);
+                    launcher.launch("image/*");
+                }
+                else{
+                    Dialog dgload = new Dialog(add_ecomm.this);
+                    View view = LayoutInflater.from(add_ecomm.this).inflate(R.layout.lytloading, null, false);
+                    dgload.setContentView(view);
+                    dgload.show();
+                    String key= FirebaseDatabase.getInstance().getReference().child("ECommerce").push().getKey();
+                    StorageReference reference= FirebaseStorage.getInstance().getReference().child("Ecommerce").child(key);
+                    reference.putFile(selectedimg).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").child(key).setValue(new clsEcommModel(key,edtpname.getText().toString(),uri.toString(),edtprice.getText().toString(),edtspe.getText().toString(),edtdes.getText().toString(),edtrecomm.getText().toString(),"0")).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            FirebaseDatabase.getInstance().getReference().child("ECommerce").child(spntype.getSelectedItem().toString()).child(key).setValue(new clsEcommModel(key,edtpname.getText().toString(),uri.toString(),edtprice.getText().toString(),edtspe.getText().toString(),edtdes.getText().toString(),edtrecomm.getText().toString(),"0")).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void unused) {
+                                                    show_toast(getResources().getString(R.string.Upload_Successfully),true);
+                                                    finish();
+                                                    dgload.dismiss();
+                                                }
+                                            }).addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    show_toast(getResources().getString(R.string.Upload_Cancelled),false);
+                                                    dgload.dismiss();
+                                                }
+                                            });
+
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            show_toast(getResources().getString(R.string.Upload_Cancelled),false);
+                                            dgload.dismiss();
+                                        }
+                                    });
+
+                                }
+                            });
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            show_toast(getResources().getString(R.string.Upload_Cancelled),false);
+                            dgload.dismiss();
+                        }
+                    });
+                }
             }
         });
+    }
+    public void show_toast(String msg, boolean isgreen) {
+        Toast ts = new Toast(getBaseContext());
+        View view;
+        if (isgreen) {
+            view = getLayoutInflater().inflate(R.layout.lyttoastgreen, (ViewGroup) findViewById(R.id.container));
+        } else {
+            view = getLayoutInflater().inflate(R.layout.lyttoast, (ViewGroup) findViewById(R.id.container));
+        }
+        TextView txtmessage = view.findViewById(R.id.txtmsg);
+        txtmessage.setText(msg);
+        ts.setView(view);
+        ts.setGravity(Gravity.TOP, 0, 30);
+        ts.setDuration(Toast.LENGTH_SHORT);
+        ts.show();
+
     }
 }

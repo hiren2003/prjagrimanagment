@@ -71,7 +71,7 @@ public class Cultivation_Product extends Fragment {
         FirebaseRecyclerOptions<ClsCultivationProductModel> options=new FirebaseRecyclerOptions.Builder<ClsCultivationProductModel>()
                 .setQuery(FirebaseDatabase.getInstance().getReference("Cultivation Product"), ClsCultivationProductModel.class)
                 .build();
-         rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(options,getContext());
+         rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(options,getContext(),false);
          rccprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
         rccprdt.setAdapter(rcCultivatonPrdtAdpter);
         return view;

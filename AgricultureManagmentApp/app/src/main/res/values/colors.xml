@@ -21,6 +21,10 @@
     <color name="colorPrimary">#fafafa</color>
     <color name="colorPrimaryDark">#212121</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="color1">#513065</color>
+    <color name="color2">#F79F93</color>
+    <color name="color3">#DF5E84</color>
     <color name="red_active">#f44336</color>
     <color name="purple_active">#9c27b0</color>
     <color name="blue_active">#03a9f4</color>

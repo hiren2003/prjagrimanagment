@@ -85,9 +85,9 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
         FirebaseRecyclerOptions optiontools=new FirebaseRecyclerOptions.Builder<clsToolsAccessoriesModel>()
                 .setQuery( FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo","1234567890")).child("Resell").child("Tools&Accessories"),clsToolsAccessoriesModel.class)
                 .build();
-        rcAnimalAdapter=new RcAnimalAdapter(optionanimal,getContext());
-        rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(optionproduct,getContext());
-        rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(optiontools,getContext());
+        rcAnimalAdapter=new RcAnimalAdapter(optionanimal,getContext(),true);
+        rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(optionproduct,getContext(),true);
+        rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(optiontools,getContext(),true);
         myanimal.setAdapter(rcAnimalAdapter);
         mytools.setAdapter(rcToolsAccesoriesAdapter);
         myproduct.setAdapter(rcCultivatonPrdtAdpter);

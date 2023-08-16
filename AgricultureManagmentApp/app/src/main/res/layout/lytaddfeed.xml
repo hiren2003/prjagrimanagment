@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/transparent"
+    android:background="@color/lightt"
     android:orientation="vertical">
 
    <LinearLayout
@@ -26,7 +26,7 @@
            app:cardElevation="10dp"
            android:layout_marginLeft="20dp"
            android:layout_marginRight="20dp"
-           app:cardBackgroundColor="#E8E8E8"
+           app:cardBackgroundColor="#d5d5d5"
            >
            <LinearLayout
                android:layout_width="wrap_content"
@@ -60,7 +60,7 @@
            android:layout_marginLeft="20dp"
            android:layout_marginRight="20dp"
            android:layout_marginTop="20dp"
-           app:cardBackgroundColor="#f4f4f4"
+           app:cardBackgroundColor="#d5d5d5"
            >
            <LinearLayout
                android:layout_width="wrap_content"
@@ -90,7 +90,7 @@
            android:layout_height="100dp"
            app:cardCornerRadius="20dp"
            app:cardElevation="10dp"
-           app:cardBackgroundColor="#f4f4f4"
+           app:cardBackgroundColor="#d5d5d5"
            android:layout_marginLeft="20dp"
            android:layout_marginRight="20dp"
            android:layout_marginTop="20dp"

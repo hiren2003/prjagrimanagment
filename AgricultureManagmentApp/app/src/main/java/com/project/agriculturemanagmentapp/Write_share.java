@@ -3,6 +3,7 @@ package com.project.agriculturemanagmentapp;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -10,7 +11,9 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -18,6 +21,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
@@ -58,22 +62,31 @@ public class Write_share extends AppCompatActivity {
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+if(textInputEditText.getText().toString().trim().isEmpty()){
+    show_toast(getResources().getString(R.string.Please_Enter_Description),false);
+}
+else{
+    progressBar.setVisibility(View.VISIBLE);
+    txt.setVisibility(View.GONE);
+    String key = firebaseDatabase.getReference().child("Feed").push().getKey().toString();
+    String key2 = firebaseDatabase.getReference().child("User").child(mo).child("Feed").push().getKey().toString();
+    firebaseDatabase.getReference().child("Feed").child(key).setValue(new clsFeedModel(sharedPreferences.getString("url", "123"), sharedPreferences.getString("uname", "unknown"), Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR),sharedPreferences.getString("url", "123"),textInputEditText.getText().toString(),key2, key,"3"));
+    FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Feed").child(key2).setValue(new clsFeedModel(sharedPreferences.getString("url", "123"), sharedPreferences.getString("uname", "unknown"), Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR),sharedPreferences.getString("url", "123"), textInputEditText.getText().toString(),key2, key,"3")).addOnSuccessListener(new OnSuccessListener<Void>() {
+        @Override
+        public void onSuccess(Void unused) {
+            progressBar.setVisibility(View.GONE);
+            txt.setVisibility(View.VISIBLE);
+            show_toast(getResources().getString(R.string.Upload_Successfully),true);
+            finish();
+        }
+    }).addOnFailureListener(new OnFailureListener() {
+        @Override
+        public void onFailure(@NonNull Exception e) {
+            show_toast(getResources().getString(R.string.Upload_Cancelled),false);
+        }
+    });
 
-                    progressBar.setVisibility(View.VISIBLE);
-                    txt.setVisibility(View.GONE);
-                    String key = firebaseDatabase.getReference().child("Feed").push().getKey().toString();
-                String key2 = firebaseDatabase.getReference().child("User").child(mo).child("Feed").push().getKey().toString();
-                firebaseDatabase.getReference().child("Feed").child(key).setValue(new clsFeedModel(sharedPreferences.getString("url", "123"), sharedPreferences.getString("uname", "unknown"), Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR),sharedPreferences.getString("url", "123"),textInputEditText.getText().toString(),key2, key,"3"));
-                FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Feed").child(key2).setValue(new clsFeedModel(sharedPreferences.getString("url", "123"), sharedPreferences.getString("uname", "unknown"), Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR),sharedPreferences.getString("url", "123"), textInputEditText.getText().toString(),key2, key,"3")).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        progressBar.setVisibility(View.GONE);
-                        txt.setVisibility(View.VISIBLE);
-                        Toast.makeText(Write_share.this, getResources().getString(R.string.Data_Added_Sucessfully), Toast.LENGTH_SHORT).show();
-                        finish();
-                    }
-                });
-
+}
             }
 
         });
@@ -100,5 +113,20 @@ public class Write_share extends AppCompatActivity {
         configuration.locale = locale;
         getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
     }
+    public void show_toast(String msg, boolean isgreen) {
+        Toast ts = new Toast(getBaseContext());
+        View view;
+        if (isgreen) {
+            view = getLayoutInflater().inflate(R.layout.lyttoastgreen, (ViewGroup) findViewById(R.id.container));
+        } else {
+            view = getLayoutInflater().inflate(R.layout.lyttoast, (ViewGroup) findViewById(R.id.container));
+        }
+        TextView txtmessage = view.findViewById(R.id.txtmsg);
+        txtmessage.setText(msg);
+        ts.setView(view);
+        ts.setGravity(Gravity.TOP, 0, 30);
+        ts.setDuration(Toast.LENGTH_SHORT);
+        ts.show();
 
+    }
 }

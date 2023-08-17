@@ -1,7 +1,9 @@
 package com.project.agriculturemanagmentapp;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -9,24 +11,37 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Calendar;
+
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
+import static androidx.activity.result.ActivityResultCallerKt.registerForActivityResult;
 
 public class RcCultivatonPrdtAdpter extends FirebaseRecyclerAdapter<ClsCultivationProductModel,RcCultivatonPrdtAdpter.ViewHolder> {
     /**
@@ -36,14 +51,146 @@ public class RcCultivatonPrdtAdpter extends FirebaseRecyclerAdapter<ClsCultivati
      * @param options
      */
     Context context;
-    public RcCultivatonPrdtAdpter(@NonNull FirebaseRecyclerOptions<ClsCultivationProductModel> options, Context context) {
+    boolean isMyproduct;
+    public RcCultivatonPrdtAdpter(@NonNull FirebaseRecyclerOptions<ClsCultivationProductModel> options, Context context,boolean isMyproduct) {
         super(options);
         this.context=context;
+        this.isMyproduct=isMyproduct;
     }
 
     @Override
     protected void onBindViewHolder(@NonNull RcCultivatonPrdtAdpter.ViewHolder holder, int position, @NonNull ClsCultivationProductModel model) {
         Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
+        SharedPreferences sharedPreferences=context.getSharedPreferences("data",Context.MODE_PRIVATE);
+        holder.cd.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(context);
+                View view2=LayoutInflater.from(context).inflate(R.layout.lyteditoption,null,false);
+                LinearLayout btnupdate=view2.findViewById(R.id.lnupdate);
+                LinearLayout btndelete=view2.findViewById(R.id.lndelete);
+                bottomSheetDialog.setContentView(view2);
+                if (isMyproduct){
+                    bottomSheetDialog.show();
+                }
+                btndelete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        bottomSheetDialog.cancel();
+                        Dialog dg=new Dialog(context);
+                        dg.setContentView(R.layout.lytdelete);
+                        dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
+                        Button yes=dg.findViewById(R.id.yes);
+                        Button no=dg.findViewById(R.id.no);
+                        dg.show();
+                        no.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dg.dismiss();
+                            }
+                        });
+                        yes.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                FirebaseDatabase.getInstance().getReference().child("Cultivation Product").child(model.getKey()).removeValue();
+                                FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("Cultivatio_Product").child(model.getKey()).removeValue();
+                                dg.dismiss();
+
+                            }
+                        });
+                    }
+                });
+                btnupdate.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        bottomSheetDialog.cancel();
+                        BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(context);
+                        View view2=LayoutInflater.from(context).inflate(R.layout.activity_add_cultivation_product,null,false);
+                        TextInputEditText edtpname, edtspeice, edtqty, edtprc, edtstate, edtdistrict, edttehsil, edtvillage, edtdescription, edtmo, edtsellername;
+                        ImageView imgprdt,imgcat;
+                        Button btnchooseimg,btnsavedata;
+                        Spinner spntype;
+                        spntype = view2.findViewById(R.id.category);
+                        imgprdt = view2.findViewById(R.id.imgprdt);
+                        btnchooseimg = view2.findViewById(R.id.btnchooseimage);
+                        edtpname = view2.findViewById(R.id.edtpname);
+                        edtspeice = view2.findViewById(R.id.edtspecie);
+                        edtqty = view2.findViewById(R.id.edtqty);
+                        edtprc = view2.findViewById(R.id.edtprc);
+                        edtstate = view2.findViewById(R.id.edtstate);
+                        edtdistrict = view2.findViewById(R.id.edtdist);
+                        edttehsil = view2.findViewById(R.id.edttehsil);
+                        edtsellername = view2.findViewById(R.id.edtsellername);
+                        edtvillage = view2.findViewById(R.id.edtvlg);
+                        btnsavedata = view2.findViewById(R.id.btnsavedata);
+                        edtdescription = view2.findViewById(R.id.edtdes);
+                        imgcat =view2.findViewById(R.id.imgcat);
+                        edtmo = view2.findViewById(R.id.edtmo);
+                        imgprdt.setVisibility(View.VISIBLE);
+                        Glide.with(context)
+                                .load(model.getImg())
+                                .into(imgprdt);
+                        btnchooseimg.setVisibility(View.GONE);
+                        edtpname.setText(model.getPname());
+                        edtspeice.setText(model.getSpecie());
+                        edtqty.setText(model.getQty());
+                        edtprc.setText(model.getPrice());
+                        edtstate.setText(model.getState());
+                        edttehsil.setText(model.getTehsil());
+                        edtdistrict.setText(model.getDistrict());
+                        edtsellername.setText(model.getSname());
+                        edtvillage.setText(model.getVillage());
+                        edtdescription.setText(model.getDes());
+                        edtmo.setText(model.getMo());
+                        if (model.getCategory().equals("Grains")) {
+                            imgcat.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.garins));
+                        } else if (model.getCategory().equals("Fruits")) {
+                            imgcat.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.fruits2));
+                        } else if (model.getCategory().equals("Pulses")) {
+                            imgcat.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.pulses));
+                        } else if (model.getCategory().equals("Vegatable")) {
+                            imgcat.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.vegatable));
+
+                        } else {
+                            imgcat.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.otherprdt));
+                        }
+                        btnsavedata.setText(context.getResources().getString(R.string.Update));
+                        btnsavedata.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                String payment = String.valueOf((Integer.parseInt(edtqty.getText().toString()) * Integer.parseInt(edtprc.getText().toString())));
+                                ClsCultivationProductModel clsCultivationProductModel = new ClsCultivationProductModel(
+                                        model.getCategory(),
+                                        edtpname.getText().toString(),
+                                        edtspeice.getText().toString(),
+                                        edtqty.getText().toString(),
+                                        edtprc.getText().toString(),
+                                        payment,
+                                        edtvillage.getText().toString(),
+                                        edtdistrict.getText().toString(),
+                                        edttehsil.getText().toString(),
+                                        edtvillage.getText().toString(),
+                                        edtdescription.getText().toString(),
+                                        model.getImg(),
+                                        sharedPreferences.getString("url", "null"),
+                                        sharedPreferences.getString("uname", "unknown"),
+                                        edtmo.getText().toString(),
+                                        Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR),
+                                        model.getKey(),
+                                        edtsellername.getText().toString()
+                                );
+                                FirebaseDatabase.getInstance().getReference().child("Cultivation Product").child(model.getKey()).setValue(clsCultivationProductModel);
+                                FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("Cultivatio_Product").child(model.getKey()).setValue(clsCultivationProductModel);
+                                bottomSheetDialog.cancel();
+                            }
+                        });
+                        bottomSheetDialog.setContentView(view2);
+                        bottomSheetDialog.show();
+                    }
+                });
+                return false;
+            }
+        });
         holder.itemView.setAnimation(anim);
         holder.txtprdt.setText(model.getPname());
         holder.txtprc.setText(context.getResources().getString(R.string.prc)+model.getPrice()+"/K.G.");

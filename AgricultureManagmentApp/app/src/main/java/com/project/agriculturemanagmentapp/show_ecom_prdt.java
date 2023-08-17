@@ -7,10 +7,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.textfield.TextInputEditText;
@@ -31,6 +34,7 @@ public class show_ecom_prdt extends AppCompatActivity {
     TextInputEditText edtqty;
     int btn = 0;
     DatabaseReference reference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +45,7 @@ public class show_ecom_prdt extends AppCompatActivity {
         txtspec = findViewById(R.id.txtspec);
         txtdes = findViewById(R.id.txtdec);
         btncart = findViewById(R.id.btncart);
-        edtqty=findViewById(R.id.edtqty2);
+        edtqty = findViewById(R.id.edtqty2);
         txtrecom = findViewById(R.id.txtrecom);
         btnrmcart = findViewById(R.id.btnremovecart);
         btnorder = findViewById(R.id.btnorder);
@@ -57,6 +61,7 @@ public class show_ecom_prdt extends AppCompatActivity {
             btnrmcart.setVisibility(View.VISIBLE);
         } else if (btn == 3) {
             btncancelorder.setVisibility(View.VISIBLE);
+            edtqty.setInputType(InputType.TYPE_NULL);
             edtqty.setVisibility(View.VISIBLE);
         }
         reference = FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").child(key);
@@ -65,10 +70,10 @@ public class show_ecom_prdt extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 model = snapshot.getValue(clsEcommModel.class);
                 Glide.with(show_ecom_prdt.this)
-                                .load(model.getImg())
+                        .load(model.getImg())
                         .into(imageView);
                 txtpname.setText(model.getPname());
-                txtprice.setText("₹"+model.getPrice());
+                txtprice.setText("₹" + model.getPrice());
                 txtdes.setText(model.getDes());
                 txtspec.setText(model.getDpec());
                 txtrecom.setText(model.getRecomm());
@@ -83,7 +88,7 @@ public class show_ecom_prdt extends AppCompatActivity {
         btncart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                model.qty=edtqty.getText().toString();
+                model.qty = edtqty.getText().toString();
                 SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
                 FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Cart").child(model.getKey()).setValue(model);
                 finish();
@@ -100,13 +105,22 @@ public class show_ecom_prdt extends AppCompatActivity {
         btnorder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                model.qty=edtqty.getText().toString();
+                model.qty = edtqty.getText().toString();
                 SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
-                String date = java.util.Calendar.getInstance().get(java.util.Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(java.util.Calendar.MONTH) + "/" + java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);
-                FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Myorder").child(model.getKey()).setValue(model);
-                FirebaseDatabase.getInstance().getReference().child("Orders").child(date).child(model.getKey()).setValue(model);
-                FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Cart").child(model.getKey()).removeValue();
-                finish();            }
+                boolean hasadd = sharedPreferences.getBoolean("hasadd", false);
+                if (hasadd) {
+                    String date = java.util.Calendar.getInstance().get(java.util.Calendar.DAY_OF_MONTH) + "-" + Calendar.getInstance().get(java.util.Calendar.MONTH) + "-" + java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);
+                    String key = FirebaseDatabase.getInstance().getReference().child("orders").child(date.toString()).push().getKey();
+                    clsOrderModel clsOrderModel = new clsOrderModel(model, model.getKey(), key, sharedPreferences.getString("add", "null"), edtqty.getText().toString(), date);
+                    FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Myorder").child(key).setValue(clsOrderModel);
+                    FirebaseDatabase.getInstance().getReference().child("Orders").child(date).child(key).setValue(clsOrderModel);
+                    FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Cart").child(model.getKey()).removeValue();
+                    finish();
+                } else {
+                    show_toast(getResources().getString(R.string.Enter_address), false);
+                    startActivity(new Intent(getBaseContext(), EditprofileActivity.class));
+                }
+            }
         });
         btncancelorder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,11 +130,27 @@ public class show_ecom_prdt extends AppCompatActivity {
                 int month = calendar.get(Calendar.MONTH);
                 int day = calendar.get(Calendar.DAY_OF_MONTH);
                 int year = calendar.get(Calendar.YEAR);
-                String date = day + "/" + month + "/" + year;
+                String date = day + "-" + month + "-" + year;
                 FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Myorder").child(model.getKey()).removeValue();
                 FirebaseDatabase.getInstance().getReference().child("Orders").child(date.toString()).child(model.getKey()).removeValue();
                 finish();
             }
         });
+    }
+
+    public void show_toast(String msg, boolean isgreen) {
+        Toast ts = new Toast(getBaseContext());
+        View view;
+        if (isgreen) {
+            view = getLayoutInflater().inflate(R.layout.lyttoastgreen, (ViewGroup) findViewById(R.id.container));
+        } else {
+            view = getLayoutInflater().inflate(R.layout.lyttoast, (ViewGroup) findViewById(R.id.container));
+        }
+        TextView txtmessage = view.findViewById(R.id.txtmsg);
+        txtmessage.setText(msg);
+        ts.setView(view);
+        ts.setGravity(Gravity.TOP, 0, 30);
+        ts.setDuration(Toast.LENGTH_SHORT);
+        ts.show();
     }
 }

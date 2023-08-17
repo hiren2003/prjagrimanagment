@@ -123,6 +123,12 @@ public class EditprofileActivity extends AppCompatActivity {
                     sedit.putInt("gender", rdmale.isChecked() ? 1 : 0);
                     sedit.putInt("state", states.getSelectedItemPosition());
                     sedit.putBoolean("iscomplete",true);
+                    if(edtaddress.getText().toString().trim().isEmpty()){
+                        sedit.putBoolean("hasadd",false);
+                    }
+                    else{
+                        sedit.putBoolean("hasadd",true);
+                    }
                     sedit.apply();
                     sedit.commit();
                     finish();
@@ -143,6 +149,12 @@ public class EditprofileActivity extends AppCompatActivity {
                                     sedit.putString("url", uri.toString());
                                     sedit.putInt("state", states.getSelectedItemPosition());
                                     sedit.putBoolean("iscomplete",true);
+                                    if(edtaddress.getText().toString().trim().isEmpty()){
+                                        sedit.putBoolean("hasadd",false);
+                                    }
+                                    else{
+                                        sedit.putBoolean("hasadd",true);
+                                    }
                                     sedit.apply();
                                     sedit.commit();
                                     finish();

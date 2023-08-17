@@ -29,19 +29,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginLeft="10dp"
-                android:fontFamily="@font/montserrat_alternates_medium"
                 android:text="Grains"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/mavenpro"
                 android:textColor="@color/black"
-                android:textSize="40dp"
-                android:textStyle="bold" />
+                android:textSize="40dp"/>
             <FrameLayout
                 android:layout_width="120dp"
                 android:background="#28C828"
-                android:layout_gravity="start"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="5dp"
-                android:layout_marginLeft="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_height="2dp"/>
             <androidx.cardview.widget.CardView
@@ -69,74 +67,53 @@
                 android:layout_margin="12dp"
                 android:layout_height="2dp"/>
             <com.google.android.material.textfield.TextInputLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/background"
-                    app:counterEnabled="true"
-                    app:counterMaxLength="15"
-                    app:hintEnabled="true"
-                android:hint="Product name"
-                    style="@style/choose_category"
-                    app:boxBackgroundColor="#D5D5D5"
-                    app:boxCornerRadiusBottomEnd="10sp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
-                    app:hintTextColor="@color/black"
-                    app:startIconDrawable="@drawable/baseline_call_24"
-                    app:startIconTint="#066006"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtpname"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:fontFamily="@font/montserrat_medium"
-                        android:maxLength="15"
-                        android:shadowColor="@color/black"
-                        android:textColor="@color/black" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
+                style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/background"
-                style="@style/choose_category"
-                app:boxBackgroundColor="#D5D5D5"
-                app:boxCornerRadiusBottomEnd="10sp"
-                android:hint="Specie"
-                app:boxCornerRadiusBottomStart="10dp"
-                app:boxCornerRadiusTopEnd="10dp"
-                app:boxCornerRadiusTopStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:hint="@string/Name_of_product"
                 app:counterEnabled="true"
                 app:counterMaxLength="15"
                 app:hintEnabled="true"
-                app:startIconDrawable="@drawable/baseline_spa_24"
-                app:startIconTint="#066006"
+                app:hintTextColor="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtpname"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:fontFamily="@font/allerta"
+                    android:maxLength="15"
+                    android:shadowColor="@color/black"
+                    android:textColor="@color/black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background"
+                android:hint="@string/specie"
+                app:counterEnabled="true"
+                app:counterMaxLength="15"
+                app:hintEnabled="true"
                 app:hintTextColor="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtspecie"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:fontFamily="@font/montserrat_medium"
+                    android:fontFamily="@font/allerta"
                     android:maxLength="15"
                     android:shadowColor="@color/black"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background"
@@ -145,49 +122,29 @@
                     app:counterMaxLength="15"
                     app:hintEnabled="true"
                     android:layout_weight="1"
-                    style="@style/choose_category"
-                    app:boxBackgroundColor="#D5D5D5"
-                    app:boxCornerRadiusBottomEnd="10sp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
-                    android:layout_marginLeft="10dp"
-                    app:startIconDrawable="@drawable/baseline_call_24"
-                    app:startIconTint="#066006"
-                    android:layout_marginRight="10dp"
                     app:hintTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
                        android:id="@+id/edtqty"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
-                        android:fontFamily="@font/montserrat_medium"
+                        android:fontFamily="@font/allerta"
                         android:maxLength="15"
                         android:inputType="numberSigned"
                         android:shadowColor="@color/black"
                         android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
-
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background"
                     android:hint="@string/Price"
                     app:counterEnabled="true"
-                    style="@style/choose_category"
-                    app:boxBackgroundColor="#D5D5D5"
-                    app:boxCornerRadiusBottomEnd="10sp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
                     app:counterMaxLength="15"
                     android:layout_weight="1"
                     app:hintEnabled="true"
-                    app:startIconDrawable="@drawable/baseline_call_24"
-                    app:startIconTint="#066006"
                     android:layout_marginStart="5dp"
                     app:hintTextColor="@color/black">
 
@@ -196,31 +153,20 @@
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:inputType="numberDecimal"
-                        android:fontFamily="@font/montserrat_medium"
+                        android:fontFamily="@font/allerta"
                         android:maxLength="15"
-                        android:layout_marginRight="15dp"
                         android:shadowColor="@color/black"
                         android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
-
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/background"
                 android:hint="@string/Seller_name"
-                style="@style/choose_category"
-                app:boxBackgroundColor="#D5D5D5"
-                app:boxCornerRadiusBottomEnd="10sp"
-                app:boxCornerRadiusBottomStart="10dp"
-                app:boxCornerRadiusTopEnd="10dp"
-                app:boxCornerRadiusTopStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                app:startIconDrawable="@drawable/ic_person"
-                app:startIconTint="#066006"
                 app:counterEnabled="true"
                 app:counterMaxLength="15"
                 app:hintEnabled="true"
@@ -230,7 +176,7 @@
                 android:id="@+id/edtsellername"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:fontFamily="@font/montserrat_medium"
+                android:fontFamily="@font/allerta"
                 android:maxLength="15"
                 android:shadowColor="@color/black"
                 android:textColor="@color/black" />
@@ -247,23 +193,15 @@
                 app:helperTextTextColor="@color/Dark_red"
                 app:hintTextColor="@color/black"
                 app:prefixText="+91"
-                style="@style/choose_category"
-                app:boxBackgroundColor="#D5D5D5"
-                app:boxCornerRadiusBottomEnd="10sp"
-                app:boxCornerRadiusBottomStart="10dp"
-                app:boxCornerRadiusTopEnd="10dp"
-                app:boxCornerRadiusTopStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 app:prefixTextColor="@color/black"
                 app:startIconDrawable="@drawable/baseline_call_24"
-                app:startIconTint="#066006">
+                app:startIconTint="#3E6018">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtmo"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:fontFamily="@font/montserrat_medium"
+                    android:fontFamily="@font/allerta"
                     android:inputType="number"
                     android:maxLength="10"
                     android:shadowColor="@color/black"
@@ -273,38 +211,29 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="10dp"
                 android:layout_gravity="center_horizontal"
                 android:orientation="horizontal">
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/background"
-                    android:layout_weight="1"
                     android:hint="@string/State"
                     android:minWidth="180dp"
                     app:hintEnabled="true"
-                    style="@style/choose_category"
-                    app:boxBackgroundColor="#D5D5D5"
-                    app:boxCornerRadiusBottomEnd="10sp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
-                    android:layout_marginLeft="15dp"
                     app:hintTextColor="@color/black"
                     app:prefixTextColor="@color/black"
                     app:startIconDrawable="@drawable/baseline_location_on_24"
-                    app:startIconTint="#066006">
+                    app:startIconTint="#3E6018">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtstate"
                         android:layout_width="wrap_content"
                         android:layout_height="60dp"
-                        android:fontFamily="@font/montserrat_medium"
+                        android:fontFamily="@font/allerta"
                         android:maxLength="15"
                         android:shadowColor="@color/black"
                         android:textColor="@color/black" />
@@ -312,6 +241,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -320,25 +250,17 @@
                     android:background="@drawable/background"
                     android:hint="@string/District"
                     android:minWidth="180dp"
-                    android:layout_weight="1"
                     app:hintEnabled="true"
                     app:hintTextColor="@color/black"
                     app:prefixTextColor="@color/black"
-                    style="@style/choose_category"
-                    app:boxBackgroundColor="#D5D5D5"
-                    app:boxCornerRadiusBottomEnd="10sp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
-                    android:layout_marginRight="15dp"
                     app:startIconDrawable="@drawable/baseline_location_on_24"
-                    app:startIconTint="#066006">
+                    app:startIconTint="#3E6018">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtdist"
                         android:layout_width="wrap_content"
                         android:layout_height="60dp"
-                        android:fontFamily="@font/montserrat_medium"
+                        android:fontFamily="@font/allerta"
                         android:maxLength="15"
                         android:shadowColor="@color/black"
                         android:textColor="@color/black" />
@@ -350,12 +272,11 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginRight="8dp"
                 android:layout_gravity="center_horizontal"
                 android:orientation="horizontal">
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -364,24 +285,16 @@
                     android:hint="@string/Tehsil"
                     android:minWidth="180dp"
                     app:hintEnabled="true"
-                    android:layout_weight="1"
                     app:hintTextColor="@color/black"
                     app:prefixTextColor="@color/black"
                     app:startIconDrawable="@drawable/baseline_location_on_24"
-                    style="@style/choose_category"
-                    app:boxBackgroundColor="#D5D5D5"
-                    app:boxCornerRadiusBottomEnd="10sp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
-                    android:layout_marginLeft="15dp"
-                    app:startIconTint="#066006">
+                    app:startIconTint="#3E6018">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edttehsil"
                         android:layout_width="wrap_content"
                         android:layout_height="60dp"
-                        android:fontFamily="@font/montserrat_medium"
+                        android:fontFamily="@font/allerta"
                         android:maxLength="15"
                         android:shadowColor="@color/black"
                         android:textColor="@color/black" />
@@ -389,6 +302,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -397,25 +311,17 @@
                     android:background="@drawable/background"
                     android:hint="@string/city_town_village"
                     android:minWidth="180dp"
-                    android:layout_weight="1"
                     app:hintEnabled="true"
                     app:hintTextColor="@color/black"
                     app:prefixTextColor="@color/black"
                     app:startIconDrawable="@drawable/baseline_location_on_24"
-                    style="@style/choose_category"
-                    app:boxBackgroundColor="#D5D5D5"
-                    app:boxCornerRadiusBottomEnd="10sp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
-                    android:layout_marginRight="10dp"
-                    app:startIconTint="#066006">
+                    app:startIconTint="#3E6018">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtvlg"
                         android:layout_width="wrap_content"
                         android:layout_height="60dp"
-                        android:fontFamily="@font/montserrat_medium"
+                        android:fontFamily="@font/allerta"
                         android:maxLength="15"
                         android:shadowColor="@color/black"
                         android:textColor="@color/black" />
@@ -428,33 +334,20 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/Description"
                 app:startIconDrawable="@drawable/baseline_description_24"
-                app:startIconTint="#066006"
-                style="@style/choose_category"
-                app:boxBackgroundColor="#D5D5D5"
-                app:boxCornerRadiusBottomEnd="10sp"
-                app:boxCornerRadiusBottomStart="10dp"
-                app:boxCornerRadiusTopEnd="10dp"
-                app:boxCornerRadiusTopStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                >
+                app:startIconTint="#8BC34A"
+                style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtdes"
                     android:layout_width="match_parent"
-                    android:fontFamily="@font/montserrat_medium"
                     android:layout_height="wrap_content"/>
             </com.google.android.material.textfield.TextInputLayout>
 
-            <androidx.appcompat.widget.AppCompatButton
+            <Button
                     android:id="@+id/btnchooseimage"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:textSize="20dp"
-                    android:fontFamily="@font/montserrat_bold"
-                    android:textColor="@color/white"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/sendotp"
+                    android:backgroundTint="#8BC34A"
                     android:text="@string/Choose_Image"
                     />
                 <ImageView
@@ -465,16 +358,12 @@
                     android:visibility="gone"
                     android:layout_margin="10dp"
                     android:src="@drawable/upload" />
-            <androidx.appcompat.widget.AppCompatButton
+            <Button
                 android:id="@+id/btnsavedata"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:textSize="20dp"
-                android:fontFamily="@font/montserrat_bold"
-                android:textColor="@color/white"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/sendotp"
-                android:backgroundTint="#066006"
+                android:backgroundTint="#8BC34A"
                 android:text="@string/Save_data"
                 />
         </LinearLayout>

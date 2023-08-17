@@ -83,7 +83,6 @@
     <string name="Total_Payment">Total Payment</string>
     <string name="Choose_Image">Choose Image</string>
     <string name="Category">Category</string>
-    <string name="mobile_no">Mobile no.</string>
     <string name="Kilogram">Kilogram</string>
     <string name="animals">animals</string>
     <string name="Cultivation_Product">Cultivation_Product</string>
@@ -139,6 +138,36 @@
     <string name="Cuti_prd">Cultivation Product</string>
     <string name="MyAnimal">Animals</string>
     <string name="Toolsacc">Tools&amp;Accesories</string>
+    <string name="Please_Enter_Speices">Please enter speices</string>
+    <string name="Please_Enter_Year">Please enter year</string>
+    <string name="Please_Enter_Month">Please enter month</string>
+    <string name="Please_Enter_Production">Please enter Production</string>
+    <string name="Please_Enter_Wight">Please enter weight</string>
+    <string name="Please_Enter_Mo">Please enter mobile no.</string>
+    <string name="Please_Enter_Price">Please enter price</string>
+    <string name="Please_Enter_State">Please enter State</string>
+    <string name="Please_Enter_Tehsil">Please enter Tehsil</string>
+    <string name="Please_Enter_District">Please enter District</string>
+    <string name="Please_Enter_Village">Please enter Village/Town/City</string>
+    <string name="Please_Enter_Image">Please Select Image</string>
+    <string name="Upload_Cancelled">Sorry! Upload is Unsuccessful</string>
+    <string name="Upload_Successfully">Uploaded Successfully</string>
+    <string name="Please_Enter_Pname">Please enter Product name</string>
+    <string name="Please_Enter_Qty">Please enter Quantity</string>
+    <string name="Please_Enter_Seller">Please enter Seller Name</string>
+    <string name="mobile_no">Mobile no.</string>
+    <string name="Please_Enter_Specification">Please enter Specification of Product</string>
+    <string name="Please_Enter_Recommandation">Please enter Recommendation for buyer</string>
+    <string name="Please_Enter_Description">Please enter Description</string>
+    <string name="Please_Enter_Title">Please enter Title</string>
+    <string name="Please_Enter_Link">Please enter Link</string>
+    <string name="Please_Enter_Lname">Please enter Worker Name</string>
+    <string name="Please_Enter_Wages">Please enter Wages</string>
+    <string name="Please_Enter_Date">Please Select Date</string>
+    <string name="Please_Enter_Duration">Please Enter Usage Duration</string>
+    <string name="Delete">Delete Item</string>
+    <string name="Update">Update Item</string>
+    <string name="Enter_address">Please Enter Address</string>
     <string-array name="toolstype">
         <item>Tools</item>
         <item>Accessories</item>

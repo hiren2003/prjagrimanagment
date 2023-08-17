@@ -71,7 +71,7 @@ RcAnimalAdapter rcAnimalAdapter;
                 .setQuery(FirebaseDatabase.getInstance().getReference().child("animals"), clsAnimalModel.class)
                 .build();
         rcanimal.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-        rcAnimalAdapter=new RcAnimalAdapter(options,getContext());
+        rcAnimalAdapter=new RcAnimalAdapter(options,getContext(),false);
         rcanimal.setAdapter(rcAnimalAdapter);
         return  view;
     }

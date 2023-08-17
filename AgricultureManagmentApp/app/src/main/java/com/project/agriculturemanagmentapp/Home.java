@@ -58,7 +58,7 @@ BubbleNavigationLinearView bubbleNavigationLinearView;
                 .into(prfpc);
 
         frameLayout.removeAllViews();
-        getSupportFragmentManager().beginTransaction().add(R.id.fmlayout,new frghome()).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.fmlayout,new Feed()).commit();
         prfpc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

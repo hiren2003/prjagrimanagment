@@ -15,5 +15,12 @@
         <item>@font/carme</item>
         <item>@font/droid_sans_bold</item>
         <item>@font/federo</item>
+        <item>@font/montserrat</item>
+        <item>@font/montserrat_alternates</item>
+        <item>@font/montserrat_alternates_medium</item>
+        <item>@font/montserrat_alternates_semibold</item>
+        <item>@font/montserrat_bold</item>
+        <item>@font/montserrat_medium</item>
+        <item>@font/montserrat_subrayada_bold</item>
     </array>
 </resources>

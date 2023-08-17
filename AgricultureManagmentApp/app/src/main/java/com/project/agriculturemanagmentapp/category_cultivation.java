@@ -9,13 +9,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.google.android.material.card.MaterialCardView;
 
 public class category_cultivation extends AppCompatActivity {
 MaterialCardView rdbfruits,rdbpulses,rdbvegatable,rdbgrains,rdbothers;
-Button next;
+ImageButton next;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,8 +86,9 @@ Button next;
     next.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
-
-        if (rdbgrains.isChecked()) {
+        if(!rdbothers.isChecked() && !rdbfruits.isChecked() && !rdbgrains.isChecked() && !rdbpulses.isChecked() && !rdbvegatable.isChecked()){
+            Toast toast=Toast.makeText(getApplicationContext(),"Please select category",Toast.LENGTH_SHORT);
+        }else if (rdbgrains.isChecked()) {
             startActivity(new Intent(category_cultivation.this, add_cultivation_product.class).putExtra("category", 1));
         } else if (rdbfruits.isChecked()) {
             startActivity(new Intent(category_cultivation.this,add_cultivation_product.class).putExtra("category",2));
@@ -152,6 +155,12 @@ Button next;
 
 
 
+
+    }
+
+    @Override
+    public void onBackPressed() {
+                     startActivity(new Intent(category_cultivation.this,Resell_Category.class));
 
     }
 

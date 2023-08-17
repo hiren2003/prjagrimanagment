@@ -79,7 +79,7 @@
                            <ImageView
                                android:layout_width="match_parent"
                                android:layout_height="120dp"
-                               android:background="@drawable/back"
+                               android:background="@drawable/curvebackground"
                                android:scaleType="centerCrop"
                                android:src="@drawable/garins" />
 
@@ -205,7 +205,7 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="120dp"
-                                android:background="@drawable/back"
+                                android:background="@drawable/curvebackground"
                                 android:scaleType="centerCrop"
                                 android:src="@drawable/pulses" />
 
@@ -326,7 +326,7 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="120dp"
-                                android:background="@drawable/back"
+                                android:background="@drawable/curvebackground"
                                 android:scaleType="centerCrop"
                                 android:src="@drawable/otherprdt" />
 

@@ -168,6 +168,9 @@
     <string name="Delete">Delete Item</string>
     <string name="Update">Update Item</string>
     <string name="Enter_address">Please Enter Address</string>
+    <string name="add_news">Add news</string>
+    <string name="admin">Administrator</string>
+    <string name="payment">Payment</string>
     <string-array name="toolstype">
         <item>Tools</item>
         <item>Accessories</item>

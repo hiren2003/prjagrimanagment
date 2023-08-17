@@ -18,6 +18,7 @@ public class govermentScheme extends AppCompatActivity {
     RecyclerView rc;
     ExtendedFloatingActionButton addscheme;
     RcGovAdapter rcGovAdapter;
+    int type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,11 @@ public class govermentScheme extends AppCompatActivity {
         setContentView(R.layout.activity_goverment_scheme);
         rc = findViewById(R.id.rcgov);
         addscheme = findViewById(R.id.addscheme);
+        Intent intent=getIntent();
+        type=intent.getIntExtra("type",0);
+        if(type==1){
+            addscheme.setVisibility(View.VISIBLE);
+        }
         FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
         FirebaseRecyclerOptions<clsgovmodel> options=new FirebaseRecyclerOptions.Builder<clsgovmodel>()
                 .setQuery(FirebaseDatabase.getInstance().getReference().child("Gov_scheme"), clsgovmodel.class)

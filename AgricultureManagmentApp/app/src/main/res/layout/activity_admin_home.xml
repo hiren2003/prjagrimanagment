@@ -6,12 +6,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
+    android:background="@drawable/farmms"
     tools:context=".admin_home">
 <androidx.cardview.widget.CardView
     android:id="@+id/user"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="20dp"
+    app:cardBackgroundColor="@color/green_inactive"
     android:layout_margin="10dp"
     app:cardElevation="15dp">
     <LinearLayout
@@ -22,7 +24,7 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/baseline_account_circle_24"/>
+            android:src="@drawable/mans"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
@@ -30,6 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="20dp"
+        app:cardBackgroundColor="@color/green_inactive"
         android:layout_margin="10dp"
         app:cardElevation="15dp">
         <LinearLayout
@@ -48,6 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        app:cardBackgroundColor="@color/green_inactive"
         app:cardCornerRadius="20dp"
         app:cardElevation="15dp">
         <LinearLayout
@@ -58,7 +62,26 @@
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/goverment"/>
+                android:src="@drawable/newspaper"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/orderlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardBackgroundColor="@color/green_inactive"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="15dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/tracking"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

@@ -13,6 +13,9 @@ public class clsOrderModel {
         this.date = date;
     }
 
+    public clsOrderModel() {
+    }
+
     public String getKey() {
         return key;
     }

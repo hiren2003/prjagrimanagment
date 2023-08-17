@@ -11,31 +11,31 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class MyOrder extends AppCompatActivity {
-RcEcommAdapter rcEcommAdapter;
-    @Override
+RcorderAdapter rcorderAdapter;
+@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_order);
         setContentView(R.layout.activity_cart);
         RecyclerView rcprdt=findViewById(R.id.rccprdt);
         SharedPreferences sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
-        FirebaseRecyclerOptions<clsEcommModel> options=new FirebaseRecyclerOptions.Builder<clsEcommModel>()
-                .setQuery(FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo","1234567890")).child("Myorder"), clsEcommModel.class)
+        FirebaseRecyclerOptions<clsOrderModel> options=new FirebaseRecyclerOptions.Builder<clsOrderModel>()
+                .setQuery(FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo","1234567890")).child("Myorder"), clsOrderModel.class)
                 .build();
-        rcEcommAdapter=new RcEcommAdapter(options,MyOrder.this,3);
+        rcorderAdapter=new RcorderAdapter(options,MyOrder.this);
         rcprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-        rcprdt.setAdapter(rcEcommAdapter);
+        rcprdt.setAdapter(rcorderAdapter);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        rcEcommAdapter.startListening();
+        rcorderAdapter.startListening();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        rcEcommAdapter.stopListening();
+        rcorderAdapter.stopListening();
     }
 }

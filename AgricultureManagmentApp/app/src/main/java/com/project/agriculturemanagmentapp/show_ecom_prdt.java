@@ -111,7 +111,7 @@ public class show_ecom_prdt extends AppCompatActivity {
                 if (hasadd) {
                     String date = java.util.Calendar.getInstance().get(java.util.Calendar.DAY_OF_MONTH) + "-" + Calendar.getInstance().get(java.util.Calendar.MONTH) + "-" + java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);
                     String key = FirebaseDatabase.getInstance().getReference().child("orders").child(date.toString()).push().getKey();
-                    clsOrderModel clsOrderModel = new clsOrderModel(model, model.getKey(), key, sharedPreferences.getString("add", "null"), edtqty.getText().toString(), date);
+                    clsOrderModel clsOrderModel = new clsOrderModel(model, model.getKey(),sharedPreferences.getString("mo", "1234567890"), sharedPreferences.getString("add", "null"), edtqty.getText().toString(), date);
                     FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Myorder").child(key).setValue(clsOrderModel);
                     FirebaseDatabase.getInstance().getReference().child("Orders").child(date).child(key).setValue(clsOrderModel);
                     FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Cart").child(model.getKey()).removeValue();

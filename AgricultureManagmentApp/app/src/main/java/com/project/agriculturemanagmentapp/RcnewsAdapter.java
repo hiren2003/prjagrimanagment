@@ -19,6 +19,8 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+
 public class RcnewsAdapter extends FirebaseRecyclerAdapter<clsNewsModel,RcnewsAdapter.ViewHolder> {
     /**
      * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
@@ -45,6 +47,7 @@ public class RcnewsAdapter extends FirebaseRecyclerAdapter<clsNewsModel,RcnewsAd
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse(model.link));
+                intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
         });

@@ -396,7 +396,7 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/logout" />
+                    android:src="@drawable/administrator" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -404,7 +404,7 @@
                     android:layout_gravity="center_vertical"
                     android:fontFamily="@font/federo"
                     android:layout_marginStart="10dp"
-                    android:text="News"
+                    android:text="@string/admin"
                     android:textSize="20dp" />
 
             </LinearLayout>

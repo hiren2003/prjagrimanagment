@@ -18,6 +18,8 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+
 public class RcuserAdapter extends FirebaseRecyclerAdapter<clsUserModel,RcuserAdapter.ViewHolder> {
     /**
      * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
@@ -42,8 +44,11 @@ public class RcuserAdapter extends FirebaseRecyclerAdapter<clsUserModel,RcuserAd
                 .into(holder.imgprdt);
         holder.cd.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                context.startActivity(new Intent(context, User_option.class).putExtra("mo", model.getMo()));
+            public void onClick(View v) {;
+                Intent intent=new Intent(context, User_option.class);
+                intent.putExtra("mo",model.getMo());
+                intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
             }
         });
     }

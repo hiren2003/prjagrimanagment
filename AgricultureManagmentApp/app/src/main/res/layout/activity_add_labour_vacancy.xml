@@ -22,10 +22,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Add Vacancy"
-                android:textColor="#4DAC0C"
+
+                android:textColor="#066006"
                 android:textSize="30dp"
 
-                android:fontFamily="@font/average_sans"
+                android:fontFamily="@font/montserrat_bold"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
@@ -35,13 +36,13 @@
                 />
 
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Add_vacancy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/curvebackground"
                 android:hint="@string/Owner_name"
                 app:counterEnabled="true"
                 app:counterMaxLength="15"
+                style="@style/Add_vacancy"
                 app:boxBackgroundColor="#D5D5D5"
                 app:boxCornerRadiusBottomEnd="10sp"
                 app:boxCornerRadiusBottomStart="10dp"
@@ -51,7 +52,6 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 app:hintEnabled="true"
-
                 app:prefixText="@string/mrmrs"
                 app:prefixTextColor="@color/black"
                 app:startIconDrawable="@drawable/baseline_account_circle_24"
@@ -61,7 +61,7 @@
                     android:id="@+id/edtoname"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:fontFamily="@font/allerta"
+                    android:fontFamily="@font/montserrat_medium"
                     android:maxLength="15"
                     android:shadowColor="@color/black"
                     android:textColor="@color/black" />
@@ -95,7 +95,7 @@
                     android:id="@+id/edtmo"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:fontFamily="@font/allerta"
+                    android:fontFamily="@font/montserrat_medium"
                     android:inputType="number"
                     android:maxLength="10"
                     android:shadowColor="@color/black"
@@ -129,7 +129,7 @@
                     android:id="@+id/edtwtype"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:fontFamily="@font/allerta"
+                    android:fontFamily="@font/montserrat_medium"
                     android:maxLength="15"
                     android:shadowColor="@color/black"
                     android:textColor="@color/black" />
@@ -145,17 +145,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/Fix_Wages"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:textSize="18dp" />
 
                 <RadioButton
                     android:id="@+id/rdbprtsp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
+                    android:fontFamily="@font/montserrat_medium"
                     android:text="@string/On_Partenership"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    android:textSize="18dp"
+                     />
             </RadioGroup>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -184,7 +186,7 @@
                     android:id="@+id/edtincome"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:fontFamily="@font/allerta"
+                    android:fontFamily="@font/montserrat_medium"
                     android:inputType="number"
                     android:maxLength="10"
                     android:shadowColor="@color/black"
@@ -217,7 +219,7 @@
                     android:id="@+id/edtduration"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:fontFamily="@font/allerta"
+                    android:fontFamily="@font/montserrat_medium"
                     android:inputType="number"
                     android:maxLength="10"
                     android:shadowColor="@color/black"
@@ -254,7 +256,7 @@
                         android:id="@+id/edtstate"
                         android:layout_width="170dp"
                         android:layout_height="60dp"
-                        android:fontFamily="@font/allerta"
+                        android:fontFamily="@font/montserrat_medium"
                         android:maxLength="15"
                         android:shadowColor="@color/black"
                         android:layout_marginRight="10dp"
@@ -288,7 +290,7 @@
                         android:id="@+id/edtdist"
                         android:layout_width="170dp"
                         android:layout_height="60dp"
-                        android:fontFamily="@font/allerta"
+                        android:fontFamily="@font/montserrat_medium"
                         android:maxLength="15"
                         android:layout_marginRight="10dp"
                         android:shadowColor="@color/black"
@@ -330,7 +332,7 @@
                         android:id="@+id/edttehsil"
                         android:layout_width="170dp"
                         android:layout_height="60dp"
-                        android:fontFamily="@font/allerta"
+                        android:fontFamily="@font/montserrat_medium"
                         android:maxLength="15"
                         android:shadowColor="@color/black"
                         android:textColor="@color/black" />
@@ -364,7 +366,7 @@
                         android:id="@+id/edtvlg"
                         android:layout_width="170dp"
                         android:layout_height="60dp"
-                        android:fontFamily="@font/allerta"
+                        android:fontFamily="@font/montserrat_medium"
                         android:maxLength="15"
                         android:shadowColor="@color/black"
                         android:textColor="@color/black" />
@@ -388,12 +390,13 @@
                 android:layout_marginRight="10dp"
                 android:textColorHint="@color/black"
                 app:startIconDrawable="@drawable/baseline_description_24"
-                app:startIconTint="#8BC34A">
+                app:startIconTint="#066006">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtdes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_medium"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -422,7 +425,7 @@
                     android:id="@+id/txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/andika"
+                    android:fontFamily="@font/montserrat_bold"
                     android:text="@string/Save_data"
                     android:textColor="#FFFFFF"
                     android:textSize="20dp" />

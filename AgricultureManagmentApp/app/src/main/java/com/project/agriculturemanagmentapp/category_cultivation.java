@@ -160,8 +160,7 @@ ImageButton next;
 
     @Override
     public void onBackPressed() {
-                     startActivity(new Intent(category_cultivation.this,Resell_Category.class));
-
+super.onBackPressed();
     }
 
     //    public void uncheck(){

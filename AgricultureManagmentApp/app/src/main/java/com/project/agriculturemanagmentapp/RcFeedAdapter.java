@@ -13,6 +13,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.MediaController;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
@@ -23,9 +24,12 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.squareup.picasso.Picasso;
 
@@ -34,6 +38,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import static androidx.core.content.ContextCompat.getDrawable;
 import static androidx.core.content.ContextCompat.startActivity;
 
 public class RcFeedAdapter extends FirebaseRecyclerAdapter<clsFeedModel, RcFeedAdapter.ViewHolder> {
@@ -56,6 +61,72 @@ public class RcFeedAdapter extends FirebaseRecyclerAdapter<clsFeedModel, RcFeedA
     protected void onBindViewHolder(@NonNull RcFeedAdapter.ViewHolder holder, int position, @NonNull clsFeedModel model) {
         Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
         holder.itemView.setAnimation(anim);
+        SharedPreferences sharedPreferences=context.getSharedPreferences("data",Context.MODE_PRIVATE);
+        DatabaseReference parentRef=FirebaseDatabase.getInstance().getReference().child("Like").child(model.getKey());
+        parentRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                long count = dataSnapshot.getChildrenCount();
+                holder.txtlikecount.setText(count+"");
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+        parentRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                boolean hasliked=snapshot.hasChild(sharedPreferences.getString("mo","123456789"));
+                if(hasliked){
+                    holder.imglike.setImageDrawable(getDrawable(context,R.drawable.liked));
+                }
+                else{
+                    holder.imglike.setImageDrawable(getDrawable(context,R.drawable.notliked));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+              holder.rllike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                parentRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                       boolean hasliked=dataSnapshot.hasChild(sharedPreferences.getString("mo","123456789"));
+                       if(hasliked){
+                           FirebaseDatabase.getInstance().getReference().child("Like").child(model.getKey()).child(sharedPreferences.getString("mo","1234567890")).removeValue();
+                           holder.imglike.setImageDrawable(getDrawable(context,R.drawable.notliked));
+                       }
+                       else{
+                           FirebaseDatabase.getInstance().getReference().child("Like").child(model.getKey()).child(sharedPreferences.getString("mo","1234567890")).setValue(true);
+                           holder.imglike.setImageDrawable(getDrawable(context,R.drawable.liked));
+                       }
+                        parentRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                long count = dataSnapshot.getChildrenCount();
+                                holder.txtlikecount.setText(count+"");
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
+
+
+            }
+        });
         if (model.mediatype.equals("1")) {
             holder.txtdes.setVisibility(View.VISIBLE);
             holder.imgpost.setVisibility(View.VISIBLE);
@@ -76,7 +147,6 @@ public class RcFeedAdapter extends FirebaseRecyclerAdapter<clsFeedModel, RcFeedA
             holder.txtdes.setVisibility(View.VISIBLE);
             holder.txtdes.setText(model.des);
         }
-        SharedPreferences sharedPreferences = context.getSharedPreferences("data", Context.MODE_PRIVATE);
         holder.txtuname.setText(model.getUname());
         holder.txtdate.setText(model.getDate());
         if (isMyFeed) {
@@ -172,9 +242,11 @@ public class RcFeedAdapter extends FirebaseRecyclerAdapter<clsFeedModel, RcFeedA
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView prfpc, imgpost, imgshare, imgcomment;
-        TextView txtuname, txtdes, txtdate;
-        ImageView btndelete;
+        TextView txtuname, txtdes, txtdate,txtlikecount;
+        ImageView btndelete,imglike;
         VideoView videoView;
+        RelativeLayout rllike;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -187,6 +259,9 @@ public class RcFeedAdapter extends FirebaseRecyclerAdapter<clsFeedModel, RcFeedA
             videoView = itemView.findViewById(R.id.videoview);
             imgshare = itemView.findViewById(R.id.share);
             imgcomment = itemView.findViewById(R.id.comment);
+            rllike=itemView.findViewById(R.id.rllike);
+            imglike=itemView.findViewById(R.id.like);
+            txtlikecount=itemView.findViewById(R.id.likecount);
         }
     }
 }

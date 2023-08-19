@@ -111,6 +111,34 @@
         android:orientation="horizontal"
         android:layout_gravity="start"
         android:gravity="center_horizontal">
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:gravity="center_horizontal"
+           android:orientation="vertical">
+           <RelativeLayout
+               android:id="@+id/rllike"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content">
+               <ImageView
+                   android:id="@+id/like"
+                   android:scaleType="centerInside"
+                   android:layout_width="25dp"
+                   android:layout_height="25dp"
+                   android:fitsSystemWindows="true"
+                   android:src="@drawable/notliked"
+                   android:layout_marginLeft="10dp"
+                   android:layout_marginRight="10dp"
+                   android:layout_marginTop="10dp"
+                   />
+           </RelativeLayout>
+           <TextView
+               android:id="@+id/likecount"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textSize="10dp"
+               android:text="1000"/>
+       </LinearLayout>
         <ImageView
             android:id="@+id/comment"
             android:scaleType="centerInside"

@@ -11,15 +11,14 @@
             android:layout_height="match_parent"
             android:padding="5dp"
             android:orientation="vertical">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:fontFamily="@font/montserrat_bold"
                 android:text="@string/choose_cat"
-                android:textColor="#066006"
-                android:textSize="50dp" />
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/mavenpro"
+                android:textSize="50dp"/>
             <FrameLayout
                 android:layout_width="match_parent"
                 android:background="@color/frame"
@@ -30,7 +29,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:id="@+id/rdbgrains"
-                android:layout_height="140dp"
+                android:layout_height="130dp"
                 android:layout_margin="5dp"
                 android:layout_gravity="center_horizontal"
                 android:checkable="true"
@@ -52,11 +51,12 @@
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:text="Grains"
+                       android:textStyle="bold"
                        android:layout_marginLeft="20dp"
                        android:layout_gravity="center_vertical"
-                       android:fontFamily="@font/montserrat_medium"
+                       android:fontFamily="@font/mavenpro"
                        android:textColor="@color/black"
-                       android:textSize="30dp"/>
+                       android:textSize="40dp"/>
                    <com.google.android.material.card.MaterialCardView
                        android:layout_width="200dp"
                        android:layout_height="120dp"
@@ -64,7 +64,7 @@
                        android:checkable="true"
                        android:layout_marginTop="5dp"
                        android:layout_marginBottom="5dp"
-                       android:layout_marginLeft="45dp"
+                       android:layout_marginLeft="35dp"
                        android:layout_marginRight="5dp"
                        app:cardBackgroundColor="@android:color/white"
                        app:cardForegroundColor="@android:color/transparent"
@@ -79,7 +79,6 @@
                            <ImageView
                                android:layout_width="match_parent"
                                android:layout_height="120dp"
-                               android:background="@drawable/curvebackground"
                                android:scaleType="centerCrop"
                                android:src="@drawable/garins" />
 
@@ -95,7 +94,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:id="@+id/rdbfruits"
-                android:layout_height="140dp"
+                android:layout_height="130dp"
                 android:layout_margin="5dp"
                 android:layout_gravity="center_horizontal"
                 android:checkable="true"
@@ -111,16 +110,13 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
-                    android:layout_gravity="center_vertical"
                     android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
 
                     <com.google.android.material.card.MaterialCardView
-                        android:layout_width="180dp"
+                        android:layout_width="200dp"
                         android:layout_height="120dp"
                         android:checkable="true"
-                        android:layout_marginLeft="5dp"
-                        android:layout_gravity="center_vertical"
                         app:cardBackgroundColor="@android:color/holo_green_light"
                         app:cardForegroundColor="@android:color/transparent"
                         app:strokeColor="@color/newww"
@@ -134,28 +130,31 @@
                                 android:layout_height="120dp"
                                 android:scaleType="centerCrop"
                                 android:src="@drawable/fruits2"/>
-
+                            <CheckBox
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentRight="true"/>
                         </RelativeLayout>
 
                     </com.google.android.material.card.MaterialCardView>
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="20dp"
-                        android:fontFamily="@font/montserrat_medium"
                         android:text="Fruits"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/mavenpro"
                         android:textColor="@color/black"
-                        android:textSize="30dp"
-                        />
+                        android:textSize="40dp"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 <!--            PULSES-->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:id="@+id/rdbpulses"
-                android:layout_height="140dp"
+                android:layout_height="130dp"
                 android:layout_margin="5dp"
                 android:layout_gravity="center_horizontal"
                 android:checkable="true"
@@ -177,11 +176,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pulses"
+                        android:textStyle="bold"
                         android:layout_marginLeft="20dp"
                         android:layout_gravity="center_vertical"
-                        android:fontFamily="@font/montserrat_medium"
+                        android:fontFamily="@font/mavenpro"
                         android:textColor="@color/black"
-                        android:textSize="30dp"/>
+                        android:textSize="40dp"/>
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="200dp"
                         android:layout_height="120dp"
@@ -189,7 +189,7 @@
                         android:checkable="true"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:layout_marginLeft="45dp"
+                        android:layout_marginLeft="35dp"
                         android:layout_marginRight="5dp"
                         app:cardBackgroundColor="@android:color/white"
                         app:cardForegroundColor="@android:color/transparent"
@@ -204,7 +204,6 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="120dp"
-                                android:background="@drawable/curvebackground"
                                 android:scaleType="centerCrop"
                                 android:src="@drawable/pulses" />
 
@@ -219,7 +218,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:id="@+id/rdbvegatable"
-                android:layout_height="140dp"
+                android:layout_height="130dp"
                 android:layout_margin="5dp"
                 android:layout_gravity="center_horizontal"
                 android:checkable="true"
@@ -239,11 +238,9 @@
                     android:orientation="horizontal">
 
                     <com.google.android.material.card.MaterialCardView
-                        android:layout_width="180dp"
+                        android:layout_width="200dp"
                         android:layout_height="120dp"
-                        android:layout_marginLeft="5dp"
                         android:checkable="true"
-                        android:layout_gravity="center_vertical"
                         app:cardBackgroundColor="@android:color/holo_green_light"
                         app:cardForegroundColor="@android:color/transparent"
                         app:strokeColor="@color/newww"
@@ -265,9 +262,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Vegetables"
+                        android:textStyle="bold"
                         android:layout_marginLeft="10dp"
                         android:layout_gravity="center_vertical"
-                        android:fontFamily="@font/montserrat_medium"
+                        android:fontFamily="@font/mavenpro"
                         android:textColor="@color/black"
                         android:textSize="30dp"/>
                 </LinearLayout>
@@ -276,7 +274,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:id="@+id/rdbothers"
-                android:layout_height="140dp"
+                android:layout_height="130dp"
                 android:layout_margin="5dp"
                 android:layout_gravity="center_horizontal"
                 android:checkable="true"
@@ -298,11 +296,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Others"
+                        android:textStyle="bold"
                         android:layout_marginLeft="20dp"
                         android:layout_gravity="center_vertical"
-                        android:fontFamily="@font/montserrat_medium"
+                        android:fontFamily="@font/mavenpro"
                         android:textColor="@color/black"
-                        android:textSize="30dp"/>
+                        android:textSize="40dp"/>
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="200dp"
                         android:layout_height="120dp"
@@ -310,7 +309,7 @@
                         android:checkable="true"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:layout_marginLeft="40dp"
+                        android:layout_marginLeft="35dp"
                         android:layout_marginRight="5dp"
                         app:cardBackgroundColor="@android:color/white"
                         app:cardForegroundColor="@android:color/transparent"
@@ -325,7 +324,6 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="120dp"
-                                android:background="@drawable/curvebackground"
                                 android:scaleType="centerCrop"
                                 android:src="@drawable/otherprdt" />
 
@@ -342,18 +340,11 @@
 
 
 
-            <ImageButton
-
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Next"
-                android:layout_marginTop="20dp"
                 android:id="@+id/btn"
-                android:textSize="30dp"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_margin="10dp"
-                android:layout_gravity="end"
-                android:background="@drawable/sendotp"
-                app:srcCompat="@drawable/baseline_arrow_forward_24"
-                app:tint="#FFFFFF"/>
+                android:textSize="30dp"/>
         </LinearLayout>
 </androidx.core.widget.NestedScrollView>

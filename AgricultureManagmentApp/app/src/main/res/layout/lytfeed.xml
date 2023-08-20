@@ -72,6 +72,20 @@
     </RelativeLayout>
 </LinearLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imgdlike"
+            android:layout_width="100dp"
+            android:src="@drawable/liked"
+            android:visibility="gone"
+            android:layout_centerInParent="true"
+            android:layout_height="100dp"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
     <TextView
         android:id="@+id/txtdes"
         android:layout_width="wrap_content"
@@ -94,15 +108,16 @@
             android:scaleType="fitCenter"
             android:visibility="gone"
             android:layout_gravity="center_horizontal"
-           />
+            />
     </FrameLayout>
     <ImageView
         android:id="@+id/imgfeed"
         android:scaleType="centerInside"
         android:layout_width="380dp"
         android:layout_height="350dp"
-        android:fitsSystemWindows="true"
         android:visibility="gone"
+        android:layout_gravity="center_horizontal"
+        android:fitsSystemWindows="true"
         />
 
     <LinearLayout
@@ -111,34 +126,34 @@
         android:orientation="horizontal"
         android:layout_gravity="start"
         android:gravity="center_horizontal">
-       <LinearLayout
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:gravity="center_horizontal"
-           android:orientation="vertical">
-           <RelativeLayout
-               android:id="@+id/rllike"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content">
-               <ImageView
-                   android:id="@+id/like"
-                   android:scaleType="centerInside"
-                   android:layout_width="25dp"
-                   android:layout_height="25dp"
-                   android:fitsSystemWindows="true"
-                   android:src="@drawable/notliked"
-                   android:layout_marginLeft="10dp"
-                   android:layout_marginRight="10dp"
-                   android:layout_marginTop="10dp"
-                   />
-           </RelativeLayout>
-           <TextView
-               android:id="@+id/likecount"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:textSize="10dp"
-               android:text="1000"/>
-       </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:id="@+id/rllike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/like"
+                    android:scaleType="centerInside"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:fitsSystemWindows="true"
+                    android:src="@drawable/notliked"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/likecount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10dp"
+                android:text="1000"/>
+        </LinearLayout>
         <ImageView
             android:id="@+id/comment"
             android:scaleType="centerInside"
@@ -158,6 +173,8 @@
             android:src="@drawable/share2"
             />
     </LinearLayout>
+</LinearLayout>
+    </RelativeLayout>
     <FrameLayout
         android:layout_width="match_parent"
         android:background="#525151"

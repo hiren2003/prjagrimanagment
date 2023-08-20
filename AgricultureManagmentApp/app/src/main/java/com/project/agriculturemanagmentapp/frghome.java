@@ -127,7 +127,7 @@ public class frghome extends Fragment {
         imageview = view.findViewById(R.id.imageview);
         txtvisiblity = view.findViewById(R.id.txtvisiblity);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        rcnewsAdapter = new RcnewsAdapter(options, getContext());
+        rcnewsAdapter = new RcnewsAdapter(options, getContext(),false);
         recyclerView.setAdapter(rcnewsAdapter);
         ActivityCompat.requestPermissions(getActivity(), new String[]{ACCESS_FINE_LOCATION}, 101);
         locationManager = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);

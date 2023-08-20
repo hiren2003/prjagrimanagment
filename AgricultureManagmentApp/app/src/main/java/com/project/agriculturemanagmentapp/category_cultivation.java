@@ -17,7 +17,7 @@ import com.google.android.material.card.MaterialCardView;
 
 public class category_cultivation extends AppCompatActivity {
 MaterialCardView rdbfruits,rdbpulses,rdbvegatable,rdbgrains,rdbothers;
-ImageButton next;
+Button next;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,15 +89,15 @@ ImageButton next;
         if(!rdbothers.isChecked() && !rdbfruits.isChecked() && !rdbgrains.isChecked() && !rdbpulses.isChecked() && !rdbvegatable.isChecked()){
             Toast toast=Toast.makeText(getApplicationContext(),"Please select category",Toast.LENGTH_SHORT);
         }else if (rdbgrains.isChecked()) {
-            startActivity(new Intent(category_cultivation.this, add_cultivation_product.class).putExtra("category", 1));
+            startActivity(new Intent(category_cultivation.this, add_cultivation_product.class).putExtra("category", 1).putExtra("name","Grain"));
         } else if (rdbfruits.isChecked()) {
-            startActivity(new Intent(category_cultivation.this,add_cultivation_product.class).putExtra("category",2));
+            startActivity(new Intent(category_cultivation.this,add_cultivation_product.class).putExtra("category",2).putExtra("name","Fruits"));
         }else if(rdbpulses.isChecked()){
-            startActivity(new Intent(category_cultivation.this, add_cultivation_product.class).putExtra("category", 3));
+            startActivity(new Intent(category_cultivation.this, add_cultivation_product.class).putExtra("category", 3).putExtra("name","Pulses"));
         } else if (rdbvegatable.isChecked()) {
-            startActivity(new Intent(category_cultivation.this, add_cultivation_product.class).putExtra("category", 4));
+            startActivity(new Intent(category_cultivation.this, add_cultivation_product.class).putExtra("category", 4).putExtra("name","Vegetables"));
         }else if (rdbothers.isChecked()){
-            startActivity(new Intent(category_cultivation.this, add_cultivation_product.class).putExtra("category", 0));
+            startActivity(new Intent(category_cultivation.this, add_cultivation_product.class).putExtra("category", 0).putExtra("name","Other"));
         }
     }
 

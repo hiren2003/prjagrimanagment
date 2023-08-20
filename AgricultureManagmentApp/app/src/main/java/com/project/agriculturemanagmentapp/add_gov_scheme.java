@@ -6,6 +6,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -77,6 +78,11 @@ Button btnsavedata;
                     launcher.launch("image/*");
                 }
                 else{
+                    Dialog dg=new Dialog(add_gov_scheme.this);
+                    dg.setContentView(R.layout.lytloading);
+                    dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
+                    dg.setCancelable(false);
+                    dg.show();
                     String key=FirebaseDatabase.getInstance().getReference().child("Gov_scheme").push().getKey();
                     StorageReference reference =  FirebaseStorage.getInstance().getReference().child("Gov_scheme").child(key);
                     reference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -88,11 +94,14 @@ Button btnsavedata;
                                     FirebaseDatabase.getInstance().getReference().child("Gov_scheme").child(key).setValue(new clsgovmodel(key,edtname.getText().toString(),uri.toString(),states.getSelectedItem().toString(),edtdes.getText().toString(),edturl.getText().toString())).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
+                                            dg.dismiss();
+                                            show_toast(getResources().getString(R.string.Upload_Successfully),true);
                                             finish();
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
+                                            dg.dismiss();
                                             show_toast(getResources().getString(R.string.Upload_Cancelled),false);
                                         }
                                     });
@@ -100,6 +109,7 @@ Button btnsavedata;
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
+                                    dg.dismiss();
                                     show_toast(getResources().getString(R.string.Upload_Cancelled),false);
                                 }
                             });
@@ -108,6 +118,7 @@ Button btnsavedata;
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             show_toast(getResources().getString(R.string.Upload_Cancelled),false);
+                            dg.dismiss();
                         }
                     });
                 }

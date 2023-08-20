@@ -125,7 +125,7 @@
                android:layout_height="wrap_content"
                app:bt_colorActive="@color/green_active"
                app:bt_colorInactive="@color/green_inactive"
-               app:bt_icon="@drawable/baseline_sell_24"
+               app:bt_icon="@drawable/resell"
                android:layout_marginEnd="10dp"
                app:bt_shape="@drawable/transition_background_drawable_list"
                app:bt_title="Resell" />

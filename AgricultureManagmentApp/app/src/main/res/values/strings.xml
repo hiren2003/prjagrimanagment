@@ -171,6 +171,23 @@
     <string name="add_news">Add news</string>
     <string name="admin">Administrator</string>
     <string name="payment">Payment</string>
+    <string name="Please_Enter_Owner">Please Enter Owner Name</string>
+    <string name="Please_Enter_Worktype">Please Enter Type of Work</string>
+    <string name="Please_Enter_pincome">Please Enter Predicted Income</string>
+    <string name="Please_Enter_wDuration">Please Enter Duration of work</string>
+    <string name="Please_Enter_Wagetype">Please Select one Wage type</string>
+    <string name="Please_Enter_Video">Please Select a Video post</string>
+    <string name="p2">Production(ltr/unit)</string>
+    <string name="Product_removed">Product removed</string>
+    <string name="Added_cart">Added to cart</string>
+    <string name="Confirm_order">Order confirmed</string>
+    <string name="remove_cart">Removed from cart</string>
+    <string name="ProductDetail">Product Detail</string>
+    <string name="Invalid_Quntity">Invalid Quantity</string>
+    <string name="Login_SuccessFully">Login Successfully</string>
+    <string name="successfullyuploaded">Details Saved Successfully</string>
+    <string name="unsuccessfullyuploaded">Failed to save detail</string>
+    <string name="news">News</string>
     <string-array name="toolstype">
         <item>Tools</item>
         <item>Accessories</item>
@@ -247,6 +264,12 @@
         <item>West Bengal</item>
     </string-array>
     <string-array name="arrcategory">
+        <item>seeds and Plants</item>
+        <item>Crop protection and Nutrition</item>
+        <item>Tools and Equipment</item>
+    </string-array>
+    <string-array name="arrcategory2">
+        <item>All</item>
         <item>seeds and Plants</item>
         <item>Crop protection and Nutrition</item>
         <item>Tools and Equipment</item>

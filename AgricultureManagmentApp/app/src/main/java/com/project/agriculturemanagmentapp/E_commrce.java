@@ -7,13 +7,20 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -68,13 +75,34 @@ public class E_commrce extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_e_commrce, container, false);
         RecyclerView rcprdt=view.findViewById(R.id.rccprdt);
+        Spinner spntype=view.findViewById(R.id.category);
+        Query query=FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All");
         ExtendedFloatingActionButton addecomm=view.findViewById(R.id.addecomm);
         FirebaseRecyclerOptions<clsEcommModel> options=new FirebaseRecyclerOptions.Builder<clsEcommModel>()
-                .setQuery(FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All"), clsEcommModel.class)
+                .setQuery(query, clsEcommModel.class)
                 .build();
          rcEcommAdapter=new RcEcommAdapter(options,getContext(),1);
         rcprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
         rcprdt.setAdapter(rcEcommAdapter);
+        String[] arr = getResources().getStringArray(R.array.arrcategory2);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item, arr);
+        spntype.setAdapter(adapter);
+        spntype.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                FirebaseRecyclerOptions<clsEcommModel> options=new FirebaseRecyclerOptions.Builder<clsEcommModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("ECommerce").child(arr[position]), clsEcommModel.class)
+                        .build();
+                rcEcommAdapter=new RcEcommAdapter(options,getContext(),1);
+                rcprdt.setAdapter(rcEcommAdapter);
+                rcEcommAdapter.startListening();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         addecomm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

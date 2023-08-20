@@ -42,6 +42,7 @@ import java.util.Calendar;
 
 public class add_cultivation_product extends AppCompatActivity {
     String[] arrprdttp;
+    TextView txtname;
     Spinner spntype;
     String key = "";
     Uri selectedimg;
@@ -52,7 +53,8 @@ public class add_cultivation_product extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     Intent intent;
     TextInputEditText edtpname, edtspeice, edtqty, edtprc, edtstate, edtdistrict, edttehsil, edtvillage, edtdescription, edtmo, edtsellername;
-String category="";
+    String category = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +69,7 @@ String category="";
         edtprc = findViewById(R.id.edtprc);
         edtstate = findViewById(R.id.edtstate);
         edtdistrict = findViewById(R.id.edtdist);
+        txtname=findViewById(R.id.txtname);
         edttehsil = findViewById(R.id.edttehsil);
         edtsellername = findViewById(R.id.edtsellername);
         edtvillage = findViewById(R.id.edtvlg);
@@ -79,25 +82,30 @@ String category="";
         int cat = intent.getIntExtra("category", 0);
         if (cat == 1) {
             imgcat.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.garins));
-            category=arrprdttp[3];
+            txtname.setText(arrprdttp[3]);
+            category = arrprdttp[3];
         } else if (cat == 2) {
             imgcat.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.fruits2));
-            category=arrprdttp[1];
+            category = arrprdttp[1];
+            txtname.setText(arrprdttp[1]);
         } else if (cat == 3) {
             imgcat.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.pulses));
-            category=arrprdttp[2];
+            category = arrprdttp[2];
+            txtname.setText(arrprdttp[2]);
         } else if (cat == 4) {
             imgcat.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.vegatable));
-            category=arrprdttp[0];
+            category = arrprdttp[0];
+            txtname.setText(arrprdttp[0]);
         } else {
             imgcat.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.otherprdt));
-            category=arrprdttp[4];
+            category = arrprdttp[4];
+            txtname.setText(arrprdttp[4]);
         }
         ActivityResultLauncher<String> launcher = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
             public void onActivityResult(Uri result) {
                 imgprdt.setImageURI(result);
-                if(result!=null){
+                if (result != null) {
                     imgprdt.setVisibility(View.VISIBLE);
                 }
                 selectedimg = result;
@@ -117,53 +125,45 @@ String category="";
                 if (edtpname.getText().toString().trim().isEmpty()) {
                     show_toast(getResources().getString(R.string.Please_Enter_Pname), false);
                     edtpname.requestFocus();
-                }
-                else if (edtspeice.getText().toString().trim().isEmpty()) {
+                } else if (edtspeice.getText().toString().trim().isEmpty()) {
                     show_toast(getResources().getString(R.string.Please_Enter_Speices), false);
                     edtspeice.requestFocus();
-                }
-                else if (edtqty.getText().toString().trim().isEmpty()) {
+                } else if (edtqty.getText().toString().trim().isEmpty()) {
                     show_toast(getResources().getString(R.string.Please_Enter_Qty), false);
                     edtqty.requestFocus();
-                }
-                else if (edtprc.getText().toString().trim().isEmpty()) {
+                } else if (edtprc.getText().toString().trim().isEmpty()) {
                     show_toast(getResources().getString(R.string.Please_Enter_Price), false);
                     edtprc.requestFocus();
-                }
-                else if (edtsellername.getText().toString().trim().isEmpty()) {
+                } else if (edtsellername.getText().toString().trim().isEmpty()) {
                     show_toast(getResources().getString(R.string.Please_Enter_Seller), false);
                     edtsellername.requestFocus();
-                }
-                else if (edtmo.getText().toString().trim().isEmpty()) {
+                } else if (edtmo.getText().toString().trim().isEmpty()) {
                     show_toast(getResources().getString(R.string.Please_Enter_Mo), false);
                     edtmo.requestFocus();
                 } else if (edtmo.getText().toString().trim().length() != 10) {
                     show_toast(getResources().getString(R.string.Invalid_MobileNumber), false);
                     edtmo.requestFocus();
-            } else if (edtstate.getText().toString().trim().isEmpty()) {
-                show_toast(getResources().getString(R.string.Please_Enter_State), false);
-                edtstate.requestFocus();
-            } else if (edtdistrict.getText().toString().trim().isEmpty()) {
-                show_toast(getResources().getString(R.string.Please_Enter_District), false);
-                edtdistrict.requestFocus();
-            } else if (edttehsil.getText().toString().trim().isEmpty()) {
-                show_toast(getResources().getString(R.string.Please_Enter_Tehsil), false);
-                edttehsil.requestFocus();
-            } else if (edtvillage.getText().toString().trim().isEmpty()) {
-                show_toast(getResources().getString(R.string.Please_Enter_Village), false);
-                edtvillage.requestFocus();
-            } else if (selectedimg == null) {
-                show_toast(getResources().getString(R.string.Please_Enter_Image), false);
-                launcher.launch("image/*");
-            }
-
-              else{
-                    Dialog dgload = new Dialog(add_cultivation_product.this);
-                    View view = LayoutInflater.from(add_cultivation_product.this).inflate(R.layout.lytloading, null, false);
-                    dgload.setContentView(view);
-                    dgload.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
-                    dgload.setCancelable(false);
-                    dgload.show();
+                } else if (edtstate.getText().toString().trim().isEmpty()) {
+                    show_toast(getResources().getString(R.string.Please_Enter_State), false);
+                    edtstate.requestFocus();
+                } else if (edtdistrict.getText().toString().trim().isEmpty()) {
+                    show_toast(getResources().getString(R.string.Please_Enter_District), false);
+                    edtdistrict.requestFocus();
+                } else if (edttehsil.getText().toString().trim().isEmpty()) {
+                    show_toast(getResources().getString(R.string.Please_Enter_Tehsil), false);
+                    edttehsil.requestFocus();
+                } else if (edtvillage.getText().toString().trim().isEmpty()) {
+                    show_toast(getResources().getString(R.string.Please_Enter_Village), false);
+                    edtvillage.requestFocus();
+                } else if (selectedimg == null) {
+                    show_toast(getResources().getString(R.string.Please_Enter_Image), false);
+                    launcher.launch("image/*");
+                } else {
+                    Dialog dg = new Dialog(add_cultivation_product.this);
+                    dg.setContentView(R.layout.lytloading);
+                    dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
+                    dg.setCancelable(false);
+                    dg.show();
                     key = FirebaseDatabase.getInstance().getReference().child("Cultivation Product").push().getKey();
                     StorageReference firebaseStorage = FirebaseStorage.getInstance().getReference().child("cultivationprd").child(key);
                     firebaseStorage.putFile(selectedimg).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -199,23 +199,23 @@ String category="";
                                             FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("Cultivatio_Product").child(key).setValue(clsCultivationProductModel).addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override
                                                 public void onSuccess(Void unused) {
-                                                    show_toast(getResources().getString(R.string.Upload_Successfully),true);
+                                                    show_toast(getResources().getString(R.string.successfullyuploaded), true);
+                                                    dg.dismiss();
                                                     finish();
-                                                    dgload.dismiss();
                                                 }
                                             }).addOnFailureListener(new OnFailureListener() {
                                                 @Override
                                                 public void onFailure(@NonNull Exception e) {
-                                                    show_toast(getResources().getString(R.string.Upload_Cancelled),false);
-                                                    dgload.dismiss();
+                                                    show_toast(getResources().getString(R.string.unsuccessfullyuploaded), false);
+                                                    dg.dismiss();
                                                 }
                                             });
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
-                                            show_toast(getResources().getString(R.string.Upload_Cancelled),false);
-                                            dgload.dismiss();
+                                            show_toast(getResources().getString(R.string.unsuccessfullyuploaded), false);
+                                            dg.dismiss();
                                         }
                                     });
 
@@ -223,16 +223,16 @@ String category="";
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    show_toast(getResources().getString(R.string.Upload_Cancelled),false);
-                                    dgload.dismiss();
+                                    show_toast(getResources().getString(R.string.unsuccessfullyuploaded), false);
+                                    dg.dismiss();
                                 }
                             });
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            show_toast(getResources().getString(R.string.Upload_Cancelled),false);
-                            dgload.dismiss();
+                            show_toast(getResources().getString(R.string.unsuccessfullyuploaded), false);
+                            dg.dismiss();
                         }
                     });
                 }
@@ -240,6 +240,7 @@ String category="";
         });
 
     }
+
     public void show_toast(String msg, boolean isgreen) {
         Toast ts = new Toast(getBaseContext());
         View view;

@@ -28,9 +28,7 @@ public class govermentScheme extends AppCompatActivity {
         addscheme = findViewById(R.id.addscheme);
         Intent intent=getIntent();
         type=intent.getIntExtra("type",0);
-        if(type==1){
-            addscheme.setVisibility(View.VISIBLE);
-        }
+
         FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
         FirebaseRecyclerOptions<clsgovmodel> options=new FirebaseRecyclerOptions.Builder<clsgovmodel>()
                 .setQuery(FirebaseDatabase.getInstance().getReference().child("Gov_scheme"), clsgovmodel.class)
@@ -39,7 +37,13 @@ public class govermentScheme extends AppCompatActivity {
         linearLayoutManager.setReverseLayout(true);
         linearLayoutManager.setStackFromEnd(true);
         rc.setLayoutManager(linearLayoutManager);
-        rcGovAdapter=new RcGovAdapter(options,govermentScheme.this);
+        if(type==1){
+            addscheme.setVisibility(View.VISIBLE);
+            rcGovAdapter=new RcGovAdapter(options,govermentScheme.this,true);
+        }
+        else{
+            rcGovAdapter=new RcGovAdapter(options,govermentScheme.this,false);
+        }
         rc.setAdapter(rcGovAdapter);
         addscheme.setOnClickListener(new View.OnClickListener() {
             @Override

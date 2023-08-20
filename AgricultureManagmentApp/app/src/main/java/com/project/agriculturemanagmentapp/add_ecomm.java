@@ -35,26 +35,27 @@ public class add_ecomm extends AppCompatActivity {
     ImageView imgprdt;
     Button btnsavedata;
     Spinner spntype;
-    TextInputEditText edtdes,edtspe,edtrecomm,edtprice,edtpname;
+    TextInputEditText edtdes, edtspe, edtrecomm, edtprice, edtpname;
     SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_ecomm);
-        spntype=findViewById(R.id.category);
-        btnchooseimg=findViewById(R.id.btnchooseimage);
-        btnsavedata=findViewById(R.id.btnsavedata);
-        imgprdt=findViewById(R.id.imgprdt);
-        edtdes=findViewById(R.id.edtdes);
-        edtspe=findViewById(R.id.edtspe);
-        edtrecomm=findViewById(R.id.edtrecom);
-        edtpname=findViewById(R.id.edtpname);
-        edtprice=findViewById(R.id.edtprc);
-        ActivityResultLauncher<String> launcher=registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
+        spntype = findViewById(R.id.category);
+        btnchooseimg = findViewById(R.id.btnchooseimage);
+        btnsavedata = findViewById(R.id.btnsavedata);
+        imgprdt = findViewById(R.id.imgprdt);
+        edtdes = findViewById(R.id.edtdes);
+        edtspe = findViewById(R.id.edtspe);
+        edtrecomm = findViewById(R.id.edtrecom);
+        edtpname = findViewById(R.id.edtpname);
+        edtprice = findViewById(R.id.edtprc);
+        ActivityResultLauncher<String> launcher = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
             public void onActivityResult(Uri result) {
                 imgprdt.setImageURI(result);
-                if(result!=null){
+                if (result != null) {
                     imgprdt.setVisibility(View.VISIBLE);
                 }
                 selectedimg = result;
@@ -66,7 +67,7 @@ public class add_ecomm extends AppCompatActivity {
                 launcher.launch("image/*");
             }
         });
-        String [] arr=getResources().getStringArray(R.array.arrcategory);
+        String[] arr = getResources().getStringArray(R.array.arrcategory);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item, arr);
         spntype.setAdapter(adapter);
         btnsavedata.setOnClickListener(new View.OnClickListener() {
@@ -76,55 +77,50 @@ public class add_ecomm extends AppCompatActivity {
                 if (edtpname.getText().toString().trim().isEmpty()) {
                     show_toast(getResources().getString(R.string.Please_Enter_Pname), false);
                     edtpname.requestFocus();
-                }
-                else if (edtprice.getText().toString().trim().isEmpty()) {
+                } else if (edtprice.getText().toString().trim().isEmpty()) {
                     show_toast(getResources().getString(R.string.Please_Enter_Price), false);
                     edtprice.requestFocus();
-                }
-                else if (edtdes.getText().toString().trim().isEmpty()) {
+                } else if (edtdes.getText().toString().trim().isEmpty()) {
                     show_toast(getResources().getString(R.string.Please_Enter_Description), false);
                     edtdes.requestFocus();
-                }
-                else if (edtspe.getText().toString().trim().isEmpty()) {
+                } else if (edtspe.getText().toString().trim().isEmpty()) {
                     show_toast(getResources().getString(R.string.Please_Enter_Specification), false);
                     edtspe.requestFocus();
-                }
-                else if (edtrecomm.getText().toString().trim().isEmpty()) {
+                } else if (edtrecomm.getText().toString().trim().isEmpty()) {
                     show_toast(getResources().getString(R.string.Please_Enter_Recommandation), false);
                     edtrecomm.requestFocus();
-                }
-                else if(selectedimg==null){
+                } else if (selectedimg == null) {
                     show_toast(getResources().getString(R.string.Please_Enter_Image), false);
                     launcher.launch("image/*");
-                }
-                else{
-                    Dialog dgload = new Dialog(add_ecomm.this);
-                    View view = LayoutInflater.from(add_ecomm.this).inflate(R.layout.lytloading, null, false);
-                    dgload.setContentView(view);
-                    dgload.show();
-                    String key= FirebaseDatabase.getInstance().getReference().child("ECommerce").push().getKey();
-                    StorageReference reference= FirebaseStorage.getInstance().getReference().child("Ecommerce").child(key);
+                } else {
+                    Dialog dg = new Dialog(add_ecomm.this);
+                    dg.setContentView(R.layout.lytloading);
+                    dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
+                    dg.setCancelable(false);
+                    dg.show();
+                    String key = FirebaseDatabase.getInstance().getReference().child("ECommerce").push().getKey();
+                    StorageReference reference = FirebaseStorage.getInstance().getReference().child("Ecommerce").child(key);
                     reference.putFile(selectedimg).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").child(key).setValue(new clsEcommModel(key,edtpname.getText().toString(),uri.toString(),edtprice.getText().toString(),edtspe.getText().toString(),edtdes.getText().toString(),edtrecomm.getText().toString(),"0")).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").child(key).setValue(new clsEcommModel(key, edtpname.getText().toString(), uri.toString(), edtprice.getText().toString(), edtspe.getText().toString(), edtdes.getText().toString(), edtrecomm.getText().toString(), "0")).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
-                                            FirebaseDatabase.getInstance().getReference().child("ECommerce").child(spntype.getSelectedItem().toString()).child(key).setValue(new clsEcommModel(key,edtpname.getText().toString(),uri.toString(),edtprice.getText().toString(),edtspe.getText().toString(),edtdes.getText().toString(),edtrecomm.getText().toString(),"0")).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            FirebaseDatabase.getInstance().getReference().child("ECommerce").child(spntype.getSelectedItem().toString()).child(key).setValue(new clsEcommModel(key, edtpname.getText().toString(), uri.toString(), edtprice.getText().toString(), edtspe.getText().toString(), edtdes.getText().toString(), edtrecomm.getText().toString(), "0")).addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override
                                                 public void onSuccess(Void unused) {
-                                                    show_toast(getResources().getString(R.string.Upload_Successfully),true);
+                                                    show_toast(getResources().getString(R.string.successfullyuploaded), true);
+                                                    dg.dismiss();
                                                     finish();
-                                                    dgload.dismiss();
                                                 }
                                             }).addOnFailureListener(new OnFailureListener() {
                                                 @Override
                                                 public void onFailure(@NonNull Exception e) {
-                                                    show_toast(getResources().getString(R.string.Upload_Cancelled),false);
-                                                    dgload.dismiss();
+                                                    show_toast(getResources().getString(R.string.unsuccessfullyuploaded), false);
+                                                    dg.dismiss();
                                                 }
                                             });
 
@@ -132,25 +128,32 @@ public class add_ecomm extends AppCompatActivity {
                                     }).addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
-                                            show_toast(getResources().getString(R.string.Upload_Cancelled),false);
-                                            dgload.dismiss();
+                                            show_toast(getResources().getString(R.string.unsuccessfullyuploaded), false);
+                                            dg.dismiss();
                                         }
                                     });
 
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    show_toast(getResources().getString(R.string.unsuccessfullyuploaded), false);
+                                    dg.dismiss();
                                 }
                             });
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            show_toast(getResources().getString(R.string.Upload_Cancelled),false);
-                            dgload.dismiss();
+                            show_toast(getResources().getString(R.string.unsuccessfullyuploaded), false);
+                            dg.dismiss();
                         }
                     });
                 }
             }
         });
     }
+
     public void show_toast(String msg, boolean isgreen) {
         Toast ts = new Toast(getBaseContext());
         View view;

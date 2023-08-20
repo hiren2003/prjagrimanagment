@@ -1,5 +1,6 @@
 package com.project.agriculturemanagmentapp;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -52,6 +55,33 @@ public class RcEcommAdapter extends FirebaseRecyclerAdapter<clsEcommModel, RcEco
                 context.startActivity(new Intent(context, show_ecom_prdt.class).putExtra("key", model.getKey()).putExtra("btn",btn));
             }
         });
+        holder.cd.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if(btn==4){
+                    Dialog dg=new Dialog(context);
+                    dg.setContentView(R.layout.lytdelete);
+                    dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
+                    Button yes=dg.findViewById(R.id.yes);
+                    Button no=dg.findViewById(R.id.no);
+                    dg.show();
+                    no.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dg.dismiss();
+                        }
+                    });
+                    yes.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dg.dismiss();
+                            FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").child(model.getKey()).removeValue();
+                        }
+                    });
+                }
+                return false;
+            }
+        });
     }
 
     @NonNull
@@ -63,7 +93,7 @@ public class RcEcommAdapter extends FirebaseRecyclerAdapter<clsEcommModel, RcEco
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txtpname, txtprice;
+        TextView txtpname, txtprice,txtqty;
         ImageView imgprdt;
         CardView cd;
 

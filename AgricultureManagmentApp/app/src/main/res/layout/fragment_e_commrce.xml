@@ -4,9 +4,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".E_commrce">
-
+    <Spinner
+        android:id="@+id/category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:minHeight="50dp"
+        android:padding="10dp"
+        android:background="@drawable/border_green"
+        />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rccprdt"
+        android:layout_marginTop="80dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton

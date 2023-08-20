@@ -42,7 +42,7 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Window window = this.getWindow();
-        window.setStatusBarColor(this.getResources().getColor(R.color.background));
+        window.setStatusBarColor(this.getResources().getColor(R.color.white));
         setLanguage();
         SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
         btmnv = findViewById(R.id.btmnv);

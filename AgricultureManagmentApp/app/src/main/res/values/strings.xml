@@ -132,6 +132,15 @@
     <string name="Price2">Price</string>
     <string name="KiloGram2">KiloGram</string>
     <string name="choose_cat">Choose Category</string>
+    <string name="choose_anm">Choose Animal</string>
+    <string name="sheep">Sheep</string>
+    <string name="goat">Goat</string>
+    <string name="cow">Cow</string>
+    <string name="buffalo">Buffalo</string>
+    <string name="ox">Ox</string>
+    <string name="chiken">Chicken</string>
+    <string name="camel">Camel</string>
+    <string name="horse">Horse</string>
     <string name="Seller_name">Seller name</string>
     <string name="Milk_Production2">Milk Production/Ltr</string>
     <string name="Usage">Usage</string>

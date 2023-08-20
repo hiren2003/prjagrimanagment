@@ -83,7 +83,7 @@ public class Home extends AppCompatActivity {
         btmnv.add(new MeowBottomNavigation.Model(1, R.drawable.feed2));
         btmnv.add(new MeowBottomNavigation.Model(2, R.drawable.labour));
         btmnv.add(new MeowBottomNavigation.Model(3, R.drawable.house));
-        btmnv.add(new MeowBottomNavigation.Model(4, R.drawable.baseline_sell_24));
+        btmnv.add(new MeowBottomNavigation.Model(4, R.drawable.resell));
         btmnv.add(new MeowBottomNavigation.Model(5, R.drawable.online_store));
         btmnv.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
             @Override

@@ -8,7 +8,7 @@
     android:padding="10dp"
     tools:context=".add_cultivation_product">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -158,6 +158,26 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/Seller_name"
+                app:counterEnabled="true"
+                app:counterMaxLength="15"
+                app:hintEnabled="true"
+                app:hintTextColor="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtsellername"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:fontFamily="@font/allerta"
+                    android:maxLength="15"
+                    android:shadowColor="@color/black"
+                    android:textColor="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -362,8 +382,8 @@
                 android:layout_height="50dp"
                 android:textSize="20dp"
                 android:backgroundTint="#8BC34A"
-                android:text="@string/Save_data"
+                android:text="@string/Save_Detail"
                 />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

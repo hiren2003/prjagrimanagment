@@ -1,5 +1,6 @@
 package com.project.agriculturemanagmentapp;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -8,12 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -29,9 +32,11 @@ public class RcnewsAdapter extends FirebaseRecyclerAdapter<clsNewsModel,RcnewsAd
      * @param options
      */
     Context context;
-    public RcnewsAdapter(@NonNull FirebaseRecyclerOptions<clsNewsModel> options,Context context) {
+    boolean isAdmin;
+    public RcnewsAdapter(@NonNull FirebaseRecyclerOptions<clsNewsModel> options,Context context,boolean isAdmin) {
         super(options);
         this.context=context;
+        this.isAdmin=isAdmin;
     }
 
     @Override
@@ -49,6 +54,33 @@ public class RcnewsAdapter extends FirebaseRecyclerAdapter<clsNewsModel,RcnewsAd
                 Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse(model.link));
                 intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
+            }
+        });
+        holder.cd.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Dialog dg=new Dialog(context);
+                dg.setContentView(R.layout.lytdelete);
+                dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
+                Button yes=dg.findViewById(R.id.yes);
+                Button no=dg.findViewById(R.id.no);
+                if (isAdmin){
+                    dg.show();
+                }
+                no.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dg.dismiss();
+                    }
+                });
+                yes.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dg.dismiss();
+                        FirebaseDatabase.getInstance().getReference().child("news").child(model.getKey()).removeValue();
+                    }
+                });
+                return false;
             }
         });
     }

@@ -9,7 +9,9 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
@@ -201,7 +203,7 @@ OTP extends AppCompatActivity {
         public void onVerificationFailed(@NonNull FirebaseException e) {
             txt.setVisibility(View.VISIBLE);
             progressBar.setVisibility(View.GONE);
-            Toast.makeText(OTP.this, getResources().getString(R.string.Verification_Failed), Toast.LENGTH_SHORT).show();
+            show_toast(getResources().getString(R.string.Verification_Failed),false);
         }
     };
 
@@ -238,12 +240,12 @@ OTP extends AppCompatActivity {
                             sedit.commit();
                             firebaseDatabase.getReference().child("Users_List").child(Mobile).setValue(new clsUserModel(Uname,Mobile,url," "," "," "," "," "));
                             startActivity(intent);
+                            show_toast(getResources().getString(R.string.Login_SuccessFully),true);
                             finish();
                         } else {
                             txt.setVisibility(View.VISIBLE);
                             progressBar.setVisibility(View.GONE);
-                            Toast.makeText(OTP.this, getResources().getString(R.string.Signin_Failed), Toast.LENGTH_SHORT).show();
-                        }
+                            show_toast(getResources().getString(R.string.Signin_Failed),false);}
                     }
                 });
     }
@@ -265,6 +267,22 @@ OTP extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+
+    }
+    public void show_toast(String msg, boolean isgreen) {
+        Toast ts = new Toast(getBaseContext());
+        View view;
+        if (isgreen) {
+            view = getLayoutInflater().inflate(R.layout.lyttoastgreen, (ViewGroup) findViewById(R.id.container));
+        } else {
+            view = getLayoutInflater().inflate(R.layout.lyttoast, (ViewGroup) findViewById(R.id.container));
+        }
+        TextView txtmessage = view.findViewById(R.id.txtmsg);
+        txtmessage.setText(msg);
+        ts.setView(view);
+        ts.setGravity(Gravity.TOP, 0, 30);
+        ts.setDuration(Toast.LENGTH_SHORT);
+        ts.show();
 
     }
 }

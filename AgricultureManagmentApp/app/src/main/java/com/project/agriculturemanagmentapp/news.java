@@ -26,7 +26,7 @@ public class news extends AppCompatActivity {
                 .setQuery(FirebaseDatabase.getInstance().getReference().child("news"), clsNewsModel.class)
                 .build();
         recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
-        rcnewsAdapter = new RcnewsAdapter(options, getBaseContext());
+        rcnewsAdapter = new RcnewsAdapter(options,news.this,true);
         recyclerView.setAdapter(rcnewsAdapter);
     fltadd.setOnClickListener(new View.OnClickListener() {
         @Override

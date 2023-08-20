@@ -103,8 +103,6 @@ public class add_feed extends AppCompatActivity {
                                     FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Feed").child(key2).setValue(new clsFeedModel(sharedPreferences.getString("url", "123"), sharedPreferences.getString("uname", "unknown"), Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR), uri.toString(), textInputEditText.getText().toString(), key2, key,"1")).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
-                                            progressBar.setVisibility(View.GONE);
-                                            txt.setVisibility(View.VISIBLE);
                                             show_toast(getResources().getString(R.string.Upload_Successfully), true);
                                             finish();
                                         }
@@ -130,7 +128,6 @@ public class add_feed extends AppCompatActivity {
                     });
                 }
             }
-
         });
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override

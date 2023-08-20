@@ -61,18 +61,19 @@ public class add_labour extends AppCompatActivity {
         submit = findViewById(R.id.btnsavedetail);
         date = findViewById(R.id.txtdate);
         sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+        datePickerDialog = new DatePickerDialog(add_labour.this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                month++;
+                date.setText(dayOfMonth + "/" + month + "/" + year);
+                isDateSelected = true;
+
+            }
+        }, Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
         rldate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                datePickerDialog = new DatePickerDialog(add_labour.this, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        month++;
-                        date.setText(dayOfMonth + "/" + month + "/" + year);
-                        isDateSelected = true;
 
-                    }
-                }, Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
                 datePickerDialog.show();
             }
         });
@@ -121,7 +122,6 @@ public class add_labour extends AppCompatActivity {
                                     getResources().getString(R.string.Wages) + " : " + edtlwages.getText().toString() + "\n" +
                                     getResources().getString(R.string.Sender) + " : " + sharedPreferences.getString("uname", "unknown");
                             SmsManager smsManager = SmsManager.getDefault();
-                            Toast.makeText(add_labour.this, edtlmo.getText().toString(), Toast.LENGTH_SHORT).show();
                             smsManager.sendTextMessage("+91" + edtlmo.getText().toString(), null, msg, null, null);
                             show_toast(getResources().getString(R.string.Upload_Successfully), true);
                             finish();
@@ -130,7 +130,6 @@ public class add_labour extends AppCompatActivity {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             show_toast(getResources().getString(R.string.Upload_Cancelled), false);
-
                         }
                     });
                 }

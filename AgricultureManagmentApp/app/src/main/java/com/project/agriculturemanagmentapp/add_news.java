@@ -6,6 +6,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -79,6 +80,11 @@ public class add_news extends AppCompatActivity {
                     launcher.launch("image/*");
                 }
                 else{
+                    Dialog dg=new Dialog(add_news.this);
+                    dg.setContentView(R.layout.lytloading);
+                    dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
+                    dg.setCancelable(false);
+                    dg.show();
                     String key= FirebaseDatabase.getInstance().getReference().child("news").push().getKey();
                     StorageReference reference= FirebaseStorage.getInstance().getReference().child("news").child(key);
                     reference.putFile(selectedimg).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -91,12 +97,14 @@ public class add_news extends AppCompatActivity {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             show_toast(getResources().getString(R.string.Upload_Successfully), true);
+                                            dg.dismiss();
                                             finish();
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
                                             show_toast(getResources().getString(R.string.Upload_Cancelled),false);
+                                            dg.dismiss();
                                         }
                                     });
                                 }
@@ -104,6 +112,7 @@ public class add_news extends AppCompatActivity {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
                                     show_toast(getResources().getString(R.string.Upload_Cancelled),false);
+                                    dg.dismiss();
                                 }
                             });
                         }
@@ -111,10 +120,10 @@ public class add_news extends AppCompatActivity {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             show_toast(getResources().getString(R.string.Upload_Cancelled),false);
+                            dg.dismiss();
                         }
                     });
                 }
-
             }
         });
 

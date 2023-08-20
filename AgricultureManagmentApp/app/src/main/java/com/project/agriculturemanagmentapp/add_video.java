@@ -3,14 +3,18 @@ package com.project.agriculturemanagmentapp;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.MediaController;
 import android.widget.ProgressBar;
@@ -19,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
@@ -79,7 +84,7 @@ public class add_video extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (uri1 == null) {
-                    Toast.makeText(add_video.this, getResources().getString(R.string.Select_Image), Toast.LENGTH_SHORT).show();
+                    show_toast(getResources().getString(R.string.Please_Enter_Video),false);
                 } else {
                     progressBar.setVisibility(View.VISIBLE);
                     txt.setVisibility(View.GONE);
@@ -98,12 +103,28 @@ public class add_video extends AppCompatActivity {
                                         public void onSuccess(Void unused) {
                                             progressBar.setVisibility(View.GONE);
                                             txt.setVisibility(View.VISIBLE);
-                                            Toast.makeText(add_video.this, getResources().getString(R.string.Data_Added_Sucessfully), Toast.LENGTH_SHORT).show();
+                                            show_toast(getResources().getString(R.string.successfullyuploaded),true);
                                             finish();
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            show_toast(getResources().getString(R.string.unsuccessfullyuploaded),false);
+
                                         }
                                     });
                                 }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    show_toast(getResources().getString(R.string.unsuccessfullyuploaded),false);
+                                }
                             });
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            show_toast(getResources().getString(R.string.unsuccessfullyuploaded),false);
                         }
                     });
                 }
@@ -132,5 +153,21 @@ public class add_video extends AppCompatActivity {
         Configuration configuration = new Configuration();
         configuration.locale = locale;
         getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
+    }
+    public void show_toast(String msg, boolean isgreen) {
+        Toast ts = new Toast(getBaseContext());
+        View view;
+        if (isgreen) {
+            view = getLayoutInflater().inflate(R.layout.lyttoastgreen, (ViewGroup) findViewById(R.id.container));
+        } else {
+            view = getLayoutInflater().inflate(R.layout.lyttoast, (ViewGroup) findViewById(R.id.container));
+        }
+        TextView txtmessage = view.findViewById(R.id.txtmsg);
+        txtmessage.setText(msg);
+        ts.setView(view);
+        ts.setGravity(Gravity.TOP, 0, 30);
+        ts.setDuration(Toast.LENGTH_SHORT);
+        ts.show();
+
     }
 }

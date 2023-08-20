@@ -1,16 +1,23 @@
 package com.project.agriculturemanagmentapp;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -45,36 +52,51 @@ public class add_labour_vacancy extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (edtoname.getText().toString().trim().isEmpty()) {
-                    edtoname.setError(getResources().getString(R.string.Required_Field));
+                    edtoname.requestFocus();
+                    show_toast(getResources().getString(R.string.Please_Enter_Owner), false);
                 } else if (edtmo.getText().toString().trim().isEmpty()) {
-                    edtmo.setError(getResources().getString(R.string.Required_Field));
+                    edtmo.requestFocus();
+                    show_toast(getResources().getString(R.string.Please_Enter_Mo), false);
                 } else if (edtmo.getText().toString().trim().length() != 10) {
-                    edtmo.setError(getResources().getString(R.string.Invalid_MobileNumber));
+                    edtmo.requestFocus();
+                    show_toast(getResources().getString(R.string.Invalid_MobileNumber), false);
                 } else if (edtwtype.getText().toString().trim().isEmpty()) {
-                    edtwtype.setError(getResources().getString(R.string.Required_Field));
+                    edtwtype.requestFocus();
+                    show_toast(getResources().getString(R.string.Please_Enter_Worktype), false);
                 } else if (edtincome.getText().toString().trim().isEmpty()) {
-                    edtincome.setError(getResources().getString(R.string.Required_Field));
+                    edtincome.requestFocus();
+                    show_toast(getResources().getString(R.string.Please_Enter_pincome), false);
                 } else if (edtduration.getText().toString().trim().isEmpty()) {
-                    edtduration.setError(getResources().getString(R.string.Required_Field));
+                    edtduration.requestFocus();
+                    show_toast(getResources().getString(R.string.Please_Enter_wDuration), false);
                 } else if (edtstate.getText().toString().trim().isEmpty()) {
-                    edtstate.setError(getResources().getString(R.string.Required_Field));
-                } else if (edttehsil.getText().toString().trim().isEmpty()) {
-                    edttehsil.setError(getResources().getString(R.string.Required_Field));
-                } else if (edtvlg.getText().toString().trim().isEmpty()) {
-                    edtvlg.setError(getResources().getString(R.string.Required_Field));
+                    show_toast(getResources().getString(R.string.Please_Enter_State), false);
+                    edtstate.requestFocus();
                 } else if (edtdist.getText().toString().trim().isEmpty()) {
-                    edtdist.setError(getResources().getString(R.string.Required_Field));
+                    show_toast(getResources().getString(R.string.Please_Enter_District), false);
+                    edtdist.requestFocus();
+                } else if (edttehsil.getText().toString().trim().isEmpty()) {
+                    show_toast(getResources().getString(R.string.Please_Enter_Tehsil), false);
+                    edttehsil.requestFocus();
+                } else if (edtvlg.getText().toString().trim().isEmpty()) {
+                    show_toast(getResources().getString(R.string.Please_Enter_Village), false);
+                    edtvlg.requestFocus();
                 } else if (!rdbfixwages.isChecked() && !rdbprtsp.isChecked()) {
-                    Toast.makeText(add_labour_vacancy.this, getResources().getString(R.string.Required_Field), Toast.LENGTH_SHORT).show();
-                }
-                else{
+                    show_toast(getResources().getString(R.string.Please_Enter_Wagetype), false);
+                    edtvlg.requestFocus();
+                } else {
+                    Dialog dg=new Dialog(add_labour_vacancy.this);
+                    dg.setContentView(R.layout.lytloading);
+                    dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
+                    dg.setCancelable(false);
+                    dg.show();
                     String mo = sharedPreferences.getString("mo", "1234567890");
-                    String key=FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("MyVacancy").push().getKey().toString();
-                    clsVacancyModel obj=  new clsVacancyModel(key,
+                    String key = FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("MyVacancy").push().getKey().toString();
+                    clsVacancyModel obj = new clsVacancyModel(key,
                             edtoname.getText().toString(),
                             edtmo.getText().toString(),
                             edtwtype.getText().toString(),
-                            rdbfixwages.isChecked()==true?"Fix Wages":"Partenership",
+                            rdbfixwages.isChecked() == true ? "Fix Wages" : "Partenership",
                             edtincome.getText().toString(),
                             edtduration.getText().toString(),
                             edtstate.getText().toString(),
@@ -82,16 +104,56 @@ public class add_labour_vacancy extends AppCompatActivity {
                             edttehsil.getText().toString(),
                             edtvlg.getText().toString(),
                             edtdes.getText().toString(),
-                            sharedPreferences.getString("url","null"),
-                            sharedPreferences.getString("uname","null"),
+                            sharedPreferences.getString("url", "null"),
+                            sharedPreferences.getString("uname", "null"),
                             Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR)
                     );
-                    FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("MyVacancy").child(key).setValue(obj);
-                    FirebaseDatabase.getInstance().getReference().child("Labour_Vacancy").child(key).setValue(obj);
-                    finish();
+                    FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("MyVacancy").child(key).setValue(obj).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            FirebaseDatabase.getInstance().getReference().child("Labour_Vacancy").child(key).setValue(obj).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    show_toast(getResources().getString(R.string.successfullyuploaded),true);
+                                    dg.dismiss();
+                                    finish();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    show_toast(getResources().getString(R.string.unsuccessfullyuploaded),false);
+                                    dg.dismiss();
+                                }
+                            });
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            show_toast(getResources().getString(R.string.unsuccessfullyuploaded),false);
+                            dg.dismiss();
+                        }
+                    });
                 }
+
             }
         });
+
+    }
+
+    public void show_toast(String msg, boolean isgreen) {
+        Toast ts = new Toast(getBaseContext());
+        View view;
+        if (isgreen) {
+            view = getLayoutInflater().inflate(R.layout.lyttoastgreen, (ViewGroup) findViewById(R.id.container));
+        } else {
+            view = getLayoutInflater().inflate(R.layout.lyttoast, (ViewGroup) findViewById(R.id.container));
+        }
+        TextView txtmessage = view.findViewById(R.id.txtmsg);
+        txtmessage.setText(msg);
+        ts.setView(view);
+        ts.setGravity(Gravity.TOP, 0, 30);
+        ts.setDuration(Toast.LENGTH_SHORT);
+        ts.show();
 
     }
 }

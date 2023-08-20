@@ -1,9 +1,9 @@
 package com.project.agriculturemanagmentapp;
 
 public class clsAnimalModel {
-    String key,type,spiece,ageyear,agemonth,mproduction,weight,mo,price,state,district,tehsil,village,des,img,uname,prfpc,date;
+    String key,type,spiece,ageyear,agemonth,mproduction,weight,mo,price,state,district,tehsil,village,des,img,uname,prfpc,date,sname;
 
-    public clsAnimalModel(String key, String type, String spiece, String ageyear, String agemonth, String mproduction, String weight, String mo, String price, String state, String district, String tehsil, String village, String des, String img, String uname, String prfpc, String date) {
+    public clsAnimalModel(String key, String type, String spiece, String ageyear, String agemonth, String mproduction, String weight, String mo, String price, String state, String district, String tehsil, String village, String des, String img, String uname, String prfpc, String date, String sname) {
         this.key = key;
         this.type = type;
         this.spiece = spiece;
@@ -22,6 +22,15 @@ public class clsAnimalModel {
         this.uname = uname;
         this.prfpc = prfpc;
         this.date = date;
+        this.sname = sname;
+    }
+
+    public String getSname() {
+        return sname;
+    }
+
+    public void setSname(String sname) {
+        this.sname = sname;
     }
 
     public clsAnimalModel() {

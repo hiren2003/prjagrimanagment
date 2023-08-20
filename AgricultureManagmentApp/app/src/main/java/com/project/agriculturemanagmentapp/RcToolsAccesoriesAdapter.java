@@ -54,7 +54,7 @@ public class RcToolsAccesoriesAdapter extends FirebaseRecyclerAdapter<clsToolsAc
         holder.cd.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(context);
+                BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(context,R.style.SheetDialog);
                 View view2=LayoutInflater.from(context).inflate(R.layout.lyteditoption,null,false);
                 LinearLayout btnupdate=view2.findViewById(R.id.lnupdate);
                 LinearLayout btndelete=view2.findViewById(R.id.lndelete);

@@ -117,12 +117,12 @@ public class add_tools_accesories extends AppCompatActivity {
                     launcher.launch("image/*");
                 }
                  else{
-
-                    Dialog dgload = new Dialog(add_tools_accesories.this);
-                    View view = LayoutInflater.from(add_tools_accesories.this).inflate(R.layout.lytloading, null, false);
-                    dgload.setContentView(view);
-                    dgload.show();
-                    key = FirebaseDatabase.getInstance().getReference().child("Tools&Accessories").push().getKey();
+                    Dialog dg=new Dialog(add_tools_accesories.this);
+                    dg.setContentView(R.layout.lytloading);
+                    dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
+                    dg.setCancelable(false);
+                    dg.show();
+                     key = FirebaseDatabase.getInstance().getReference().child("Tools&Accessories").push().getKey();
                     StorageReference firebaseStorage = FirebaseStorage.getInstance().getReference().child("Tools&Accessories").child(key);
                     firebaseStorage.putFile(selectedimg).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
@@ -153,13 +153,14 @@ public class add_tools_accesories extends AppCompatActivity {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             show_toast(getResources().getString(R.string.Upload_Successfully),true);
-                                            dgload.dismiss();
+                                            dg.dismiss();
                                             finish();
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
                                             show_toast(getResources().getString(R.string.Upload_Cancelled),false);
+                                            dg.dismiss();
                                         }
                                     });
                                 }
@@ -167,6 +168,7 @@ public class add_tools_accesories extends AppCompatActivity {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
                                     show_toast(getResources().getString(R.string.Upload_Cancelled),false);
+                                    dg.dismiss();
                                 }
                             });
                         }
@@ -174,11 +176,12 @@ public class add_tools_accesories extends AppCompatActivity {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             show_toast(getResources().getString(R.string.Upload_Cancelled),false);
+                            dg.dismiss();
                         }
                     });
-
                 }
-              }
+
+            }
         });
     }
     public void show_toast(String msg, boolean isgreen) {

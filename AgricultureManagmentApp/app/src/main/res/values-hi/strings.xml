@@ -156,4 +156,26 @@
     <string name="Please_Enter_Seller">कृपया विक्रेता का नाम दर्ज करें</string>
     <string name="mobile_no">मोबाइल नंबर</string>
     <string name="Please_Enter_Specification">कृपया उत्पाद की विशिष्टता दर्ज करें</string>
+    <string name="Please_Enter_Recommandation">कृपया खरीदार के लिए अनुशंसा दर्ज करें</string>
+    <string name="Please_Enter_Description">कृपया विवरण दर्ज करें</string>
+    <string name="Please_Enter_Title">कृपया शीर्षक दर्ज करें</string>
+    <string name="Please_Enter_Link">कृपया लिंक दर्ज करें</string>
+    <string name="Please_Enter_Lname">कृपया कार्यकर्ता का नाम दर्ज करें</string>
+    <string name="Please_Enter_Wages">कृपया वेतन दर्ज करें</string>
+    <string name="Please_Enter_Date">कृपया दिनांक चुनें</string>
+    <string name="Please_Enter_Duration">कृपया उपयोग की अवधि दर्ज करें</string>
+    <string name="Delete">चीज़ें हटाएं</string>
+    <string name="Update">आइटम अद्यतन करें</string>
+    <string name="Enter_address">कृपया पता दर्ज करें</string>
+    <string name="add_news">समाचार जोड़ें</string>
+    <string name="admin">प्रशासक</string>
+    <string name="payment">भुगतान</string>
+    <string name="Please_Enter_Owner">कृपया स्वामी का नाम दर्ज करें</string>
+    <string name="Please_Enter_Worktype">कृपया कार्य का प्रकार दर्ज करें</string>
+    <string name="Please_Enter_pincome">कृपया अनुमानित आय दर्ज करें</string>
+    <string name="Please_Enter_wDuration">कृपया कार्य की अवधि दर्ज करें</string>
+    <string name="Please_Enter_Wagetype">कृपया एक वेतन प्रकार का चयन करें</string>
+    <string name="Please_Enter_Video">कृपया एक वीडियो पोस्ट चुनें</string>
+    <string name="p2">उत्पादन(लीटर/यूनिट)</string>
+    <string name="Product_removed">उत्पाद हटा दिया गया</string>
 </resources>

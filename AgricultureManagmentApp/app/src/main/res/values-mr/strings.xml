@@ -156,4 +156,26 @@
     <string name="Please_Enter_Seller">कृपया विक्रेत्याचे नाव प्रविष्ट करा</string>
     <string name="mobile_no">मोबाईल क्र.</string>
     <string name="Please_Enter_Specification">कृपया उत्पादनाचे तपशील प्रविष्ट करा</string>
+    <string name="Please_Enter_Recommandation">कृपया खरेदीदारासाठी शिफारस प्रविष्ट करा</string>
+    <string name="Please_Enter_Description">कृपया वर्णन प्रविष्ट करा</string>
+    <string name="Please_Enter_Title">कृपया शीर्षक प्रविष्ट करा</string>
+    <string name="Please_Enter_Link">कृपया लिंक एंटर करा</string>
+    <string name="Please_Enter_Lname">कृपया कामगाराचे नाव प्रविष्ट करा</string>
+    <string name="Please_Enter_Wages">कृपया वेतन प्रविष्ट करा</string>
+    <string name="Please_Enter_Date">कृपया तारीख निवडा</string>
+    <string name="Please_Enter_Duration">कृपया वापर कालावधी प्रविष्ट करा</string>
+    <string name="Delete">आयटम हटवा</string>
+    <string name="Update">आयटम अद्यतनित करा</string>
+    <string name="Enter_address">कृपया पत्ता प्रविष्ट करा</string>
+    <string name="add_news">बातम्या जोडा</string>
+    <string name="admin">प्रशासक</string>
+    <string name="payment">पेमेंट</string>
+    <string name="Please_Enter_Owner">कृपया मालकाचे नाव प्रविष्ट करा</string>
+    <string name="Please_Enter_Worktype">कृपया कामाचा प्रकार प्रविष्ट करा</string>
+    <string name="Please_Enter_pincome">कृपया अंदाजित उत्पन्न प्रविष्ट करा</string>
+    <string name="Please_Enter_wDuration">कृपया कामाचा कालावधी प्रविष्ट करा</string>
+    <string name="Please_Enter_Wagetype">कृपया एक वेतन प्रकार निवडा</string>
+    <string name="Please_Enter_Video">कृपया व्हिडिओ पोस्ट निवडा</string>
+    <string name="p2">उत्पादन (लिटर/युनिट)</string>
+    <string name="Product_removed">उत्पादन काढले</string>
 </resources>

@@ -156,4 +156,26 @@
     <string name="Please_Enter_Seller">કૃપા કરીને વિક્રેતાનું નામ દાખલ કરો</string>
     <string name="mobile_no">મોબાઈલ નમ્બર.</string>
     <string name="Please_Enter_Specification">કૃપા કરીને ઉત્પાદનની વિશિષ્ટતા દાખલ કરો</string>
+    <string name="Please_Enter_Recommandation">કૃપા કરીને ખરીદનાર માટે ભલામણ દાખલ કરો</string>
+    <string name="Please_Enter_Description">કૃપા કરીને વર્ણન દાખલ કરો</string>
+    <string name="Please_Enter_Title">કૃપા કરીને શીર્ષક દાખલ કરો</string>
+    <string name="Please_Enter_Link">કૃપા કરીને લિંક દાખલ કરો</string>
+    <string name="Please_Enter_Lname">કૃપા કરીને કામદારનું નામ દાખલ કરો</string>
+    <string name="Please_Enter_Wages">મહેરબાની કરીને વેતન દાખલ કરો</string>
+    <string name="Please_Enter_Date">કૃપા કરીને તારીખ પસંદ કરો</string>
+    <string name="Please_Enter_Duration">કૃપા કરીને ઉપયોગની અવધિ દાખલ કરો</string>
+    <string name="Delete">આઇટમ કાઢી નાખો</string>
+    <string name="Update">આઇટમ અપડેટ કરો</string>
+    <string name="Enter_address">કૃપા કરીને સરનામું દાખલ કરો</string>
+    <string name="add_news">સમાચાર ઉમેરો</string>
+    <string name="admin">સંચાલક</string>
+    <string name="payment">ચુકવણી</string>
+    <string name="Please_Enter_Owner">કૃપા કરીને માલિકનું નામ દાખલ કરો</string>
+    <string name="Please_Enter_Worktype">કૃપા કરીને કામનો પ્રકાર દાખલ કરો</string>
+    <string name="Please_Enter_pincome">કૃપા કરીને અનુમાનિત આવક દાખલ કરો</string>
+    <string name="Please_Enter_wDuration">કૃપા કરીને કામનો સમયગાળો દાખલ કરો</string>
+    <string name="Please_Enter_Wagetype">કૃપા કરીને એક વેતન પ્રકાર પસંદ કરો</string>
+    <string name="Please_Enter_Video">કૃપા કરીને વિડિઓ પોસ્ટ પસંદ કરો</string>
+    <string name="p2">ઉત્પાદન (લિટર/યુનિટ)</string>
+    <string name="Product_removed">ઉત્પાદન દૂર કર્યું</string>
 </resources>

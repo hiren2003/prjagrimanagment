@@ -156,4 +156,26 @@
     <string name="Please_Enter_Seller">விற்பனையாளர் பெயரை உள்ளிடவும்</string>
     <string name="mobile_no">அலைபேசி எண்.</string>
     <string name="Please_Enter_Specification">தயாரிப்பின் விவரக்குறிப்பை உள்ளிடவும்</string>
+    <string name="Please_Enter_Recommandation">வாங்குபவருக்கான பரிந்துரையை உள்ளிடவும்</string>
+    <string name="Please_Enter_Description">விளக்கத்தை உள்ளிடவும்</string>
+    <string name="Please_Enter_Title">தலைப்பை உள்ளிடவும்</string>
+    <string name="Please_Enter_Link">இணைப்பை உள்ளிடவும்</string>
+    <string name="Please_Enter_Lname">பணியாளரின் பெயரை உள்ளிடவும்</string>
+    <string name="Please_Enter_Wages">ஊதியத்தை உள்ளிடவும்</string>
+    <string name="Please_Enter_Date">தயவுசெய்து தேதியைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="Please_Enter_Duration">பயன்பாட்டு கால அளவை உள்ளிடவும்</string>
+    <string name="Delete">உருப்படியை நீக்கு</string>
+    <string name="Update">உருப்படியைப் புதுப்பிக்கவும்</string>
+    <string name="Enter_address">தயவுசெய்து முகவரியை உள்ளிடவும்</string>
+    <string name="add_news">செய்திகளைச் சேர்க்கவும்</string>
+    <string name="admin">நிர்வாகி</string>
+    <string name="payment">பணம் செலுத்துதல்</string>
+    <string name="Please_Enter_Owner">தயவுசெய்து உரிமையாளரின் பெயரை உள்ளிடவும்</string>
+    <string name="Please_Enter_Worktype">பணியின் வகையை உள்ளிடவும்</string>
+    <string name="Please_Enter_pincome">கணிக்கப்பட்ட வருமானத்தை உள்ளிடவும்</string>
+    <string name="Please_Enter_wDuration">பணியின் கால அளவை உள்ளிடவும்</string>
+    <string name="Please_Enter_Wagetype">ஒரு ஊதிய வகையைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="Please_Enter_Video">வீடியோ இடுகையைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="p2">உற்பத்தி (லிட்டர்/யூனிட்)</string>
+    <string name="Product_removed">தயாரிப்பு அகற்றப்பட்டது</string>
 </resources>

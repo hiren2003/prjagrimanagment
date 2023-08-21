@@ -156,4 +156,26 @@
     <string name="Please_Enter_Seller">ದಯವಿಟ್ಟು ಮಾರಾಟಗಾರರ ಹೆಸರನ್ನು ನಮೂದಿಸಿ</string>
     <string name="mobile_no">ಮೊಬೈಲ್ ನಂ.</string>
     <string name="Please_Enter_Specification">ದಯವಿಟ್ಟು ಉತ್ಪನ್ನದ ನಿರ್ದಿಷ್ಟತೆಯನ್ನು ನಮೂದಿಸಿ</string>
+    <string name="Please_Enter_Recommandation">ದಯವಿಟ್ಟು ಖರೀದಿದಾರರಿಗೆ ಶಿಫಾರಸು ನಮೂದಿಸಿ</string>
+    <string name="Please_Enter_Description">ದಯವಿಟ್ಟು ವಿವರಣೆಯನ್ನು ನಮೂದಿಸಿ</string>
+    <string name="Please_Enter_Title">ದಯವಿಟ್ಟು ಶೀರ್ಷಿಕೆಯನ್ನು ನಮೂದಿಸಿ</string>
+    <string name="Please_Enter_Link">ದಯವಿಟ್ಟು ಲಿಂಕ್ ಅನ್ನು ನಮೂದಿಸಿ</string>
+    <string name="Please_Enter_Lname">ದಯವಿಟ್ಟು ಕೆಲಸಗಾರರ ಹೆಸರನ್ನು ನಮೂದಿಸಿ</string>
+    <string name="Please_Enter_Wages">ದಯವಿಟ್ಟು ವೇತನವನ್ನು ನಮೂದಿಸಿ</string>
+    <string name="Please_Enter_Date">ದಯವಿಟ್ಟು ದಿನಾಂಕವನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="Please_Enter_Duration">ದಯವಿಟ್ಟು ಬಳಕೆಯ ಅವಧಿಯನ್ನು ನಮೂದಿಸಿ</string>
+    <string name="Delete">ಐಟಂ ಅಳಿಸಿ</string>
+    <string name="Update">ಐಟಂ ಅನ್ನು ನವೀಕರಿಸಿ</string>
+    <string name="Enter_address">ದಯವಿಟ್ಟು ವಿಳಾಸವನ್ನು ನಮೂದಿಸಿ</string>
+    <string name="add_news">ಸುದ್ದಿ ಸೇರಿಸಿ</string>
+    <string name="admin">ನಿರ್ವಾಹಕ</string>
+    <string name="payment">ಪಾವತಿ</string>
+    <string name="Please_Enter_Owner">ದಯವಿಟ್ಟು ಮಾಲೀಕರ ಹೆಸರನ್ನು ನಮೂದಿಸಿ</string>
+    <string name="Please_Enter_Worktype">ದಯವಿಟ್ಟು ಕೆಲಸದ ಪ್ರಕಾರವನ್ನು ನಮೂದಿಸಿ</string>
+    <string name="Please_Enter_pincome">ದಯವಿಟ್ಟು ಊಹಿಸಿದ ಆದಾಯವನ್ನು ನಮೂದಿಸಿ</string>
+    <string name="Please_Enter_wDuration">ದಯವಿಟ್ಟು ಕೆಲಸದ ಅವಧಿಯನ್ನು ನಮೂದಿಸಿ</string>
+    <string name="Please_Enter_Wagetype">ದಯವಿಟ್ಟು ಒಂದು ವೇತನ ಪ್ರಕಾರವನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="Please_Enter_Video">ದಯವಿಟ್ಟು ವೀಡಿಯೊ ಪೋಸ್ಟ್ ಅನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="p2">ಉತ್ಪಾದನೆ (ಲೀಟರ್/ಘಟಕ)</string>
+    <string name="Product_removed">ಉತ್ಪನ್ನವನ್ನು ತೆಗೆದುಹಾಕಲಾಗಿದೆ</string>
 </resources>

@@ -178,4 +178,14 @@
     <string name="Please_Enter_Video">దయచేసి వీడియో పోస్ట్‌ను ఎంచుకోండి</string>
     <string name="p2">ఉత్పత్తి (లీటర్/యూనిట్)</string>
     <string name="Product_removed">ఉత్పత్తి తీసివేయబడింది</string>
+    <string name="Added_cart">కార్ట్‌కి జోడించబడింది</string>
+    <string name="choose_anm">జంతువును ఎంచుకోండి</string>
+    <string name="sheep">గొర్రె</string>
+    <string name="goat">మేక</string>
+    <string name="cow">ఆవు</string>
+    <string name="buffalo">గేదె</string>
+    <string name="ox">ఎద్దు</string>
+    <string name="chiken">చికెన్</string>
+    <string name="camel">ఒంటె</string>
+    <string name="horse">గుర్రం</string>
 </resources>

@@ -178,4 +178,14 @@
     <string name="Please_Enter_Video">வீடியோ இடுகையைத் தேர்ந்தெடுக்கவும்</string>
     <string name="p2">உற்பத்தி (லிட்டர்/யூனிட்)</string>
     <string name="Product_removed">தயாரிப்பு அகற்றப்பட்டது</string>
+    <string name="Added_cart">வண்டியில் சேர்க்கப்பட்டது</string>
+    <string name="choose_anm">விலங்கு தேர்வு செய்யவும்</string>
+    <string name="sheep">ஆடுகள்</string>
+    <string name="goat">வெள்ளாடு</string>
+    <string name="cow">பசு</string>
+    <string name="buffalo">எருமை</string>
+    <string name="ox">எருது</string>
+    <string name="chiken">கோழி</string>
+    <string name="camel">ஒட்டகம்</string>
+    <string name="horse">குதிரை</string>
 </resources>

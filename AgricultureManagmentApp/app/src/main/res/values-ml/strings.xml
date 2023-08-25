@@ -178,4 +178,14 @@
     <string name="Please_Enter_Video">ദയവായി ഒരു വീഡിയോ പോസ്റ്റ് തിരഞ്ഞെടുക്കുക</string>
     <string name="p2">ഉത്പാദനം(ലിറ്റർ/യൂണിറ്റ്)</string>
     <string name="Product_removed">ഉൽപ്പന്നം നീക്കം ചെയ്തു</string>
+    <string name="Added_cart">വണ്ടിയിൽ ചേർത്തു</string>
+    <string name="choose_anm">മൃഗം തിരഞ്ഞെടുക്കുക</string>
+    <string name="sheep">ആടുകൾ</string>
+    <string name="goat">ആട്</string>
+    <string name="cow">പശു</string>
+    <string name="buffalo">എരുമ</string>
+    <string name="ox">കാള</string>
+    <string name="chiken">കോഴി</string>
+    <string name="camel">ഒട്ടകം</string>
+    <string name="horse">കുതിര</string>
 </resources>

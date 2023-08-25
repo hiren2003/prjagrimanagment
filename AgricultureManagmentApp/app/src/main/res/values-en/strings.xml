@@ -178,5 +178,15 @@
     <string name="Please_Enter_Video">Please Select a Video post</string>
     <string name="p2">Production(ltr/unit)</string>
     <string name="Product_removed">Product removed</string>
+    <string name="Added_cart">Added to cart</string>
+    <string name="choose_anm">Choose Animal</string>
+    <string name="sheep">Sheep</string>
+    <string name="goat">Goat</string>
+    <string name="cow">Cow</string>
+    <string name="buffalo">Buffalo</string>
+    <string name="ox">Ox</string>
+    <string name="chiken">Chicken</string>
+    <string name="camel">Camel</string>
+    <string name="horse">Horse</string>
 
 </resources>

@@ -179,4 +179,14 @@
     <string name="Please_Enter_Video">একটি ভিডিও পোস্ট নির্বাচন করুন</string>
     <string name="p2">উৎপাদন (ltr/ইউনিট)</string>
     <string name="Product_removed">পণ্য সরানো হয়েছে</string>
+    <string name="Added_cart">কার্টে যোগ করা হয়েছে</string>
+    <string name="choose_anm">পশু চয়ন করুন</string>
+    <string name="sheep">ভেড়া</string>
+    <string name="goat">ছাগল</string>
+    <string name="cow">গাভী</string>
+    <string name="buffalo">মহিষ</string>
+    <string name="ox">বলদ</string>
+    <string name="chiken">চিকেন</string>
+    <string name="camel">উট</string>
+    <string name="horse">ঘোড়া</string>
 </resources>

@@ -178,4 +178,14 @@
     <string name="Please_Enter_Video">براہ کرم ایک ویڈیو پوسٹ منتخب کریں۔</string>
     <string name="p2">پیداوار (ایل ٹی آر/یونٹ)</string>
     <string name="Product_removed">پروڈکٹ ہٹا دی گئی۔</string>
+    <string name="Added_cart">کارٹ میں شامل کر دیا گیا۔</string>
+    <string name="choose_anm">جانوروں کا انتخاب کریں۔</string>
+    <string name="sheep">بھیڑ</string>
+    <string name="goat">بکری</string>
+    <string name="cow">گائے</string>
+    <string name="buffalo">بھینس</string>
+    <string name="ox">بیل</string>
+    <string name="chiken">چکن</string>
+    <string name="camel">اونٹ</string>
+    <string name="horse">گھوڑا</string>
 </resources>

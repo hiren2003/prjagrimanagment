@@ -178,4 +178,14 @@
     <string name="Please_Enter_Video">કૃપા કરીને વિડિઓ પોસ્ટ પસંદ કરો</string>
     <string name="p2">ઉત્પાદન (લિટર/યુનિટ)</string>
     <string name="Product_removed">ઉત્પાદન દૂર કર્યું</string>
+    <string name="Added_cart">કાર્ટમાં ઉમેર્યું</string>
+    <string name="choose_anm">પ્રાણી પસંદ કરો</string>
+    <string name="sheep">ઘેટાં</string>
+    <string name="goat">બકરી</string>
+    <string name="cow">ગાય</string>
+    <string name="buffalo">ભેંસ</string>
+    <string name="ox">બળદ</string>
+    <string name="chiken">ચિકન</string>
+    <string name="camel">ઊંટ</string>
+    <string name="horse">ઘોડો</string>
 </resources>

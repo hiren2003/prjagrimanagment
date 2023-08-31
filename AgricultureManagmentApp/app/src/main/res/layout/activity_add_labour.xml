@@ -16,8 +16,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
+            <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Add_Worker"
+            android:textColor="#066006"
+            android:textSize="30dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:textStyle="bold"
+
+            />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:background="@color/frame"
+                android:layout_below="@+id/hh"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_height="2dp"/>
+
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/curvebackground"
@@ -25,7 +48,15 @@
                 app:counterEnabled="true"
                 app:counterMaxLength="15"
                 app:hintEnabled="true"
+                style="@style/Add_vacancy"
+                app:boxBackgroundColor="#D5D5D5"
+                app:boxCornerRadiusBottomEnd="10sp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
                 app:hintTextColor="@color/black"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 app:prefixText="@string/mrmrs"
                 app:prefixTextColor="@color/black"
                 app:startIconDrawable="@drawable/baseline_account_circle_24"
@@ -48,8 +79,17 @@
                 android:hint="@string/Labour_mobile_number"
                 app:counterEnabled="true"
                 app:counterMaxLength="10"
-                app:hintTextColor="@color/black"
+
                 app:prefixText="+91"
+                style="@style/Add_vacancy"
+                app:boxBackgroundColor="#D5D5D5"
+                app:boxCornerRadiusBottomEnd="10sp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:hintTextColor="@color/black"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 app:prefixTextColor="@color/black"
                 app:startIconDrawable="@drawable/baseline_call_24"
                 app:startIconTint="#3E6018">
@@ -65,7 +105,14 @@
                     android:textColor="@color/black" />
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                style="@style/Add_vacancy"
+                app:boxBackgroundColor="#D5D5D5"
+                app:boxCornerRadiusBottomEnd="10sp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -89,7 +136,15 @@
 
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                style="@style/Add_vacancy"
+                app:boxBackgroundColor="#D5D5D5"
+                app:boxCornerRadiusBottomEnd="10sp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -114,7 +169,15 @@
 
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                style="@style/Add_vacancy"
+                app:boxBackgroundColor="#D5D5D5"
+                app:boxCornerRadiusBottomEnd="10sp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:hintTextColor="@color/black"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/curvebackground"
@@ -122,7 +185,6 @@
                 app:counterEnabled="true"
                 app:counterMaxLength="300"
                 app:hintEnabled="true"
-                app:hintTextColor="@color/black"
                 app:prefixTextColor="@color/black"
                 app:startIconDrawable="@drawable/baseline_description_24"
                 app:startIconTint="#3E6018">
@@ -143,7 +205,8 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:background="@drawable/border_green"
+                android:backgroundTint="#AC5F0D"
+                android:background="@drawable/sendotp"
                 android:gravity="center">
 
                 <TextView
@@ -151,6 +214,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/Select_date"
+                    android:fontFamily="@font/allerta"
                     android:textColor="#FFFFFF"
                     android:textSize="20dp" />
             </RelativeLayout>
@@ -177,7 +241,7 @@
                     android:id="@+id/txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/andika"
+                    android:fontFamily="@font/allerta"
                     android:text="@string/Save_Detail"
                     android:textColor="#FFFFFF"
                     android:textSize="20dp" />

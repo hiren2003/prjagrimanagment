@@ -41,7 +41,7 @@
                 android:id="@+id/txtuname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/mavenpro"
+                android:fontFamily="@font/montserrat_bold"
                 android:text="John Thomsan"
                 android:textSize="15dp"
                 android:textStyle="bold" />
@@ -49,18 +49,12 @@
                 android:id="@+id/txtdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
                 android:text="12/10/2023"
                 />
 
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/btnmore"
-            android:layout_width="30dp"
-            android:layout_height="50dp"
-            android:layout_alignParentEnd="true"
-            android:layout_gravity="end"
-            android:src="@drawable/baseline_more_horiz_24" />
         <ImageView
             android:id="@+id/btndelete"
             android:layout_width="30dp"
@@ -152,6 +146,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="10dp"
+                android:fontFamily="@font/montserrat_medium"
                 android:text="1000"/>
         </LinearLayout>
         <ImageView

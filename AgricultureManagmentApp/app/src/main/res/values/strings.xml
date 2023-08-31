@@ -60,7 +60,6 @@
     <string name="Goverment_scheme">Goverment scheme</string>
     <string name="Term_Condition">Term&amp;Condition</string>
     <string name="Change_Detail">Change Detail</string>
-    <string name="Add_Vacancy">Add Vacancy</string>
     <string name="Interested_Labour">Interested Labour will Contact through this number</string>
     <string name="Select_Image">Select Image</string>
     <string name="State">State</string>
@@ -94,6 +93,7 @@
     <string name="Data_Uploading">Data Uploading</string>
     <string name="add_Video">Add Video</string>
     <string name="add_Photo">Add Photo</string>
+    <string name="Add_Post">Add Post</string>
     <string name="Write_Share">Write And Share</string>
     <string name="Write_Something">Write Something Here...</string>
     <string name="Month">Month</string>
@@ -141,6 +141,8 @@
     <string name="chiken">Chicken</string>
     <string name="camel">Camel</string>
     <string name="horse">Horse</string>
+    <string name="Add_Vacancy">Add Vacancy</string>
+    <string name="Add_Worker">Add Worker</string>
     <string name="Seller_name">Seller name</string>
     <string name="Milk_Production2">Milk Production/Ltr</string>
     <string name="Usage">Usage</string>
@@ -211,7 +213,7 @@
         <item>Buffalo</item>
         <item>Camel</item>
         <item>Horse</item>
-        <item>Other animal</item>
+        <item>Ox</item>
     </string-array>
     <string-array name="language">
         <item>English</item>

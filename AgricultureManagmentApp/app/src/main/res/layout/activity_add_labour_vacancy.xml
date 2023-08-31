@@ -17,41 +17,51 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Add Vacancy"
-
-                android:textColor="#066006"
-                android:textSize="30dp"
-
-                android:fontFamily="@font/montserrat_bold"
                 android:layout_marginLeft="10dp"
+
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
+
                 android:layout_marginBottom="10dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/Add_Vacancy"
+                android:textColor="#066006"
+                android:textSize="30dp"
                 android:textStyle="bold"
 
                 />
 
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/hh"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/frame" />
+
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Add_vacancy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/curvebackground"
                 android:hint="@string/Owner_name"
-                app:counterEnabled="true"
-                app:counterMaxLength="15"
-                style="@style/Add_vacancy"
                 app:boxBackgroundColor="#D5D5D5"
                 app:boxCornerRadiusBottomEnd="10sp"
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
-                app:hintTextColor="@color/black"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="15"
                 app:hintEnabled="true"
+                app:hintTextColor="@color/black"
                 app:prefixText="@string/mrmrs"
                 app:prefixTextColor="@color/black"
                 app:startIconDrawable="@drawable/baseline_account_circle_24"
@@ -61,7 +71,7 @@
                     android:id="@+id/edtoname"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:fontFamily="@font/montserrat_medium"
+                    android:fontFamily="@font/allerta"
                     android:maxLength="15"
                     android:shadowColor="@color/black"
                     android:textColor="@color/black" />
@@ -71,21 +81,21 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/curvebackground"
                 android:hint="@string/mobile_number"
-                app:counterEnabled="true"
-                app:counterMaxLength="10"
                 app:boxBackgroundColor="#D5D5D5"
                 app:boxCornerRadiusBottomEnd="10sp"
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
-                app:hintTextColor="@color/black"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="10"
                 app:helperText="@string/Interested_Labour"
                 app:helperTextEnabled="true"
                 app:helperTextTextColor="@color/Dark_red"
+                app:hintTextColor="@color/black"
                 app:prefixText="+91"
                 app:prefixTextColor="@color/black"
                 app:startIconDrawable="@drawable/baseline_call_24"
@@ -95,7 +105,7 @@
                     android:id="@+id/edtmo"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:fontFamily="@font/montserrat_medium"
+                    android:fontFamily="@font/allerta"
                     android:inputType="number"
                     android:maxLength="10"
                     android:shadowColor="@color/black"
@@ -106,21 +116,21 @@
                 style="@style/Add_vacancy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/curvebackground"
                 android:hint="@string/Work_type"
-                app:counterEnabled="true"
-                app:counterMaxLength="15"
-                app:boxBackgroundColor="#D5D5D5"
+                android:textColorHint="@color/black"
 
+                app:boxBackgroundColor="#D5D5D5"
                 app:boxCornerRadiusBottomEnd="10sp"
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
-                app:hintTextColor="@color/black"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:textColorHint="@color/black"
+                app:counterEnabled="true"
+                app:counterMaxLength="15"
                 app:hintEnabled="true"
+                app:hintTextColor="@color/black"
                 app:prefixTextColor="@color/black"
                 app:startIconDrawable="@drawable/baseline_account_circle_24"
                 app:startIconTint="#3E6018">
@@ -129,12 +139,13 @@
                     android:id="@+id/edtwtype"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:fontFamily="@font/montserrat_medium"
+                    android:fontFamily="@font/allerta"
                     android:maxLength="15"
                     android:shadowColor="@color/black"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
             <RadioGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -144,9 +155,9 @@
                     android:id="@+id/rdbfixwages"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Fix_Wages"
                     android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/montserrat_medium"
+                    android:fontFamily="@font/allerta"
+                    android:text="@string/Fix_Wages"
                     android:textSize="18dp" />
 
                 <RadioButton
@@ -154,15 +165,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:fontFamily="@font/montserrat_medium"
+                    android:fontFamily="@font/allerta"
                     android:text="@string/On_Partenership"
-                    android:textSize="18dp"
-                     />
+                    android:textSize="18dp" />
             </RadioGroup>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/curvebackground"
                 android:hint="@string/Extected_Income"
                 android:textColorHint="@color/black"
@@ -171,13 +183,11 @@
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
-                app:hintTextColor="@color/black"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 app:counterEnabled="true"
                 app:counterMaxLength="10"
                 app:helperTextEnabled="true"
                 app:helperTextTextColor="@color/Dark_red"
+                app:hintTextColor="@color/black"
                 app:prefixTextColor="@color/black"
                 app:startIconDrawable="@drawable/baseline_currency_rupee_24"
                 app:startIconTint="#3E6018">
@@ -186,7 +196,7 @@
                     android:id="@+id/edtincome"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:fontFamily="@font/montserrat_medium"
+                    android:fontFamily="@font/allerta"
                     android:inputType="number"
                     android:maxLength="10"
                     android:shadowColor="@color/black"
@@ -196,22 +206,22 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/curvebackground"
                 android:hint="@string/Work_Duration"
-                app:counterEnabled="true"
-                app:counterMaxLength="10"
-                app:boxBackgroundColor="#D5D5D5"
+                android:textColorHint="@color/black"
 
+                app:boxBackgroundColor="#D5D5D5"
                 app:boxCornerRadiusBottomEnd="10sp"
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
-                app:hintTextColor="@color/black"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:textColorHint="@color/black"
+                app:counterEnabled="true"
+                app:counterMaxLength="10"
                 app:helperTextEnabled="true"
                 app:helperTextTextColor="@color/Dark_red"
+                app:hintTextColor="@color/black"
                 app:startIconDrawable="@drawable/baseline_language_24"
                 app:startIconTint="#3E6018">
 
@@ -219,7 +229,7 @@
                     android:id="@+id/edtduration"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:fontFamily="@font/montserrat_medium"
+                    android:fontFamily="@font/allerta"
                     android:inputType="number"
                     android:maxLength="10"
                     android:shadowColor="@color/black"
@@ -241,13 +251,14 @@
                     android:background="@drawable/curvebackground"
                     android:hint="@string/State"
                     android:minWidth="180dp"
-                    app:hintEnabled="true"  app:boxBackgroundColor="#D5D5D5"
+                    android:textColorHint="@color/black"
+                    app:boxBackgroundColor="#D5D5D5"
                     app:boxCornerRadiusBottomEnd="10sp"
                     app:boxCornerRadiusBottomStart="10dp"
                     app:boxCornerRadiusTopEnd="10dp"
                     app:boxCornerRadiusTopStart="10dp"
+                    app:hintEnabled="true"
                     app:hintTextColor="@color/black"
-                    android:textColorHint="@color/black"
                     app:prefixTextColor="@color/black"
                     app:startIconDrawable="@drawable/baseline_location_on_24"
                     app:startIconTint="#3E6018">
@@ -256,11 +267,11 @@
                         android:id="@+id/edtstate"
                         android:layout_width="170dp"
                         android:layout_height="60dp"
-                        android:fontFamily="@font/montserrat_medium"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:fontFamily="@font/allerta"
                         android:maxLength="15"
                         android:shadowColor="@color/black"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginLeft="10dp"
                         android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -273,15 +284,15 @@
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/curvebackground"
                     android:hint="@string/District"
+                    android:minWidth="180dp"
+                    android:textColorHint="@color/black"
                     app:boxBackgroundColor="#D5D5D5"
                     app:boxCornerRadiusBottomEnd="10sp"
                     app:boxCornerRadiusBottomStart="10dp"
                     app:boxCornerRadiusTopEnd="10dp"
                     app:boxCornerRadiusTopStart="10dp"
-                    app:hintTextColor="@color/black"
-                    android:textColorHint="@color/black"
-                    android:minWidth="180dp"
                     app:hintEnabled="true"
+                    app:hintTextColor="@color/black"
                     app:prefixTextColor="@color/black"
                     app:startIconDrawable="@drawable/baseline_location_on_24"
                     app:startIconTint="#3E6018">
@@ -290,9 +301,9 @@
                         android:id="@+id/edtdist"
                         android:layout_width="170dp"
                         android:layout_height="60dp"
-                        android:fontFamily="@font/montserrat_medium"
-                        android:maxLength="15"
                         android:layout_marginRight="10dp"
+                        android:fontFamily="@font/allerta"
+                        android:maxLength="15"
                         android:shadowColor="@color/black"
                         android:textColor="@color/black" />
 
@@ -310,20 +321,20 @@
                     style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/curvebackground"
                     android:hint="@string/Tehsil"
                     android:minWidth="180dp"
-                    app:hintEnabled="true"
+                    android:textColorHint="@color/black"
                     app:boxBackgroundColor="#D5D5D5"
                     app:boxCornerRadiusBottomEnd="10sp"
                     app:boxCornerRadiusBottomStart="10dp"
                     app:boxCornerRadiusTopEnd="10dp"
                     app:boxCornerRadiusTopStart="10dp"
+                    app:hintEnabled="true"
                     app:hintTextColor="@color/black"
-                    android:layout_marginLeft="10dp"
-                    android:textColorHint="@color/black"
                     app:prefixTextColor="@color/black"
                     app:startIconDrawable="@drawable/baseline_location_on_24"
                     app:startIconTint="#3E6018">
@@ -332,7 +343,7 @@
                         android:id="@+id/edttehsil"
                         android:layout_width="170dp"
                         android:layout_height="60dp"
-                        android:fontFamily="@font/montserrat_medium"
+                        android:fontFamily="@font/allerta"
                         android:maxLength="15"
                         android:shadowColor="@color/black"
                         android:textColor="@color/black" />
@@ -344,20 +355,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/curvebackground"
                     android:hint="@string/city_town_village"
                     android:minWidth="180dp"
-                    app:hintEnabled="true"
-                    app:boxBackgroundColor="#D5D5D5"
+                    android:textColorHint="@color/black"
 
+                    app:boxBackgroundColor="#D5D5D5"
                     app:boxCornerRadiusBottomEnd="10sp"
                     app:boxCornerRadiusBottomStart="10dp"
                     app:boxCornerRadiusTopEnd="10dp"
                     app:boxCornerRadiusTopStart="10dp"
+                    app:hintEnabled="true"
                     app:hintTextColor="@color/black"
-                    android:layout_marginRight="10dp"
-                    android:textColorHint="@color/black"
                     app:prefixTextColor="@color/black"
                     app:startIconDrawable="@drawable/baseline_location_on_24"
                     app:startIconTint="#3E6018">
@@ -366,7 +377,7 @@
                         android:id="@+id/edtvlg"
                         android:layout_width="170dp"
                         android:layout_height="60dp"
-                        android:fontFamily="@font/montserrat_medium"
+                        android:fontFamily="@font/allerta"
                         android:maxLength="15"
                         android:shadowColor="@color/black"
                         android:textColor="@color/black" />
@@ -374,21 +385,22 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
+
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/Description"
-                app:boxBackgroundColor="#D5D5D5"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
 
+                android:hint="@string/Description"
+                android:textColorHint="@color/black"
+                app:boxBackgroundColor="#D5D5D5"
                 app:boxCornerRadiusBottomEnd="10sp"
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:hintTextColor="@color/black"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:textColorHint="@color/black"
                 app:startIconDrawable="@drawable/baseline_description_24"
                 app:startIconTint="#066006">
 
@@ -396,8 +408,7 @@
                     android:id="@+id/edtdes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_medium"
-                    />
+                    android:fontFamily="@font/allerta" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -405,9 +416,9 @@
                 android:id="@+id/btnsavevdetail"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="20sp"
                 android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
                 android:background="@drawable/sendotp"
                 android:gravity="center">
 
@@ -425,7 +436,7 @@
                     android:id="@+id/txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_bold"
+                    android:fontFamily="@font/allerta"
                     android:text="@string/Save_Detail"
                     android:textColor="#FFFFFF"
                     android:textSize="20dp" />

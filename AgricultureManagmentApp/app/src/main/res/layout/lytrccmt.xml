@@ -44,6 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="john thomsan"
+                android:fontFamily="@font/montserrat_bold"
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:id="@+id/uname"/>
@@ -52,9 +53,8 @@
                 android:layout_height="wrap_content"
                 android:text="this is comment"
                 android:layout_marginStart="10dp"
-                android:textStyle="italic"
                 android:textSize="15dp"
-                android:fontFamily="@font/mavenpro"
+                android:fontFamily="@font/allerta"
                 android:id="@+id/txtcomment"/>
         </LinearLayout>
 

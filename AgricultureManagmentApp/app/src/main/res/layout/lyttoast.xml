@@ -4,7 +4,8 @@
     android:layout_height="50dp"
     android:background="@drawable/curvebackground"
     android:id="@+id/container"
-    android:backgroundTint="@color/Dark_red">
+    android:layout_gravity="center_horizontal"
+    android:backgroundTint="#B33C3C">
 
     <LinearLayout
         android:layout_width="400dp"
@@ -23,9 +24,9 @@
             android:id="@+id/txtmsg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/mavenpro"
             android:text="Please! EnterName"
             android:textColor="#ffffff"
-            android:fontFamily="@font/mavenpro"
             android:textSize="18dp" />
     </LinearLayout>
 </RelativeLayout>

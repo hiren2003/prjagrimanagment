@@ -38,16 +38,16 @@ public class add_animal extends AppCompatActivity {
     Spinner spntype;
     String category = "";
 
-    String key="";
+    String key = "";
     Uri selectedimg;
     TextView txtname;
     Button btnchooseimg;
-    ImageView imgprdt,imgcat;
+    ImageView imgprdt, imgcat;
     Button btnsavedata;
     Intent intent;
     SharedPreferences sharedPreferences;
     TextInputEditText edtsname;
-    TextInputEditText edtspeice,edtprc,edtstate,edtdistrict,edttehsil,edtvillage,edtdescription,edtmo,edtyear,edtmonth,edtmilk,edtweight;
+    TextInputEditText edtspeice, edtprc, edtstate, edtdistrict, edttehsil, edtvillage, edtdescription, edtmo, edtyear, edtmonth, edtmilk, edtweight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,23 +57,23 @@ public class add_animal extends AppCompatActivity {
         imgprdt = findViewById(R.id.imgprdt);
         btnchooseimg = findViewById(R.id.btnchooseimage);
         arranimal = getResources().getStringArray(R.array.animal_type);
-        edtspeice=findViewById(R.id.edtspecie);
-        edtprc=findViewById(R.id.edtprc);
-        edtstate=findViewById(R.id.edtstate);
-        edtdistrict=findViewById(R.id.edtdist);
-        edttehsil=findViewById(R.id.edttehsil);
-        edtvillage=findViewById(R.id.edtvlg);
-        btnsavedata=findViewById(R.id.btnsavedata);
-        edtsname=findViewById(R.id.edtsellername);
-        edtdescription=findViewById(R.id.edtdes);
-        edtyear=findViewById(R.id.edtyear);
-        edtmonth=findViewById(R.id.edtMonth);
-        edtmo=findViewById(R.id.edtmo);
-        edtweight=findViewById(R.id.edtWeight);
-        edtmilk=findViewById(R.id.edtMilk);
-        txtname=findViewById(R.id.txtname);
-        imgcat=findViewById(R.id.imgcat);
-        spntype.setAdapter(new ArrayAdapter<String>(this, com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item,arranimal));
+        edtspeice = findViewById(R.id.edtspecie);
+        edtprc = findViewById(R.id.edtprc);
+        edtstate = findViewById(R.id.edtstate);
+        edtdistrict = findViewById(R.id.edtdist);
+        edttehsil = findViewById(R.id.edttehsil);
+        edtvillage = findViewById(R.id.edtvlg);
+        btnsavedata = findViewById(R.id.btnsavedata);
+        edtsname = findViewById(R.id.edtsellername);
+        edtdescription = findViewById(R.id.edtdes);
+        edtyear = findViewById(R.id.edtyear);
+        edtmonth = findViewById(R.id.edtMonth);
+        edtmo = findViewById(R.id.edtmo);
+        edtweight = findViewById(R.id.edtWeight);
+        edtmilk = findViewById(R.id.edtMilk);
+        txtname = findViewById(R.id.txtname);
+        imgcat = findViewById(R.id.imgcat);
+        spntype.setAdapter(new ArrayAdapter<String>(this, com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item, arranimal));
         sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
         intent = getIntent();
         int cat = intent.getIntExtra("category", 0);
@@ -93,29 +93,29 @@ public class add_animal extends AppCompatActivity {
             imgcat.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.goat));
             category = arranimal[1];
             txtname.setText(arranimal[1]);
-        } else if(cat ==5){
+        } else if (cat == 5) {
             imgcat.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ox));
             category = arranimal[7];
             txtname.setText(arranimal[7]);
-        }else if(cat ==6){
+        } else if (cat == 6) {
             imgcat.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.chiken));
             category = arranimal[2];
             txtname.setText(arranimal[2]);
-        }else if(cat ==7){
+        } else if (cat == 7) {
             imgcat.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.hourse));
             category = arranimal[6];
             txtname.setText(arranimal[6]);
-        }else {
+        } else {
             imgcat.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.camel));
             category = arranimal[5];
             txtname.setText(arranimal[5]);
         }
-        ActivityResultLauncher<String> launcher=registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
+        ActivityResultLauncher<String> launcher = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
             public void onActivityResult(Uri result) {
                 imgprdt.setImageURI(result);
                 imgprdt.setVisibility(View.VISIBLE);
-                selectedimg=result;
+                selectedimg = result;
             }
         });
         btnchooseimg.setOnClickListener(new View.OnClickListener() {
@@ -169,25 +169,24 @@ public class add_animal extends AppCompatActivity {
                 } else if (selectedimg == null) {
                     show_toast(getResources().getString(R.string.Please_Enter_Image), false);
                     launcher.launch("image/*");
-                }
-                else{
-                    Dialog dg=new Dialog(add_animal.this);
+                } else {
+                    Dialog dg = new Dialog(add_animal.this);
                     dg.setContentView(R.layout.lytloading);
                     dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
                     dg.setCancelable(false);
                     dg.show();
-                    String key=FirebaseDatabase.getInstance().getReference().child("animals").push().getKey();
-                    StorageReference firebaseStorage=FirebaseStorage.getInstance().getReference().child("animals").child(key);
+                    String key = FirebaseDatabase.getInstance().getReference().child("animals").push().getKey();
+                    StorageReference firebaseStorage = FirebaseStorage.getInstance().getReference().child("animals").child(key);
                     firebaseStorage.putFile(selectedimg).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             firebaseStorage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    SharedPreferences sharedPreferences1=getSharedPreferences("data",MODE_PRIVATE);
-                                    clsAnimalModel clsAnimalModel=new clsAnimalModel(
+                                    SharedPreferences sharedPreferences1 = getSharedPreferences("data", MODE_PRIVATE);
+                                    clsAnimalModel clsAnimalModel = new clsAnimalModel(
                                             key,
-                                            spntype.getSelectedItem().toString(),
+                                            category,
                                             edtspeice.getText().toString().toString(),
                                             edtyear.getText().toString(),
                                             edtmonth.getText().toString(),
@@ -201,25 +200,25 @@ public class add_animal extends AppCompatActivity {
                                             edtvillage.getText().toString(),
                                             edtdescription.getText().toString(),
                                             uri.toString(),
-                                            sharedPreferences1.getString("uname","null"),
-                                            sharedPreferences1.getString("url","unknown"),
+                                            sharedPreferences1.getString("uname", "null"),
+                                            sharedPreferences1.getString("url", "unknown"),
                                             Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR)
-                                            ,edtsname.getText().toString()
+                                            , edtsname.getText().toString()
                                     );
-                                    FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences1.getString("mo","1234567890")).child("Resell").child("animal").child(key).setValue(clsAnimalModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences1.getString("mo", "1234567890")).child("Resell").child("animal").child(key).setValue(clsAnimalModel).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             FirebaseDatabase.getInstance().getReference().child("animals").child(key).setValue(clsAnimalModel).addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override
                                                 public void onSuccess(Void unused) {
-                                                    show_toast(getResources().getString(R.string.successfullyuploaded),true);
+                                                    show_toast(getResources().getString(R.string.successfullyuploaded), true);
                                                     dg.dismiss();
                                                     finish();
                                                 }
                                             }).addOnFailureListener(new OnFailureListener() {
                                                 @Override
                                                 public void onFailure(@NonNull Exception e) {
-                                                    show_toast(getResources().getString(R.string.unsuccessfullyuploaded),false);
+                                                    show_toast(getResources().getString(R.string.unsuccessfullyuploaded), false);
                                                     dg.dismiss();
                                                 }
                                             });
@@ -227,7 +226,7 @@ public class add_animal extends AppCompatActivity {
                                     }).addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
-                                            show_toast(getResources().getString(R.string.unsuccessfullyuploaded),false);
+                                            show_toast(getResources().getString(R.string.unsuccessfullyuploaded), false);
                                             dg.dismiss();
                                         }
                                     });
@@ -235,7 +234,7 @@ public class add_animal extends AppCompatActivity {
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    show_toast(getResources().getString(R.string.unsuccessfullyuploaded),false);
+                                    show_toast(getResources().getString(R.string.unsuccessfullyuploaded), false);
                                     dg.dismiss();
                                 }
                             });
@@ -243,7 +242,7 @@ public class add_animal extends AppCompatActivity {
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            show_toast(getResources().getString(R.string.unsuccessfullyuploaded),false);
+                            show_toast(getResources().getString(R.string.unsuccessfullyuploaded), false);
                             dg.dismiss();
                         }
                     });
@@ -252,6 +251,7 @@ public class add_animal extends AppCompatActivity {
             }
         });
     }
+
     public void show_toast(String msg, boolean isgreen) {
         Toast ts = new Toast(getBaseContext());
         View view;

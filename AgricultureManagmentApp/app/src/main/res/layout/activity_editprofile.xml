@@ -14,7 +14,7 @@
         android:layout_marginTop="10dp"
         android:fontFamily="@font/abeezee"
         android:gravity="center_horizontal"
-        android:text="Edit Profile"
+        android:text="@string/Edit_Profile"
         android:textColor="@color/black"
         android:textSize="25dp"
         android:textStyle="bold" />

@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
         public void onVerificationFailed(@NonNull FirebaseException e) {
             txt.setVisibility(View.VISIBLE);
             progressBar.setVisibility(View.GONE);
-            show_toast(getResources().getString(R.string.Invalid_Quntity),false);
+            show_toast(getResources().getString(R.string.Verification_Failed),false);
         }
     };
 

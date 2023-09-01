@@ -56,6 +56,7 @@
            android:layout_width="match_parent"
            android:layout_height="100dp"
            app:cardCornerRadius="20dp"
+           android:visibility="gone"
            app:cardElevation="10dp"
            android:layout_marginLeft="20dp"
            android:layout_marginRight="20dp"

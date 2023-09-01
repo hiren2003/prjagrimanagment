@@ -42,13 +42,13 @@ MaterialCardView sheep,cow,buffalo,goat,ox,chicken,hourse,camel,other;
                 } else if (goat.isChecked()) {
                     startActivity(new Intent(animal_category_Activity.this, add_animal.class).putExtra("category", 4));
                 }else if (ox.isChecked()){
-                    startActivity(new Intent(animal_category_Activity.this, add_animal.class).putExtra("category", 0));
+                    startActivity(new Intent(animal_category_Activity.this, add_animal.class).putExtra("category", 5));
                 }else if (chicken.isChecked()){
-                    startActivity(new Intent(animal_category_Activity.this, add_animal.class).putExtra("category", 0));
+                    startActivity(new Intent(animal_category_Activity.this, add_animal.class).putExtra("category", 6));
                 }else if (hourse.isChecked()){
-                    startActivity(new Intent(animal_category_Activity.this, add_animal.class).putExtra("category", 0));
+                    startActivity(new Intent(animal_category_Activity.this, add_animal.class).putExtra("category", 7));
                 }else if (camel.isChecked()){
-                    startActivity(new Intent(animal_category_Activity.this, add_animal.class).putExtra("category", 0));
+                    startActivity(new Intent(animal_category_Activity.this, add_animal.class).putExtra("category", 8));
                 }
 
             }

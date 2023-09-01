@@ -28,8 +28,13 @@
         <activity
             android:name=".animal_category_Activity"
             android:exported="false" />
+        <activity android:name=".admin_resell_category"
+            android:exported="false"
+            />
+        <activity android:name=".admin_animal"
+            android:exported="false"/>
         <activity
-            android:name=".animal_category_Activity2"
+            android:name=".admin_ecom"
             android:exported="false" />
         <activity
             android:name=".orderbydate"

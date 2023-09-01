@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.card.MaterialCardView;
 
@@ -30,8 +31,26 @@ MaterialCardView sheep,cow,buffalo,goat,ox,chicken,hourse,camel,other;
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(animal_category_Activity.this, add_animal.class));
-                finish();
+                if(!cow.isChecked() && !sheep.isChecked() && !buffalo.isChecked() && !goat.isChecked() && !ox.isChecked() && !chicken.isChecked() && !hourse.isChecked() && !camel.isChecked()){
+                    Toast toast=Toast.makeText(getApplicationContext(),"Please select category",Toast.LENGTH_SHORT);
+                }else if (cow.isChecked()) {
+                    startActivity(new Intent(animal_category_Activity.this, add_animal.class).putExtra("category", 1));
+                } else if (sheep.isChecked()) {
+                    startActivity(new Intent(animal_category_Activity.this,add_animal.class).putExtra("category",2));
+                }else if(buffalo.isChecked()){
+                    startActivity(new Intent(animal_category_Activity.this, add_animal.class).putExtra("category", 3));
+                } else if (goat.isChecked()) {
+                    startActivity(new Intent(animal_category_Activity.this, add_animal.class).putExtra("category", 4));
+                }else if (ox.isChecked()){
+                    startActivity(new Intent(animal_category_Activity.this, add_animal.class).putExtra("category", 0));
+                }else if (chicken.isChecked()){
+                    startActivity(new Intent(animal_category_Activity.this, add_animal.class).putExtra("category", 0));
+                }else if (hourse.isChecked()){
+                    startActivity(new Intent(animal_category_Activity.this, add_animal.class).putExtra("category", 0));
+                }else if (camel.isChecked()){
+                    startActivity(new Intent(animal_category_Activity.this, add_animal.class).putExtra("category", 0));
+                }
+
             }
         });
         cow.setOnClickListener(new View.OnClickListener() {
@@ -139,5 +158,11 @@ MaterialCardView sheep,cow,buffalo,goat,ox,chicken,hourse,camel,other;
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(animal_category_Activity.this,Resell_Category.class));
+        finish();
     }
 }

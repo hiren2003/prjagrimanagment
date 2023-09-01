@@ -156,5 +156,37 @@
     <string name="Please_Enter_Seller">Please enter Seller Name</string>
     <string name="mobile_no">Mobile no.</string>
     <string name="Please_Enter_Specification">Please enter Specification of Product</string>
+    <string name="Please_Enter_Recommandation">Please enter Recommendation for buyer</string>
+    <string name="Please_Enter_Description">Please enter Description</string>
+    <string name="Please_Enter_Title">Please enter Title</string>
+    <string name="Please_Enter_Link">Please enter Link</string>
+    <string name="Please_Enter_Lname">Please enter Worker Name</string>
+    <string name="Please_Enter_Wages">Please enter Wages</string>
+    <string name="Please_Enter_Date">Please Select Date</string>
+    <string name="Please_Enter_Duration">Please Enter Usage Duration</string>
+    <string name="Delete">Delete Item</string>
+    <string name="Update">Update Item</string>
+    <string name="Enter_address">Please Enter Address</string>
+    <string name="add_news">Add news</string>
+    <string name="admin">Administrator</string>
+    <string name="payment">Payment</string>
+    <string name="Please_Enter_Owner">Please Enter Owner Name</string>
+    <string name="Please_Enter_Worktype">Please Enter Type of Work</string>
+    <string name="Please_Enter_pincome">Please Enter Predicted Income</string>
+    <string name="Please_Enter_wDuration">Please Enter Duration of work</string>
+    <string name="Please_Enter_Wagetype">Please Select one Wage type</string>
+    <string name="Please_Enter_Video">Please Select a Video post</string>
+    <string name="p2">Production(ltr/unit)</string>
+    <string name="Product_removed">Product removed</string>
+    <string name="Added_cart">Added to cart</string>
+    <string name="choose_anm">Choose Animal</string>
+    <string name="sheep">Sheep</string>
+    <string name="goat">Goat</string>
+    <string name="cow">Cow</string>
+    <string name="buffalo">Buffalo</string>
+    <string name="ox">Ox</string>
+    <string name="chiken">Chicken</string>
+    <string name="camel">Camel</string>
+    <string name="horse">Horse</string>
 
 </resources>

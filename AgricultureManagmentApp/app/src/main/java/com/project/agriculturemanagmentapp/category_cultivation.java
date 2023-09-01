@@ -106,9 +106,12 @@ Button next;
 
     }
 
-    @Override
-    public void onBackPressed() {
-super.onBackPressed();
-    }
+
+        @Override
+        public void onBackPressed() {
+            startActivity(new Intent(category_cultivation.this,Resell_Category.class));
+            finish();
+        }
+
 
 }

@@ -11,20 +11,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:fontFamily="@font/averia_libre"
-        android:text="Write and share"
-        android:textAlignment="center"
-        android:textColor="#A1AC0C"
-        android:textSize="25dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/Write_Share"
+        android:textAlignment="textStart"
+        android:textColor="#066006"
+        android:textSize="30dp"
         android:textStyle="bold" />
-
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:background="@color/frame"
+        android:layout_below="@+id/hh"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_height="2dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="12dp"
-        android:fontFamily="@font/averia_libre"
+        android:fontFamily="@font/allerta"
         android:text="Enter something to share..."
         android:textAlignment="textStart"
         android:textColor="#353104"
@@ -36,7 +43,7 @@
         app:startIconTint="#22578F"
         android:layout_margin="10dp"
         style="@style/CustomOutlineBoxnew"
-        app:boxBackgroundColor="#68A1AC0C"
+        app:boxBackgroundColor="#D2D5D2"
         app:boxCornerRadiusBottomEnd="15sp"
         app:boxCornerRadiusBottomStart="15dp"
         app:boxCornerRadiusTopEnd="15dp"
@@ -69,7 +76,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/andika"
             android:text="@string/Upload"
-            android:textColor="#050505"
+            android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:textSize="20dp" />
 

@@ -5,9 +5,11 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
@@ -34,13 +36,15 @@ import java.util.Calendar;
 public class add_animal extends AppCompatActivity {
     String[] arranimal;
     Spinner spntype;
-
+    String category = "";
 
     String key="";
     Uri selectedimg;
+    TextView txtname;
     Button btnchooseimg;
-    ImageView imgprdt;
+    ImageView imgprdt,imgcat;
     Button btnsavedata;
+    Intent intent;
     SharedPreferences sharedPreferences;
     TextInputEditText edtsname;
     TextInputEditText edtspeice,edtprc,edtstate,edtdistrict,edttehsil,edtvillage,edtdescription,edtmo,edtyear,edtmonth,edtmilk,edtweight;
@@ -67,7 +71,45 @@ public class add_animal extends AppCompatActivity {
         edtmo=findViewById(R.id.edtmo);
         edtweight=findViewById(R.id.edtWeight);
         edtmilk=findViewById(R.id.edtMilk);
+        txtname=findViewById(R.id.txtname);
+        imgcat=findViewById(R.id.imgcat);
         spntype.setAdapter(new ArrayAdapter<String>(this, com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item,arranimal));
+        sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+        intent = getIntent();
+        int cat = intent.getIntExtra("category", 0);
+        if (cat == 1) {
+            imgcat.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.cow));
+            txtname.setText(arranimal[3]);
+            category = arranimal[3];
+        } else if (cat == 2) {
+            imgcat.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.sheep));
+            category = arranimal[0];
+            txtname.setText(arranimal[0]);
+        } else if (cat == 3) {
+            imgcat.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.buffalo));
+            category = arranimal[5];
+            txtname.setText(arranimal[5]);
+        } else if (cat == 4) {
+            imgcat.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.goat));
+            category = arranimal[1];
+            txtname.setText(arranimal[1]);
+        } else if(cat ==5){
+            imgcat.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ox));
+            category = arranimal[7];
+            txtname.setText(arranimal[7]);
+        }else if(cat ==6){
+            imgcat.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.chiken));
+            category = arranimal[2];
+            txtname.setText(arranimal[2]);
+        }else if(cat ==7){
+            imgcat.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.hourse));
+            category = arranimal[6];
+            txtname.setText(arranimal[6]);
+        }else {
+            imgcat.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.camel));
+            category = arranimal[5];
+            txtname.setText(arranimal[5]);
+        }
         ActivityResultLauncher<String> launcher=registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
             public void onActivityResult(Uri result) {

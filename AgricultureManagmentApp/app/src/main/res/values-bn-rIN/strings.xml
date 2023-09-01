@@ -64,6 +64,7 @@
     <string name="Interested_Labour">আগ্রহী শ্রমিকরা এই নাম্বারে যোগাযোগ করবেন</string>
     <string name="Select_Image">ছবি নির্বাচন করুন</string>
     <string name="State">অবস্থা</string>
+
     <string name="District">জেলা</string>
     <string name="Tehsil">তহসিল</string>
     <string name="city_town_village">শহর/শহর/গ্রাম</string>
@@ -157,4 +158,36 @@
     <string name="Please_Enter_Seller">অনুগ্রহ করে বিক্রেতার নাম লিখুন</string>
     <string name="mobile_no">মোবাইল নাম্বার.</string>
     <string name="Please_Enter_Specification">অনুগ্রহ করে পণ্যের স্পেসিফিকেশন লিখুন</string>
+    <string name="Please_Enter_Recommandation">ক্রেতার জন্য সুপারিশ লিখুন</string>
+    <string name="Please_Enter_Description">বিবরণ লিখুন দয়া করে</string>
+    <string name="Please_Enter_Title">অনুগ্রহ করে শিরোনাম লিখুন</string>
+    <string name="Please_Enter_Link">লিঙ্ক লিখুন</string>
+    <string name="Please_Enter_Lname">অনুগ্রহ করে শ্রমিকের নাম লিখুন</string>
+    <string name="Please_Enter_Wages">মজুরি লিখুন</string>
+    <string name="Please_Enter_Date">তারিখ নির্বাচন করুন</string>
+    <string name="Please_Enter_Duration">অনুগ্রহ করে ব্যবহারের সময়কাল লিখুন</string>
+    <string name="Delete">আইটেম মুছুন</string>
+    <string name="Update">আপডেট আইটেম</string>
+    <string name="Enter_address">ঠিকানা লিখুন দয়া করে</string>
+    <string name="add_news">খবর যোগ করুন</string>
+    <string name="admin">প্রশাসক</string>
+    <string name="payment">পেমেন্ট</string>
+    <string name="Please_Enter_Owner">মালিকের নাম লিখুন</string>
+    <string name="Please_Enter_Worktype">কাজের ধরন লিখুন</string>
+    <string name="Please_Enter_pincome">অনুগ্রহ করে অনুমানকৃত আয় লিখুন</string>
+    <string name="Please_Enter_wDuration">অনুগ্রহ করে কাজের সময়কাল লিখুন</string>
+    <string name="Please_Enter_Wagetype">একটি মজুরি প্রকার নির্বাচন করুন</string>
+    <string name="Please_Enter_Video">একটি ভিডিও পোস্ট নির্বাচন করুন</string>
+    <string name="p2">উৎপাদন (ltr/ইউনিট)</string>
+    <string name="Product_removed">পণ্য সরানো হয়েছে</string>
+    <string name="Added_cart">কার্টে যোগ করা হয়েছে</string>
+    <string name="choose_anm">পশু চয়ন করুন</string>
+    <string name="sheep">ভেড়া</string>
+    <string name="goat">ছাগল</string>
+    <string name="cow">গাভী</string>
+    <string name="buffalo">মহিষ</string>
+    <string name="ox">বলদ</string>
+    <string name="chiken">চিকেন</string>
+    <string name="camel">উট</string>
+    <string name="horse">ঘোড়া</string>
 </resources>

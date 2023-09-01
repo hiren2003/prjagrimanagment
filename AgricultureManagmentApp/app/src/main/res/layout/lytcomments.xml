@@ -13,14 +13,14 @@
     android:layout_marginTop="30dp"
     android:layout_height="wrap_content">
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="310dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:hint="Add Comments.."
         app:startIconDrawable="@drawable/baseline_description_24"
-        app:startIconTint="#5F8E18"
+        app:startIconTint="#066006"
         android:layout_margin="10dp"
         style="@style/CustomOutlineBoxnew"
-        app:boxBackgroundColor="#CEFB9A"
+        app:boxBackgroundColor="#D5D5D5"
         app:boxCornerRadiusBottomEnd="15sp"
         app:boxCornerRadiusBottomStart="15dp"
         app:boxCornerRadiusTopEnd="15dp"
@@ -32,14 +32,16 @@
             android:id="@+id/edtcomment"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:textSize="20dp"
+            android:fontFamily="@font/allerta"
             android:textColorHint="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 <ImageView
     android:id="@+id/postcomment"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
+    android:layout_width="30dp"
+    android:layout_height="30dp"
     android:src="@drawable/send"
-    android:tint="#AEEF63"
+    android:tint="#066006"
     />
 </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView

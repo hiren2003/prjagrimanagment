@@ -350,8 +350,10 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="20sp"
                 android:layout_margin="10dp"
+                android:paddingTop="18dp"
                 android:background="@drawable/sendotp"
-                android:text="next"
+                android:drawableTop="@drawable/baseline_arrow_forward_24"
+                android:drawableTint="@color/white"
                 app:tint="#FFFFFF"
                 android:layout_gravity="end"
 

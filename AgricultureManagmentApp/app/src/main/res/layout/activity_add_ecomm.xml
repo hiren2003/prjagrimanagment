@@ -22,11 +22,19 @@
             android:background="@drawable/border_green"
             />
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/curvebackground"
             android:hint="@string/Name_of_product"
+            style="@style/choose_category"
+            app:boxBackgroundColor="#D5D5D5"
+            app:boxCornerRadiusBottomEnd="10sp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             app:counterEnabled="true"
             app:counterMaxLength="15"
             app:hintEnabled="true"
@@ -44,10 +52,18 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            style="@style/choose_category"
+            app:boxBackgroundColor="#D5D5D5"
+            app:boxCornerRadiusBottomEnd="10sp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/curvebackground"
             android:hint="Price"
             app:counterEnabled="true"
@@ -68,34 +84,50 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/curvebackground"
             android:hint="@string/Product_Description"
             app:counterEnabled="true"
+            style="@style/choose_category"
+            app:boxBackgroundColor="#D5D5D5"
+            app:boxCornerRadiusBottomEnd="10sp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             app:hintEnabled="true"
             app:hintTextColor="@color/black"
             app:prefixTextColor="@color/black"
             app:startIconTint="#3E6018">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtdes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/allerta"
-            android:shadowColor="@color/black"
-            android:textAlignment="viewStart"
-            android:gravity="top"
-            android:textColor="@color/black" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtdes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/allerta"
+                android:gravity="top"
+                android:shadowColor="@color/black"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/curvebackground"
             android:hint="@string/Specification"
             app:counterEnabled="true"
+            style="@style/choose_category"
+            app:boxBackgroundColor="#D5D5D5"
+            app:boxCornerRadiusBottomEnd="10sp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             app:hintEnabled="true"
             app:hintTextColor="@color/black"
             app:prefixTextColor="@color/black"
@@ -112,7 +144,7 @@
                 android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/curvebackground"
@@ -120,6 +152,14 @@
             app:counterEnabled="true"
             app:hintEnabled="true"
             app:hintTextColor="@color/black"
+            style="@style/choose_category"
+            app:boxBackgroundColor="#D5D5D5"
+            app:boxCornerRadiusBottomEnd="10sp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             app:prefixTextColor="@color/black"
             app:startIconTint="#3E6018">
 
@@ -133,12 +173,13 @@
                 android:gravity="top"
                 android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnchooseimage"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:textSize="20dp"
-            android:backgroundTint="#8BC34A"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/sendotp"
             android:text="@string/Choose_Image"
             />
         <ImageView
@@ -149,11 +190,13 @@
             android:visibility="gone"
             android:layout_margin="10dp"
             android:src="@drawable/upload" />
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnsavedata"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:textSize="20dp"
+            android:background="@drawable/sendotp"
+            android:layout_marginTop="20dp"
             android:backgroundTint="#8BC34A"
             android:text="@string/add_product"
             />

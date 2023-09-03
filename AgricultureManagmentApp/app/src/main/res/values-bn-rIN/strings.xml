@@ -58,7 +58,7 @@
     <string name="Contact_us">যোগাযোগ করুন</string>
     <string name="Share_app">অ্যাপ্লিকেশন ভাগ করা</string>
     <string name="Goverment_scheme">সরকারী স্কিম</string>
-    <string name="Term_Condition">মেয়াদ এবং  শর্ত</string>
+    <string name="Term_Condition">মেয়াদ ও শর্ত</string>
     <string name="Change_Detail">বিস্তারিত পরিবর্তন করুন</string>
     <string name="Add_Vacancy">শূন্যপদ যোগ করুন</string>
     <string name="Interested_Labour">আগ্রহী শ্রমিকরা এই নাম্বারে যোগাযোগ করবেন</string>
@@ -190,4 +190,17 @@
     <string name="chiken">চিকেন</string>
     <string name="camel">উট</string>
     <string name="horse">ঘোড়া</string>
+    <string name="Confirm_order">আদেশ সমর্থন করা হলো</string>
+    <string name="remove_cart">কার্ট থেকে সরানো হয়েছে</string>
+    <string name="ProductDetail">পণ্য বিবরণী</string>
+    <string name="Invalid_Quntity">অবৈধ পরিমাণ</string>
+    <string name="Login_SuccessFully">সফলভাবে লগ ইন করুন</string>
+    <string name="successfullyuploaded">বিস্তারিত সফলভাবে সংরক্ষিত</string>
+    <string name="unsuccessfullyuploaded">বিস্তারিত সংরক্ষণ করতে ব্যর্থ হয়েছে</string>
+    <string name="news">খবর</string>
+    <string name="Add_Worker">কর্মী যোগ করুন</string>
+    <string name="Add_Post">পোস্ট যোগ করুন</string>
+    <string name="My_Profile">আমার প্রোফাইল</string>
+    <string name="close">বন্ধ</string>
+    <string name="Edit_Profile">জীবন বৃত্তান্ত সম্পাদনা</string>
 </resources>

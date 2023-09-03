@@ -136,7 +136,7 @@
     <string name="Usage">ಬಳಕೆ</string>
     <string name="Cuti_prd">ಕೃಷಿ ಉತ್ಪನ್ನ</string>
     <string name="MyAnimal">ಪ್ರಾಣಿಗಳು</string>
-    <string name="Toolsacc">ಪರಿಕರಗಳು ಮತ್ತು amp;ಉಪಕರಣಗಳು</string>
+    <string name="Toolsacc">ಪರಿಕರಗಳು ಮತ್ತು ಪರಿಕರಗಳು</string>
     <string name="Please_Enter_Speices">ದಯವಿಟ್ಟು ಮಸಾಲೆಗಳನ್ನು ನಮೂದಿಸಿ</string>
     <string name="Please_Enter_Year">ದಯವಿಟ್ಟು ವರ್ಷವನ್ನು ನಮೂದಿಸಿ</string>
     <string name="Please_Enter_Month">ದಯವಿಟ್ಟು ತಿಂಗಳನ್ನು ನಮೂದಿಸಿ</string>
@@ -188,4 +188,17 @@
     <string name="chiken">ಚಿಕನ್</string>
     <string name="camel">ಒಂಟೆ</string>
     <string name="horse">ಕುದುರೆ</string>
+    <string name="Confirm_order">ಆದೇಶವನ್ನು ದೃಢೀಕರಿಸಲಾಗಿದೆ</string>
+    <string name="remove_cart">ಕಾರ್ಟ್‌ನಿಂದ ತೆಗೆದುಹಾಕಲಾಗಿದೆ</string>
+    <string name="ProductDetail">ಉತ್ಪನ್ನದ ವಿವರ</string>
+    <string name="Invalid_Quntity">ಅಮಾನ್ಯ ಪ್ರಮಾಣ</string>
+    <string name="Login_SuccessFully">ಲಾಗಿನ್ ಯಶಸ್ವಿಯಾಗಿ</string>
+    <string name="successfullyuploaded">ವಿವರಗಳನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಉಳಿಸಲಾಗಿದೆ</string>
+    <string name="unsuccessfullyuploaded">ವಿವರಗಳನ್ನು ಉಳಿಸಲು ವಿಫಲವಾಗಿದೆ</string>
+    <string name="news">ಸುದ್ದಿ</string>
+    <string name="Add_Worker">ಕೆಲಸಗಾರನನ್ನು ಸೇರಿಸಿ</string>
+    <string name="Add_Post">ಪೋಸ್ಟ್ ಸೇರಿಸಿ</string>
+    <string name="My_Profile">ಸ್ವ ಭೂಮಿಕೆ</string>
+    <string name="close">ಮುಚ್ಚಿ</string>
+    <string name="Edit_Profile">ಪ್ರೊಫೈಲ್ ಬದಲಿಸು</string>
 </resources>

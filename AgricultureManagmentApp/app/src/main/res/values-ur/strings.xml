@@ -57,7 +57,7 @@
     <string name="Contact_us">ہم سے رابطہ کریں۔</string>
     <string name="Share_app">ایپ شیئر کریں۔</string>
     <string name="Goverment_scheme">حکومتی اسکیم</string>
-    <string name="Term_Condition">ٹرم اور  شرط</string>
+    <string name="Term_Condition">ٹرم اینڈ کنڈیشن</string>
     <string name="Change_Detail">تفصیل تبدیل کریں۔</string>
     <string name="Add_Vacancy">خالی جگہ شامل کریں۔</string>
     <string name="Interested_Labour">دلچسپی رکھنے والے مزدور اس نمبر پر رابطہ کریں۔</string>
@@ -136,7 +136,7 @@
     <string name="Usage">استعمال</string>
     <string name="Cuti_prd">کاشت کی پیداوار</string>
     <string name="MyAnimal">جانور</string>
-    <string name="Toolsacc">ٹولز اور amp؛ لوازمات</string>
+    <string name="Toolsacc">ٹولز اور لوازمات</string>
     <string name="Please_Enter_Speices">براہ کرم اسپیسز درج کریں۔</string>
     <string name="Please_Enter_Year">براہ کرم سال درج کریں۔</string>
     <string name="Please_Enter_Month">مہینہ درج کریں۔</string>
@@ -188,4 +188,17 @@
     <string name="chiken">چکن</string>
     <string name="camel">اونٹ</string>
     <string name="horse">گھوڑا</string>
+    <string name="Confirm_order">آرڈر کی تصدیق ہو گئی۔</string>
+    <string name="remove_cart">کارٹ سے ہٹا دیا گیا۔</string>
+    <string name="ProductDetail">پروڈکٹ کی تفصیل</string>
+    <string name="Invalid_Quntity">غلط مقدار</string>
+    <string name="Login_SuccessFully">کامیابی سے لاگ ان کریں۔</string>
+    <string name="successfullyuploaded">تفصیلات کامیابی کے ساتھ محفوظ ہو گئیں۔</string>
+    <string name="unsuccessfullyuploaded">تفصیل محفوظ کرنے میں ناکام</string>
+    <string name="news">خبریں</string>
+    <string name="Add_Worker">کارکن شامل کریں۔</string>
+    <string name="Add_Post">پوسٹ شامل کریں۔</string>
+    <string name="My_Profile">میری پروفائل</string>
+    <string name="close">بند کریں</string>
+    <string name="Edit_Profile">پروفائل میں ترمیم کریں</string>
 </resources>

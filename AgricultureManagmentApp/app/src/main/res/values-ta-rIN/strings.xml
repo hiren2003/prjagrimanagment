@@ -57,7 +57,7 @@
     <string name="Contact_us">எங்களை தொடர்பு கொள்ள</string>
     <string name="Share_app">பயன்பாட்டைப் பகிரவும்</string>
     <string name="Goverment_scheme">அரசு திட்டம்</string>
-    <string name="Term_Condition">கால மற்றும் amp;நிபந்தனை</string>
+    <string name="Term_Condition">விதிமுறைகள் மற்றும் நிபந்தனைகள்</string>
     <string name="Change_Detail">விவரங்களை மாற்றவும்</string>
     <string name="Add_Vacancy">காலியிடத்தைச் சேர்க்கவும்</string>
     <string name="Interested_Labour">ஆர்வமுள்ள தொழிலாளர்கள் இந்த எண்ணில் தொடர்பு கொள்ளவும்</string>
@@ -188,4 +188,17 @@
     <string name="chiken">கோழி</string>
     <string name="camel">ஒட்டகம்</string>
     <string name="horse">குதிரை</string>
+    <string name="Confirm_order">ஆர்டர் உறுதி செய்யப்பட்டது</string>
+    <string name="remove_cart">வண்டியில் இருந்து அகற்றப்பட்டது</string>
+    <string name="ProductDetail">தயாரிப்பு விவரம்</string>
+    <string name="Invalid_Quntity">தவறான அளவு</string>
+    <string name="Login_SuccessFully">உள்நுழைவு வெற்றிகரமாக</string>
+    <string name="successfullyuploaded">விவரங்கள் வெற்றிகரமாக சேமிக்கப்பட்டன</string>
+    <string name="unsuccessfullyuploaded">விவரங்களைச் சேமிக்க முடியவில்லை</string>
+    <string name="news">செய்தி</string>
+    <string name="Add_Worker">தொழிலாளியைச் சேர்க்கவும்</string>
+    <string name="Add_Post">இடுகையைச் சேர்க்கவும்</string>
+    <string name="My_Profile">என் சுயவிவரம்</string>
+    <string name="close">நெருக்கமான</string>
+    <string name="Edit_Profile">சுயவிவரத்தைத் திருத்து</string>
 </resources>

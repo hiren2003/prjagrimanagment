@@ -188,4 +188,17 @@
     <string name="chiken">ਮੁਰਗੇ ਦਾ ਮੀਟ</string>
     <string name="camel">ਊਠ</string>
     <string name="horse">ਘੋੜਾ</string>
+    <string name="Confirm_order">ਆਰਡਰ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਗਈ</string>
+    <string name="remove_cart">ਕਾਰਟ ਤੋਂ ਹਟਾਇਆ ਗਿਆ</string>
+    <string name="ProductDetail">ਉਤਪਾਦ ਦਾ ਵੇਰਵਾ</string>
+    <string name="Invalid_Quntity">ਅਵੈਧ ਮਾਤਰਾ</string>
+    <string name="Login_SuccessFully">ਸਫਲਤਾਪੂਰਵਕ ਲੌਗਇਨ ਕਰੋ</string>
+    <string name="successfullyuploaded">ਵੇਰਵੇ ਸਫਲਤਾਪੂਰਵਕ ਸੁਰੱਖਿਅਤ ਕੀਤੇ ਗਏ</string>
+    <string name="unsuccessfullyuploaded">ਵੇਰਵੇ ਸੁਰੱਖਿਅਤ ਕਰਨ ਵਿੱਚ ਅਸਫਲ</string>
+    <string name="news">ਖ਼ਬਰਾਂ</string>
+    <string name="Add_Worker">ਵਰਕਰ ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="Add_Post">ਪੋਸਟ ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="My_Profile">ਮੇਰਾ ਪ੍ਰੋਫ਼ਾਈਲ</string>
+    <string name="close">ਬੰਦ ਕਰੋ</string>
+    <string name="Edit_Profile">ਸੋਧ ਪ੍ਰੋਫ਼ਾਈਲ</string>
 </resources>

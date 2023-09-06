@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        setLanguage();
         edtuname = findViewById(R.id.edtuname);
         edtmo = findViewById(R.id.edtmo);
         btngetotp = findViewById(R.id.btngetotp);
@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
         txt = findViewById(R.id.txt);
         progressBar = findViewById(R.id.progressBar2);
         mAuth = FirebaseAuth.getInstance();
-
         Window window = this.getWindow();
         window.setStatusBarColor(this.getResources().getColor(R.color.loginback));
 

@@ -100,16 +100,16 @@ public class Language extends AppCompatActivity {
                 }
                 sedit.apply();
                 sedit.commit();
+                setLanguage();
+                recreate();
                 sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
                 boolean isLogin=sharedPreferences.getBoolean("islogin",false);
                 if(isLogin){
                     startActivity(new Intent(Language.this, Home.class));
-                    recreate();
                     finish();
                 }
                 else{
                     startActivity(new Intent(Language.this, MainActivity.class));
-                    recreate();
                     finish();
                 }
             }
@@ -289,16 +289,15 @@ public class Language extends AppCompatActivity {
         Configuration configuration = new Configuration();
         configuration.locale = locale;
         getBaseContext().getResources().updateConfiguration(configuration,getBaseContext().getResources().getDisplayMetrics());
-        recreate();
+      recreate();
+
     }
 
 
 
     @Override
     public void onBackPressed() {
-        Intent i = new Intent(Language.this,Navigation.class);
-        startActivity(i);
-
+setLanguage();
     }
 
 }

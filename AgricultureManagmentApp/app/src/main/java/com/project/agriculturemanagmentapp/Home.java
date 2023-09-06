@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
@@ -137,11 +138,7 @@ public class Home extends AppCompatActivity {
     }
 
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        setLanguage();
-    }
+
 
     public void setLanguage() {
         SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);

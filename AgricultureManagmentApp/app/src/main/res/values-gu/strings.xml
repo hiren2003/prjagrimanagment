@@ -57,7 +57,7 @@
     <string name="Contact_us">અમારો સંપર્ક કરો</string>
     <string name="Share_app">એપ્લિકેશન શેર કરો</string>
     <string name="Goverment_scheme">સરકારી યોજના</string>
-    <string name="Term_Condition">ટર્મ અને શરત</string>
+    <string name="Term_Condition">મુદત અને શરત</string>
     <string name="Change_Detail">વિગત બદલો</string>
     <string name="Add_Vacancy">ખાલી જગ્યા ઉમેરો</string>
     <string name="Interested_Labour">રસ ધરાવતા શ્રમિકો આ નંબર દ્વારા સંપર્ક કરશે</string>
@@ -136,7 +136,7 @@
     <string name="Usage">ઉપયોગ</string>
     <string name="Cuti_prd">ખેતી ઉત્પાદન</string>
     <string name="MyAnimal">પ્રાણીઓ</string>
-    <string name="Toolsacc">સાધનો અને amp; એસેસરીઝ</string>
+    <string name="Toolsacc">ટૂલ્સ અને એસેસરીઝ</string>
     <string name="Please_Enter_Speices">કૃપા કરીને મસાલા દાખલ કરો</string>
     <string name="Please_Enter_Year">કૃપા કરીને વર્ષ દાખલ કરો</string>
     <string name="Please_Enter_Month">કૃપા કરીને મહિનો દાખલ કરો</string>
@@ -188,4 +188,17 @@
     <string name="chiken">ચિકન</string>
     <string name="camel">ઊંટ</string>
     <string name="horse">ઘોડો</string>
+    <string name="Confirm_order">ઓર્ડર કન્ફર્મ</string>
+    <string name="remove_cart">કાર્ટમાંથી દૂર કર્યું</string>
+    <string name="ProductDetail">ઉત્પાદન વિગતો</string>
+    <string name="Invalid_Quntity">અમાન્ય જથ્થો</string>
+    <string name="Login_SuccessFully">સફળતાપૂર્વક લૉગિન</string>
+    <string name="successfullyuploaded">વિગતો સફળતાપૂર્વક સાચવવામાં આવી</string>
+    <string name="unsuccessfullyuploaded">વિગતો સાચવવામાં નિષ્ફળ</string>
+    <string name="news">સમાચાર</string>
+    <string name="Add_Worker">કાર્યકર ઉમેરો</string>
+    <string name="Add_Post">પોસ્ટ ઉમેરો</string>
+    <string name="My_Profile">મારી પ્રોફાઈલ</string>
+    <string name="close">બંધ</string>
+    <string name="Edit_Profile">પ્રોફાઇલ સંપાદિત કરો</string>
 </resources>

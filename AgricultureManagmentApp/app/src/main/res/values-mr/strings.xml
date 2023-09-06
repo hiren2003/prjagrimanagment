@@ -188,4 +188,17 @@
     <string name="chiken">चिकन</string>
     <string name="camel">उंट</string>
     <string name="horse">घोडा</string>
+    <string name="Confirm_order">ऑर्डर पुष्टी केली</string>
+    <string name="remove_cart">कार्टमधून काढले</string>
+    <string name="ProductDetail">उत्पादन तपशील</string>
+    <string name="Invalid_Quntity">अवैध प्रमाण</string>
+    <string name="Login_SuccessFully">यशस्वीरित्या लॉगिन करा</string>
+    <string name="successfullyuploaded">तपशील यशस्वीरित्या जतन केले</string>
+    <string name="unsuccessfullyuploaded">तपशील जतन करण्यात अयशस्वी</string>
+    <string name="news">बातम्या</string>
+    <string name="Add_Worker">कार्यकर्ता जोडा</string>
+    <string name="Add_Post">पोस्ट जोडा</string>
+    <string name="My_Profile">माझे प्रोफाइल</string>
+    <string name="close">बंद</string>
+    <string name="Edit_Profile">प्रोफाईल संपादित करा</string>
 </resources>

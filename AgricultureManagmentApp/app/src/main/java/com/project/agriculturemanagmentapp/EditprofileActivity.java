@@ -56,7 +56,7 @@ public class EditprofileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editprofile);
         Window window = this.getWindow();
-        window.setStatusBarColor(this.getResources().getColor(R.color.Light_green));
+        window.setStatusBarColor(this.getResources().getColor(R.color.dddd));
         edtname = findViewById(R.id.name);
         edtemail = findViewById(R.id.email);
         edtmo = findViewById(R.id.mobile);

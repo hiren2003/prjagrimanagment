@@ -41,7 +41,7 @@
                android:layout_height="350dp"
                android:scaleType="centerCrop"
                android:layout_margin="10dp"
-               android:padding="100dp"
+               android:padding="50dp"
                android:background="@drawable/feedback"
                android:outlineSpotShadowColor="#5F8E18"
                android:src="@drawable/add" />

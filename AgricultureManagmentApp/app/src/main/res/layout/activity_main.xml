@@ -22,7 +22,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/andika"
+                android:fontFamily="@font/montserrat_medium"
                 android:text="LOGIN"
                 android:textAlignment="center"
                 android:textColor="#1A630D"

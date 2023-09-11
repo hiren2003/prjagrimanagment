@@ -14,8 +14,8 @@
     android:textSize="30dp"
     android:layout_gravity="center_horizontal"
     android:textStyle="bold"
-    android:textColor="#407007"
-    android:fontFamily="@font/allerta"
+    android:textColor="#255701"
+    android:fontFamily="@font/montserrat_medium"
     android:layout_margin="5dp"
     />
     <ScrollView

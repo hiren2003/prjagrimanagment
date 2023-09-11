@@ -31,7 +31,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtcomment"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50sp"
             android:textSize="20dp"
             android:fontFamily="@font/allerta"
             android:textColorHint="@color/black" />
@@ -39,7 +39,8 @@
 <ImageView
     android:id="@+id/postcomment"
     android:layout_width="30dp"
-    android:layout_height="30dp"
+    android:layout_marginRight="10dp"
+    android:layout_height="25dp"
     android:src="@drawable/send"
     android:tint="#066006"
     />

@@ -44,7 +44,7 @@
                 android:textStyle="bold"
                 android:textSize="20dp"
                 android:maxWidth="300dp"
-                android:fontFamily="@font/allerta"/>
+                android:fontFamily="@font/montserrat_medium"/>
         </LinearLayout>
     </LinearLayout>
     <ImageView

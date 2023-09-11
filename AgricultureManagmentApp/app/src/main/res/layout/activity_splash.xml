@@ -8,16 +8,22 @@
     android:layout_height="match_parent"
     tools:context=".splashActivity">
 <!--    //C2DD9E-->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         android:layout_gravity="center"
-        android:layout_margin="20sp"
-        android:fontFamily="@font/andika"
-        android:text="Agro farm"
-        android:textColor="#4DAC0C"
-        android:textSize="40dp"
-        android:textStyle="bold" />
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/Agro_Farm"
+        android:textColor="#066006"
+        android:textSize="35dp"
+        android:textStyle="bold"
+
+        />
 <!--    <com.airbnb.lottie.LottieAnimationView-->
 <!--        android:layout_width="350dp"-->
 <!--        android:layout_height="500dp"-->
@@ -30,7 +36,7 @@
     <ImageView
         android:layout_width="400dp"
         android:layout_height="500dp"
-        android:src="@drawable/dropnn"
+        android:src="@drawable/logo2"
         android:layout_marginTop="30dp"
         android:layout_gravity="center_horizontal"/>
 

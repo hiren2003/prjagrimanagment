@@ -10,8 +10,8 @@
         android:id="@+id/tbllytfeed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabIndicatorColor="#066006"
-        app:tabTextColor="#066006"
+        app:tabIndicatorColor="#038808"
+        app:tabTextColor="#038808"
         android:background="@color/white"
         android:visibility="visible">
     </com.google.android.material.tabs.TabLayout>

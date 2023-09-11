@@ -14,8 +14,9 @@
    <com.google.android.material.tabs.TabLayout
        android:id="@+id/tbvacancy"
        android:layout_width="match_parent"
-       app:tabIndicatorColor="#066006"
-       app:tabTextColor="#066006"
+       app:tabIndicatorColor="#038808"
+       app:tabTextColor="#038808"
+       android:background="@color/white"
        android:layout_height="wrap_content"/>
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/vpvacancy"

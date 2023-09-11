@@ -25,6 +25,10 @@
         android:theme="@style/Theme.AgricultureManagmentApp"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity android:name=".admin_cultivation"
+            android:exported="false"/>
+        <activity android:name=".admin_tools"
+            android:exported="false"/>
         <activity
             android:name=".animal_category_Activity"
             android:exported="false" />

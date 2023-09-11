@@ -33,13 +33,14 @@ TextView txtdate;
         rldate=findViewById(R.id.rldate);
         txtdate=findViewById(R.id.txtdate);
         String date = day + "-" + (month) + "-" + year;
-        txtdate.setText(date);
         FirebaseRecyclerOptions<clsOrderModel> options=new FirebaseRecyclerOptions.Builder<clsOrderModel>()
                 .setQuery(FirebaseDatabase.getInstance().getReference().child("Orders").child(date), clsOrderModel.class)
                 .build();
         rcorderAdapter=new RcorderAdapter(options,orderbydate.this);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
         recyclerView.setAdapter(rcorderAdapter);
+        date = day + "-" + (++month) + "-" + year;
+        txtdate.setText(date);
         rldate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -106,6 +109,12 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc,rvnews;
                 finish();
             }
         });
+        rvrate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                show_toast("Thank-you For Rating us",true);
+            }
+        });
 
     }
 
@@ -124,5 +133,20 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc,rvnews;
                 .into(imgprfpc);
         txtuname.setText(sharedPreferences.getString("uname","null"));
         txtumo.setText("+91 "+sharedPreferences.getString("mo","null"));
+    }
+    public void show_toast(String msg, boolean isgreen) {
+        Toast ts = new Toast(getBaseContext());
+        View view;
+        if (isgreen) {
+            view = getLayoutInflater().inflate(R.layout.lyttoastgreen, (ViewGroup) findViewById(R.id.container));
+        } else {
+            view = getLayoutInflater().inflate(R.layout.lyttoast, (ViewGroup) findViewById(R.id.container));
+        }
+        TextView txtmessage = view.findViewById(R.id.txtmsg);
+        txtmessage.setText(msg);
+        ts.setView(view);
+        ts.setGravity(Gravity.TOP, 0, 30);
+        ts.setDuration(Toast.LENGTH_SHORT);
+        ts.show();
     }
 }

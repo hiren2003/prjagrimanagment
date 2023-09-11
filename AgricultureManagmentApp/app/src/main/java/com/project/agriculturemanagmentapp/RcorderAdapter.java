@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -38,6 +39,7 @@ public class RcorderAdapter extends FirebaseRecyclerAdapter<clsOrderModel,Rcorde
         Glide.with(context)
                 .load(model.clsEcommModel.getImg())
                 .into(holder.imgprdt);
+
         holder.cd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,6 +73,13 @@ public class RcorderAdapter extends FirebaseRecyclerAdapter<clsOrderModel,Rcorde
                 txtadd.setText(model.getAddress());
                 bottomSheetDialog.setContentView(view);
                 bottomSheetDialog.show();
+                FrameLayout btncancel=view.findViewById(R.id.btncancel);
+                btncancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        bottomSheetDialog.cancel();
+                    }
+                });
             }
         });
     }
@@ -86,12 +95,14 @@ public class RcorderAdapter extends FirebaseRecyclerAdapter<clsOrderModel,Rcorde
         TextView txtpname, txtprice;
         ImageView imgprdt;
         CardView cd;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtpname = itemView.findViewById(R.id.txtpname);
             txtprice = itemView.findViewById(R.id.txtprice);
             imgprdt = itemView.findViewById(R.id.imgprdt);
             cd = itemView.findViewById(R.id.cdlyt);
+
         }
     }
 }

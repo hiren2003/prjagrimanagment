@@ -19,8 +19,8 @@
         android:id="@+id/tbresell"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        app:tabIndicatorColor="#038808"
-        app:tabTextColor="#038808"
+        app:tabIndicatorColor="#066006"
+        app:tabTextColor="#066006"
         android:visibility="visible">
     </com.google.android.material.tabs.TabLayout>
     <androidx.viewpager.widget.ViewPager

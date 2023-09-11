@@ -40,7 +40,7 @@ public class VpAdapterResell extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         if (position == 0) {
-            return context.getResources().getString(R.string.Cultivation_Product);
+            return context.getResources().getString(R.string.Cuti_prd);
         } else if (position == 1) {
             return context.getResources().getString(R.string.animals);
         } else if (position == 2) {

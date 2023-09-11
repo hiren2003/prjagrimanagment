@@ -16,7 +16,6 @@ RcorderAdapter rcorderAdapter;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_order);
-        setContentView(R.layout.activity_cart);
         RecyclerView rcprdt=findViewById(R.id.rccprdt);
         SharedPreferences sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
         FirebaseRecyclerOptions<clsOrderModel> options=new FirebaseRecyclerOptions.Builder<clsOrderModel>()

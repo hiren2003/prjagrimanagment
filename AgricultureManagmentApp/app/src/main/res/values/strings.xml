@@ -202,6 +202,8 @@
     <string name="My_Profile">My Profile</string>
     <string name="close">close</string>
     <string name="Edit_Profile">Edit Profile</string>
+    <string name="mcart">My Cart</string>
+    <string name="morder">My Orders</string>
     <string-array name="toolstype">
         <item>Tools</item>
         <item>Accessories</item>

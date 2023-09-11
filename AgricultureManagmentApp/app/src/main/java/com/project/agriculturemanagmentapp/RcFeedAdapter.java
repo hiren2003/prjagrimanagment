@@ -186,7 +186,10 @@ public class RcFeedAdapter extends FirebaseRecyclerAdapter<clsFeedModel, RcFeedA
                 FirebaseRecyclerOptions<clsCommentModel> options = new FirebaseRecyclerOptions.Builder<clsCommentModel>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("Feed_Comments").child(model.getKey()), clsCommentModel.class)
                         .build();
-                rccomment.setLayoutManager(new LinearLayoutManager(context));
+                LinearLayoutManager linearLayoutManager=new LinearLayoutManager(context);
+                linearLayoutManager.setReverseLayout(true);
+                linearLayoutManager.setStackFromEnd(true);
+                rccomment.setLayoutManager(linearLayoutManager);
                 RccommentAdapter rccommentAdapter = new RccommentAdapter(options, context, model.getKey());
                 rccomment.setAdapter(rccommentAdapter);
                 rccommentAdapter.startListening();

@@ -126,7 +126,10 @@ public class frghome extends Fragment {
         txtpressure = view.findViewById(R.id.txtpressure);
         imageview = view.findViewById(R.id.imageview);
         txtvisiblity = view.findViewById(R.id.txtvisiblity);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
+        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setStackFromEnd(true);
+        recyclerView.setLayoutManager(linearLayoutManager);
         rcnewsAdapter = new RcnewsAdapter(options, getContext(),false);
         recyclerView.setAdapter(rcnewsAdapter);
         ActivityCompat.requestPermissions(getActivity(), new String[]{ACCESS_FINE_LOCATION}, 101);

@@ -9,11 +9,10 @@
     android:layout_width="match_parent"
     android:orientation="horizontal"
     android:gravity="center_vertical"
-    android:layout_gravity="center"
-    android:layout_marginTop="30dp"
+    android:layout_margin="10dp"
     android:layout_height="wrap_content">
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="350dp"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:hint="Add Comments.."
         app:startIconDrawable="@drawable/baseline_description_24"
@@ -31,8 +30,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtcomment"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:textSize="20dp"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:minHeight="60dp"
             android:fontFamily="@font/allerta"
             android:textColorHint="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>

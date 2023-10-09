@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AgricultureManagmentApp</string>
+    <string name="app_name">AgroCare</string>
     <string name="name">ಹೆಸರು</string>
     <string name="mrmrs">ಶ್ರೀ ಶ್ರೀಮತಿ.</string>
     <string name="mobile_number">ಮೊಬೈಲ್ ನಂಬರ</string>
@@ -196,7 +196,7 @@
     <string name="successfullyuploaded">ವಿವರಗಳನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಉಳಿಸಲಾಗಿದೆ</string>
     <string name="unsuccessfullyuploaded">ವಿವರಗಳನ್ನು ಉಳಿಸಲು ವಿಫಲವಾಗಿದೆ</string>
     <string name="news">ಸುದ್ದಿ</string>
-    <string name="Add_Worker">ಕೆಲಸಗಾರನನ್ನು ಸೇರಿಸಿ</string>
+
     <string name="Add_Post">ಪೋಸ್ಟ್ ಸೇರಿಸಿ</string>
     <string name="My_Profile">ಸ್ವ ಭೂಮಿಕೆ</string>
     <string name="close">ಮುಚ್ಚಿ</string>

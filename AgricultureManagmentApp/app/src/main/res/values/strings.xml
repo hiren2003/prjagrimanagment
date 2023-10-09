@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AgricultureManagmentApp</string>
+    <string name="app_name">AgroCare</string>
     <string name="name">Name</string>
     <string name="mrmrs">Mr./Mrs.</string>
     <string name="mobile_number">Mobile Number</string>
@@ -143,7 +143,7 @@
     <string name="Add_Vacancy">Add Vacancy</string>
     <string name="Cart_product">Cart product</string>
     <string name="My_Order">My Order</string>
-    <string name="Agro_Farm">Agro Farm</string>
+    <string name="Agro_Farm">AgroCare</string>
     <string name="Select_Language">Select Language</string>
 
     <string name="Seller_name">Seller name</string>

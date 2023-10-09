@@ -110,6 +110,10 @@ public class RcCultivatonPrdtAdpter extends FirebaseRecyclerAdapter<ClsCultivati
                         ImageView imgprdt,imgcat;
                         Button btnchooseimg,btnsavedata;
                         Spinner spntype;
+                        CardView cd=view2.findViewById(R.id.cd);
+                        TextView txtname=view2.findViewById(R.id.txtname);
+                        cd.setVisibility(View.GONE);
+                        txtname.setVisibility(View.GONE);
                         spntype = view2.findViewById(R.id.category);
                         imgprdt = view2.findViewById(R.id.imgprdt);
                         btnchooseimg = view2.findViewById(R.id.btnchooseimage);

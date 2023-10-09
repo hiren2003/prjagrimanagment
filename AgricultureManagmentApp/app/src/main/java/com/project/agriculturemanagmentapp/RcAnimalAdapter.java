@@ -108,6 +108,10 @@ public class RcAnimalAdapter extends FirebaseRecyclerAdapter<clsAnimalModel, RcA
                         Button btnsavedata;
                         TextInputEditText edtspeice, edtprc, edtstate, edtdistrict, edttehsil, edtvillage, edtdescription, edtmo, edtyear, edtmonth, edtmilk, edtweight, etdsname;
                         Spinner spntype;
+                        TextView txtname=view2.findViewById(R.id.txtname);
+                        CardView cd=view2.findViewById(R.id.cd);
+                        txtname.setVisibility(View.GONE);
+                        cd.setVisibility(View.GONE);
                         spntype = view2.findViewById(R.id.category);
                         imgprdt = view2.findViewById(R.id.imgprdt);
                         btnchooseimg = view2.findViewById(R.id.btnchooseimage);

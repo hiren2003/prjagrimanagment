@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AgricultureManagmentApp</string>
+    <string name="app_name">AgroCare</string>
     <string name="name">" பெயர்"</string>
     <string name="mrmrs">திரு திருமதி.</string>
     <string name="mobile_number">கைபேசி எண்</string>

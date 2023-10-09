@@ -59,7 +59,6 @@ public class Home extends AppCompatActivity {
                 .load(sharedPreferences.getString("url", "null"))
                 .circleCrop()
                 .into(prfpc);
-
         frameLayout.removeAllViews();
         getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new Feed()).commit();
         prfpc.setOnClickListener(new View.OnClickListener() {

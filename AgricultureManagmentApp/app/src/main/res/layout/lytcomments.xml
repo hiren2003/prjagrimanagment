@@ -31,7 +31,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtcomment"
             android:layout_width="match_parent"
-            android:layout_height="50sp"
+            android:layout_height="wrap_content"
+            android:minHeight="60dp"
             android:textSize="20dp"
             android:fontFamily="@font/allerta"
             android:textColorHint="@color/black" />

@@ -115,7 +115,7 @@
                              android:textColor="@color/white"
                              android:background="@drawable/edit"
                              android:layout_marginBottom="20dp"
-                             android:text="@string/Edit_Profile"
+                             android:text="@string/myprofile"
                              android:src="@drawable/baseline_keyboard_arrow_right_24" />
 
                      </LinearLayout>

@@ -78,6 +78,7 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc,rvnews;
             public void onClick(View v) {
                 SharedPreferences.Editor sedit=sharedPreferences.edit();
                 sedit.putBoolean("islogin",false);
+                sedit.clear();
                 sedit.commit();
                 sedit.apply();
                 startActivity(new Intent(Navigation.this, splashActivity.class));
@@ -94,7 +95,7 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc,rvnews;
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Navigation.this,EditprofileActivity.class));
+                startActivity(new Intent(Navigation.this,MyProfile.class));
             }
         });
         rvnews.setOnClickListener(new View.OnClickListener() {

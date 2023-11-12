@@ -60,7 +60,7 @@ public class Home extends AppCompatActivity {
                 .circleCrop()
                 .into(prfpc);
         frameLayout.removeAllViews();
-        getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new Feed()).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new ShowFeed()).commit();
         prfpc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,21 +90,20 @@ public class Home extends AppCompatActivity {
             public Unit invoke(MeowBottomNavigation.Model model) {
                 if (model.getId() == 0) {
                     frameLayout.removeAllViews();
-                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new Feed()).commit();
+                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new ShowFeed()).commit();
                 } else if (model.getId() == 1) {
                     frameLayout.removeAllViews();
-                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new Labour()).commit();
-                } else if (model.getId() == 2) {
-                    frameLayout.removeAllViews();
-                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new frghome()).commit();
-                } else if (model.getId() == 3) {
+                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new Labour_Vacancy()).commit();
+                }  else if (model.getId() == 3) {
                     frameLayout.removeAllViews();
                     getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new Resell()).commit();
                 } else if (model.getId() == 4) {
                     frameLayout.removeAllViews();
                     getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new E_commrce()).commit();
-                } else {
-
+                }
+                else {
+                    frameLayout.removeAllViews();
+                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new frghome()).commit();
                 }
                 return null;
             }
@@ -115,10 +114,10 @@ public class Home extends AppCompatActivity {
             public void onNavigationChanged(View view, int position) {
                 if (position == 0) {
                     frameLayout.removeAllViews();
-                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new Feed()).commit();
+                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new ShowFeed()).commit();
                 } else if (position == 1) {
                     frameLayout.removeAllViews();
-                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new Labour()).commit();
+                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new Other_vacancy()).commit();
                 } else if (position == 2) {
                     frameLayout.removeAllViews();
                     getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new frghome()).commit();

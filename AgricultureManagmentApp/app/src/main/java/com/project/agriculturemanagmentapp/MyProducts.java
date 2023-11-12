@@ -1,6 +1,7 @@
 package com.project.agriculturemanagmentapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.firebase.database.FirebaseDatabase;
 
 /**
@@ -72,6 +74,7 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
         RecyclerView myanimal=view.findViewById(R.id.rcmyanimal);
         RecyclerView myproduct=view.findViewById(R.id.rcmyproduct);
         RecyclerView mytools=view.findViewById(R.id.rcmytools);
+        ExtendedFloatingActionButton fltsell=view.findViewById(R.id.fltsell);
         SharedPreferences sharedPreferences=getContext().getSharedPreferences("data", Context.MODE_PRIVATE);
         myanimal.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
         myproduct.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
@@ -91,6 +94,13 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
         myanimal.setAdapter(rcAnimalAdapter);
         mytools.setAdapter(rcToolsAccesoriesAdapter);
         myproduct.setAdapter(rcCultivatonPrdtAdpter);
+        fltsell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), Resell_Category.class));
+
+            }
+        });
         return view;
     }
 

@@ -1,6 +1,7 @@
 package com.project.agriculturemanagmentapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.firebase.database.FirebaseDatabase;
 
 /**
@@ -69,6 +71,7 @@ public class MyVacancy extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_my_vacancy, container, false);
         RecyclerView rcmy=view.findViewById(R.id.rcmyvacancy);
+        ExtendedFloatingActionButton fltaddvacancy=view.findViewById(R.id.fltaddvacancy);
         SharedPreferences sharedPreferences = getContext().getSharedPreferences("data", Context.MODE_PRIVATE);
         String mo = sharedPreferences.getString("mo", "1234567890");
         FirebaseRecyclerOptions<clsVacancyModel> options=new FirebaseRecyclerOptions.Builder<clsVacancyModel>()
@@ -80,6 +83,12 @@ public class MyVacancy extends Fragment {
         rcVacancyAdapter=new RcVacancyAdapter(options,getContext(),true);
         rcmy.setLayoutManager(linearLayoutManager);
         rcmy.setAdapter(rcVacancyAdapter);
+        fltaddvacancy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(),add_labour_vacancy.class));
+            }
+        });
         return  view;
     }
     @Override

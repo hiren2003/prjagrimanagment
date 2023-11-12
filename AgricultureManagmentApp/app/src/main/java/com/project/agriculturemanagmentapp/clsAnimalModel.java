@@ -1,9 +1,9 @@
 package com.project.agriculturemanagmentapp;
 
 public class clsAnimalModel {
-    String key,type,spiece,ageyear,agemonth,mproduction,weight,mo,price,state,district,tehsil,village,des,img,uname,prfpc,date,sname;
+    String key,type,spiece,ageyear,agemonth,mproduction,weight,mo,price,state,district,tehsil,village,des,img,date,sname,umo;
 
-    public clsAnimalModel(String key, String type, String spiece, String ageyear, String agemonth, String mproduction, String weight, String mo, String price, String state, String district, String tehsil, String village, String des, String img, String uname, String prfpc, String date, String sname) {
+    public clsAnimalModel(String key, String type, String spiece, String ageyear, String agemonth, String mproduction, String weight, String mo, String price, String state, String district, String tehsil, String village, String des, String img, String date, String sname, String umo) {
         this.key = key;
         this.type = type;
         this.spiece = spiece;
@@ -19,10 +19,17 @@ public class clsAnimalModel {
         this.village = village;
         this.des = des;
         this.img = img;
-        this.uname = uname;
-        this.prfpc = prfpc;
         this.date = date;
         this.sname = sname;
+        this.umo = umo;
+    }
+
+    public String getUmo() {
+        return umo;
+    }
+
+    public void setUmo(String umo) {
+        this.umo = umo;
     }
 
     public String getSname() {
@@ -154,22 +161,6 @@ public class clsAnimalModel {
 
     public void setImg(String img) {
         this.img = img;
-    }
-
-    public String getUname() {
-        return uname;
-    }
-
-    public void setUname(String uname) {
-        this.uname = uname;
-    }
-
-    public String getPrfpc() {
-        return prfpc;
-    }
-
-    public void setPrfpc(String prfpc) {
-        this.prfpc = prfpc;
     }
 
     public String getDate() {

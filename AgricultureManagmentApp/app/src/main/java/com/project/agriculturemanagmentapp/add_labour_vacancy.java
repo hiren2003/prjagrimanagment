@@ -104,9 +104,8 @@ public class add_labour_vacancy extends AppCompatActivity {
                             edttehsil.getText().toString(),
                             edtvlg.getText().toString(),
                             edtdes.getText().toString(),
-                            sharedPreferences.getString("url", "null"),
-                            sharedPreferences.getString("uname", "null"),
-                            Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR)
+                            Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR),
+                            sharedPreferences.getString("mo", "1234567890")
                     );
                     FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("MyVacancy").child(key).setValue(obj).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override

@@ -2,6 +2,7 @@ package com.project.agriculturemanagmentapp;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,7 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -66,26 +72,28 @@ public class Other_vacancy extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_other_vacancy, container, false);
         RecyclerView rcother=view.findViewById(R.id.rcothervacancy);
-        FirebaseRecyclerOptions<clsVacancyModel> options2=new FirebaseRecyclerOptions.Builder<clsVacancyModel>()
-                .setQuery(FirebaseDatabase.getInstance().getReference().child("Labour_Vacancy"),clsVacancyModel.class)
-                .build();
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
-        linearLayoutManager.setReverseLayout(true);
-        linearLayoutManager.setStackFromEnd(true);
-        rcother.setLayoutManager(linearLayoutManager);
-        rcOtherVacancyAdapter=new RcVacancyAdapter(options2,getContext(),false);
-        rcother.setAdapter(rcOtherVacancyAdapter);
-        return view;
-    }
-    @Override
-    public void onStart() {
-        super.onStart();
-        rcOtherVacancyAdapter.startListening();
-    }
+        FirebaseDatabase.getInstance().getReference().child("Labour_Vacancy").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<clsVacancyModel> vacancyModelArrayList =new ArrayList<>();
+                for (DataSnapshot datasnapshot:
+                        snapshot.getChildren()) {
+                    vacancyModelArrayList.add(datasnapshot.getValue(clsVacancyModel.class));
+                }
+                LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
+                linearLayoutManager.setReverseLayout(true);
+                linearLayoutManager.setStackFromEnd(true);
+                rcother.setLayoutManager(linearLayoutManager);
+                rcOtherVacancyAdapter=new RcVacancyAdapter(getContext(),false,vacancyModelArrayList);
+                rcother.setAdapter(rcOtherVacancyAdapter);
+            }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        rcOtherVacancyAdapter.stopListening();
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        return view;
     }
 }

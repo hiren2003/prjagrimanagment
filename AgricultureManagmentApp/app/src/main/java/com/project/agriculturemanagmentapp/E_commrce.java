@@ -3,6 +3,7 @@ package com.project.agriculturemanagmentapp;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -19,8 +20,13 @@ import android.widget.Spinner;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -78,24 +84,49 @@ public class E_commrce extends Fragment {
         Spinner spntype=view.findViewById(R.id.category);
         Query query=FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All");
         ExtendedFloatingActionButton addecomm=view.findViewById(R.id.addecomm);
-        FirebaseRecyclerOptions<clsEcommModel> options=new FirebaseRecyclerOptions.Builder<clsEcommModel>()
-                .setQuery(query, clsEcommModel.class)
-                .build();
-         rcEcommAdapter=new RcEcommAdapter(options,getContext(),1);
-        rcprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-        rcprdt.setAdapter(rcEcommAdapter);
+        FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<clsEcommModel> ecommModelArrayList=new ArrayList<>();
+                for (DataSnapshot datasnapshot:
+                        snapshot.getChildren()) {
+                    ecommModelArrayList.add(datasnapshot.getValue(clsEcommModel.class));
+                }
+                rcEcommAdapter=new RcEcommAdapter(getContext(),1,ecommModelArrayList);
+                rcprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                rcprdt.setAdapter(rcEcommAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         String[] arr = getResources().getStringArray(R.array.arrcategory2);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item, arr);
         spntype.setAdapter(adapter);
         spntype.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                FirebaseRecyclerOptions<clsEcommModel> options=new FirebaseRecyclerOptions.Builder<clsEcommModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("ECommerce").child(arr[position]), clsEcommModel.class)
-                        .build();
-                rcEcommAdapter=new RcEcommAdapter(options,getContext(),1);
-                rcprdt.setAdapter(rcEcommAdapter);
-                rcEcommAdapter.startListening();
+                FirebaseDatabase.getInstance().getReference().child("ECommerce").child(arr[position]).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        ArrayList<clsEcommModel> ecommModelArrayList=new ArrayList<>();
+                        for (DataSnapshot datasnapshot:
+                                snapshot.getChildren()) {
+                            ecommModelArrayList.add(datasnapshot.getValue(clsEcommModel.class));
+                        }
+                        rcEcommAdapter=new RcEcommAdapter(getContext(),1,ecommModelArrayList);
+                        rcprdt.setAdapter(rcEcommAdapter);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
             }
 
             @Override
@@ -110,17 +141,5 @@ public class E_commrce extends Fragment {
             }
         });
         return  view;
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        rcEcommAdapter.startListening();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        rcEcommAdapter.stopListening();
     }
 }

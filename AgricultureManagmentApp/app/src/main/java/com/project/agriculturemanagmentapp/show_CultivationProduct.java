@@ -59,7 +59,7 @@ public class show_CultivationProduct extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String mo = "+91" + clsCultivationProductModel.getMo();
-                String msg = "Hello " + clsCultivationProductModel.getUname() + "," + getResources().getString(R.string.Interest2) + " " + clsCultivationProductModel.getPname();
+                String msg = "Hello " + clsCultivationProductModel.getSname() + "," + getResources().getString(R.string.Interest2) + " " + clsCultivationProductModel.getPname();
                 String url = "https://api.whatsapp.com/send?phone=" + mo + "&text=" + msg;
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
@@ -84,10 +84,21 @@ public class show_CultivationProduct extends AppCompatActivity {
                 Glide.with(show_CultivationProduct.this)
                         .load(clsCultivationProductModel.getImg())
                         .into(imgprdt);
-                Glide.with(show_CultivationProduct.this)
-                        .load(clsCultivationProductModel.getPrfpc())
-                        .circleCrop()
-                        .into(prfpc);
+                FirebaseDatabase.getInstance().getReference().child("Users_List").child(clsCultivationProductModel.getUmo()).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        clsUserModel clsUserModel=snapshot.getValue(com.project.agriculturemanagmentapp.clsUserModel.class);
+                        txtuname.setText(clsUserModel.getUname());
+                        Glide.with(getApplicationContext())
+                                .load(clsUserModel.getUrl())
+                                .circleCrop()
+                                .into(prfpc);
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
                 txtcategory.setText(clsCultivationProductModel.getCategory());
                 txtpname.setText(clsCultivationProductModel.getPname());
                 txtspecie.setText(clsCultivationProductModel.getSpecie());
@@ -99,7 +110,6 @@ public class show_CultivationProduct extends AppCompatActivity {
                 txtdistrict.setText(clsCultivationProductModel.getDistrict());
                 txtvillage.setText(clsCultivationProductModel.getVillage());
                 txtdes.setText(clsCultivationProductModel.getDes());
-                txtuname.setText(clsCultivationProductModel.getUname());
                 txtdate.setText(clsCultivationProductModel.getDate());
             }
 

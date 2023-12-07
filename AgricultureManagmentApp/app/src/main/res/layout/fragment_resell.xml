@@ -13,6 +13,7 @@
     android:layout_alignParentEnd="true"
     android:textColor="#023502"
     android:backgroundTint="@color/background"
+    android:visibility="gone"
     android:layout_margin="20dp"
     android:text="@string/sell"/>
     <com.google.android.material.tabs.TabLayout

@@ -186,13 +186,12 @@ public class add_cultivation_product extends AppCompatActivity {
                                             edtvillage.getText().toString(),
                                             edtdescription.getText().toString(),
                                             uri.toString(),
-                                            sharedPreferences.getString("url", "null"),
-                                            sharedPreferences.getString("uname", "unknown"),
                                             edtmo.getText().toString(),
                                             Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR),
                                             key,
-                                            edtsellername.getText().toString()
-                                    );
+                                            edtsellername.getText().toString(),
+                                            sharedPreferences.getString("mo", "1234567890")
+                                            );
                                     FirebaseDatabase.getInstance().getReference().child("Cultivation Product").child(key).setValue(clsCultivationProductModel).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {

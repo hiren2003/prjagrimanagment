@@ -2,6 +2,7 @@ package com.project.agriculturemanagmentapp;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,8 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 /**
@@ -67,30 +72,28 @@ public class ShowFeed extends Fragment {
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_show_feed, container, false);
         RecyclerView recyclerView=view.findViewById(R.id.rcviewshfeed);
-        FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
-        FirebaseRecyclerOptions<clsFeedModel> options=new FirebaseRecyclerOptions.Builder<clsFeedModel>()
-                .setQuery(firebaseDatabase.getReference().child("Feed"), clsFeedModel.class)
-                .build();
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
-        linearLayoutManager.setReverseLayout(true);
-        linearLayoutManager.setStackFromEnd(true);
-        recyclerView.setLayoutManager(linearLayoutManager);
-         rcFeedAdapter =new RcFeedAdapter(options,getContext(),false);
-         recyclerView.setAdapter(rcFeedAdapter);
+        FirebaseDatabase.getInstance().getReference().child("Feed").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<clsFeedModel> feedModelArrayList = new ArrayList<>();
+                for (DataSnapshot datasnapshot:
+                        snapshot.getChildren()) {
+                    feedModelArrayList.add(datasnapshot.getValue(clsFeedModel.class));
+                }
+                LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
+                linearLayoutManager.setReverseLayout(true);
+                linearLayoutManager.setStackFromEnd(true);
+                recyclerView.setLayoutManager(linearLayoutManager);
+                rcFeedAdapter =new RcFeedAdapter(getContext(),false,feedModelArrayList);
+                recyclerView.setAdapter(rcFeedAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         return view;
-    }
-    @Override
-    public void onStart() {
-        super.onStart();
-       rcFeedAdapter.startListening();
-    }
-
-    // Function to tell the app to stop getting
-    // data from database on stopping of the activity
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        rcFeedAdapter.stopListening();
     }
 }

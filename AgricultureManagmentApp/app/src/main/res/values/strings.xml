@@ -211,6 +211,7 @@
     <string name="mcart">My Cart</string>
     <string name="morder">My Orders</string>
     <string name="myprofile">My Profile</string>
+    <string name="Saved">Saved Item</string>
     <string-array name="toolstype">
         <item>Tools</item>
         <item>Accessories</item>

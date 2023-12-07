@@ -31,6 +31,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import androidx.activity.result.ActivityResultCallback;
@@ -43,28 +44,27 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import static androidx.activity.result.ActivityResultCallerKt.registerForActivityResult;
 
-public class RcCultivatonPrdtAdpter extends FirebaseRecyclerAdapter<ClsCultivationProductModel,RcCultivatonPrdtAdpter.ViewHolder> {
-    /**
-     * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
-     * {@link FirebaseRecyclerOptions} for configuration options.
-     *
-     * @param options
-     */
+public class RcCultivatonPrdtAdpter extends RecyclerView.Adapter<RcCultivatonPrdtAdpter.ViewHolder> {
     Context context;
     boolean isMyproduct;
-    public RcCultivatonPrdtAdpter(@NonNull FirebaseRecyclerOptions<ClsCultivationProductModel> options, Context context,boolean isMyproduct) {
-        super(options);
-        this.context=context;
-        this.isMyproduct=isMyproduct;
+    ArrayList<ClsCultivationProductModel> clsCultivationProductModelArrayList;
+
+    public RcCultivatonPrdtAdpter(Context context, boolean isMyproduct, ArrayList<ClsCultivationProductModel> clsCultivationProductModelArrayList) {
+        this.context = context;
+        this.isMyproduct = isMyproduct;
+        this.clsCultivationProductModelArrayList = clsCultivationProductModelArrayList;
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull RcCultivatonPrdtAdpter.ViewHolder holder, int position, @NonNull ClsCultivationProductModel model) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        // Animation
         Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
+        holder.itemView.setAnimation(anim);
         SharedPreferences sharedPreferences=context.getSharedPreferences("data",Context.MODE_PRIVATE);
         holder.cd.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
+                //Showing Update And Delete Option Based On SharedPreferences Value
                 BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(context,R.style.SheetDialog);
                 View view2=LayoutInflater.from(context).inflate(R.layout.lyteditoption,null,false);
                 LinearLayout btnupdate=view2.findViewById(R.id.lnupdate);
@@ -73,6 +73,7 @@ public class RcCultivatonPrdtAdpter extends FirebaseRecyclerAdapter<ClsCultivati
                 if (isMyproduct){
                     bottomSheetDialog.show();
                 }
+                // Show Dialog for delete
                 btndelete.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -83,17 +84,19 @@ public class RcCultivatonPrdtAdpter extends FirebaseRecyclerAdapter<ClsCultivati
                         Button yes=dg.findViewById(R.id.yes);
                         Button no=dg.findViewById(R.id.no);
                         dg.show();
+                        // Do Not Delete
                         no.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 dg.dismiss();
                             }
                         });
+                        //Delete the Post
                         yes.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                FirebaseDatabase.getInstance().getReference().child("Cultivation Product").child(model.getKey()).removeValue();
-                                FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("Cultivatio_Product").child(model.getKey()).removeValue();
+                                FirebaseDatabase.getInstance().getReference().child("Cultivation Product").child(clsCultivationProductModelArrayList.get(position).getKey()).removeValue();
+                                FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("Cultivatio_Product").child(clsCultivationProductModelArrayList.get(position).getKey()).removeValue();
                                 dg.dismiss();
 
                             }
@@ -103,6 +106,7 @@ public class RcCultivatonPrdtAdpter extends FirebaseRecyclerAdapter<ClsCultivati
                 btnupdate.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        // Show Dialog for Update and Fetch and Set Existing Value
                         bottomSheetDialog.cancel();
                         BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(context);
                         View view2=LayoutInflater.from(context).inflate(R.layout.activity_add_cultivation_product,null,false);
@@ -132,27 +136,27 @@ public class RcCultivatonPrdtAdpter extends FirebaseRecyclerAdapter<ClsCultivati
                         edtmo = view2.findViewById(R.id.edtmo);
                         imgprdt.setVisibility(View.VISIBLE);
                         Glide.with(context)
-                                .load(model.getImg())
+                                .load(clsCultivationProductModelArrayList.get(position).getImg())
                                 .into(imgprdt);
                         btnchooseimg.setVisibility(View.GONE);
-                        edtpname.setText(model.getPname());
-                        edtspeice.setText(model.getSpecie());
-                        edtqty.setText(model.getQty());
-                        edtprc.setText(model.getPrice());
-                        edtstate.setText(model.getState());
-                        edttehsil.setText(model.getTehsil());
-                        edtdistrict.setText(model.getDistrict());
-                        edtsellername.setText(model.getSname());
-                        edtvillage.setText(model.getVillage());
-                        edtdescription.setText(model.getDes());
-                        edtmo.setText(model.getMo());
-                        if (model.getCategory().equals("Grains")) {
+                        edtpname.setText(clsCultivationProductModelArrayList.get(position).getPname());
+                        edtspeice.setText(clsCultivationProductModelArrayList.get(position).getSpecie());
+                        edtqty.setText(clsCultivationProductModelArrayList.get(position).getQty());
+                        edtprc.setText(clsCultivationProductModelArrayList.get(position).getPrice());
+                        edtstate.setText(clsCultivationProductModelArrayList.get(position).getState());
+                        edttehsil.setText(clsCultivationProductModelArrayList.get(position).getTehsil());
+                        edtdistrict.setText(clsCultivationProductModelArrayList.get(position).getDistrict());
+                        edtsellername.setText(clsCultivationProductModelArrayList.get(position).getSname());
+                        edtvillage.setText(clsCultivationProductModelArrayList.get(position).getVillage());
+                        edtdescription.setText(clsCultivationProductModelArrayList.get(position).getDes());
+                        edtmo.setText(clsCultivationProductModelArrayList.get(position).getMo());
+                        if (clsCultivationProductModelArrayList.get(position).getCategory().equals("Grains")) {
                             imgcat.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.garins));
-                        } else if (model.getCategory().equals("Fruits")) {
+                        } else if (clsCultivationProductModelArrayList.get(position).getCategory().equals("Fruits")) {
                             imgcat.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.fruits2));
-                        } else if (model.getCategory().equals("Pulses")) {
+                        } else if (clsCultivationProductModelArrayList.get(position).getCategory().equals("Pulses")) {
                             imgcat.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.pulses));
-                        } else if (model.getCategory().equals("Vegatable")) {
+                        } else if (clsCultivationProductModelArrayList.get(position).getCategory().equals("Vegatable")) {
                             imgcat.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.vegatable));
 
                         } else {
@@ -162,9 +166,10 @@ public class RcCultivatonPrdtAdpter extends FirebaseRecyclerAdapter<ClsCultivati
                         btnsavedata.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
+                                // Save Updated Value
                                 String payment = String.valueOf((Integer.parseInt(edtqty.getText().toString()) * Integer.parseInt(edtprc.getText().toString())));
                                 ClsCultivationProductModel clsCultivationProductModel = new ClsCultivationProductModel(
-                                        model.getCategory(),
+                                        clsCultivationProductModelArrayList.get(position).getCategory(),
                                         edtpname.getText().toString(),
                                         edtspeice.getText().toString(),
                                         edtqty.getText().toString(),
@@ -175,16 +180,15 @@ public class RcCultivatonPrdtAdpter extends FirebaseRecyclerAdapter<ClsCultivati
                                         edttehsil.getText().toString(),
                                         edtvillage.getText().toString(),
                                         edtdescription.getText().toString(),
-                                        model.getImg(),
-                                        sharedPreferences.getString("url", "null"),
-                                        sharedPreferences.getString("uname", "unknown"),
+                                        clsCultivationProductModelArrayList.get(position).getImg(),
                                         edtmo.getText().toString(),
                                         Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR),
-                                        model.getKey(),
-                                        edtsellername.getText().toString()
+                                        clsCultivationProductModelArrayList.get(position).getKey(),
+                                        edtsellername.getText().toString(),
+                                        sharedPreferences.getString("url", "1234567890")
                                 );
-                                FirebaseDatabase.getInstance().getReference().child("Cultivation Product").child(model.getKey()).setValue(clsCultivationProductModel);
-                                FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("Cultivatio_Product").child(model.getKey()).setValue(clsCultivationProductModel);
+                                FirebaseDatabase.getInstance().getReference().child("Cultivation Product").child(clsCultivationProductModelArrayList.get(position).getKey()).setValue(clsCultivationProductModel);
+                                FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("Cultivatio_Product").child(clsCultivationProductModelArrayList.get(position).getKey()).setValue(clsCultivationProductModel);
                                 bottomSheetDialog.cancel();
                             }
                         });
@@ -195,19 +199,18 @@ public class RcCultivatonPrdtAdpter extends FirebaseRecyclerAdapter<ClsCultivati
                 return false;
             }
         });
-        holder.itemView.setAnimation(anim);
-        holder.txtprdt.setText(model.getPname());
-        holder.txtprc.setText(context.getResources().getString(R.string.prc)+model.getPrice()+"/K.G.");
-        holder.txtqty.setText(model.getQty()+" K.G.");
+        // Stting Data For Each Item in Grid
+        holder.txtprdt.setText(clsCultivationProductModelArrayList.get(position).getPname());
+        holder.txtprc.setText(context.getResources().getString(R.string.prc)+clsCultivationProductModelArrayList.get(position).getPrice()+"/K.G.");
+        holder.txtqty.setText(clsCultivationProductModelArrayList.get(position).getQty()+" K.G.");
         Glide.with(context)
-                .load(model.getImg())
+                .load(clsCultivationProductModelArrayList.get(position).getImg())
                 .into(holder.imgprdt);
         holder.cd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(new Intent(context, show_CultivationProduct.class));
-                intent.putExtra("key",model.getKey());
-                //  context.startActivity(intent);
+                //Opening BottomSheetDialog to Show
+                //Opening BottomSheetDialog to Show Detail
                 View view=LayoutInflater.from(context).inflate(R.layout.activity_show_cultivation_product,null,false);
                 BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(context,R.style.SheetDialog);
                 bottomSheetDialog.setDismissWithAnimation(true);
@@ -238,57 +241,82 @@ public class RcCultivatonPrdtAdpter extends FirebaseRecyclerAdapter<ClsCultivati
                     txtpnn=view.findViewById(R.id.txtpnn);
                     prfpc=view.findViewById(R.id.profilepc);
                     FrameLayout btncancel=view.findViewById(R.id.btncancel);
-btncancel.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        bottomSheetDialog.cancel();
-    }
-});
+                    txtuname.setText(clsCultivationProductModelArrayList.get(position).getUmo());
+                    FirebaseDatabase.getInstance().getReference().child("Users_List").child(clsCultivationProductModelArrayList.get(position).getUmo()).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            // Profile Picture And UserName
+                            clsUserModel clsUserModel=snapshot.getValue(com.project.agriculturemanagmentapp.clsUserModel.class);
+                            txtuname.setText(clsUserModel.getUname());
+                            Glide.with(context)
+                                    .load(clsUserModel.getUrl())
+                                    .circleCrop()
+                                    .into(prfpc);
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                    //Close BottomSheetDialog
+
+                    btncancel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            bottomSheetDialog.cancel();
+                        }
+                    });
+                    //Redirect to Whatsapp
                     btnwhatsapp.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            String mo="+91"+model.getMo();
-                            String msg="Hello "+model.getUname()+","+context.getResources().getString(R.string.Interest2)+" "+model.getPname();
+                            String mo="+91"+clsCultivationProductModelArrayList.get(position).getMo();
+                            String msg="Hello "+clsCultivationProductModelArrayList.get(position).getSname()+",\n"+context.getResources().getString(R.string.Interest2)+" "+clsCultivationProductModelArrayList.get(position).getPname();
                             String url = "https://api.whatsapp.com/send?phone="+mo+"&text="+msg;
                             Intent i = new Intent(Intent.ACTION_VIEW);
                             i.setData(Uri.parse(url));
                             context.startActivity(i);
                         }
                     });
+                    //Dial the Number
                     btncall.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            String mo="+91"+model.getMo();
+                            String mo="+91"+clsCultivationProductModelArrayList.get(position).getMo();
                             Intent intent=new Intent(Intent.ACTION_DIAL,Uri.parse("tel:"+mo));
                             context.startActivity(intent);
                         }
                     });
+                    //Setting Bottomsheet Values
                     Glide.with(context)
-                            .load(model.getImg())
+                            .load(clsCultivationProductModelArrayList.get(position).getImg())
                             .into(imgprdt);
-                    Glide.with(context)
-                            .load(model.getPrfpc())
-                            .circleCrop()
-                            .into(prfpc);
-                    txtcategory.setText(model.getCategory());
-                    txtpname.setText(model.getPname());
-                    txtspecie.setText(model.getSpecie());
-                    txtqty.setText(model.getQty());
-                    txtprc.setText(model.getPrice());
-                    txtpnn.setText(model.getMo());
-                    txtpayment.setText(model.getPayment());
-                    txtstate.setText(model.getState());
-                    txttehsil.setText(model.getTehsil());
-                    txtdistrict.setText(model.getDistrict());
-                    txtvillage.setText(model.getVillage());
-                    txtdes.setText(model.getDes());
-                    txtuname.setText(model.getUname());
-                    txtdate.setText(model.getDate());
-                    txtsname.setText(model.getSname());
+                    txtcategory.setText(clsCultivationProductModelArrayList.get(position).getCategory());
+                    txtpname.setText(clsCultivationProductModelArrayList.get(position).getPname());
+                    txtspecie.setText(clsCultivationProductModelArrayList.get(position).getSpecie());
+                    txtqty.setText(clsCultivationProductModelArrayList.get(position).getQty());
+                    txtprc.setText(clsCultivationProductModelArrayList.get(position).getPrice());
+                    txtpnn.setText(clsCultivationProductModelArrayList.get(position).getMo());
+                    txtpayment.setText(clsCultivationProductModelArrayList.get(position).getPayment());
+                    txtstate.setText(clsCultivationProductModelArrayList.get(position).getState());
+                    txttehsil.setText(clsCultivationProductModelArrayList.get(position).getTehsil());
+                    txtdistrict.setText(clsCultivationProductModelArrayList.get(position).getDistrict());
+                    txtvillage.setText(clsCultivationProductModelArrayList.get(position).getVillage());
+                    txtdes.setText(clsCultivationProductModelArrayList.get(position).getDes());
+                    txtdate.setText(clsCultivationProductModelArrayList.get(position).getDate());
+                    txtsname.setText(clsCultivationProductModelArrayList.get(position).getSname());
+
                 }
                 bottomSheetDialog.show();
             }
         });
+    }
+
+    @Override
+    public int getItemCount() {
+        return clsCultivationProductModelArrayList.size();
     }
 
     @NonNull

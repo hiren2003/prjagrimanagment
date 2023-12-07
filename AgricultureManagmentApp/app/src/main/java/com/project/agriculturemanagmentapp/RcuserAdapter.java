@@ -14,43 +14,46 @@ import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
+import java.util.ArrayList;
+
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
-public class RcuserAdapter extends FirebaseRecyclerAdapter<clsUserModel,RcuserAdapter.ViewHolder> {
-    /**
-     * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
-     * {@link FirebaseRecyclerOptions} for configuration options.
-     *
-     * @param options
-     */
+public class RcuserAdapter extends RecyclerView.Adapter<RcuserAdapter.ViewHolder>{
     Context context;
-    public RcuserAdapter(@NonNull FirebaseRecyclerOptions<clsUserModel> options,Context context) {
-        super(options);
-        this.context=context;
+    ArrayList<clsUserModel> userModelArrayList;
+
+    public RcuserAdapter(Context context, ArrayList<clsUserModel> userModelArrayList) {
+        this.context = context;
+        this.userModelArrayList = userModelArrayList;
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull RcuserAdapter.ViewHolder holder, int position, @NonNull clsUserModel model) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
         holder.itemView.setAnimation(anim);
-        holder.txtpname.setText(model.getUname()); 
-        holder.txtprice.setText("+91 "+model.getMo());
+        holder.txtpname.setText(userModelArrayList.get(position).getUname());
+        holder.txtprice.setText("+91 "+userModelArrayList.get(position).getMo());
         Glide.with(context)
-                .load(model.getUrl())
+                .load(userModelArrayList.get(position).getUrl())
                 .into(holder.imgprdt);
         holder.cd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {;
                 Intent intent=new Intent(context, User_option.class);
-                intent.putExtra("mo",model.getMo());
+                intent.putExtra("mo",userModelArrayList.get(position).getMo());
                 intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public int getItemCount() {
+        return userModelArrayList.size();
     }
 
     @NonNull

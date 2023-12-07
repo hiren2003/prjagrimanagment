@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,7 +16,12 @@ import android.view.ViewGroup;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -74,15 +80,28 @@ public class MyVacancy extends Fragment {
         ExtendedFloatingActionButton fltaddvacancy=view.findViewById(R.id.fltaddvacancy);
         SharedPreferences sharedPreferences = getContext().getSharedPreferences("data", Context.MODE_PRIVATE);
         String mo = sharedPreferences.getString("mo", "1234567890");
-        FirebaseRecyclerOptions<clsVacancyModel> options=new FirebaseRecyclerOptions.Builder<clsVacancyModel>()
-                .setQuery(FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("MyVacancy"),clsVacancyModel.class)
-                .build();
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
-        linearLayoutManager.setReverseLayout(true);
-        linearLayoutManager.setStackFromEnd(true);
-        rcVacancyAdapter=new RcVacancyAdapter(options,getContext(),true);
-        rcmy.setLayoutManager(linearLayoutManager);
-        rcmy.setAdapter(rcVacancyAdapter);
+        FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("MyVacancy").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<clsVacancyModel> vacancyModelArrayList =new ArrayList<>();
+                for (DataSnapshot datasnapshot:
+                     snapshot.getChildren()) {
+                    vacancyModelArrayList.add(datasnapshot.getValue(clsVacancyModel.class));
+                }
+                LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
+                linearLayoutManager.setReverseLayout(true);
+                linearLayoutManager.setStackFromEnd(true);
+                rcVacancyAdapter=new RcVacancyAdapter(getContext(),true,vacancyModelArrayList);
+                rcmy.setLayoutManager(linearLayoutManager);
+                rcmy.setAdapter(rcVacancyAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         fltaddvacancy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,16 +109,5 @@ public class MyVacancy extends Fragment {
             }
         });
         return  view;
-    }
-    @Override
-    public void onStart() {
-        super.onStart();
-        rcVacancyAdapter.startListening();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        rcVacancyAdapter.stopListening();
     }
 }

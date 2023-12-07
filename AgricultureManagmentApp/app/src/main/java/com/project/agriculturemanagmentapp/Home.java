@@ -37,6 +37,7 @@ public class Home extends AppCompatActivity {
     ImageView prfpc, imgcart, imgorder;
     TextView txtname;
     BubbleNavigationLinearView bubbleNavigationLinearView;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,7 @@ public class Home extends AppCompatActivity {
         Window window = this.getWindow();
         window.setStatusBarColor(this.getResources().getColor(R.color.white));
         setLanguage();
-        SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+     sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
         btmnv = findViewById(R.id.btmnv);
         toolbar = findViewById(R.id.toolbar);
         prfpc = findViewById(R.id.prfpc);
@@ -146,5 +147,15 @@ public class Home extends AppCompatActivity {
         Configuration configuration = new Configuration();
         configuration.locale = locale;
         getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        txtname.setText(sharedPreferences.getString("uname", "man"));
+        Glide.with(this)
+                .load(sharedPreferences.getString("url", "null"))
+                .circleCrop()
+                .into(prfpc);
     }
 }

@@ -4,10 +4,8 @@ public class clsCommentModel {
     String key,uname,prfpc,comment;
     String mo;
 
-    public clsCommentModel(String key, String uname, String prfpc, String comment, String mo) {
+    public clsCommentModel(String key, String comment, String mo) {
         this.key = key;
-        this.uname = uname;
-        this.prfpc = prfpc;
         this.comment = comment;
         this.mo = mo;
     }
@@ -23,14 +21,6 @@ public class clsCommentModel {
     public clsCommentModel() {
     }
 
-    public String getKey() {
-        return key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
     public String getUname() {
         return uname;
     }
@@ -39,13 +29,16 @@ public class clsCommentModel {
         this.uname = uname;
     }
 
-    public String getPrfpc() {
-        return prfpc;
+
+
+    public String getKey() {
+        return key;
     }
 
-    public void setPrfpc(String prfpc) {
-        this.prfpc = prfpc;
+    public void setKey(String key) {
+        this.key = key;
     }
+
 
     public String getComment() {
         return comment;

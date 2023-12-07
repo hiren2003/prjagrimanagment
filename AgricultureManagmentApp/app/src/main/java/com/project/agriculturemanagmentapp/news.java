@@ -1,5 +1,6 @@
 package com.project.agriculturemanagmentapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,7 +11,12 @@ import android.view.View;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class news extends AppCompatActivity {
     RcnewsAdapter rcnewsAdapter;
@@ -22,12 +28,25 @@ public class news extends AppCompatActivity {
         setContentView(R.layout.activity_news);
         RecyclerView recyclerView = findViewById(R.id.rcnews);
         fltadd=findViewById(R.id.fltaddnews);
-        FirebaseRecyclerOptions<clsNewsModel> options = new FirebaseRecyclerOptions.Builder<clsNewsModel>()
-                .setQuery(FirebaseDatabase.getInstance().getReference().child("news"), clsNewsModel.class)
-                .build();
-        recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
-        rcnewsAdapter = new RcnewsAdapter(options,news.this,true);
-        recyclerView.setAdapter(rcnewsAdapter);
+        FirebaseDatabase.getInstance().getReference().child("news").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<clsNewsModel> newsModelArrayList=new ArrayList<>();
+                for (DataSnapshot datasnapshot:
+                     snapshot.getChildren()) {
+                    newsModelArrayList.add(snapshot.getValue(clsNewsModel.class));
+                }
+                recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
+                rcnewsAdapter = new RcnewsAdapter(news.this,true,newsModelArrayList);
+                recyclerView.setAdapter(rcnewsAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     fltadd.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -35,16 +54,4 @@ public class news extends AppCompatActivity {
         }
     });
     }
-    @Override
-    public void onStart() {
-        super.onStart();
-        rcnewsAdapter.startListening();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        rcnewsAdapter.stopListening();
-    }
-
 }

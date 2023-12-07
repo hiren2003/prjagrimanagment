@@ -23,8 +23,12 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.concurrent.RecursiveAction;
 
@@ -32,24 +36,20 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class RcToolsAccesoriesAdapter extends FirebaseRecyclerAdapter<clsToolsAccessoriesModel,RcToolsAccesoriesAdapter.ViewHolder> {
+public class RcToolsAccesoriesAdapter extends RecyclerView.Adapter<RcToolsAccesoriesAdapter.ViewHolder> {
 
-    /**
-     * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
-     * {@link FirebaseRecyclerOptions} for configuration options.
-     *
-     * @param options
-     */
     Context context;
     boolean isMyproduct;
-    public RcToolsAccesoriesAdapter(@NonNull FirebaseRecyclerOptions<clsToolsAccessoriesModel> options, Context context,boolean isMyproduct) {
-        super(options);
-        this.context=context;
-        this.isMyproduct=isMyproduct;
+    ArrayList<clsToolsAccessoriesModel> clsToolsAccessoriesModelArrayList ;
+
+    public RcToolsAccesoriesAdapter(Context context, boolean isMyproduct, ArrayList<clsToolsAccessoriesModel> clsToolsAccessoriesModelArrayList) {
+        this.context = context;
+        this.isMyproduct = isMyproduct;
+        this.clsToolsAccessoriesModelArrayList = clsToolsAccessoriesModelArrayList;
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull RcToolsAccesoriesAdapter.ViewHolder holder, int position, @NonNull clsToolsAccessoriesModel model) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         SharedPreferences sharedPreferences=context.getSharedPreferences("data",Context.MODE_PRIVATE);
         holder.cd.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -79,8 +79,8 @@ public class RcToolsAccesoriesAdapter extends FirebaseRecyclerAdapter<clsToolsAc
                         yes.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                FirebaseDatabase.getInstance().getReference().child("Tools&Accessories").child(model.getKey()).removeValue();
-                                FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("Tools&Accessories").child(model.getKey()).removeValue();
+                                FirebaseDatabase.getInstance().getReference().child("Tools&Accessories").child(clsToolsAccessoriesModelArrayList.get(position).getKey()).removeValue();
+                                FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("Tools&Accessories").child(clsToolsAccessoriesModelArrayList.get(position).getKey()).removeValue();
                                 dg.dismiss();
 
                             }
@@ -116,24 +116,24 @@ public class RcToolsAccesoriesAdapter extends FirebaseRecyclerAdapter<clsToolsAc
                         spncat.setVisibility(View.GONE);
                         imgprdt.setVisibility(View.VISIBLE);
                         Glide.with(context)
-                                        .load(model.getImg())
-                                                .into(imgprdt);
-                        edtprc.setText(model.getPrice());
-                        edtstate.setText(model.getState());
-                        edttehsil.setText(model.getTehsil());
-                        edtdistrict.setText(model.getDistrict());
-                        edtsellername.setText(model.getSname());
-                        edtvillage.setText(model.getVillage());
-                        edtdescription.setText(model.getDesc());
-                        edtmo.setText(model.getMo());
-                        edtmonth.setText(model.getMonth());
-                        edtpname.setText(model.getPname());
+                                .load(clsToolsAccessoriesModelArrayList.get(position).getImg())
+                                .into(imgprdt);
+                        edtprc.setText(clsToolsAccessoriesModelArrayList.get(position).getPrice());
+                        edtstate.setText(clsToolsAccessoriesModelArrayList.get(position).getState());
+                        edttehsil.setText(clsToolsAccessoriesModelArrayList.get(position).getTehsil());
+                        edtdistrict.setText(clsToolsAccessoriesModelArrayList.get(position).getDistrict());
+                        edtsellername.setText(clsToolsAccessoriesModelArrayList.get(position).getSname());
+                        edtvillage.setText(clsToolsAccessoriesModelArrayList.get(position).getVillage());
+                        edtdescription.setText(clsToolsAccessoriesModelArrayList.get(position).getDesc());
+                        edtmo.setText(clsToolsAccessoriesModelArrayList.get(position).getMo());
+                        edtmonth.setText(clsToolsAccessoriesModelArrayList.get(position).getMonth());
+                        edtpname.setText(clsToolsAccessoriesModelArrayList.get(position).getPname());
                         btnsavedata.setText(context.getResources().getString(R.string.Update));
                         btnsavedata.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 clsToolsAccessoriesModel clsToolsAccessoriesModel=new clsToolsAccessoriesModel(
-                                        model.getKey(),
+                                        clsToolsAccessoriesModelArrayList.get(position).getKey(),
                                         edtpname.getText().toString(),
                                         edtsellername.getText().toString(),
                                         edtmo.getText().toString(),
@@ -143,15 +143,14 @@ public class RcToolsAccesoriesAdapter extends FirebaseRecyclerAdapter<clsToolsAc
                                         edttehsil.getText().toString(),
                                         edtvillage.getText().toString(),
                                         edtdescription.getText().toString(),
-                                        model.getImg(),
-                                        sharedPreferences.getString("uname", "unknown"),
-                                        sharedPreferences.getString("url", "null"),
+                                        clsToolsAccessoriesModelArrayList.get(position).getImg(),
                                         Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR),
                                         edtmonth.getText().toString(),
-                                        model.getCategory()
+                                        clsToolsAccessoriesModelArrayList.get(position).getCategory(),
+                                        sharedPreferences.getString("mo", "1234567890")
                                 );
-                                FirebaseDatabase.getInstance().getReference().child("Tools&Accessories").child(model.getKey()).setValue(clsToolsAccessoriesModel);
-                                FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("Tools&Accessories").child(model.getKey()).setValue(clsToolsAccessoriesModel);
+                                FirebaseDatabase.getInstance().getReference().child("Tools&Accessories").child(clsToolsAccessoriesModelArrayList.get(position).getKey()).setValue(clsToolsAccessoriesModel);
+                                FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("Tools&Accessories").child(clsToolsAccessoriesModelArrayList.get(position).getKey()).setValue(clsToolsAccessoriesModel);
                                 bottomSheetDialog.cancel();
                             }
                         });
@@ -165,13 +164,13 @@ public class RcToolsAccesoriesAdapter extends FirebaseRecyclerAdapter<clsToolsAc
             }
         });
         Glide.with(context)
-                .load(model.getImg())
+                .load(clsToolsAccessoriesModelArrayList.get(position).getImg())
                 .into(holder.imgprdt);
         Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
         holder.itemView.setAnimation(anim);
-        holder.txtprdt.setText(model.getPname());
-        holder.txtprc.setText(context.getResources().getString(R.string.prc)+model.getPrice());
-        holder.txtqty.setText(context.getResources().getString(R.string.Usage)+model.getMonth()+"Months");
+        holder.txtprdt.setText(clsToolsAccessoriesModelArrayList.get(position).getPname());
+        holder.txtprc.setText(context.getResources().getString(R.string.prc)+clsToolsAccessoriesModelArrayList.get(position).getPrice());
+        holder.txtqty.setText(context.getResources().getString(R.string.Usage)+clsToolsAccessoriesModelArrayList.get(position).getMonth()+"Months");
         holder.cd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -212,8 +211,8 @@ public class RcToolsAccesoriesAdapter extends FirebaseRecyclerAdapter<clsToolsAc
                     btnwhatsapp.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            String mo="+91"+model.getMo();
-                            String msg="Hello "+model.getUname()+","+context.getResources().getString(R.string.Interest2)+" "+model.getPname();
+                            String mo="+91"+clsToolsAccessoriesModelArrayList.get(position).getMo();
+                            String msg="Hello "+clsToolsAccessoriesModelArrayList.get(position).getSname()+","+context.getResources().getString(R.string.Interest2)+" "+clsToolsAccessoriesModelArrayList.get(position).getPname();
                             String url = "https://api.whatsapp.com/send?phone="+mo+"&text="+msg;
                             Intent i = new Intent(Intent.ACTION_VIEW);
                             i.setData(Uri.parse(url));
@@ -223,36 +222,50 @@ public class RcToolsAccesoriesAdapter extends FirebaseRecyclerAdapter<clsToolsAc
                     btncall.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            String mo="+91"+model.getMo();
+                            String mo="+91"+clsToolsAccessoriesModelArrayList.get(position).getMo();
                             Intent intent=new Intent(Intent.ACTION_DIAL,Uri.parse("tel:"+mo));
                             context.startActivity(intent);
                         }
                     });
                     Glide.with(context)
-                            .load(model.getImg())
+                            .load(clsToolsAccessoriesModelArrayList.get(position).getImg())
                             .into(imgprdt);
-                    Glide.with(context)
-                            .load(model.getPrfpc())
-                            .circleCrop()
-                            .into(prfpc);
-                    txtcategory.setText(model.getCategory());
-                    txtpname.setText(model.getPname());
-                    txtprc.setText(model.getMonth());
-                    txtpnn.setText(model.getMo());
-                    txtpayment.setText(model.getPrice());
-                    txtstate.setText(model.getState());
-                    txttehsil.setText(model.getTehsil());
-                    txtdistrict.setText(model.getDistrict());
-                    txtvillage.setText(model.getVillage());
-                    txtdes.setText(model.getDesc());
-                    txtuname.setText(model.getUname());
-                    txtdate.setText(model.getDate());
-                    txtsname.setText(model.getSname());
+                    txtcategory.setText(clsToolsAccessoriesModelArrayList.get(position).getCategory());
+                    txtpname.setText(clsToolsAccessoriesModelArrayList.get(position).getPname());
+                    txtprc.setText(clsToolsAccessoriesModelArrayList.get(position).getMonth());
+                    txtpnn.setText(clsToolsAccessoriesModelArrayList.get(position).getMo());
+                    txtpayment.setText(clsToolsAccessoriesModelArrayList.get(position).getPrice());
+                    txtstate.setText(clsToolsAccessoriesModelArrayList.get(position).getState());
+                    txttehsil.setText(clsToolsAccessoriesModelArrayList.get(position).getTehsil());
+                    txtdistrict.setText(clsToolsAccessoriesModelArrayList.get(position).getDistrict());
+                    txtvillage.setText(clsToolsAccessoriesModelArrayList.get(position).getVillage());
+                    txtdes.setText(clsToolsAccessoriesModelArrayList.get(position).getDesc());
+                    txtdate.setText(clsToolsAccessoriesModelArrayList.get(position).getDate());
+                    txtsname.setText(clsToolsAccessoriesModelArrayList.get(position).getSname());
+                    FirebaseDatabase.getInstance().getReference().child("Users_List").child(clsToolsAccessoriesModelArrayList.get(position).getUmo()).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            clsUserModel clsUserModel=snapshot.getValue(com.project.agriculturemanagmentapp.clsUserModel.class);
+                            txtuname.setText(clsUserModel.getUname());
+                            Glide.with(context)
+                                    .load(clsUserModel.getUrl())
+                                    .circleCrop()
+                                    .into(prfpc);
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
                 }
                 bottomSheetDialog.show();
             }
         });
+    }
 
+    @Override
+    public int getItemCount() {
+        return clsToolsAccessoriesModelArrayList.size();
     }
 
     @NonNull

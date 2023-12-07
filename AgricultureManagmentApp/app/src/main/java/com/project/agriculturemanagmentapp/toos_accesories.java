@@ -2,6 +2,7 @@ package com.project.agriculturemanagmentapp;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -11,7 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -66,24 +72,25 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_toos_accesories, container, false);
         RecyclerView recyclerView=view.findViewById(R.id.rctoolacce);
-        FirebaseRecyclerOptions<clsToolsAccessoriesModel> options=new FirebaseRecyclerOptions.Builder<clsToolsAccessoriesModel>()
-                .setQuery( FirebaseDatabase.getInstance().getReference().child("Tools&Accessories"),clsToolsAccessoriesModel.class)
-                .build();
-        rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(options,getContext(),false);
-        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-        recyclerView.setAdapter(rcToolsAccesoriesAdapter);
+        FirebaseDatabase.getInstance().getReference().child("Tools&Accessories").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<clsToolsAccessoriesModel> toolsAccessoriesModelArrayList =new ArrayList<>();
+                for (DataSnapshot datasnapshot:
+                        snapshot.getChildren()) {
+                    toolsAccessoriesModelArrayList.add(datasnapshot.getValue(clsToolsAccessoriesModel.class));
+                }
+                rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(getContext(),false,toolsAccessoriesModelArrayList);
+                recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                recyclerView.setAdapter(rcToolsAccesoriesAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         return  view;
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        rcToolsAccesoriesAdapter.startListening();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        rcToolsAccesoriesAdapter.stopListening();
     }
 }

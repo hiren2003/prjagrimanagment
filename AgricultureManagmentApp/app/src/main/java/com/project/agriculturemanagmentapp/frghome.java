@@ -9,6 +9,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
@@ -20,6 +21,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,13 +34,17 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
@@ -111,9 +117,6 @@ public class frghome extends Fragment {
         View view = inflater.inflate(R.layout.fragment_frghome, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.rcnews);
         setTemprature(28.7041, 77.1025);
-        FirebaseRecyclerOptions<clsNewsModel> options = new FirebaseRecyclerOptions.Builder<clsNewsModel>()
-                .setQuery(FirebaseDatabase.getInstance().getReference().child("news"), clsNewsModel.class)
-                .build();
         decimalFormat = new DecimalFormat("#.##");
         txttemp = view.findViewById(R.id.txttemp);
         txtmaxtemp = view.findViewById(R.id.txttemphigh);
@@ -126,12 +129,27 @@ public class frghome extends Fragment {
         txtpressure = view.findViewById(R.id.txtpressure);
         imageview = view.findViewById(R.id.imageview);
         txtvisiblity = view.findViewById(R.id.txtvisiblity);
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
-        linearLayoutManager.setReverseLayout(true);
-        linearLayoutManager.setStackFromEnd(true);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        rcnewsAdapter = new RcnewsAdapter(options, getContext(),false);
-        recyclerView.setAdapter(rcnewsAdapter);
+        FirebaseDatabase.getInstance().getReference().child("news").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<clsNewsModel> clsNewsModelArrayList=new ArrayList<>();
+                for (DataSnapshot datasnapshot:
+                     snapshot.getChildren()) {
+                    clsNewsModelArrayList.add(datasnapshot.getValue(clsNewsModel.class));
+                }
+                LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
+                linearLayoutManager.setReverseLayout(true);
+                linearLayoutManager.setStackFromEnd(true);
+                recyclerView.setLayoutManager(linearLayoutManager);
+                rcnewsAdapter = new RcnewsAdapter( getContext(),false,clsNewsModelArrayList);
+                recyclerView.setAdapter(rcnewsAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         ActivityCompat.requestPermissions(getActivity(), new String[]{ACCESS_FINE_LOCATION}, 101);
         locationManager = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);
         if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
@@ -140,19 +158,6 @@ public class frghome extends Fragment {
             getlocation();
         }
         return view;
-    }
-
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        rcnewsAdapter.startListening();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        rcnewsAdapter.stopListening();
     }
 
     public void setTemprature(Double lat, Double lng) {

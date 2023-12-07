@@ -204,6 +204,41 @@
 
             </LinearLayout>
         </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rvsave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="20dp">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/baseline_keyboard_arrow_right_24" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/bookmark"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/Saved"
+                    android:textColor="#066006"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:textSize="20dp" />
+
+            </LinearLayout>
+        </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/rvrate"

@@ -2,6 +2,7 @@ package com.project.agriculturemanagmentapp;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,7 +15,12 @@ import android.view.ViewGroup;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -68,24 +74,25 @@ public class Cultivation_Product extends Fragment {
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_cultivation__product, container, false);
         RecyclerView rccprdt=view.findViewById(R.id.rccprdt);
-        FirebaseRecyclerOptions<ClsCultivationProductModel> options=new FirebaseRecyclerOptions.Builder<ClsCultivationProductModel>()
-                .setQuery(FirebaseDatabase.getInstance().getReference("Cultivation Product"), ClsCultivationProductModel.class)
-                .build();
-         rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(options,getContext(),false);
-         rccprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-        rccprdt.setAdapter(rcCultivatonPrdtAdpter);
+        FirebaseDatabase.getInstance().getReference("Cultivation Product").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<ClsCultivationProductModel> clsCultivationProductModelArrayList=new ArrayList<>();
+                for (DataSnapshot datasnapshot:
+                        snapshot.getChildren()) {
+                    clsCultivationProductModelArrayList.add(datasnapshot.getValue(ClsCultivationProductModel.class));
+                }
+                rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(getContext(),false,clsCultivationProductModelArrayList);
+                rccprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                rccprdt.setAdapter(rcCultivatonPrdtAdpter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         return view;
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        rcCultivatonPrdtAdpter.startListening();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        rcCultivatonPrdtAdpter.stopListening();
     }
 }

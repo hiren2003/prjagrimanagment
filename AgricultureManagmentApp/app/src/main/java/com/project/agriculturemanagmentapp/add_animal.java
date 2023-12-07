@@ -200,12 +200,10 @@ public class add_animal extends AppCompatActivity {
                                             edtvillage.getText().toString(),
                                             edtdescription.getText().toString(),
                                             uri.toString(),
-                                            sharedPreferences1.getString("uname", "null"),
-                                            sharedPreferences1.getString("url", "unknown"),
                                             Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR)
-                                            , edtsname.getText().toString()
-                                    );
-                                    FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences1.getString("mo", "1234567890")).child("Resell").child("animal").child(key).setValue(clsAnimalModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            , edtsname.getText().toString(),
+                                            sharedPreferences1.getString("mo", "1234567890")
+                                    );                                    FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences1.getString("mo", "1234567890")).child("Resell").child("animal").child(key).setValue(clsAnimalModel).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             FirebaseDatabase.getInstance().getReference().child("animals").child(key).setValue(clsAnimalModel).addOnSuccessListener(new OnSuccessListener<Void>() {

@@ -18,33 +18,31 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class RcLabourAdapter extends FirebaseRecyclerAdapter<clsLaborModel,RcLabourAdapter.ViewHolder> {
-    /**
-     * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
-     * {@link FirebaseRecyclerOptions} for configuration options.
-     *
-     * @param options
-     */
+public class RcLabourAdapter extends RecyclerView.Adapter<RcLabourAdapter.ViewHolder> {
     Context context;
-    public RcLabourAdapter(@NonNull FirebaseRecyclerOptions<clsLaborModel> options,Context context) {
-        super(options);
-        this.context=context;
+    ArrayList<clsLaborModel> laborModelArrayList;
+
+    public RcLabourAdapter(Context context, ArrayList<clsLaborModel> laborModelArrayList) {
+        this.context = context;
+        this.laborModelArrayList = laborModelArrayList;
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull RcLabourAdapter.ViewHolder holder, int position, @NonNull clsLaborModel model) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
         holder.itemView.setAnimation(anim);
-        holder.txtlname.setText(model.getLname());
-        holder.txtlmo.setText(model.getLmo());
-        holder.txtlloc.setText(model.getLloc());
-        holder.txtldec.setText(model.getLdes());
-        holder.txtldate.setText(model.getLdate());
-        holder.txtlwages.setText("₹ "+model.getLwages());
+        holder.txtlname.setText(laborModelArrayList.get(position).getLname());
+        holder.txtlmo.setText(laborModelArrayList.get(position).getLmo());
+        holder.txtlloc.setText(laborModelArrayList.get(position).getLloc());
+        holder.txtldec.setText(laborModelArrayList.get(position).getLdes());
+        holder.txtldate.setText(laborModelArrayList.get(position).getLdate());
+        holder.txtlwages.setText("₹ "+laborModelArrayList.get(position).getLwages());
         holder.rv.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -57,12 +55,12 @@ public class RcLabourAdapter extends FirebaseRecyclerAdapter<clsLaborModel,RcLab
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         SharedPreferences sharedPreferences=context.getSharedPreferences("data", Context.MODE_PRIVATE);
-                        String msg=context.getResources().getString(R.string.msg2)+" "+model.getLdate()+" "+context.getResources().getString(R.string.msg3);
-                        FirebaseDatabase.getInstance().getReference().child("Labor_data").child(sharedPreferences.getString("mo","1234567890")).child(model.getKey()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                        String msg=context.getResources().getString(R.string.msg2)+" "+laborModelArrayList.get(position).getLdate()+" "+context.getResources().getString(R.string.msg3);
+                        FirebaseDatabase.getInstance().getReference().child("Labor_data").child(sharedPreferences.getString("mo","1234567890")).child(laborModelArrayList.get(position).getKey()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
                                 SmsManager smsManager = SmsManager.getDefault();
-                                smsManager.sendTextMessage(model.getLmo(),null,msg,null,null);
+                                smsManager.sendTextMessage(laborModelArrayList.get(position).getLmo(),null,msg,null,null);
                                 deletebox.dismiss();
                             }
                         });
@@ -78,6 +76,12 @@ public class RcLabourAdapter extends FirebaseRecyclerAdapter<clsLaborModel,RcLab
                 return false;
             }
         });
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return laborModelArrayList.size();
     }
 
     @NonNull

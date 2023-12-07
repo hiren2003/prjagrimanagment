@@ -127,7 +127,8 @@ public class add_news extends AppCompatActivity {
             }
         });
 
-    }public void show_toast(String msg, boolean isgreen) {
+    }
+    public void show_toast(String msg, boolean isgreen) {
         Toast ts = new Toast(getBaseContext());
         View view;
         if (isgreen) {

@@ -1,5 +1,6 @@
 package com.project.agriculturemanagmentapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -7,33 +8,39 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.os.Bundle;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class admin_animal extends AppCompatActivity {
 RcAnimalAdapter rcAnimalAdapter;
 RecyclerView rcanimal;
+ArrayList<clsAnimalModel> arrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_animal);
         rcanimal=findViewById(R.id.rcanimal);
-        FirebaseRecyclerOptions<clsAnimalModel> options=new FirebaseRecyclerOptions.Builder<clsAnimalModel>()
-                .setQuery(FirebaseDatabase.getInstance().getReference().child("animals"), clsAnimalModel.class)
-                .build();
-        rcanimal.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-        rcAnimalAdapter=new RcAnimalAdapter(options,admin_animal.this,true);
-        rcanimal.setAdapter(rcAnimalAdapter);
-    }
+        arrayList=new ArrayList<>();
+        FirebaseDatabase.getInstance().getReference().child("animals").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+               for (DataSnapshot dataSnapshot:snapshot.getChildren()) {
+                    arrayList.add(dataSnapshot.getValue(clsAnimalModel.class));
+                }
+                rcanimal.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                rcAnimalAdapter=new RcAnimalAdapter(admin_animal.this,true,arrayList);
+                rcanimal.setAdapter(rcAnimalAdapter);
+            }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        rcAnimalAdapter.startListening();
-    }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        rcAnimalAdapter.stopListening();
+            }
+        });
+
     }
 }

@@ -22,7 +22,7 @@ ImageView imgprfpc;
 Button profile;
 TextView txtuname,txtumo,close;
 SharedPreferences sharedPreferences;
-RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc,rvnews;
+RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc,rvnews,rvsave;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +42,7 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc,rvnews;
         rvloout=findViewById(R.id.rvloout);
         rvtc=findViewById(R.id.rvtc);
         close=findViewById(R.id.close);
+        rvsave=findViewById(R.id.rvsave);
         sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
         String mo=sharedPreferences.getString("mo","1234567890");
         if(mo.equals("7229005896")||mo.equals("9824945298")||mo.equals("9879295483")||mo.equals("9737063396")){
@@ -77,9 +78,9 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc,rvnews;
             @Override
             public void onClick(View v) {
                 SharedPreferences.Editor sedit=sharedPreferences.edit();
-                sedit.putBoolean("islogin",false);
                 sedit.clear();
                 sedit.commit();
+                sedit.putBoolean("islogin",false);
                 sedit.apply();
                 startActivity(new Intent(Navigation.this, splashActivity.class));
                 Navigation.this.finish();
@@ -116,6 +117,12 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc,rvnews;
                 show_toast("Thank-you For Rating us",true);
             }
         });
+        rvsave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               startActivity(new Intent(Navigation.this, Saved.class));
+            }
+        });
 
     }
 
@@ -149,5 +156,17 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc,rvnews;
         ts.setGravity(Gravity.TOP, 0, 30);
         ts.setDuration(Toast.LENGTH_SHORT);
         ts.show();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Glide.with(this)
+                .load(sharedPreferences.getString("url","null"))
+                .circleCrop()
+                .error(getDrawable(R.drawable.baseline_warning_24))
+                .into(imgprfpc);
+        txtuname.setText(sharedPreferences.getString("uname","null"));
+        txtumo.setText("+91 "+sharedPreferences.getString("mo","null"));
     }
 }

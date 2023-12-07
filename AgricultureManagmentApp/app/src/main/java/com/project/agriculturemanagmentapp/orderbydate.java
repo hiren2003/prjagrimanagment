@@ -1,5 +1,6 @@
 package com.project.agriculturemanagmentapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -12,8 +13,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class orderbydate extends AppCompatActivity {
@@ -33,12 +38,25 @@ TextView txtdate;
         rldate=findViewById(R.id.rldate);
         txtdate=findViewById(R.id.txtdate);
         String date = day + "-" + (month) + "-" + year;
-        FirebaseRecyclerOptions<clsOrderModel> options=new FirebaseRecyclerOptions.Builder<clsOrderModel>()
-                .setQuery(FirebaseDatabase.getInstance().getReference().child("Orders").child(date), clsOrderModel.class)
-                .build();
-        rcorderAdapter=new RcorderAdapter(options,orderbydate.this);
-        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-        recyclerView.setAdapter(rcorderAdapter);
+        FirebaseDatabase.getInstance().getReference().child("Orders").child(date).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<clsOrderModel> orderModelArrayList = new ArrayList<>();
+                for (DataSnapshot datasnapshot:
+                        snapshot.getChildren()) {
+                    orderModelArrayList.add(datasnapshot.getValue(clsOrderModel.class));
+                }
+                    rcorderAdapter=new RcorderAdapter(orderbydate.this,orderModelArrayList);
+                    recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                    recyclerView.setAdapter(rcorderAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         date = day + "-" + (++month) + "-" + year;
         txtdate.setText(date);
         rldate.setOnClickListener(new View.OnClickListener() {
@@ -49,30 +67,30 @@ TextView txtdate;
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         String date=dayOfMonth + "-" + (month) + "-" + year;
                         txtdate.setText(dayOfMonth + "/" + (++month) + "/" + year);
-                        FirebaseRecyclerOptions<clsOrderModel> options=new FirebaseRecyclerOptions.Builder<clsOrderModel>()
-                                .setQuery(FirebaseDatabase.getInstance().getReference().child("Orders").child(date), clsOrderModel.class)
-                                .build();
-                        rcorderAdapter=new RcorderAdapter(options,orderbydate.this);
-                        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-                        recyclerView.setAdapter(rcorderAdapter);
-                        rcorderAdapter.startListening();
+                        FirebaseDatabase.getInstance().getReference().child("Orders").child(date).addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                ArrayList<clsOrderModel> orderModelArrayList = new ArrayList<>();
+                                for (DataSnapshot datasnapshot:
+                                        snapshot.getChildren()) {
+                                    orderModelArrayList.add(datasnapshot.getValue(clsOrderModel.class));
+                                }
+                                rcorderAdapter=new RcorderAdapter(orderbydate.this,orderModelArrayList);
+                                recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                                recyclerView.setAdapter(rcorderAdapter);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
                     }
                 }, Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
                 datePickerDialog.show();
             }
         });
 
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        rcorderAdapter.startListening();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        rcorderAdapter.stopListening();
     }
 }

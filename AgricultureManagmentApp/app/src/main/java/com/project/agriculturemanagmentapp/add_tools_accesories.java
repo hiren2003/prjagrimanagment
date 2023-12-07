@@ -142,11 +142,10 @@ public class add_tools_accesories extends AppCompatActivity {
                                             edtvillage.getText().toString(),
                                             edtdescription.getText().toString(),
                                             uri.toString(),
-                                            sharedPreferences.getString("uname", "unknown"),
-                                            sharedPreferences.getString("url", "null"),
                                             Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR),
                                             edtmonth.getText().toString(),
-                                            spncat.getSelectedItem().toString()
+                                            spncat.getSelectedItem().toString(),
+                                            sharedPreferences.getString("mo", "1234567890")
                                     );
                                     FirebaseDatabase.getInstance().getReference().child("Tools&Accessories").child(key).setValue(clsToolsAccessoriesModel);
                                     FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("Tools&Accessories").child(key).setValue(clsToolsAccessoriesModel).addOnSuccessListener(new OnSuccessListener<Void>() {

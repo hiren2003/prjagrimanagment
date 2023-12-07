@@ -9,6 +9,7 @@ import android.os.Bundle;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -25,8 +26,13 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -83,15 +89,27 @@ public class Myfeed extends Fragment {
         FloatingActionButton addfeed=view.findViewById(R.id.addfeed);
         SharedPreferences sharedPreferences= getContext().getSharedPreferences("data", Context.MODE_PRIVATE);
         String mo=sharedPreferences.getString("mo","123456789");
-        FirebaseRecyclerOptions<clsFeedModel> options=new FirebaseRecyclerOptions.Builder<clsFeedModel>()
-                .setQuery(FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Feed"), clsFeedModel.class)
-                .build();
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
-        linearLayoutManager.setReverseLayout(true);
-        linearLayoutManager.setStackFromEnd(true);
-        rcFeedAdapter=new RcFeedAdapter(options,getContext(),true);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(rcFeedAdapter);
+        FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Feed").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<clsFeedModel> feedModelArrayList = new ArrayList<>();
+                for (DataSnapshot datasnapshot:
+                     snapshot.getChildren()) {
+                    feedModelArrayList.add(datasnapshot.getValue(clsFeedModel.class));
+                }
+                LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
+                linearLayoutManager.setReverseLayout(true);
+                linearLayoutManager.setStackFromEnd(true);
+                rcFeedAdapter=new RcFeedAdapter(getContext(),true,feedModelArrayList);
+                recyclerView.setLayoutManager(linearLayoutManager);
+                recyclerView.setAdapter(rcFeedAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         addfeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,21 +149,5 @@ public class Myfeed extends Fragment {
             }
         });
         return view;
-    }
-
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        rcFeedAdapter.startListening();
-    }
-
-    // Function to tell the app to stop getting
-    // data from database on stopping of the activity
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        rcFeedAdapter.stopListening();
     }
 }

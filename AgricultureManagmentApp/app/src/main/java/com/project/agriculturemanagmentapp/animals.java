@@ -2,6 +2,7 @@ package com.project.agriculturemanagmentapp;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,7 +13,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,6 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class animals extends Fragment {
 RecyclerView rcanimal;
 RcAnimalAdapter rcAnimalAdapter;
+    ArrayList<clsAnimalModel> arrayList;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -67,24 +74,23 @@ RcAnimalAdapter rcAnimalAdapter;
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_animals, container, false);
         rcanimal=view.findViewById(R.id.rcanimal);
-        FirebaseRecyclerOptions<clsAnimalModel> options=new FirebaseRecyclerOptions.Builder<clsAnimalModel>()
-                .setQuery(FirebaseDatabase.getInstance().getReference().child("animals"), clsAnimalModel.class)
-                .build();
-        rcanimal.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-        rcAnimalAdapter=new RcAnimalAdapter(options,getContext(),false);
-        rcanimal.setAdapter(rcAnimalAdapter);
+        arrayList=new ArrayList<>();
+        FirebaseDatabase.getInstance().getReference().child("animals").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot:snapshot.getChildren()) {
+                    arrayList.add(dataSnapshot.getValue(clsAnimalModel.class));
+                }
+                rcanimal.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                rcAnimalAdapter=new RcAnimalAdapter(getContext(),true,arrayList);
+                rcanimal.setAdapter(rcAnimalAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         return  view;
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        rcAnimalAdapter.startListening();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        rcAnimalAdapter.stopListening();
     }
 }

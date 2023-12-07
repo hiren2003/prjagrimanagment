@@ -18,41 +18,41 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class RcEcommAdapter extends FirebaseRecyclerAdapter<clsEcommModel, RcEcommAdapter.ViewHolder> {
-    /**
-     * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
-     * {@link FirebaseRecyclerOptions} for configuration options.
-     *
-     * @param options
-     */
+public class RcEcommAdapter extends RecyclerView.Adapter<RcEcommAdapter.ViewHolder>{
+
     Context context;
 
     int btn;
+    ArrayList<clsEcommModel> ecommModelArrayList;
 
-    public RcEcommAdapter(@NonNull FirebaseRecyclerOptions<clsEcommModel> options, Context context,int btn) {
-        super(options);
+    public RcEcommAdapter(Context context, int btn, ArrayList<clsEcommModel> ecommModelArrayList) {
         this.context = context;
-        this.btn=btn;
-
+        this.btn = btn;
+        this.ecommModelArrayList = ecommModelArrayList;
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull RcEcommAdapter.ViewHolder holder, int position, @NonNull clsEcommModel model) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        //Animation
         Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
         holder.itemView.setAnimation(anim);
-        holder.txtpname.setText(model.getPname());
-        holder.txtprice.setText("₹"+model.getPrice());
+        //Setting Value For Each Grid Item
+        holder.txtpname.setText(ecommModelArrayList.get(position).getPname());
+        holder.txtprice.setText("₹"+ecommModelArrayList.get(position).getPrice());
         Glide.with(context)
-                .load(model.getImg())
+                .load(ecommModelArrayList.get(position).getImg())
                 .into(holder.imgprdt);
         holder.cd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(context, show_ecom_prdt.class).putExtra("key", model.getKey()).putExtra("btn",btn));
+                //Detailed Description in Another Activity
+                context.startActivity(new Intent(context, show_ecom_prdt.class).putExtra("key", ecommModelArrayList.get(position).getKey()).putExtra("btn",btn));
             }
         });
         holder.cd.setOnLongClickListener(new View.OnLongClickListener() {
@@ -75,7 +75,7 @@ public class RcEcommAdapter extends FirebaseRecyclerAdapter<clsEcommModel, RcEco
                         @Override
                         public void onClick(View v) {
                             dg.dismiss();
-                            FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").child(model.getKey()).removeValue();
+                            FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").child(ecommModelArrayList.get(position).getKey()).removeValue();
                         }
                     });
                 }
@@ -90,6 +90,11 @@ public class RcEcommAdapter extends FirebaseRecyclerAdapter<clsEcommModel, RcEco
         View view = LayoutInflater.from(context).inflate(R.layout.lytecom, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
+    }
+
+    @Override
+    public int getItemCount() {
+        return ecommModelArrayList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

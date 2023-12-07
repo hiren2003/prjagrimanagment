@@ -1,5 +1,6 @@
 package com.project.agriculturemanagmentapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -7,7 +8,12 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.os.Bundle;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class admin_tools extends AppCompatActivity {
 RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
@@ -16,23 +22,24 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_tools);
         RecyclerView recyclerView=findViewById(R.id.rctoolacce);
-        FirebaseRecyclerOptions<clsToolsAccessoriesModel> options=new FirebaseRecyclerOptions.Builder<clsToolsAccessoriesModel>()
-                .setQuery( FirebaseDatabase.getInstance().getReference().child("Tools&Accessories"),clsToolsAccessoriesModel.class)
-                .build();
-        rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(options,admin_tools.this,true);
-        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-        recyclerView.setAdapter(rcToolsAccesoriesAdapter);
-    }
+        FirebaseDatabase.getInstance().getReference().child("Tools&Accessories").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<clsToolsAccessoriesModel> toolsAccessoriesModelArrayList =new ArrayList<>();
+                for (DataSnapshot datasnapshot:
+                     snapshot.getChildren()) {
+                    toolsAccessoriesModelArrayList.add(datasnapshot.getValue(clsToolsAccessoriesModel.class));
+                }
+                rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(admin_tools.this,true,toolsAccessoriesModelArrayList);
+                recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                recyclerView.setAdapter(rcToolsAccesoriesAdapter);
+            }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        rcToolsAccesoriesAdapter.startListening();
-    }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        rcToolsAccesoriesAdapter.stopListening();
+            }
+        });
+
     }
 }

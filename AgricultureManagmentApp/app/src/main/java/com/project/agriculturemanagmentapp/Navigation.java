@@ -96,7 +96,7 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc,rvnews,rvsave;
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Navigation.this,MyProfile.class));
+                startActivity(new Intent(Navigation.this,MyProfile.class).putExtra("selfaccount",true));
             }
         });
         rvnews.setOnClickListener(new View.OnClickListener() {

@@ -36,15 +36,14 @@ public class RcChatAdapter extends FirebaseRecyclerAdapter<clsChatModel,RcChatAd
 
     @Override
     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull clsChatModel model) {
-        FirebaseDatabase.getInstance().getReference().child("Users_List").child(model.getSmo()).addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference().child("Users_List").child(model.getSmo()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                clsUserModel clsUserModel = snapshot.getValue(com.project.agriculturemanagmentapp.clsUserModel.class);
-                Glide.with(context)
-                        .load(clsUserModel.getUrl())
+                clsUserModel userModel = snapshot.getValue(clsUserModel.class);
+               Glide.with(context)
+                        .load(userModel.getUrl())
                         .circleCrop()
                         .into(holder.profpc);
-
             }
 
             @Override
@@ -53,7 +52,7 @@ public class RcChatAdapter extends FirebaseRecyclerAdapter<clsChatModel,RcChatAd
             }
         });
         if (model.getImg().equals("")){
-            holder.txtquery.setText(model.getMsg());
+            holder.txtquery.setText(model.getMsg()+model.getSmo());
         }
         else{
             holder.txtquery.setText(model.getMsg());

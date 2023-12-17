@@ -21,8 +21,11 @@ TabLayout tbmy;
     TabLayout tabLayout;
     TextView txtumo;
     TextView txtuname;
-    ImageView imgprfpc;
+    ImageView imgprfpc,profile,messager;
     SharedPreferences sharedPreferences;
+    VpProfileAdapter VpProfileAdapter;
+    boolean SelfAccount;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,24 +36,33 @@ TabLayout tbmy;
          txtumo=findViewById(R.id.txtumo);
          txtuname=findViewById(R.id.txtuname);
          imgprfpc=findViewById(R.id.imgprfpc);
+         messager=findViewById(R.id.message);
         sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
-        Button profile=findViewById(R.id.profile);
-        VpProfileAdapter vpAdapterFeed=new VpProfileAdapter(getSupportFragmentManager(),this);
-        viewPager.setAdapter(vpAdapterFeed);
+        profile=findViewById(R.id.profile);
+         intent=getIntent();
+         SelfAccount=intent.getBooleanExtra("selfaccount",false);
+        VpProfileAdapter=new VpProfileAdapter(getSupportFragmentManager(),this);
+        viewPager.setAdapter(VpProfileAdapter);
         tabLayout.setupWithViewPager(viewPager);
-        Glide.with(this)
-                .load(sharedPreferences.getString("url","null"))
-                .circleCrop()
-                .error(getDrawable(R.drawable.baseline_warning_24))
-                .into(imgprfpc);
-        txtuname.setText(sharedPreferences.getString("uname","null"));
-        txtumo.setText("+91 "+sharedPreferences.getString("mo","null"));
-        profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MyProfile.this,EditprofileActivity.class));
-            }
-        });
+         if (SelfAccount){
+             Glide.with(this)
+                     .load(sharedPreferences.getString("url","null"))
+                     .circleCrop()
+                     .error(getDrawable(R.drawable.baseline_warning_24))
+                     .into(imgprfpc);
+             txtuname.setText(sharedPreferences.getString("uname","null"));
+             txtumo.setText("+91 "+sharedPreferences.getString("mo","null"));
+         }
+             profile.setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View view) {
+                     if (SelfAccount){
+                         startActivity(new Intent(MyProfile.this,EditprofileActivity.class));
+                     }
+                 }
+             });
+
+
     }
 
     @Override

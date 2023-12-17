@@ -133,13 +133,19 @@ ProgressBar prgbar;
                     @Override
                     public void onFailure(Throwable t) {
                         t.printStackTrace();
-                        clsaiconversationArrayList.add(new clsaiconversation(null,"Failed to generate response.",true));
-                        rcAiConversationAdapter=new RcAiConversationAdapter(clsaiconversationArrayList,AI.this);
-                        rcconv.setAdapter(rcAiConversationAdapter);
-                        rcconv.getLayoutManager().scrollToPosition(clsaiconversationArrayList.size()-1);
-                        prgbar.setVisibility(View.GONE);
-                        submitquery.setVisibility(View.VISIBLE);
-                        img=null;
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                clsaiconversationArrayList.add(new clsaiconversation(null,"Failed to generate response.",true));
+                                rcAiConversationAdapter=new RcAiConversationAdapter(clsaiconversationArrayList,AI.this);
+                                rcconv.setAdapter(rcAiConversationAdapter);
+                                rcconv.getLayoutManager().scrollToPosition(clsaiconversationArrayList.size()-1);
+                                prgbar.setVisibility(View.GONE);
+                                submitquery.setVisibility(View.VISIBLE);
+                                img=null;
+                            }
+                        });
+
                     }
                 },executor);
             }

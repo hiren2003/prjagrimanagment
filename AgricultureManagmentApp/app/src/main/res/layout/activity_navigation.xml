@@ -113,7 +113,7 @@
                              android:fontFamily="@font/montserrat_bold"
                              android:layout_marginEnd="10dp"
                              android:textColor="@color/white"
-                             android:background="@drawable/edit"
+                             android:background="@drawable/editicon"
                              android:layout_marginBottom="20dp"
                              android:text="@string/myprofile"
                              android:src="@drawable/baseline_keyboard_arrow_right_24" />

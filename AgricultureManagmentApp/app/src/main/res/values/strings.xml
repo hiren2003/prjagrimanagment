@@ -212,6 +212,8 @@
     <string name="morder">My Orders</string>
     <string name="myprofile">My Profile</string>
     <string name="Saved">Saved Item</string>
+    <string name="FarmerFriend">Farmer Friend</string>
+    <string name="Enter_Prompt">Enter Prompt</string>
     <string-array name="toolstype">
         <item>Tools</item>
         <item>Accessories</item>

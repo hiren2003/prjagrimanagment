@@ -22,6 +22,7 @@
         android:textColor="#023502"
         android:backgroundTint="@color/background"
         android:layout_marginBottom="20dp"
+        android:visibility="gone"
         android:src="@android:drawable/ic_input_add"
         android:text="@string/Add_Labour" />
 </RelativeLayout>

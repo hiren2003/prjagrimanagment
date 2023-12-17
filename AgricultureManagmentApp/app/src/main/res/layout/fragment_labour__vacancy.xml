@@ -30,6 +30,7 @@
         android:layout_height="wrap_content"
         android:text="@string/Add_Vacancy"
         android:textColor="#023502"
+        android:visibility="gone"
         android:backgroundTint="@color/background"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"

@@ -151,17 +151,15 @@ public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder
             holder.txtdes.setVisibility(View.VISIBLE);
             holder.txtdes.setText(feedModelArrayList.get(position).des);
         }
-        FirebaseDatabase.getInstance().getReference().child("Users_List").child(feedModelArrayList.get(position).getUmo()).addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference().child("Users_List").child(feedModelArrayList.get(position).getUmo().toString()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 clsUserModel clsUserModel=snapshot.getValue(com.project.agriculturemanagmentapp.clsUserModel.class);
-                holder.txtuname.setText(clsUserModel.getUname());
-
+                   holder.txtuname.setText(clsUserModel.getUname());
                 Glide.with(context)
                         .load(clsUserModel.getUrl())
-                        .circleCrop()
-                        .into(holder.prfpc);
-
+                      .circleCrop()
+                    .into(holder.prfpc);
             }
 
             @Override
@@ -169,6 +167,7 @@ public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder
 
             }
         });
+
         holder.txtdate.setText(feedModelArrayList.get(position).getDate());
 
         if (isMyFeed) {

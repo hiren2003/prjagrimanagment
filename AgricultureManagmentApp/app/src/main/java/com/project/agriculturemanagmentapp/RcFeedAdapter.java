@@ -301,6 +301,12 @@ public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder
 
             }
         });
+        holder.rvprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(context,MyProfile.class).putExtra("mo",feedModelArrayList.get(position).getUmo()));
+            }
+        });
     }
 
     @Override
@@ -321,7 +327,7 @@ public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder
         TextView txtuname, txtdes, txtdate, txtlikecount;
         ImageView btndelete, imglike, imgdlike,imgsave;
         VideoView videoView;
-        RelativeLayout rllike;
+        RelativeLayout rllike,rvprofile;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -340,6 +346,7 @@ public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder
             txtlikecount = itemView.findViewById(R.id.likecount);
             imgdlike = itemView.findViewById(R.id.imgdlike);
             imgsave=itemView.findViewById(R.id.imgsave);
+            rvprofile=itemView.findViewById(R.id.rvprofile);
 
         }
     }

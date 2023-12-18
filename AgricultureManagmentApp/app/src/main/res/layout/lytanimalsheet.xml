@@ -28,6 +28,7 @@
         android:background="@drawable/layfeedback"
         android:orientation="vertical">
         <LinearLayout
+            android:id="@+id/llprofileanimal"
             android:layout_width="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"

@@ -266,6 +266,7 @@ public class RcAnimalAdapter extends RecyclerView.Adapter<RcAnimalAdapter.ViewHo
                 ImageButton btnwhatsapp = view.findViewById(R.id.btnwhatsapp);
                 ImageButton btncall = view.findViewById(R.id.btncall);
                 TextView txtmo = view.findViewById(R.id.txtmo);
+                LinearLayout llprofile=view.findViewById(R.id.llprofileanimal);
                 Glide.with(context)
                         .load(model.getImg())
                         .into(imgprdt);
@@ -281,6 +282,12 @@ public class RcAnimalAdapter extends RecyclerView.Adapter<RcAnimalAdapter.ViewHo
                 txtproduction.setText(model.getMproduction());
                 txtdes.setText(model.getDes());
                 txtcity.setText(model.getVillage() + "," + model.getTehsil() + "," + model.getDistrict() + "," + model.getState());
+                llprofile.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        context.startActivity(new Intent(context,MyProfile.class).putExtra("mo",clsAnimalModels.get(position).getUmo()));
+                    }
+                });
                 FirebaseDatabase.getInstance().getReference().child("Users_List").child(model.getUmo()).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -326,6 +333,7 @@ public class RcAnimalAdapter extends RecyclerView.Adapter<RcAnimalAdapter.ViewHo
                 bottomSheetDialog.show();
             }
         });
+
     }
 
 
@@ -338,6 +346,7 @@ public class RcAnimalAdapter extends RecyclerView.Adapter<RcAnimalAdapter.ViewHo
         TextView txtprdt, txtqty, txtprc;
         ImageView imgprdt;
         CardView cd;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

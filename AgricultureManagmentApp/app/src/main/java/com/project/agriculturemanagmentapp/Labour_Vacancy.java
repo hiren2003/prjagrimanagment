@@ -65,17 +65,6 @@ public class Labour_Vacancy extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_labour__vacancy, container, false);
         ExtendedFloatingActionButton fltaddvacancy=view.findViewById(R.id.fltaddvacancy);
-        TabLayout tbvacancy=view.findViewById(R.id.tbvacancy);
-        ViewPager vpvacancy=view.findViewById(R.id.vpvacancy);
-        VpVacancyAdapter adapter=new VpVacancyAdapter(getChildFragmentManager(),getContext());
-        vpvacancy.setAdapter(adapter);
-        tbvacancy.setupWithViewPager(vpvacancy);
-        fltaddvacancy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getContext(),add_labour_vacancy.class));
-            }
-        });
         return  view;
     }
 

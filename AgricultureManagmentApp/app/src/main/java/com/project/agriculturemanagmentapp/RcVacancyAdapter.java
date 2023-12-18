@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -100,6 +101,12 @@ public class RcVacancyAdapter extends RecyclerView.Adapter<RcVacancyAdapter.View
                 FirebaseDatabase.getInstance().getReference().child("Labour_Vacancy").child(vacancyModelArrayList.get(position).getKey()).removeValue();
             }
         });
+        holder.llprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(context,MyProfile.class).putExtra("mo",vacancyModelArrayList.get(position).getUmo()));
+            }
+        });
     }
 
     @Override
@@ -118,6 +125,7 @@ public class RcVacancyAdapter extends RecyclerView.Adapter<RcVacancyAdapter.View
         TextView txtoname,txtwtype,txtdur,txtworktype,txtvlg,txtdes,txtdate,txtWage;
         ImageView imgwhat,imgcall,prfpc,imgdlt;
         TextView txtuname;
+        LinearLayout llprofile;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtwtype=itemView.findViewById(R.id.txtwtype);
@@ -132,6 +140,7 @@ public class RcVacancyAdapter extends RecyclerView.Adapter<RcVacancyAdapter.View
             prfpc=itemView.findViewById(R.id.profilepc);
             txtuname=itemView.findViewById(R.id.txtuname);
             imgdlt=itemView.findViewById(R.id.imgdlt);
+            llprofile=itemView.findViewById(R.id.llprofile);
         }
     }
 }

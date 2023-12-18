@@ -10,41 +10,73 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 public class VpProfileAdapter extends FragmentPagerAdapter {
     Context context;
-    public VpProfileAdapter(@NonNull FragmentManager fm,Context context) {
+    String Mo;
+    boolean SelfAccount;
+    public VpProfileAdapter(@NonNull FragmentManager fm,Context context,String Mo,boolean SelfAccount) {
         super(fm);
         this.context=context;
+        this.Mo=Mo;
+        this.SelfAccount=SelfAccount;
     }
 
     @Override
     public int getCount() {
-        return 4;
+if (SelfAccount){
+    return 4;
+
+}
+    else{
+        return 3;
+}
     }
 
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        if (position == 0) {
-            return new Myfeed();
-        } else if (position == 1) {
-            return new MyVacancy();
-        } else if (position == 2) {
-            return new Labour_Management();
-        } else {
-            return new MyProducts();
-        }
+      if (SelfAccount){
+          if (position == 0) {
+              return new Myfeed(Mo,SelfAccount);
+          } else if (position == 1) {
+              return new MyVacancy(Mo,SelfAccount);
+          } else if (position == 2) {
+              return new Labour_Management();
+          } else {
+              return new MyProducts(Mo,SelfAccount);
+          }
+      }
+      else{
+          if (position == 0) {
+              return new Myfeed(Mo,SelfAccount);
+          } else if (position == 1) {
+              return new MyVacancy(Mo,SelfAccount);
+          } else {
+              return new MyProducts(Mo,SelfAccount);
+          }
+      }
     }
 
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        if (position == 0) {
-            return context.getString(R.string.My_Feed);
-        } else if (position == 1) {
-            return context.getString( R.string.Labour_Vacancy);
-        } else if (position == 2) {
-            return context.getString( R.string.Labour_Managment);
-        } else {
-            return  context.getString(R.string.My_Product);
-        }
+       if (SelfAccount){
+           if (position == 0) {
+               return context.getString(R.string.My_Feed);
+           } else if (position == 1) {
+               return context.getString( R.string.Labour_Vacancy);
+           } else if (position == 2) {
+               return context.getString( R.string.Labour_Managment);
+           } else {
+               return  context.getString(R.string.My_Product);
+           }
+       }
+       else{
+           if (position == 0) {
+               return context.getString(R.string.My_Feed);
+           } else if (position == 1) {
+               return context.getString( R.string.Labour_Vacancy);
+           } else {
+               return  context.getString(R.string.My_Product);
+           }
+       }
     }
 }

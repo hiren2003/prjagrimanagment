@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +33,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class chat extends AppCompatActivity {
@@ -39,10 +41,12 @@ String smo,rmo,surl,rurl,sname,rname,date,time;
 RecyclerView rcchat;
 TextInputEditText edtmsg;
 ImageView send,prfpc,chooseimage;
+    ArrayList<clsChatModel> chatModelArrayList;
 TextView txtrname;
     Calendar calendar;
     Uri uri=null;
     RcChatAdapter rcChatAdapter;
+    ProgressBar prgbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,22 +58,37 @@ TextView txtrname;
         prfpc=findViewById(R.id.profilepc);
         txtrname=findViewById(R.id.txtuname);
         chooseimage=findViewById(R.id.btn2);
+        prgbar=findViewById(R.id.prgbar);
         SharedPreferences sharedPreferences = getSharedPreferences("data",MODE_PRIVATE);
         Intent intent = getIntent();
-        //rmo=intent.getStringExtra("rmo");
-        smo="6353007116";
-       // smo=sharedPreferences.getString("mo","unknown");
-        rmo = "7229005896";
+        rmo=intent.getStringExtra("rmo");
+       // smo="6353007116";
+       smo=sharedPreferences.getString("mo","unknown");
+        //rmo = "7229005896";
         surl=sharedPreferences.getString("url","none");
         sname = sharedPreferences.getString("uname","none");
          calendar = Calendar.getInstance();
         date=calendar.get(Calendar.DAY_OF_MONTH)+"/"+calendar.get(Calendar.MONTH)+"/"+calendar.get(Calendar.YEAR);
-        rcchat.setLayoutManager(new LinearLayoutManager(this));
-        FirebaseRecyclerOptions<clsChatModel> options= new FirebaseRecyclerOptions.Builder<clsChatModel>()
-                .setQuery( FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("Chats").child(rmo.toString()), clsChatModel.class)
-                .build();
-        rcChatAdapter=new RcChatAdapter(options,this);
-        rcchat.setAdapter(rcChatAdapter);
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(chat.this);
+        rcchat.setLayoutManager(linearLayoutManager);
+        FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("Chats").child(rmo.toString()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+            chatModelArrayList=new ArrayList<>();
+                for (DataSnapshot dataSnapshot:
+                     snapshot.getChildren()) {
+                    chatModelArrayList.add(dataSnapshot.getValue(clsChatModel.class));
+                }
+                rcChatAdapter=new RcChatAdapter(chat.this,chatModelArrayList);
+                rcchat.setAdapter(rcChatAdapter);
+                rcchat.getLayoutManager().scrollToPosition(chatModelArrayList.size()-1);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         FirebaseDatabase.getInstance().getReference().child("Users_List").child(rmo).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -105,12 +124,25 @@ TextView txtrname;
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                prgbar.setVisibility(View.VISIBLE);
+                send.setVisibility(View.GONE);
                 time=calendar.get(Calendar.HOUR_OF_DAY)+":"+calendar.get(Calendar.MINUTE);
                 String key=FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("Chats").child(rmo.toString()).push().getKey().toString();
                 if(uri==null){
                     clsChatModel model = new clsChatModel(edtmsg.getText().toString(),smo,rmo,date,time,key,"");
-                    FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("Chats").child(rmo.toString()).child(key).setValue(model);
-                    FirebaseDatabase.getInstance().getReference().child("User").child(rmo.toString()).child("Chats").child(smo.toString()).child(key).setValue(model);
+                    FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("Chats").child(rmo.toString()).child(key).setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            FirebaseDatabase.getInstance().getReference().child("User").child(rmo.toString()).child("Chats").child(smo.toString()).child(key).setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    prgbar.setVisibility(View.GONE);
+                                    send.setVisibility(View.VISIBLE);
+                                    edtmsg.setText("");
+                                }
+                            });
+                        }
+                    });
 
                 }
                 else{
@@ -120,10 +152,22 @@ TextView txtrname;
                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                            storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                @Override
-                               public void onSuccess(Uri uri) {
-                                   clsChatModel model = new clsChatModel(edtmsg.getText().toString(),smo,rmo,date,time,key,uri.toString());
-                                   FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("Chats").child(rmo.toString()).child(key).setValue(model);
-                                   FirebaseDatabase.getInstance().getReference().child("User").child(rmo.toString()).child("Chats").child(smo.toString()).child(key).setValue(model);
+                               public void onSuccess(Uri uri2) {
+                                   clsChatModel model = new clsChatModel(edtmsg.getText().toString(),smo,rmo,date,time,key,uri2.toString());
+                                   FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("Chats").child(rmo.toString()).child(key).setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                       @Override
+                                       public void onSuccess(Void unused) {
+                                           FirebaseDatabase.getInstance().getReference().child("User").child(rmo.toString()).child("Chats").child(smo.toString()).child(key).setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                               @Override
+                                               public void onSuccess(Void unused) {
+                                                   prgbar.setVisibility(View.GONE);
+                                                   send.setVisibility(View.VISIBLE);
+                                                   edtmsg.setText("");
+                                                   uri=null;    
+                                               }
+                                           });
+                                       }
+                                   });
                                }
                            });
                        }
@@ -134,15 +178,5 @@ TextView txtrname;
 
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        rcChatAdapter.stopListening();
-    }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        rcChatAdapter.startListening();
-    }
 }

@@ -33,7 +33,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_marginTop="20dp"
-                android:id="@+id/hh"
+                android:id="@+id/llprofiletools"
                 android:layout_below="@id/btncancel"
                 android:layout_marginLeft="20dp"
                 android:background="@drawable/layfeedback"

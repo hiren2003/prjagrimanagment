@@ -118,6 +118,7 @@ ProgressBar prgbar;
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
+                                edtquery.setText("");
                                 clsaiconversationArrayList.add(new clsaiconversation(null,resultText,true));
                                 rcAiConversationAdapter=new RcAiConversationAdapter(clsaiconversationArrayList,AI.this);
                                 rcconv.setAdapter(rcAiConversationAdapter);

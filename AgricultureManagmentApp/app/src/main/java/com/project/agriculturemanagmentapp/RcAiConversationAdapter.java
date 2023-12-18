@@ -34,6 +34,7 @@ public class RcAiConversationAdapter extends RecyclerView.Adapter<RcAiConversati
                     .into(holder.profpc);
         }
        if (arrayList.get(position).getImguri()!=null){
+           holder.imgbitmap.setVisibility(View.VISIBLE);
            holder.imgbitmap.setImageURI(arrayList.get(position).getImguri());
        }
        if(arrayList.get(position).getQuery().trim()!=""){

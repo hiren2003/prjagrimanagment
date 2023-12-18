@@ -219,8 +219,10 @@ public class RcCultivatonPrdtAdpter extends RecyclerView.Adapter<RcCultivatonPrd
                     ImageButton btnwhatsapp,btncall;
                     TextView txtcategory,txtpname,txtspecie,txtqty,txtprc,txtpayment,txtstate,txttehsil,txtpnn,txtdistrict,txtvillage,txtdes,txtuname,txtdate,txtsname;
                     String key;
+                    LinearLayout llprofileprdt;
                     ImageView imgprdt,prfpc;
                     ClsCultivationProductModel clsCultivationProductModel;
+                    llprofileprdt=view.findViewById(R.id.llprofileprdt);
                     btnwhatsapp=view.findViewById(R.id.btnwhatsapp);
                     btncall=view.findViewById(R.id.btncall);
                     txtcategory=view.findViewById(R.id.txtpcategory);
@@ -242,6 +244,12 @@ public class RcCultivatonPrdtAdpter extends RecyclerView.Adapter<RcCultivatonPrd
                     prfpc=view.findViewById(R.id.profilepc);
                     FrameLayout btncancel=view.findViewById(R.id.btncancel);
                     txtuname.setText(clsCultivationProductModelArrayList.get(position).getUmo());
+                    llprofileprdt.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            context.startActivity(new Intent(context,MyProfile.class).putExtra("mo",clsCultivationProductModelArrayList.get(position).getUmo()));
+                        }
+                    });
                     FirebaseDatabase.getInstance().getReference().child("Users_List").child(clsCultivationProductModelArrayList.get(position).getUmo()).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -312,6 +320,7 @@ public class RcCultivatonPrdtAdpter extends RecyclerView.Adapter<RcCultivatonPrd
                 bottomSheetDialog.show();
             }
         });
+
     }
 
     @Override

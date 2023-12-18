@@ -184,6 +184,7 @@ public class RcToolsAccesoriesAdapter extends RecyclerView.Adapter<RcToolsAcceso
                     String key;
                     ImageView imgprdt,prfpc;
                     ClsCultivationProductModel clsCultivationProductModel;
+                    LinearLayout llprofile=view.findViewById(R.id.llprofiletools);
                     btnwhatsapp=view.findViewById(R.id.btnwhatsapp);
                     btncall=view.findViewById(R.id.btncall);
                     txtcategory=view.findViewById(R.id.txtpcategory);
@@ -202,6 +203,12 @@ public class RcToolsAccesoriesAdapter extends RecyclerView.Adapter<RcToolsAcceso
                     txtpnn=view.findViewById(R.id.txtpnn);
                     prfpc=view.findViewById(R.id.profilepc);
                     FrameLayout btncancel=view.findViewById(R.id.btncancel);
+                    llprofile.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            context.startActivity(new Intent(context,MyProfile.class).putExtra("mo",clsToolsAccessoriesModelArrayList.get(position).getUmo()));
+                        }
+                    });
                     btncancel.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -261,6 +268,7 @@ public class RcToolsAccesoriesAdapter extends RecyclerView.Adapter<RcToolsAcceso
                 bottomSheetDialog.show();
             }
         });
+
     }
 
     @Override

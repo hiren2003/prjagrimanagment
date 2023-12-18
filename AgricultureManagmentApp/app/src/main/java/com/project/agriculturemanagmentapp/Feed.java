@@ -16,6 +16,7 @@ import com.google.android.material.tabs.TabLayout;
 public class Feed extends Fragment {
 
     Context context;
+    String Mo;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -25,6 +26,10 @@ public class Feed extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    public Feed( String Mo) {
+        this.Mo=Mo;
+        // Required empty public constructor
+    }
     public Feed() {
         // Required empty public constructor
     }
@@ -55,9 +60,6 @@ public class Feed extends Fragment {
         View view = inflater.inflate(R.layout.fragment_feed, container, false);
         ViewPager viewPager=view.findViewById(R.id.vpfeed);
         TabLayout tabLayout=view.findViewById(R.id.tbllytfeed);
-        VpAdapterFeed vpAdapterFeed=new VpAdapterFeed(getChildFragmentManager(),getContext());
-        viewPager.setAdapter(vpAdapterFeed);
-        tabLayout.setupWithViewPager(viewPager);
         return view;
     }
 }

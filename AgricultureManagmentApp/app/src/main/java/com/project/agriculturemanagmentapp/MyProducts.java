@@ -33,6 +33,8 @@ public class MyProducts extends Fragment {
 RcAnimalAdapter rcAnimalAdapter;
 RcCultivatonPrdtAdpter rcCultivatonPrdtAdpter;
 RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
+String Mo;
+    Boolean SelfAccount;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -60,6 +62,11 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
         return fragment;
     }
 
+    public MyProducts(String Mo,Boolean SelfAccount) {
+        // Required empty public constructor
+        this.Mo=Mo;
+        this.SelfAccount=SelfAccount;
+    }
     public MyProducts() {
         // Required empty public constructor
     }
@@ -87,7 +94,7 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
         mytools.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
         myanimal.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
 
-        FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("animal").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference().child("User").child(Mo).child("Resell").child("animal").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ArrayList<clsAnimalModel> animalModelArrayList=new ArrayList<>();
@@ -95,7 +102,7 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
                      snapshot.getChildren()) {
                     animalModelArrayList.add(dataSnapshot.getValue(clsAnimalModel.class));
                 }
-                 rcAnimalAdapter=new RcAnimalAdapter(getContext(),true, animalModelArrayList);
+                 rcAnimalAdapter=new RcAnimalAdapter(getContext(),SelfAccount, animalModelArrayList);
                 myanimal.setAdapter(rcAnimalAdapter);
             }
 
@@ -104,7 +111,7 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
 
             }
         });
-        FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo","1234567890")).child("Resell").child("Cultivatio_Product").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference().child("User").child(Mo).child("Resell").child("Cultivatio_Product").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ArrayList<ClsCultivationProductModel> cultivationProductModelArrayList = new ArrayList<>();
@@ -112,7 +119,7 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
                         snapshot.getChildren()) {
                     cultivationProductModelArrayList.add(dataSnapshot.getValue(ClsCultivationProductModel.class));
                 }
-                rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(getContext(),true,cultivationProductModelArrayList);
+                rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(getContext(),SelfAccount,cultivationProductModelArrayList);
                 myproduct.setAdapter(rcCultivatonPrdtAdpter);
             }
 
@@ -121,7 +128,7 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
 
             }
         });
-        FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo","1234567890")).child("Resell").child("Tools&Accessories").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference().child("User").child(Mo).child("Resell").child("Tools&Accessories").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ArrayList<clsToolsAccessoriesModel> toolsAccessoriesModelArrayList = new ArrayList<>();
@@ -129,7 +136,7 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
                         snapshot.getChildren()) {
                     toolsAccessoriesModelArrayList.add(dataSnapshot.getValue(clsToolsAccessoriesModel.class));
                 }
-                rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(getContext(),true,toolsAccessoriesModelArrayList);
+                rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(getContext(),SelfAccount,toolsAccessoriesModelArrayList);
                 mytools.setAdapter(rcToolsAccesoriesAdapter);
             }
 

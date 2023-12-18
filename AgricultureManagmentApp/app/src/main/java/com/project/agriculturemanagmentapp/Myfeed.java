@@ -41,6 +41,8 @@ import java.util.ArrayList;
  */
 public class Myfeed extends Fragment {
     RcFeedAdapter rcFeedAdapter;
+    String Mo;
+    Boolean SelfAccount;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -50,6 +52,11 @@ public class Myfeed extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    public Myfeed(String Mo,Boolean SelfAccount) {
+        this.Mo=Mo;
+        this.SelfAccount=SelfAccount;
+        // Required empty public constructor
+    }
     public Myfeed() {
         // Required empty public constructor
     }
@@ -89,7 +96,7 @@ public class Myfeed extends Fragment {
         FloatingActionButton addfeed=view.findViewById(R.id.addfeed);
         SharedPreferences sharedPreferences= getContext().getSharedPreferences("data", Context.MODE_PRIVATE);
         String mo=sharedPreferences.getString("mo","123456789");
-        FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Feed").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference().child("User").child(Mo).child("Feed").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ArrayList<clsFeedModel> feedModelArrayList = new ArrayList<>();
@@ -100,7 +107,7 @@ public class Myfeed extends Fragment {
                 LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
                 linearLayoutManager.setReverseLayout(true);
                 linearLayoutManager.setStackFromEnd(true);
-                rcFeedAdapter=new RcFeedAdapter(getContext(),true,feedModelArrayList);
+                rcFeedAdapter=new RcFeedAdapter(getContext(),SelfAccount,feedModelArrayList);
                 recyclerView.setLayoutManager(linearLayoutManager);
                 recyclerView.setAdapter(rcFeedAdapter);
             }

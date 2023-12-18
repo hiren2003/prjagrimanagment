@@ -71,7 +71,6 @@ RcEcommAdapter rcEcommAdapter;
 
         } else if (type==3) {
             FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("MyVacancy").addValueEventListener(new ValueEventListener() {
-                @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     ArrayList<clsVacancyModel> vacancyModelArrayList =new ArrayList<>();
                     for (DataSnapshot datasnapshot:

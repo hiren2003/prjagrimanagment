@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#f4f4f4"
-    tools:context=".MainActivity">
+    android:background="#1A374D"
+    tools:context=".MainAct ivity">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -22,10 +22,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_medium"
+                android:fontFamily="@font/cambay"
                 android:text="LOGIN"
                 android:textAlignment="center"
-                android:textColor="#1A630D"
+                android:textColor="#6998AB"
                 android:textSize="30dp"
                 android:textStyle="bold" />
 
@@ -79,14 +79,14 @@
                 android:layout_height="wrap_content"
                 app:hintEnabled="true"
                 android:hint="@string/name"
-                app:boxBackgroundColor="#D5D5D5"
+                app:boxBackgroundColor="#B1D0E0"
                 app:boxCornerRadiusBottomEnd="10sp"
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:hintTextColor="@color/black"
                 app:startIconDrawable="@drawable/baseline_account_circle_24"
-                app:startIconTint="#1A630D"
+                app:startIconTint="#1A374D"
                 style="@style/CustomOutlineBox"
                 android:layout_marginTop="70dp"
                 app:counterEnabled="true"
@@ -113,14 +113,14 @@
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:counterMaxLength="10"
-                app:boxBackgroundColor="#D5D5D5"
+                app:boxBackgroundColor="#B1D0E0"
                 app:hintTextColor="@color/black"
-                app:prefixTextColor="#1A630D"
+                app:prefixTextColor="#1A374D"
                 style="@style/CustomOutlineBox"
                 android:layout_marginTop="5dp"
                 android:textColorHint="@color/black"
                 app:startIconDrawable="@drawable/baseline_call_24"
-                app:startIconTint="#1A630D"
+                app:startIconTint="#1A374D"
                 app:prefixText="+91">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtmo"
@@ -142,11 +142,13 @@
 
                 <TextView
                     android:id="@+id/txt"
-                    android:fontFamily="@font/andika"
+                    android:fontFamily="@font/cambay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/send_otp"
-                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
+                    android:textColor="#B1D0E0"
                     android:textSize="20dp" />
 
                 <ProgressBar

@@ -2,7 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="lan">#f4f4f4</color>
+    <color name="lan">#27374D</color>
     <color name="Dark_red">#ff0000</color>
     <color name="drawer">#DCDFDC</color>
     <color name="Light_red">#fcc1c1</color>
@@ -12,7 +12,8 @@
     <color name="dddd">#64CCC5</color>
     <color name="your_color">#066006</color>
 
-    <color name="loginback">#f4f4f4</color>
+    <color name="loginbvack">#f4f4f4</color>
+    <color name="loginback">#1A374D</color>
     <color name="frame">#e3e7ea</color>
     <color name="lightt">#6b747b</color>
     <color name="langback">#51A41E</color>

@@ -11,12 +11,25 @@
         <item name="hintTextColor">@color/green</item>
         <item name="android:cursorVisible">@color/green</item>
     </style>
+    <style name="CustomOutlineBoxComment" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">#88AB8E</item>
+        <item name="android:textColorHint">#FFFFFF</item>
+        <item name="hintTextColor">#FFFFFF</item>
+        <item name="android:cursorVisible">@color/green</item>
+    </style>
 
     <style name="CustomOutlineBoxnew" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="boxStrokeColor">#5A8F0B</item>
         <item name="android:textColorHint">#213207</item>
         <item name="hintTextColor">#273E05</item>
         <item name="android:cursorVisible">@color/green</item>
+    </style>
+    <style name="CustomOutlineBoxnewlang" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">#5A8F0B</item>
+        <item name="android:textColorHint">#213207</item>
+        <item name="hintTextColor">#273E05</item>
+        <item name="android:cursorVisible">@color/green</item>
+        <item name="android:buttonTint">#27374D</item>
     </style>
 
     <style name="Add_vacancy" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">

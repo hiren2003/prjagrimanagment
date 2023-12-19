@@ -214,6 +214,7 @@
     <string name="Saved">Saved Item</string>
     <string name="FarmerFriend">Farmer Friend</string>
     <string name="Enter_Prompt">Enter Prompt</string>
+    <string name="post">post</string>
     <string-array name="toolstype">
         <item>Tools</item>
         <item>Accessories</item>

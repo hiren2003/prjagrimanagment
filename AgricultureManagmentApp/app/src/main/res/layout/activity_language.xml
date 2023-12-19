@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="#f4f4f4"
+    android:background="#27374D"
     tools:context=".Language">
 
 
@@ -20,7 +20,7 @@
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/montserrat_medium"
         android:text="@string/Select_Language"
-        android:textColor="#066006"
+        android:textColor="#526D82"
         android:textSize="30dp"
         android:textStyle="bold"/>
 
@@ -75,6 +75,7 @@
                         android:foregroundTint="@color/black"
                        android:layoutDirection="rtl"
                        android:checked="true"
+                       style="@style/CustomOutlineBoxnewlang"
                        android:buttonTint="@color/your_color"
                        android:layout_gravity="center_vertical"
                        android:id="@+id/tgleng"
@@ -506,7 +507,7 @@
             android:layout_height="60dp"
             android:layout_marginTop="20sp"
             android:layout_margin="10dp"
-            android:background="@drawable/sendotp"
+            android:background="@drawable/laaa"
             app:srcCompat="@drawable/baseline_arrow_forward_24"
             app:tint="#FFFFFF"
 

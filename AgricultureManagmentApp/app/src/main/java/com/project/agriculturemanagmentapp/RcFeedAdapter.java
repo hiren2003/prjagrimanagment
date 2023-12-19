@@ -193,7 +193,7 @@ public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder
             public void onClick(View v) {
                 BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(context,R.style.SheetDialog);
                 View view = LayoutInflater.from(context).inflate(R.layout.lytcomments, null, false);
-                ImageView addcomment = view.findViewById(R.id.postcomment);
+                TextView addcomment = view.findViewById(R.id.postcomment);
                 TextInputEditText edtcomment = view.findViewById(R.id.edtcomment);
                 RecyclerView rccomment = view.findViewById(R.id.rccomment);
                 FirebaseDatabase.getInstance().getReference().child("Feed_Comments").child(feedModelArrayList.get(position).getKey()).addValueEventListener(new ValueEventListener() {

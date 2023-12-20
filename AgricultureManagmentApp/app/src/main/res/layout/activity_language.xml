@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="#27374D"
+    android:background="@color/white"
     tools:context=".Language">
 
 
@@ -15,19 +15,19 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="@font/montserrat_medium"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/cambay"
         android:text="@string/Select_Language"
-        android:textColor="#526D82"
+        android:textColor="#066006"
         android:textSize="30dp"
         android:textStyle="bold"/>
 
 
     <androidx.core.widget.NestedScrollView
        android:layout_width="match_parent"
-       android:layout_height="650dp"
+       android:layout_height="660dp"
        android:scrollbars="vertical">
 
        <LinearLayout
@@ -459,7 +459,7 @@
                android:layout_width="360dp"
                android:layout_height="70dp"
                android:layout_marginTop="10dp"
-               android:layout_marginLeft="20dp"
+               android:layout_marginLeft="15dp"
                android:background="@drawable/bgtoggle"
                android:orientation="horizontal">
                <de.hdodenhof.circleimageview.CircleImageView
@@ -500,14 +500,14 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="140dp"
         android:layout_marginTop="5dp"
+
         android:orientation="horizontal">
         <ImageButton
             android:id="@+id/btnsublang"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginTop="20sp"
-            android:layout_margin="10dp"
-            android:background="@drawable/laaa"
+            android:background="@drawable/sendotp"
             app:srcCompat="@drawable/baseline_arrow_forward_24"
             app:tint="#FFFFFF"
 

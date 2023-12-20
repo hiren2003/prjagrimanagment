@@ -17,9 +17,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.MediaController;
 import android.widget.RelativeLayout;
+import android.widget.StackView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
@@ -192,8 +195,8 @@ public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder
             @Override
             public void onClick(View v) {
                 BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(context,R.style.SheetDialog);
-                View view = LayoutInflater.from(context).inflate(R.layout.lytcomments, null, false);
-                ImageView addcomment = view.findViewById(R.id.postcomment);
+                View view = LayoutInflater.from(context).inflate(R.layout.lyt_comment_sheet, null, false);
+                TextView addcomment = view.findViewById(R.id.postcomment);
                 TextInputEditText edtcomment = view.findViewById(R.id.edtcomment);
                 RecyclerView rccomment = view.findViewById(R.id.rccomment);
                 FirebaseDatabase.getInstance().getReference().child("Feed_Comments").child(feedModelArrayList.get(position).getKey()).addValueEventListener(new ValueEventListener() {
@@ -307,6 +310,63 @@ public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder
                 context.startActivity(new Intent(context,MyProfile.class).putExtra("mo",feedModelArrayList.get(position).getUmo()));
             }
         });
+        holder.rvtape.setOnTouchListener(new View.OnTouchListener() {
+            private GestureDetector gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
+                @Override
+                public boolean onDoubleTap(MotionEvent e) {
+                    Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.fade_in);
+                    holder.imgdlike.setAnimation(anim);
+                    holder.imgdlike.setVisibility(View.VISIBLE);
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.fade_out);
+                            holder.imgdlike.setAnimation(anim);
+                            holder.imgdlike.setVisibility(View.GONE);
+                        }
+                    },1000);
+                    parentRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            boolean hasliked = dataSnapshot.hasChild(sharedPreferences.getString("mo", "123456789"));
+
+                            FirebaseDatabase.getInstance().getReference().child("Like").child(feedModelArrayList.get(position).getKey()).child(sharedPreferences.getString("mo", "1234567890")).setValue(true);
+                            holder.imglike.setImageDrawable(getDrawable(context, R.drawable.liked));
+
+                            parentRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    long count = dataSnapshot.getChildrenCount();
+                                    holder.txtlikecount.setText(count + "");
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+                                }
+                            });
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+                        }
+                    });
+                    return super.onDoubleTap(e);
+                }
+                @Override
+                public boolean onSingleTapConfirmed(MotionEvent event) {
+                    return false;
+                }
+            });
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                gestureDetector.onTouchEvent(event);
+                return true;
+            }
+
+
+        });
     }
 
     @Override
@@ -317,7 +377,7 @@ public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder
     @NonNull
     @Override
     public RcFeedAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.lytfeed, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.lyt_feed, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
@@ -328,6 +388,7 @@ public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder
         ImageView btndelete, imglike, imgdlike,imgsave;
         VideoView videoView;
         RelativeLayout rllike,rvprofile;
+        RelativeLayout rvtape;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -347,6 +408,7 @@ public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder
             imgdlike = itemView.findViewById(R.id.imgdlike);
             imgsave=itemView.findViewById(R.id.imgsave);
             rvprofile=itemView.findViewById(R.id.rvprofile);
+            rvtape=itemView.findViewById(R.id.rvtape);
 
         }
     }

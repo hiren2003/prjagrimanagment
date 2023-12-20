@@ -58,7 +58,6 @@ public class Explore_User extends AppCompatActivity {
                         userModelArrayList) {
                     if(model.getMo().trim().toLowerCase().contains(newText)||model.getUname().toLowerCase().contains(newText)||model.getUname().toUpperCase().contains(newText)){
                         filteredlist.add(model);
-                        System.out.println("---------------"+model.getMo());
                     }
                 }
                 if (filteredlist.isEmpty()){

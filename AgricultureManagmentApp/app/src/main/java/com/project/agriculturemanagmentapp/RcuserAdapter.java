@@ -1,5 +1,7 @@
 package com.project.agriculturemanagmentapp;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -24,11 +26,17 @@ public class RcuserAdapter extends RecyclerView.Adapter<RcuserAdapter.ViewHolder
     Context context;
     ArrayList<clsUserModel> userModelArrayList;
     boolean isAdmin;
+    Activity activity;
 
-    public RcuserAdapter(Context context, ArrayList<clsUserModel> userModelArrayList,  boolean isAdmin) {
+    public RcuserAdapter(Context context, ArrayList<clsUserModel> userModelArrayList, boolean isAdmin) {
         this.context = context;
         this.userModelArrayList = userModelArrayList;
-        this.isAdmin=isAdmin;
+        this.isAdmin = isAdmin;
+    }
+
+    public void updateList(ArrayList<clsUserModel> updatedList){
+        this.userModelArrayList=updatedList;
+        notifyDataSetChanged();
     }
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
@@ -49,6 +57,7 @@ public class RcuserAdapter extends RecyclerView.Adapter<RcuserAdapter.ViewHolder
                    context.startActivity(intent);
                }
                else {
+
                    Intent intent=new Intent(context,MyProfile.class);
                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                    intent.putExtra("mo",userModelArrayList.get(position).getMo());

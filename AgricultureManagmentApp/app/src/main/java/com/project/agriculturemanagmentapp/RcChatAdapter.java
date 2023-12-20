@@ -44,11 +44,15 @@ public class RcChatAdapter extends RecyclerView.Adapter<RcChatAdapter.ViewHolder
         if(chatModelArrayList.get(position).getSmo().equals(mo)){
             holder.rvright.setVisibility(View.VISIBLE);
             holder.rvleft.setVisibility(View.GONE);
+            holder.txtdate2.setText(chatModelArrayList.get(position).getDate());
+            holder.txttime2.setText(chatModelArrayList.get(position).getTime());
             if (chatModelArrayList.get(position).getImg().equals("")){
                 holder.txtquery2.setText(chatModelArrayList.get(position).getMsg());
             }
             else{
                 holder.imgbitmap2.setVisibility(View.VISIBLE);
+                holder.txtdate.setText(chatModelArrayList.get(position).getDate());
+                holder.txttime.setText(chatModelArrayList.get(position).getTime());
                 holder.txtquery2.setText(chatModelArrayList.get(position).getMsg());
                 Glide.with(context)
                         .load(chatModelArrayList.get(position).getImg())
@@ -107,7 +111,7 @@ public class RcChatAdapter extends RecyclerView.Adapter<RcChatAdapter.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView imgbitmap,profpc,imgbitmap2,profpc2;
-        TextView txtquery,txtquery2;
+        TextView txtquery,txtquery2,txtdate,txttime,txtdate2,txttime2;
         RelativeLayout rvright,rvleft;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -119,6 +123,10 @@ public class RcChatAdapter extends RecyclerView.Adapter<RcChatAdapter.ViewHolder
             txtquery2=itemView.findViewById(R.id.txtquery2);
             profpc2=itemView.findViewById(R.id.imgprofpc2);
             rvleft=itemView.findViewById(R.id.rvleft);
+            txtdate=itemView.findViewById(R.id.txtdate);
+            txttime=itemView.findViewById(R.id.txttime);
+            txtdate2=itemView.findViewById(R.id.txtdate2);
+            txttime2=itemView.findViewById(R.id.txttime2);
         }
     }
 }

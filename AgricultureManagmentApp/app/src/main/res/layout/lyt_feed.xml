@@ -71,16 +71,10 @@
 </LinearLayout>
 
     <RelativeLayout
+        android:id="@+id/rvtape"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/imgdlike"
-            android:layout_width="100dp"
-            android:src="@drawable/liked"
-            android:visibility="gone"
-            android:layout_centerInParent="true"
-            android:layout_height="100dp"/>
-        </RelativeLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -119,6 +113,14 @@
                 android:visibility="gone"
                 android:scaleType="centerInside" />
         </LinearLayout>
+        <ImageView
+            android:id="@+id/imgdlike"
+            android:layout_width="100dp"
+            android:src="@drawable/heart"
+            android:visibility="gone"
+            android:layout_centerInParent="true"
+            android:layout_height="100dp"/>
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"

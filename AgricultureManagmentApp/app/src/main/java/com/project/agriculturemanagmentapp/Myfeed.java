@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -97,9 +98,9 @@ public class Myfeed extends Fragment {
                 LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
                 linearLayoutManager.setReverseLayout(true);
                 linearLayoutManager.setStackFromEnd(true);
-                rcFeedAdapter=new RcFeedAdapter(getContext(),SelfAccount,feedModelArrayList);
-                recyclerView.setLayoutManager(linearLayoutManager);
-                recyclerView.setAdapter(rcFeedAdapter);
+                RcImageGridAdapter rcImageGridAdapter=new RcImageGridAdapter(getContext(),SelfAccount,feedModelArrayList);
+                recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
+                recyclerView.setAdapter(rcImageGridAdapter);
             }
 
             @Override

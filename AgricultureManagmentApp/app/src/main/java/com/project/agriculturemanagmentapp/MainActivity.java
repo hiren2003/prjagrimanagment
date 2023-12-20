@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar2);
         mAuth = FirebaseAuth.getInstance();
         Window window = this.getWindow();
-        window.setStatusBarColor(this.getResources().getColor(R.color.loginback));
+        window.setStatusBarColor(this.getResources().getColor(R.color.lan));
 
         prfpc.setOnClickListener(new View.OnClickListener() {
             @Override

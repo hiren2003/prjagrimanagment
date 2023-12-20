@@ -4,51 +4,84 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@drawable/layfeedback"
+    android:backgroundTint="#092635"
     android:layout_height="match_parent">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:orientation="horizontal"
-    android:gravity="center_vertical"
-    android:layout_gravity="center"
-    android:layout_marginTop="30dp"
-    android:layout_height="wrap_content">
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:hint="Add Comments.."
-        app:startIconDrawable="@drawable/baseline_description_24"
-        app:startIconTint="#066006"
-        android:layout_margin="10dp"
-        style="@style/CustomOutlineBoxnew"
-        app:boxBackgroundColor="#D5D5D5"
-        app:boxCornerRadiusBottomEnd="15sp"
-        app:boxCornerRadiusBottomStart="15dp"
-        app:boxCornerRadiusTopEnd="15dp"
-        android:layout_gravity="center_vertical"
-        app:boxCornerRadiusTopStart="15dp"
-        android:layout_marginBottom="30dp"
-        app:hintTextColor="@color/black">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtcomment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="60dp"
-            android:textSize="20dp"
-            android:fontFamily="@font/allerta"
-            android:textColorHint="@color/black" />
-    </com.google.android.material.textfield.TextInputLayout>
-<ImageView
-    android:id="@+id/postcomment"
-    android:layout_width="30dp"
-    android:layout_marginRight="10dp"
-    android:layout_height="25dp"
-    android:src="@drawable/send"
-    android:tint="#066006"
-    />
-</LinearLayout>
-    <androidx.recyclerview.widget.RecyclerView
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_margin="5dp"
-        android:layout_height="match_parent"
-        android:id="@+id/rccomment"/>
+        android:layout_height="622dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#092635"
+            android:tint="#CDC9C9"
+            android:src="@drawable/baseline_horizontal_rule_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/cambay"
+            android:text="Comments"
+            android:textColor="#88AB8E"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rccomment"
+            android:layout_width="match_parent"
+            android:layout_height="528dp"
+            android:layout_margin="5dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center_horizontal"
+           android:orientation="horizontal">
+           <com.google.android.material.textfield.TextInputLayout
+               android:layout_width="330dp"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center_vertical"
+               android:layout_margin="5dp"
+               style="@style/CustomOutlineBoxComment"
+               android:hint="Write your comments.."
+               app:boxCornerRadiusBottomEnd="15sp"
+               app:boxCornerRadiusBottomStart="15dp"
+               app:boxCornerRadiusTopEnd="15dp"
+               app:boxCornerRadiusTopStart="15dp"
+               app:hintTextColor="#FFFFFF"
+               app:startIconDrawable="@drawable/baseline_description_24"
+               app:startIconTint="#88AB8E">
+               <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/edtcomment"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:fontFamily="@font/cambay"
+                   android:minHeight="60dp"
+                   android:textColor="#FFFFFF"
+                   android:textColorHint="#88AB8E"
+                   android:textSize="15dp" />
+
+           </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/postcomment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/share2"
+            android:text="Post"
+            android:textColor="#88AB8E"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+
+
 </LinearLayout>

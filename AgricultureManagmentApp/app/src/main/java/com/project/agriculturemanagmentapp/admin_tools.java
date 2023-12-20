@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.os.Bundle;
 
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -16,23 +15,24 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class admin_tools extends AppCompatActivity {
+RecyclerView rctools;
+ArrayList<clsToolsAccessoriesModel> arrayList;
 RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_tools);
-        RecyclerView recyclerView=findViewById(R.id.rctoolacce);
+        rctools=findViewById(R.id.rctools);
+        arrayList=new ArrayList<>();
         FirebaseDatabase.getInstance().getReference().child("Tools&Accessories").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ArrayList<clsToolsAccessoriesModel> toolsAccessoriesModelArrayList =new ArrayList<>();
-                for (DataSnapshot datasnapshot:
-                     snapshot.getChildren()) {
-                    toolsAccessoriesModelArrayList.add(datasnapshot.getValue(clsToolsAccessoriesModel.class));
+                for (DataSnapshot dataSnapshot:snapshot.getChildren()) {
+                    arrayList.add(dataSnapshot.getValue(clsToolsAccessoriesModel.class));
                 }
-                rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(admin_tools.this,true,toolsAccessoriesModelArrayList);
-                recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-                recyclerView.setAdapter(rcToolsAccesoriesAdapter);
+                rctools.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(admin_tools.this,true,arrayList);
+                rctools.setAdapter(rcToolsAccesoriesAdapter);
             }
 
             @Override
@@ -40,6 +40,5 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
 
             }
         });
-
     }
 }

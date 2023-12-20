@@ -1,7 +1,6 @@
 package com.project.agriculturemanagmentapp;
 
 import android.content.Context;
-import android.content.Intent;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,7 +24,7 @@ public class VpAdapterResell extends FragmentPagerAdapter {
         } else if (position == 1) {
             return new animals();
         } else  {
-            return new toos_accesories();
+            return new tools_accesories();
         }
     }
 

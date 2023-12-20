@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -21,10 +20,10 @@ import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link toos_accesories#newInstance} factory method to
+ * Use the {@link tools_accesories#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class toos_accesories extends Fragment {
+public class tools_accesories extends Fragment {
 RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,7 +34,7 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
     private String mParam1;
     private String mParam2;
 
-    public toos_accesories() {
+    public tools_accesories() {
         // Required empty public constructor
     }
 
@@ -48,8 +47,8 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
      * @return A new instance of fragment toos_accesories.
      */
     // TODO: Rename and change types and number of parameters
-    public static toos_accesories newInstance(String param1, String param2) {
-        toos_accesories fragment = new toos_accesories();
+    public static tools_accesories newInstance(String param1, String param2) {
+        tools_accesories fragment = new tools_accesories();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

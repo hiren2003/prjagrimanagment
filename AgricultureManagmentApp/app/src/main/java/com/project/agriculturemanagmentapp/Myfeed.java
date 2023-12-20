@@ -3,12 +3,8 @@ package com.project.agriculturemanagmentapp;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
@@ -18,19 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
 
@@ -121,7 +111,7 @@ public class Myfeed extends Fragment {
             @Override
             public void onClick(View v) {
                 BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(getContext());
-                View v1=LayoutInflater.from(getContext()).inflate(R.layout.lytaddfeed,null,false);
+                View v1=LayoutInflater.from(getContext()).inflate(R.layout.lyt_add_feed_category,null,false);
                 CardView cdfeed = v1.findViewById(R.id.cdfeed);
                 CardView cdvideo=v1.findViewById(R.id.cdvideo);
                 CardView cdwc=v1.findViewById(R.id.cdwc);

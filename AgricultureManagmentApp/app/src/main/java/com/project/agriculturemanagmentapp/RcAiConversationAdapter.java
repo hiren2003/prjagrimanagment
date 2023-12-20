@@ -45,7 +45,7 @@ public class RcAiConversationAdapter extends RecyclerView.Adapter<RcAiConversati
     @NonNull
     @Override
     public RcAiConversationAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-       View view = LayoutInflater.from(context).inflate(R.layout.lytaiconversation,parent,false);
+       View view = LayoutInflater.from(context).inflate(R.layout.lyt_ai_conversation_tabs,parent,false);
        ViewHolder viewHolder= new ViewHolder(view);
        return  viewHolder;
     }

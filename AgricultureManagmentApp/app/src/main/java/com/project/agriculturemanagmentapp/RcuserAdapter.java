@@ -11,8 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 import java.util.ArrayList;
 
@@ -25,12 +23,13 @@ import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 public class RcuserAdapter extends RecyclerView.Adapter<RcuserAdapter.ViewHolder>{
     Context context;
     ArrayList<clsUserModel> userModelArrayList;
+    boolean isAdmin;
 
-    public RcuserAdapter(Context context, ArrayList<clsUserModel> userModelArrayList) {
+    public RcuserAdapter(Context context, ArrayList<clsUserModel> userModelArrayList,  boolean isAdmin) {
         this.context = context;
         this.userModelArrayList = userModelArrayList;
+        this.isAdmin=isAdmin;
     }
-
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
@@ -43,10 +42,18 @@ public class RcuserAdapter extends RecyclerView.Adapter<RcuserAdapter.ViewHolder
         holder.cd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {;
-                Intent intent=new Intent(context, User_option.class);
-                intent.putExtra("mo",userModelArrayList.get(position).getMo());
-                intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
+               if (isAdmin){
+                   Intent intent=new Intent(context, User_option.class);
+                   intent.putExtra("mo",userModelArrayList.get(position).getMo());
+                   intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
+                   context.startActivity(intent);
+               }
+               else {
+                   Intent intent=new Intent(context,MyProfile.class);
+                   intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                   intent.putExtra("mo",userModelArrayList.get(position).getMo());
+                   context.startActivity(intent);
+               }
             }
         });
     }
@@ -59,7 +66,7 @@ public class RcuserAdapter extends RecyclerView.Adapter<RcuserAdapter.ViewHolder
     @NonNull
     @Override
     public RcuserAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.lytecom, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.lyt_ecom_tb, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }

@@ -4,7 +4,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,25 +17,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
@@ -66,7 +58,7 @@ public class RcCultivatonPrdtAdpter extends RecyclerView.Adapter<RcCultivatonPrd
             public boolean onLongClick(View v) {
                 //Showing Update And Delete Option Based On SharedPreferences Value
                 BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(context,R.style.SheetDialog);
-                View view2=LayoutInflater.from(context).inflate(R.layout.lyteditoption,null,false);
+                View view2=LayoutInflater.from(context).inflate(R.layout.lyt_edit_option_sheet,null,false);
                 LinearLayout btnupdate=view2.findViewById(R.id.lnupdate);
                 LinearLayout btndelete=view2.findViewById(R.id.lndelete);
                 bottomSheetDialog.setContentView(view2);
@@ -79,7 +71,7 @@ public class RcCultivatonPrdtAdpter extends RecyclerView.Adapter<RcCultivatonPrd
                     public void onClick(View v) {
                         bottomSheetDialog.cancel();
                         Dialog dg=new Dialog(context);
-                        dg.setContentView(R.layout.lytdelete);
+                        dg.setContentView(R.layout.lyt_delete_dg);
                         dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
                         Button yes=dg.findViewById(R.id.yes);
                         Button no=dg.findViewById(R.id.no);
@@ -331,7 +323,7 @@ public class RcCultivatonPrdtAdpter extends RecyclerView.Adapter<RcCultivatonPrd
     @NonNull
     @Override
     public RcCultivatonPrdtAdpter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.lytcprdt,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.lyt_resell,parent,false);
         ViewHolder viewHolder =new ViewHolder(view);
         return viewHolder;
     }

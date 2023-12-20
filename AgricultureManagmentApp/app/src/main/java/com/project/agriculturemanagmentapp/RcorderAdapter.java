@@ -4,14 +4,11 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;
@@ -41,7 +38,7 @@ public class RcorderAdapter extends RecyclerView.Adapter<RcorderAdapter.ViewHold
             @Override
             public void onClick(View v) {
                 BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(context,R.style.SheetDialog);
-                View view=LayoutInflater.from(context).inflate(R.layout.lytordersheet,null,false);
+                View view=LayoutInflater.from(context).inflate(R.layout.lyt_view_order_sheet,null,false);
                 TextView txtpname,txtqty,txtprice,txttpayment,txtrec,txtspe,txtdes,txtmo,txtadd;
                 ImageView imgprgt;
                 imgprgt=view.findViewById(R.id.imgprdt);
@@ -89,7 +86,7 @@ public class RcorderAdapter extends RecyclerView.Adapter<RcorderAdapter.ViewHold
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.lytecom, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.lyt_ecom_tb, parent, false);
        ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;    }
 

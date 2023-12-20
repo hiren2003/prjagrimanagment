@@ -9,17 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.io.File;
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
@@ -62,7 +58,7 @@ ArrayList<clsgovmodel> clsgovmodelArrayList;
             public boolean onLongClick(View v) {
                 //For Admin Only-Delete Only
                 Dialog dg=new Dialog(context);
-                dg.setContentView(R.layout.lytdelete);
+                dg.setContentView(R.layout.lyt_delete_dg);
                 dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
                 Button yes=dg.findViewById(R.id.yes);
                 Button no=dg.findViewById(R.id.no);
@@ -92,7 +88,7 @@ ArrayList<clsgovmodel> clsgovmodelArrayList;
     @NonNull
     @Override
     public RcGovAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.lytgov,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.lyt_gov_scheme,parent,false);
         ViewHolder viewHolder=new ViewHolder(view);
         return viewHolder;
     }

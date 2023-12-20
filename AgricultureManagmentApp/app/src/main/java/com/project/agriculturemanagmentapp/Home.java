@@ -25,7 +25,6 @@ import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.gauravk.bubblenavigation.BubbleNavigationLinearView;
 import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Locale;
 
@@ -37,7 +36,7 @@ public class Home extends AppCompatActivity {
     TextView txtname;
     BubbleNavigationLinearView bubbleNavigationLinearView;
     SharedPreferences sharedPreferences;
-    ImageView  fltfeed, fltvacancy,fltlbr,fltrsell,fltai;
+    ImageView  fltfeed, fltvacancy,fltlbr,fltrsell,fltai,fltsearch;
     boolean clicked = false;
     LottieAnimationView fltadd;
 Animation rotateOpen,rotateClose,fromBottom,toBottom;
@@ -67,6 +66,13 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
         fltlbr=findViewById(R.id.floatingActionButton3);
         fltrsell=findViewById(R.id.floatingActionButton4);
         fltai=findViewById(R.id.floatingActionButton5);
+        fltsearch=findViewById(R.id.floatingActionButton6);
+        fltsearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Home.this, Explore_User.class));
+            }
+        });
         fltadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,7 +83,7 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
             @Override
             public void onClick(View v) {
                 BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(Home.this);
-                View v1= LayoutInflater.from(Home.this).inflate(R.layout.lytaddfeed,null,false);
+                View v1= LayoutInflater.from(Home.this).inflate(R.layout.lyt_add_feed_category,null,false);
                 CardView cdfeed = v1.findViewById(R.id.cdfeed);
                 CardView cdvideo=v1.findViewById(R.id.cdvideo);
                 CardView cdwc=v1.findViewById(R.id.cdwc);
@@ -248,6 +254,7 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
             fltlbr.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
             fltrsell.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
             fltai.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
+            fltsearch.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
         }
         else{
             fltfeed.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
@@ -255,6 +262,7 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
             fltlbr.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
             fltrsell.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
             fltai.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
+            fltsearch.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
         }
     }
     void setVisibility(boolean clicked){
@@ -264,6 +272,7 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
             fltlbr.setVisibility(View.VISIBLE);
             fltrsell.setVisibility(View.VISIBLE);
             fltai.setVisibility(View.VISIBLE);
+            fltsearch.setVisibility(View.VISIBLE);
         }
         else{
             fltfeed.setVisibility(View.INVISIBLE);
@@ -271,6 +280,7 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
             fltlbr.setVisibility(View.INVISIBLE);
             fltrsell.setVisibility(View.INVISIBLE);
             fltai.setVisibility(View.INVISIBLE);
+            fltsearch.setVisibility(View.INVISIBLE);
         }
     }
     void setClickable(boolean clicked){

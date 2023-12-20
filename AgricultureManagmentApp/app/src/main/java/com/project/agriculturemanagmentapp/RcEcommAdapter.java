@@ -13,9 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
@@ -60,7 +57,7 @@ public class RcEcommAdapter extends RecyclerView.Adapter<RcEcommAdapter.ViewHold
             public boolean onLongClick(View v) {
                 if(btn==4){
                     Dialog dg=new Dialog(context);
-                    dg.setContentView(R.layout.lytdelete);
+                    dg.setContentView(R.layout.lyt_delete_dg);
                     dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
                     Button yes=dg.findViewById(R.id.yes);
                     Button no=dg.findViewById(R.id.no);
@@ -87,7 +84,7 @@ public class RcEcommAdapter extends RecyclerView.Adapter<RcEcommAdapter.ViewHold
     @NonNull
     @Override
     public RcEcommAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.lytecom, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.lyt_ecom_tb, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }

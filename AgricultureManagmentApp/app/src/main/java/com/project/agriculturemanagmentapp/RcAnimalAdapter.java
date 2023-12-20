@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,8 +20,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.textfield.TextInputEditText;
@@ -30,8 +27,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import org.xmlpull.v1.XmlPullParser;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -54,7 +49,7 @@ public class RcAnimalAdapter extends RecyclerView.Adapter<RcAnimalAdapter.ViewHo
     @NonNull
     @Override
     public RcAnimalAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.lytcprdt, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.lyt_resell, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
@@ -69,7 +64,7 @@ public class RcAnimalAdapter extends RecyclerView.Adapter<RcAnimalAdapter.ViewHo
             @Override
             public boolean onLongClick(View v) {
                 BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(context, R.style.SheetDialog);
-                View view2 = LayoutInflater.from(context).inflate(R.layout.lyteditoption, null, false);
+                View view2 = LayoutInflater.from(context).inflate(R.layout.lyt_edit_option_sheet, null, false);
                 LinearLayout btnupdate = view2.findViewById(R.id.lnupdate);
                 LinearLayout btndelete = view2.findViewById(R.id.lndelete);
                 bottomSheetDialog.setContentView(view2);
@@ -81,7 +76,7 @@ public class RcAnimalAdapter extends RecyclerView.Adapter<RcAnimalAdapter.ViewHo
                     public void onClick(View v) {
                         bottomSheetDialog.cancel();
                         Dialog dg = new Dialog(context);
-                        dg.setContentView(R.layout.lytdelete);
+                        dg.setContentView(R.layout.lyt_delete_dg);
                         dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
                         Button yes = dg.findViewById(R.id.yes);
                         Button no = dg.findViewById(R.id.no);
@@ -247,7 +242,7 @@ public class RcAnimalAdapter extends RecyclerView.Adapter<RcAnimalAdapter.ViewHo
             @Override
             public void onClick(View v) {
                 BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(context, R.style.SheetDialog);
-                View view = LayoutInflater.from(context).inflate(R.layout.lytanimalsheet, null, false);
+                View view = LayoutInflater.from(context).inflate(R.layout.lyt_view_animal_sheet, null, false);
                 bottomSheetDialog.setContentView(view);
                 ImageView imgprfpc = view.findViewById(R.id.profilepc);
                 ImageView imgprdt = view.findViewById(R.id.imgprdt);

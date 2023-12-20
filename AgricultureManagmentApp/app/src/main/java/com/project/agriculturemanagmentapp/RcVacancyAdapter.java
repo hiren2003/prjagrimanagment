@@ -1,8 +1,6 @@
 package com.project.agriculturemanagmentapp;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -15,8 +13,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -117,7 +113,7 @@ public class RcVacancyAdapter extends RecyclerView.Adapter<RcVacancyAdapter.View
     @NonNull
     @Override
     public RcVacancyAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(context).inflate(R.layout.lytlbrvacancy,parent,false);
+        View view= LayoutInflater.from(context).inflate(R.layout.lyt_vacancy,parent,false);
         ViewHolder viewHolder=new ViewHolder(view);
         return  viewHolder;
     }

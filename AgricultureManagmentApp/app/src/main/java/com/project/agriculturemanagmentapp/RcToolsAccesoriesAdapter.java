@@ -19,8 +19,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
@@ -30,7 +28,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.concurrent.RecursiveAction;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -55,7 +52,7 @@ public class RcToolsAccesoriesAdapter extends RecyclerView.Adapter<RcToolsAcceso
             @Override
             public boolean onLongClick(View v) {
                 BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(context,R.style.SheetDialog);
-                View view2=LayoutInflater.from(context).inflate(R.layout.lyteditoption,null,false);
+                View view2=LayoutInflater.from(context).inflate(R.layout.lyt_edit_option_sheet,null,false);
                 LinearLayout btnupdate=view2.findViewById(R.id.lnupdate);
                 LinearLayout btndelete=view2.findViewById(R.id.lndelete);
                 bottomSheetDialog.setContentView(view2);
@@ -65,7 +62,7 @@ public class RcToolsAccesoriesAdapter extends RecyclerView.Adapter<RcToolsAcceso
                     public void onClick(View v) {
                         bottomSheetDialog.cancel();
                         Dialog dg=new Dialog(context);
-                        dg.setContentView(R.layout.lytdelete);
+                        dg.setContentView(R.layout.lyt_delete_dg);
                         dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
                         Button yes=dg.findViewById(R.id.yes);
                         Button no=dg.findViewById(R.id.no);
@@ -174,7 +171,7 @@ public class RcToolsAccesoriesAdapter extends RecyclerView.Adapter<RcToolsAcceso
         holder.cd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View view=LayoutInflater.from(context).inflate(R.layout.lytbtmtools,null,false);
+                View view=LayoutInflater.from(context).inflate(R.layout.lyt_view_tools_sheet,null,false);
                 BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(context,R.style.SheetDialog);
                 bottomSheetDialog.setDismissWithAnimation(true);
                 bottomSheetDialog.setContentView(view);
@@ -279,7 +276,7 @@ public class RcToolsAccesoriesAdapter extends RecyclerView.Adapter<RcToolsAcceso
     @NonNull
     @Override
     public RcToolsAccesoriesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.lytcprdt,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.lyt_resell,parent,false);
         ViewHolder viewHolder =new ViewHolder(view);
         return viewHolder;
     }

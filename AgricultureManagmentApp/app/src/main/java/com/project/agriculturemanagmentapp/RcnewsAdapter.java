@@ -14,8 +14,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
@@ -62,7 +60,7 @@ public class RcnewsAdapter extends RecyclerView.Adapter<RcnewsAdapter.ViewHolder
             public boolean onLongClick(View v) {
                 //Delete the News-Admin Only
                 Dialog dg=new Dialog(context);
-                dg.setContentView(R.layout.lytdelete);
+                dg.setContentView(R.layout.lyt_delete_dg);
                 dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
                 Button yes=dg.findViewById(R.id.yes);
                 Button no=dg.findViewById(R.id.no);
@@ -97,7 +95,7 @@ public class RcnewsAdapter extends RecyclerView.Adapter<RcnewsAdapter.ViewHolder
     @NonNull
     @Override
     public RcnewsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.lytnews, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.lyt_news, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }

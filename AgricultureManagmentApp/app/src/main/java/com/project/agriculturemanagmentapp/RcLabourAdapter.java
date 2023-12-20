@@ -10,11 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -87,7 +84,7 @@ public class RcLabourAdapter extends RecyclerView.Adapter<RcLabourAdapter.ViewHo
     @NonNull
     @Override
     public RcLabourAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.lytlabor,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.lyt_labor,parent,false);
         ViewHolder viewHolder=new ViewHolder(view);
         return viewHolder;
     }

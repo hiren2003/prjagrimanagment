@@ -10,8 +10,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -34,7 +32,7 @@ public class RcChatAdapter extends RecyclerView.Adapter<RcChatAdapter.ViewHolder
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.lytaiconversation,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.lyt_ai_conversation_tabs,parent,false);
         ViewHolder viewHolder= new ViewHolder(view);
         return  viewHolder;
     }

@@ -11,15 +11,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -46,7 +43,7 @@ public class RccommentAdapter extends RecyclerView.Adapter<RccommentAdapter.View
     @NonNull
     @Override
     public RccommentAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(context).inflate(R.layout.lytrccmt,parent,false);
+        View view= LayoutInflater.from(context).inflate(R.layout.lyt_comment,parent,false);
         ViewHolder viewHolder=new ViewHolder(view);
         return viewHolder;
     }

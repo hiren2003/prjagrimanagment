@@ -16,6 +16,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +40,7 @@ import java.util.Calendar;
 public class chat extends AppCompatActivity {
 String smo,rmo,surl,rurl,sname,rname,date,time;
 RecyclerView rcchat;
+RelativeLayout rvprofile;
 TextInputEditText edtmsg;
 ImageView send,prfpc,chooseimage;
     ArrayList<clsChatModel> chatModelArrayList;
@@ -59,6 +61,7 @@ TextView txtrname;
         txtrname=findViewById(R.id.txtuname);
         chooseimage=findViewById(R.id.btn2);
         prgbar=findViewById(R.id.prgbar);
+        rvprofile=findViewById(R.id.rvprofile);
         SharedPreferences sharedPreferences = getSharedPreferences("data",MODE_PRIVATE);
         Intent intent = getIntent();
         rmo=intent.getStringExtra("rmo");
@@ -71,6 +74,14 @@ TextView txtrname;
         date=calendar.get(Calendar.DAY_OF_MONTH)+"/"+calendar.get(Calendar.MONTH)+"/"+calendar.get(Calendar.YEAR);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(chat.this);
         rcchat.setLayoutManager(linearLayoutManager);
+        rvprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(chat.this,MyProfile.class);
+                intent.putExtra("mo",rmo) ;
+                startActivity(intent);
+            }
+        });
         FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("Chats").child(rmo.toString()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -139,6 +150,8 @@ TextView txtrname;
                                     prgbar.setVisibility(View.GONE);
                                     send.setVisibility(View.VISIBLE);
                                     edtmsg.setText("");
+                                    FirebaseDatabase.getInstance().getReference().child("User").child(rmo.toString()).child("RecentChats").child(key).setValue(smo.toString());
+                                    FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("RecentChats").child(key).setValue(rmo.toString());
                                 }
                             });
                         }
@@ -163,7 +176,9 @@ TextView txtrname;
                                                    prgbar.setVisibility(View.GONE);
                                                    send.setVisibility(View.VISIBLE);
                                                    edtmsg.setText("");
-                                                   uri=null;    
+                                                   uri=null;
+                                                   FirebaseDatabase.getInstance().getReference().child("User").child(rmo.toString()).child("RecentChats").child(key).setValue(smo.toString());
+                                                   FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("RecentChats").child(key).setValue(rmo.toString());
                                                }
                                            });
                                        }

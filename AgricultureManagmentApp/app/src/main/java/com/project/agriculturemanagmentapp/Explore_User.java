@@ -35,7 +35,7 @@ public class Explore_User extends AppCompatActivity {
                 for(DataSnapshot dataSnapshot:snapshot.getChildren()){
                     userModelArrayList.add(dataSnapshot.getValue(clsUserModel.class));
                 }
-                rcuserAdapter = new RcuserAdapter( getBaseContext(),userModelArrayList,false);
+                rcuserAdapter = new RcuserAdapter( getBaseContext(),userModelArrayList,false,false);
                 rcuser.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
                 rcuser.setAdapter(rcuserAdapter);
             }
@@ -64,7 +64,7 @@ public class Explore_User extends AppCompatActivity {
                     Toast.makeText(Explore_User.this, "User Not Exists", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    rcuserAdapter = new RcuserAdapter( getBaseContext(),filteredlist,false);
+                    rcuserAdapter = new RcuserAdapter( getBaseContext(),filteredlist,false,false);
                     rcuser.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
                     rcuser.setAdapter(rcuserAdapter);                }
                 return false;

@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -32,7 +33,7 @@ public class Home extends AppCompatActivity {
     MeowBottomNavigation btmnv;
     FrameLayout frameLayout;
     RelativeLayout toolbar;
-    ImageView prfpc, imgcart, imgorder;
+    ImageView prfpc, imgcart, imgorder,imgmessage;
     TextView txtname;
     BubbleNavigationLinearView bubbleNavigationLinearView;
     SharedPreferences sharedPreferences;
@@ -55,6 +56,7 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
         frameLayout = findViewById(R.id.fmlayout);
         txtname = findViewById(R.id.txtname);
         imgorder = findViewById(R.id.imgorder);
+        imgmessage=findViewById(R.id.imgmessage);
         bubbleNavigationLinearView = findViewById(R.id.bottom_navigation_view_linear);
         rotateOpen= AnimationUtils.loadAnimation(this,R.anim.rotate_open_anim);
         rotateClose= AnimationUtils.loadAnimation(this,R.anim.rotate_close_anim);
@@ -161,6 +163,12 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Home.this, Cart.class));
+            }
+        });
+        imgmessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Home.this, ChatList.class));
             }
         });
         btmnv.show(3, true);

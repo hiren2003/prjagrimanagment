@@ -31,7 +31,7 @@ public class User_list extends AppCompatActivity {
                 for(DataSnapshot dataSnapshot:snapshot.getChildren()){
                     userModelArrayList.add(dataSnapshot.getValue(clsUserModel.class));
                 }
-                rcuserAdapter = new RcuserAdapter( getBaseContext(),userModelArrayList,true);
+                rcuserAdapter = new RcuserAdapter( getBaseContext(),userModelArrayList,true,false);
                 rcuser.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
                 rcuser.setAdapter(rcuserAdapter);
             }

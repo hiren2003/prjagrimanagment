@@ -5,27 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".chat">
+
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:id="@+id/rvprofile"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"/>
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp">
+
         <ImageView
             android:id="@+id/profilepc"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:src="@drawable/baseline_account_circle_24"
-            />
+            android:src="@drawable/baseline_account_circle_24" />
+
+        <ImageView
+            android:id="@+id/btndelete"
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="end"
+            android:src="@drawable/delete"
+            android:visibility="gone" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginStart="43dp"
-            >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/txtuname"
@@ -35,24 +44,20 @@
                 android:text="John Thomsan"
                 android:textSize="15dp"
                 android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/txtdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
-                android:text="12/10/2023"
-                />
+                android:text="12/10/2023" />
 
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/btndelete"
-            android:layout_width="30dp"
-            android:visibility="gone"
-            android:layout_height="50dp"
-            android:layout_alignParentEnd="true"
-            android:layout_gravity="end"
-            android:src="@drawable/delete" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
     </RelativeLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcchat"

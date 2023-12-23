@@ -40,9 +40,9 @@ public class EditprofileActivity extends AppCompatActivity {
     Spinner states;
     EditText edtname, edtemail, edtmo, edtaddress;
     RadioButton rdmale, rdfemale;
-    ImageView prfpc;
+    ImageView prfpc,rldate;
     TextView txtdate,txtstate,txtgen;
-    RelativeLayout rldate, rlupdate;
+    RelativeLayout  rlupdate;
     SharedPreferences sharedPreferences;
     ActivityResultLauncher<String> launcher;
     boolean ispicChanged = false;
@@ -56,7 +56,7 @@ public class EditprofileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editprofile);
         Window window = this.getWindow();
-        window.setStatusBarColor(this.getResources().getColor(R.color.dddd));
+        window.setStatusBarColor(this.getResources().getColor(R.color.lan));
         edtname = findViewById(R.id.name);
         edtemail = findViewById(R.id.email);
         edtmo = findViewById(R.id.mobile);

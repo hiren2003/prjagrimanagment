@@ -1,6 +1,7 @@
 package com.project.agriculturemanagmentapp;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -46,6 +47,8 @@ import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -133,6 +136,7 @@ public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder
             }
         });
         if (feedModelArrayList.get(position).mediatype.equals("1")) {
+            holder.cdfeed.setVisibility(View.VISIBLE);
             holder.txtdes.setVisibility(View.VISIBLE);
             holder.imgpost.setVisibility(View.VISIBLE);
             Glide.with(context)
@@ -191,6 +195,17 @@ public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder
             }
 
         });
+        FirebaseDatabase.getInstance().getReference().child("Feed_Comments").child(feedModelArrayList.get(position).getKey()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                holder.commentcount.setText(snapshot.getChildrenCount()+"");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         holder.imgcomment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -246,19 +261,38 @@ public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder
         holder.btndelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "134567890")).child("Feed").child(feedModelArrayList.get(position).getKey()).removeValue(new DatabaseReference.CompletionListener() {
+                Dialog dg=new Dialog(context);
+                dg.setContentView(R.layout.lyt_delete_dg);
+                dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
+                AppCompatButton yes = dg.findViewById(R.id.yes);
+                ImageView no = dg.findViewById(R.id.no);
+                dg.setCancelable(false);
+                dg.show();
+                yes.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                        FirebaseDatabase.getInstance().getReference().child("Feed").child(feedModelArrayList.get(position).key2).removeValue(new DatabaseReference.CompletionListener() {
+                    public void onClick(View v) {
+                        dg.dismiss();
+                        FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "134567890")).child("Feed").child(feedModelArrayList.get(position).getKey()).removeValue(new DatabaseReference.CompletionListener() {
                             @Override
                             public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                                FirebaseStorage.getInstance().getReference().child("feedimg").child(sharedPreferences.getString("mo", "134567890")).child(feedModelArrayList.get(position).key2).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                FirebaseDatabase.getInstance().getReference().child("Feed").child(feedModelArrayList.get(position).key2).removeValue(new DatabaseReference.CompletionListener() {
                                     @Override
-                                    public void onSuccess(Void unused) {
+                                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                                        FirebaseStorage.getInstance().getReference().child("feedimg").child(sharedPreferences.getString("mo", "134567890")).child(feedModelArrayList.get(position).key2).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void unused) {
+                                            }
+                                        });
                                     }
                                 });
                             }
                         });
+                    }
+                });
+                no.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dg.dismiss();
                     }
                 });
             }
@@ -367,6 +401,8 @@ public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder
 
 
         });
+
+
     }
 
     @Override
@@ -384,11 +420,12 @@ public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView prfpc, imgpost, imgshare, imgcomment;
-        TextView txtuname, txtdes, txtdate, txtlikecount;
+        TextView txtuname, txtdes, txtdate, txtlikecount,commentcount;
         ImageView btndelete, imglike, imgdlike,imgsave;
         VideoView videoView;
         RelativeLayout rllike,rvprofile;
         RelativeLayout rvtape;
+        CardView cdfeed;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -409,6 +446,8 @@ public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder
             imgsave=itemView.findViewById(R.id.imgsave);
             rvprofile=itemView.findViewById(R.id.rvprofile);
             rvtape=itemView.findViewById(R.id.rvtape);
+            cdfeed=itemView.findViewById(R.id.cdfeed);
+            commentcount=itemView.findViewById(R.id.commentcount);
 
         }
     }

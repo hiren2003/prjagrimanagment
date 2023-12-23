@@ -69,7 +69,7 @@ public class frghome extends Fragment {
     private static final int REQUEST_LOCATION = 1;
     LocationManager locationManager;
     String latitude = "";
-    String longitude = " ";
+    String longitude = "";
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

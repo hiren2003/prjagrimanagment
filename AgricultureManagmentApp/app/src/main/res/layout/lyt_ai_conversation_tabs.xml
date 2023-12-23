@@ -47,6 +47,7 @@
               android:layout_height="wrap_content"
               android:textSize="10dp"
               android:textColor="#000"
+              android:visibility="gone"
               />
           <TextView
               android:id="@+id/txtdate"
@@ -54,6 +55,8 @@
               android:layout_height="wrap_content"
               android:textSize="10dp"
               android:textColor="#000"
+              android:visibility="gone"
+
               />
       </LinearLayout>
   </RelativeLayout>
@@ -102,6 +105,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="10dp"
                     android:textColor="#000"
+                    android:visibility="gone"
                     />
             <TextView
                 android:id="@+id/txtdate2"
@@ -109,6 +113,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="10dp"
                 android:textColor="#000"
+                android:visibility="gone"
                 />
 
         </LinearLayout>

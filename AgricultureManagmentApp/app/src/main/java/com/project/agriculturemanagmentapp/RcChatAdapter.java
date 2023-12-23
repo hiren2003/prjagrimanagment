@@ -39,6 +39,7 @@ public class RcChatAdapter extends RecyclerView.Adapter<RcChatAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
         SharedPreferences sharedPreferences=context.getSharedPreferences("data",Context.MODE_PRIVATE);
         String mo=sharedPreferences.getString("mo","1234567890");
         if(chatModelArrayList.get(position).getSmo().equals(mo)){
@@ -91,6 +92,32 @@ public class RcChatAdapter extends RecyclerView.Adapter<RcChatAdapter.ViewHolder
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+        holder.rvright.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (holder.txttime2.getVisibility()==View.VISIBLE){
+                    holder.txtdate2.setVisibility(View.GONE);
+                    holder.txttime2.setVisibility(View.GONE);
+                }
+                else{
+                    holder.txtdate2.setVisibility(View.VISIBLE);
+                    holder.txttime2.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        holder.rvleft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (holder.txttime.getVisibility()==View.VISIBLE){
+                    holder.txtdate.setVisibility(View.GONE);
+                    holder.txttime.setVisibility(View.GONE);
+                }
+                else{
+                    holder.txtdate.setVisibility(View.VISIBLE);
+                    holder.txttime.setVisibility(View.VISIBLE);
+                }
             }
         });
         holder.rvright.setOnLongClickListener(new View.OnLongClickListener() {

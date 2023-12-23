@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
@@ -57,24 +58,24 @@ public class RcCultivatonPrdtAdpter extends RecyclerView.Adapter<RcCultivatonPrd
             @Override
             public boolean onLongClick(View v) {
                 //Showing Update And Delete Option Based On SharedPreferences Value
-                BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(context,R.style.SheetDialog);
-                View view2=LayoutInflater.from(context).inflate(R.layout.lyt_edit_option_sheet,null,false);
-                LinearLayout btnupdate=view2.findViewById(R.id.lnupdate);
-                LinearLayout btndelete=view2.findViewById(R.id.lndelete);
-                bottomSheetDialog.setContentView(view2);
+                Dialog dgop = new Dialog(context);
+                dgop.setContentView(R.layout.lyt_edit_option_sheet);
+                dgop.getWindow().setBackgroundDrawableResource(R.drawable.drb_round_edges);
+                LinearLayout btnupdate = dgop.findViewById(R.id.lnupdate);
+                LinearLayout btndelete = dgop.findViewById(R.id.lndelete);
                 if (isMyproduct){
-                    bottomSheetDialog.show();
+                    dgop.show();
                 }
                 // Show Dialog for delete
                 btndelete.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        bottomSheetDialog.cancel();
+                        dgop.cancel();
                         Dialog dg=new Dialog(context);
                         dg.setContentView(R.layout.lyt_delete_dg);
                         dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
-                        Button yes=dg.findViewById(R.id.yes);
-                        Button no=dg.findViewById(R.id.no);
+                        AppCompatButton yes = dg.findViewById(R.id.yes);
+                        ImageView no = dg.findViewById(R.id.no);
                         dg.show();
                         // Do Not Delete
                         no.setOnClickListener(new View.OnClickListener() {
@@ -99,7 +100,7 @@ public class RcCultivatonPrdtAdpter extends RecyclerView.Adapter<RcCultivatonPrd
                     @Override
                     public void onClick(View v) {
                         // Show Dialog for Update and Fetch and Set Existing Value
-                        bottomSheetDialog.cancel();
+                        dgop.cancel();
                         BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(context);
                         View view2=LayoutInflater.from(context).inflate(R.layout.activity_add_cultivation_product,null,false);
                         TextInputEditText edtpname, edtspeice, edtqty, edtprc, edtstate, edtdistrict, edttehsil, edtvillage, edtdescription, edtmo, edtsellername;

@@ -82,7 +82,7 @@ RcAnimalAdapter rcAnimalAdapter;
                     arrayList.add(dataSnapshot.getValue(clsAnimalModel.class));
                 }
                 rcanimal.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-                rcAnimalAdapter=new RcAnimalAdapter(getContext(),true,arrayList);
+                rcAnimalAdapter=new RcAnimalAdapter(getContext(),false,arrayList);
                 rcanimal.setAdapter(rcAnimalAdapter);
             }
 

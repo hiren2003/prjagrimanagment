@@ -40,6 +40,8 @@ public class Home extends AppCompatActivity {
     ImageView  fltfeed, fltvacancy,fltlbr,fltrsell,fltai,fltsearch;
     boolean clicked = false;
     LottieAnimationView fltadd;
+View view;
+TextView txt1,txt2,txt3,txt4,txt5,txt6;
 Animation rotateOpen,rotateClose,fromBottom,toBottom;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,7 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
         window.setStatusBarColor(this.getResources().getColor(R.color.white));
         setLanguage();
      sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+     view=findViewById(R.id.view);
         btmnv = findViewById(R.id.btmnv);
         toolbar = findViewById(R.id.toolbar);
         prfpc = findViewById(R.id.prfpc);
@@ -69,6 +72,12 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
         fltrsell=findViewById(R.id.floatingActionButton4);
         fltai=findViewById(R.id.floatingActionButton5);
         fltsearch=findViewById(R.id.floatingActionButton6);
+        txt1=findViewById(R.id.txt1);
+        txt2=findViewById(R.id.txt2);
+        txt3=findViewById(R.id.txt3);
+        txt4=findViewById(R.id.txt4);
+        txt5=findViewById(R.id.txt5);
+        txt6=findViewById(R.id.txt6);
         fltsearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -263,6 +272,12 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
             fltrsell.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
             fltai.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
             fltsearch.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
+            txt1.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
+            txt2.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
+            txt3.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
+            txt4.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
+            txt5.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
+            txt6.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
         }
         else{
             fltfeed.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
@@ -271,6 +286,12 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
             fltrsell.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
             fltai.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
             fltsearch.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
+            txt1.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
+            txt2.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
+            txt3.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
+            txt4.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
+            txt5.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
+            txt6.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
         }
     }
     void setVisibility(boolean clicked){
@@ -281,6 +302,13 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
             fltrsell.setVisibility(View.VISIBLE);
             fltai.setVisibility(View.VISIBLE);
             fltsearch.setVisibility(View.VISIBLE);
+            view.setVisibility(View.VISIBLE);
+            txt1.setVisibility(View.VISIBLE);
+            txt2.setVisibility(View.VISIBLE);
+            txt3.setVisibility(View.VISIBLE);
+            txt4.setVisibility(View.VISIBLE);
+            txt5.setVisibility(View.VISIBLE);
+            txt6.setVisibility(View.VISIBLE);
         }
         else{
             fltfeed.setVisibility(View.INVISIBLE);
@@ -289,6 +317,13 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
             fltrsell.setVisibility(View.INVISIBLE);
             fltai.setVisibility(View.INVISIBLE);
             fltsearch.setVisibility(View.INVISIBLE);
+            view.setVisibility(View.INVISIBLE);
+            txt1.setVisibility(View.INVISIBLE);
+            txt2.setVisibility(View.INVISIBLE);
+            txt3.setVisibility(View.INVISIBLE);
+            txt4.setVisibility(View.INVISIBLE);
+            txt5.setVisibility(View.INVISIBLE);
+            txt6.setVisibility(View.INVISIBLE);
         }
     }
     void setClickable(boolean clicked){

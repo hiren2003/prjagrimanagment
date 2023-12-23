@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -60,8 +61,8 @@ ArrayList<clsgovmodel> clsgovmodelArrayList;
                 Dialog dg=new Dialog(context);
                 dg.setContentView(R.layout.lyt_delete_dg);
                 dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
-                Button yes=dg.findViewById(R.id.yes);
-                Button no=dg.findViewById(R.id.no);
+                AppCompatButton yes = dg.findViewById(R.id.yes);
+                ImageView no = dg.findViewById(R.id.no);
                 if (isAdmin){
                     dg.show();
                 }

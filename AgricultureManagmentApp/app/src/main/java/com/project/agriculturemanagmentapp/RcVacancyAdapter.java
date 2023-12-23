@@ -1,5 +1,6 @@
 package com.project.agriculturemanagmentapp;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -21,6 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class RcVacancyAdapter extends RecyclerView.Adapter<RcVacancyAdapter.ViewHolder> {
@@ -92,9 +94,29 @@ public class RcVacancyAdapter extends RecyclerView.Adapter<RcVacancyAdapter.View
         holder.imgdlt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String mo = context.getSharedPreferences("data",Context.MODE_PRIVATE).getString("mo", "1234567890");
-                FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("MyVacancy").child(vacancyModelArrayList.get(position).getKey()).removeValue();
-                FirebaseDatabase.getInstance().getReference().child("Labour_Vacancy").child(vacancyModelArrayList.get(position).getKey()).removeValue();
+                Dialog dg=new Dialog(context);
+                dg.setContentView(R.layout.lyt_delete_dg);
+                dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
+                AppCompatButton yes = dg.findViewById(R.id.yes);
+                ImageView no = dg.findViewById(R.id.no);
+                dg.setCancelable(false);
+                dg.show();
+                yes.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String mo = context.getSharedPreferences("data",Context.MODE_PRIVATE).getString("mo", "1234567890");
+                        FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("MyVacancy").child(vacancyModelArrayList.get(position).getKey()).removeValue();
+                        FirebaseDatabase.getInstance().getReference().child("Labour_Vacancy").child(vacancyModelArrayList.get(position).getKey()).removeValue();
+                        dg.dismiss();
+                    }
+                });
+                no.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dg.dismiss();
+                    }
+                });
+
             }
         });
         holder.llprofile.setOnClickListener(new View.OnClickListener() {

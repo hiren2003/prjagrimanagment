@@ -33,7 +33,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_marginTop="20dp"
-                android:id="@+id/hh"
+                android:id="@+id/llprofileprdt"
                 android:layout_below="@id/btncancel"
                 android:layout_marginLeft="20dp"
                 android:background="@drawable/layfeedback"
@@ -42,7 +42,6 @@
                 <ImageView
                     android:id="@+id/profilepc"
                     android:layout_width="40dp"
-
                     android:layout_height="40dp"
                     android:src="@drawable/baseline_account_circle_24"
                     />

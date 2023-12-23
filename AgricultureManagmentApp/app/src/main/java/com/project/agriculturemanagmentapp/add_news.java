@@ -81,7 +81,7 @@ public class add_news extends AppCompatActivity {
                 }
                 else{
                     Dialog dg=new Dialog(add_news.this);
-                    dg.setContentView(R.layout.lytloading);
+                    dg.setContentView(R.layout.lyt_loading_dg);
                     dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
                     dg.setCancelable(false);
                     dg.show();
@@ -127,13 +127,14 @@ public class add_news extends AppCompatActivity {
             }
         });
 
-    }public void show_toast(String msg, boolean isgreen) {
+    }
+    public void show_toast(String msg, boolean isgreen) {
         Toast ts = new Toast(getBaseContext());
         View view;
         if (isgreen) {
-            view = getLayoutInflater().inflate(R.layout.lyttoastgreen, (ViewGroup) findViewById(R.id.container));
+            view = getLayoutInflater().inflate(R.layout.lyt_green_toast, (ViewGroup) findViewById(R.id.container));
         } else {
-            view = getLayoutInflater().inflate(R.layout.lyttoast, (ViewGroup) findViewById(R.id.container));
+            view = getLayoutInflater().inflate(R.layout.lyt_red_toast, (ViewGroup) findViewById(R.id.container));
         }
         TextView txtmessage = view.findViewById(R.id.txtmsg);
         txtmessage.setText(msg);

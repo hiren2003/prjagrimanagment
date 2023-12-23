@@ -11,57 +11,83 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class RccommentAdapter extends FirebaseRecyclerAdapter<clsCommentModel,RccommentAdapter.ViewHolder> {
-    /**
-     * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
-     * {@link FirebaseRecyclerOptions} for configuration options.
-     *
-     * @param options
-     */
+public class RccommentAdapter extends RecyclerView.Adapter<RccommentAdapter.ViewHolder> {
     Context context;
     String parent_key;
-    public RccommentAdapter(@NonNull FirebaseRecyclerOptions<clsCommentModel> options,Context context,String parent_key) {
-        super(options);
-        this.context=context;
-        this.parent_key=parent_key;
+    ArrayList<clsCommentModel> clsCommentModelArrayList;
+
+    public RccommentAdapter(Context context, String parent_key, ArrayList<clsCommentModel> clsCommentModelArrayList) {
+        this.context = context;
+        this.parent_key = parent_key;
+        this.clsCommentModelArrayList = clsCommentModelArrayList;
     }
+
+
 
     @Override
-    protected void onBindViewHolder(@NonNull RccommentAdapter.ViewHolder holder, int position, @NonNull clsCommentModel model) {
-        Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
-        holder.itemView.setAnimation(anim);
-        SharedPreferences sharedPreferences= context.getSharedPreferences("data",Context.MODE_PRIVATE);
-        if(model.getMo().toString().equals(sharedPreferences.getString("mo", "1234567890").toString())){
-            holder.btndelete.setVisibility(View.VISIBLE);
-        }
-     holder.txtuname.setText(model.getUname());
-        holder.txtcomment.setText(model.getComment());
-        Glide.with(context)
-                .load(model.getPrfpc())
-                .circleCrop()
-                .into(holder.prfpc);
-        holder.btndelete.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                FirebaseDatabase.getInstance().getReference().child("Feed_Comments").child(parent_key).child(model.getKey()).removeValue();
-            }
-        });
+    public int getItemCount() {
+        return clsCommentModelArrayList.size();
     }
+
 
     @NonNull
     @Override
     public RccommentAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(context).inflate(R.layout.lytrccmt,parent,false);
+        View view= LayoutInflater.from(context).inflate(R.layout.lyt_comment,parent,false);
         ViewHolder viewHolder=new ViewHolder(view);
         return viewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        // Setting Up Animation
+        Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
+        holder.itemView.setAnimation(anim);
+        // Decide - Show Comment Or Not
+        SharedPreferences sharedPreferences= context.getSharedPreferences("data",Context.MODE_PRIVATE);
+        if(clsCommentModelArrayList.get(position).getMo().toString().equals(sharedPreferences.getString("mo", "1234567890").toString())){
+            holder.btndelete.setVisibility(View.VISIBLE);
+        }
+        // Setting Comment Text
+        holder.txtcomment.setText(clsCommentModelArrayList.get(position).getComment());
+
+        //Setting Profile Picture And UserName
+        FirebaseDatabase.getInstance().getReference().child("Users_List").child(clsCommentModelArrayList.get(position).getMo()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                clsUserModel clsUserModel=snapshot.getValue(com.project.agriculturemanagmentapp.clsUserModel.class);
+                holder.txtuname.setText(clsUserModel.getUname());
+                Glide.with(context)
+                        .load(clsUserModel.getUrl())
+                        .circleCrop()
+                        .into(holder.prfpc);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        // Delete the Comment
+        holder.btndelete.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                FirebaseDatabase.getInstance().getReference().child("Feed_Comments").child(parent_key).child(clsCommentModelArrayList.get(position).getKey()).removeValue();
+            }
+        });
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

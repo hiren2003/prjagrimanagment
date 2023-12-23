@@ -1,9 +1,9 @@
 package com.project.agriculturemanagmentapp;
 
 public class clsToolsAccessoriesModel {
-    String key,pname,sname,mo,price,state,district,tehsil,village,desc,img,uname,prfpc,date,month,category;
+    String key,pname,sname,mo,price,state,district,tehsil,village,desc,img,date,month,category,umo;
 
-    public clsToolsAccessoriesModel(String key, String pname, String sname, String mo, String price, String state, String district, String tehsil, String village, String desc, String img, String uname, String prfpc, String date, String month, String category) {
+    public clsToolsAccessoriesModel(String key, String pname, String sname, String mo, String price, String state, String district, String tehsil, String village, String desc, String img, String date, String month, String category, String umo) {
         this.key = key;
         this.pname = pname;
         this.sname = sname;
@@ -15,11 +15,18 @@ public class clsToolsAccessoriesModel {
         this.village = village;
         this.desc = desc;
         this.img = img;
-        this.uname = uname;
-        this.prfpc = prfpc;
         this.date = date;
         this.month = month;
         this.category = category;
+        this.umo = umo;
+    }
+
+    public String getUmo() {
+        return umo;
+    }
+
+    public void setUmo(String umo) {
+        this.umo = umo;
     }
 
     public clsToolsAccessoriesModel() {
@@ -121,21 +128,7 @@ public class clsToolsAccessoriesModel {
         this.img = img;
     }
 
-    public String getUname() {
-        return uname;
-    }
 
-    public void setUname(String uname) {
-        this.uname = uname;
-    }
-
-    public String getPrfpc() {
-        return prfpc;
-    }
-
-    public void setPrfpc(String prfpc) {
-        this.prfpc = prfpc;
-    }
 
     public String getDate() {
         return date;

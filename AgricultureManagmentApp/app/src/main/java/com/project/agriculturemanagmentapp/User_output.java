@@ -1,5 +1,6 @@
 package com.project.agriculturemanagmentapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,12 +15,18 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class User_output extends AppCompatActivity {
 RecyclerView recyclerView;
 int type;
 String mo;
+SharedPreferences sharedPreferences;
 RcFeedAdapter rcFeedAdapter;
 RcVacancyAdapter rcVacancyAdapter;
 RcLabourAdapter rcLabourAdapter;
@@ -38,41 +45,74 @@ RcEcommAdapter rcEcommAdapter;
         Intent intent=getIntent();
         mo=intent.getStringExtra("mo");
         type=intent.getIntExtra("type",0);
+        sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
         if(type==2){
-            FirebaseRecyclerOptions<clsFeedModel> options=new FirebaseRecyclerOptions.Builder<clsFeedModel>()
-                    .setQuery(FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Feed"), clsFeedModel.class)
-                    .build();
-            LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getBaseContext());
-            linearLayoutManager.setReverseLayout(true);
-            linearLayoutManager.setStackFromEnd(true);
-            rcFeedAdapter=new RcFeedAdapter(options,getBaseContext(),true);
-            recyclerView.setLayoutManager(linearLayoutManager);
-            recyclerView.setAdapter(rcFeedAdapter);
-            rcFeedAdapter.startListening();
-        } else if (type==3) {
-            FirebaseRecyclerOptions<clsVacancyModel> options=new FirebaseRecyclerOptions.Builder<clsVacancyModel>()
-                    .setQuery(FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("MyVacancy"),clsVacancyModel.class)
-                    .build();
-            LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getBaseContext());
-            linearLayoutManager.setReverseLayout(true);
-            linearLayoutManager.setStackFromEnd(true);
-            rcVacancyAdapter=new RcVacancyAdapter(options,getBaseContext(),true);
-            recyclerView.setLayoutManager(linearLayoutManager);
-            recyclerView.setAdapter(rcVacancyAdapter);
-            rcVacancyAdapter.startListening();
+            FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Feed").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    ArrayList<clsFeedModel> feedModelArrayList = new ArrayList<>();
+                    for (DataSnapshot datasnapshot:
+                            snapshot.getChildren()) {
+                        feedModelArrayList.add(datasnapshot.getValue(clsFeedModel.class));
+                    }
+                    LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getBaseContext());
+                    linearLayoutManager.setReverseLayout(true);
+                    linearLayoutManager.setStackFromEnd(true);
+                    rcFeedAdapter=new RcFeedAdapter(getApplicationContext(),true,feedModelArrayList);
+                    recyclerView.setLayoutManager(linearLayoutManager);
+                    recyclerView.setAdapter(rcFeedAdapter);
+                }
 
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+        } else if (type==3) {
+            FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("MyVacancy").addValueEventListener(new ValueEventListener() {
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    ArrayList<clsVacancyModel> vacancyModelArrayList =new ArrayList<>();
+                    for (DataSnapshot datasnapshot:
+                            snapshot.getChildren()) {
+                        vacancyModelArrayList.add(datasnapshot.getValue(clsVacancyModel.class));
+                    }
+                    LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getBaseContext());
+                    linearLayoutManager.setReverseLayout(true);
+                    linearLayoutManager.setStackFromEnd(true);
+                    rcVacancyAdapter=new RcVacancyAdapter(getApplicationContext(),true,vacancyModelArrayList);
+                    recyclerView.setLayoutManager(linearLayoutManager);
+                    recyclerView.setAdapter(rcVacancyAdapter);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
         }
         else if (type==4) {
-            FirebaseRecyclerOptions<clsLaborModel> options= new FirebaseRecyclerOptions.Builder<clsLaborModel>()
-                    .setQuery(FirebaseDatabase.getInstance().getReference().child("Labor_data").child(mo), clsLaborModel.class)
-                    .build();
-            rcLabourAdapter=new RcLabourAdapter(options,getBaseContext());
-            LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getBaseContext());
-            linearLayoutManager.setReverseLayout(true);
-            linearLayoutManager.setStackFromEnd(true);
-            recyclerView.setLayoutManager(linearLayoutManager);
-            recyclerView.setAdapter(rcLabourAdapter);
-            rcLabourAdapter.startListening();
+            FirebaseDatabase.getInstance().getReference().child("Labor_data").child(sharedPreferences.getString("mo","1234567890")).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    ArrayList<clsLaborModel> laborModelArrayList=new ArrayList<>();
+                    for (DataSnapshot datasnapshot:
+                            snapshot.getChildren()) {
+                        laborModelArrayList.add(datasnapshot.getValue(clsLaborModel.class));
+                    }
+                   rcLabourAdapter=new RcLabourAdapter(getApplicationContext(),laborModelArrayList);
+                    LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getBaseContext());
+                    linearLayoutManager.setReverseLayout(true);
+                    linearLayoutManager.setStackFromEnd(true);
+                    recyclerView.setLayoutManager(linearLayoutManager);
+                    recyclerView.setAdapter(rcLabourAdapter);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
         } else if (type==5) {
             scrcview.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.GONE);
@@ -82,52 +122,109 @@ RcEcommAdapter rcEcommAdapter;
             myanimal.setLayoutManager(new LinearLayoutManager(getBaseContext(),LinearLayoutManager.HORIZONTAL,false));
             myproduct.setLayoutManager(new LinearLayoutManager(getBaseContext(),LinearLayoutManager.HORIZONTAL,false));
             mytools.setLayoutManager(new LinearLayoutManager(getBaseContext(),LinearLayoutManager.HORIZONTAL,false));
-            FirebaseRecyclerOptions optionanimal=new FirebaseRecyclerOptions.Builder<clsAnimalModel>()
-                    .setQuery( FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Resell").child("animal"),clsAnimalModel.class)
-                    .build();
-            FirebaseRecyclerOptions optionproduct=new FirebaseRecyclerOptions.Builder<ClsCultivationProductModel>()
-                    .setQuery( FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Resell").child("Cultivatio_Product"),ClsCultivationProductModel.class)
-                    .build();
-            FirebaseRecyclerOptions optiontools=new FirebaseRecyclerOptions.Builder<clsToolsAccessoriesModel>()
-                    .setQuery( FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Resell").child("Tools&Accessories"),clsToolsAccessoriesModel.class).build();
-            rcAnimalAdapter=new RcAnimalAdapter(optionanimal,getBaseContext(),true);
-            rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(optionproduct,getBaseContext(),true);
-            rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(optiontools,getBaseContext(),true);
-            myanimal.setAdapter(rcAnimalAdapter);
-            mytools.setAdapter(rcToolsAccesoriesAdapter);
-            myproduct.setAdapter(rcCultivatonPrdtAdpter);
-            rcToolsAccesoriesAdapter.startListening();
-            rcAnimalAdapter.startListening();
-            rcCultivatonPrdtAdpter.startListening();
+            FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Resell").child("animal").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    ArrayList<clsAnimalModel> animalModelArrayList=new ArrayList<>();
+                    for (DataSnapshot datasnapshot:
+                         snapshot.getChildren()) {
+                        animalModelArrayList.add(datasnapshot.getValue(clsAnimalModel.class));
+                    }
+                    rcAnimalAdapter=new RcAnimalAdapter(getApplicationContext(),true,animalModelArrayList);
+                    myanimal.setAdapter(rcAnimalAdapter);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+            FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Resell").child("Cultivatio_Product").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    ArrayList<ClsCultivationProductModel> cultivationProductModelArrayList=new ArrayList<>();
+                    for (DataSnapshot datasnapshot:
+                            snapshot.getChildren()) {
+                        cultivationProductModelArrayList.add(datasnapshot.getValue(ClsCultivationProductModel.class));
+                    }
+                    rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(getApplicationContext(),true,cultivationProductModelArrayList);
+                    myproduct.setAdapter(rcCultivatonPrdtAdpter);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+            FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Resell").child("Tools&Accessories").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    ArrayList<clsToolsAccessoriesModel> toolsAccessoriesModelArrayList=new ArrayList<>();
+                    for (DataSnapshot datasnapshot:
+                            snapshot.getChildren()) {
+                        toolsAccessoriesModelArrayList.add(datasnapshot.getValue(clsToolsAccessoriesModel.class));
+                    }
+                    rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(getApplicationContext(),true,toolsAccessoriesModelArrayList);
+                    mytools.setAdapter(rcToolsAccesoriesAdapter);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
         } else if (type==6) {
-            FirebaseRecyclerOptions<clsEcommModel> options=new FirebaseRecyclerOptions.Builder<clsEcommModel>()
-                    .setQuery(FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Cart"), clsEcommModel.class)
-                    .build();
-            rcEcommAdapter=new RcEcommAdapter(options,getBaseContext(),2);
-            recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-            recyclerView.setAdapter(rcEcommAdapter);
-            rcEcommAdapter.startListening();
+            FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Cart").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    ArrayList<clsEcommModel> ecommModelArrayList=new ArrayList<>();
+                    for (DataSnapshot datasnapshot:
+                            snapshot.getChildren()) {
+                        ecommModelArrayList.add(datasnapshot.getValue(clsEcommModel.class));
+                    }
+                    rcEcommAdapter=new RcEcommAdapter(getBaseContext(),2,ecommModelArrayList);
+                    recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                    recyclerView.setAdapter(rcEcommAdapter);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
         }
         else if (type==7) {
-            FirebaseRecyclerOptions<clsOrderModel> options=new FirebaseRecyclerOptions.Builder<clsOrderModel>()
-                    .setQuery(FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Myorder"), clsOrderModel.class)
-                    .build();
-            rcorderAdapter=new RcorderAdapter(options,User_output.this);
-            recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-            recyclerView.setAdapter(rcorderAdapter);
-            rcorderAdapter.startListening();
+            FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Myorder").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    ArrayList<clsOrderModel> orderModelArrayList = new ArrayList<>();
+                    for (DataSnapshot datasnapshot:
+                            snapshot.getChildren()) {
+                        orderModelArrayList.add(datasnapshot.getValue(clsOrderModel.class));
+                    }
+                    rcorderAdapter=new RcorderAdapter(User_output.this,orderModelArrayList);
+                    recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                    recyclerView.setAdapter(rcorderAdapter);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
         }
         else if (type==8) {
-            FirebaseRecyclerOptions<clsEcommModel> options=new FirebaseRecyclerOptions.Builder<clsEcommModel>()
-                    .setQuery(FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Cancelled"), clsEcommModel.class)
-                    .build();
-            rcEcommAdapter=new RcEcommAdapter(options,getBaseContext(),3);
-            recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-            recyclerView.setAdapter(rcEcommAdapter);
-            rcEcommAdapter.startListening();
+           // FirebaseRecyclerOptions<clsEcommModel> options=new FirebaseRecyclerOptions.Builder<clsEcommModel>()
+             //       .setQuery(FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Cancelled"), clsEcommModel.class)
+               //     .build();
+            //rcEcommAdapter=new RcEcommAdapter(options,getBaseContext(),3);
+            //recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+           // recyclerView.setAdapter(rcEcommAdapter);
         }
         else {
-            finish();;
+            finish();
         }
 
 

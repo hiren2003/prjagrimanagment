@@ -86,7 +86,7 @@ public class add_labour_vacancy extends AppCompatActivity {
                     edtvlg.requestFocus();
                 } else {
                     Dialog dg=new Dialog(add_labour_vacancy.this);
-                    dg.setContentView(R.layout.lytloading);
+                    dg.setContentView(R.layout.lyt_loading_dg);
                     dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
                     dg.setCancelable(false);
                     dg.show();
@@ -104,9 +104,8 @@ public class add_labour_vacancy extends AppCompatActivity {
                             edttehsil.getText().toString(),
                             edtvlg.getText().toString(),
                             edtdes.getText().toString(),
-                            sharedPreferences.getString("url", "null"),
-                            sharedPreferences.getString("uname", "null"),
-                            Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR)
+                            Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR),
+                            sharedPreferences.getString("mo", "1234567890")
                     );
                     FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("MyVacancy").child(key).setValue(obj).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
@@ -144,9 +143,9 @@ public class add_labour_vacancy extends AppCompatActivity {
         Toast ts = new Toast(getBaseContext());
         View view;
         if (isgreen) {
-            view = getLayoutInflater().inflate(R.layout.lyttoastgreen, (ViewGroup) findViewById(R.id.container));
+            view = getLayoutInflater().inflate(R.layout.lyt_green_toast, (ViewGroup) findViewById(R.id.container));
         } else {
-            view = getLayoutInflater().inflate(R.layout.lyttoast, (ViewGroup) findViewById(R.id.container));
+            view = getLayoutInflater().inflate(R.layout.lyt_red_toast, (ViewGroup) findViewById(R.id.container));
         }
         TextView txtmessage = view.findViewById(R.id.txtmsg);
         txtmessage.setText(msg);

@@ -2,18 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-feature
-        android:name="android.hardware.telephony"
-        android:required="false" />
-
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-    <uses-permission android:name="android.permission.SEND_SMS" />
-    <uses-permission android:name="@android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -26,31 +14,79 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".animal_category_Activity"
+            android:name=".ChatList"
             android:exported="false" />
-        <activity android:name=".admin_resell_category"
+        <activity
+            android:name=".Posts"
+            android:exported="false" />
+        <activity
+            android:name=".Explore_User"
+            android:exported="false" />
+        <activity
+            android:name=".admin_tools"
             android:exported="false"
-            />
-        <activity android:name=".admin_animal"
-            android:exported="false"/>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UserProfile"
+            android:exported="false" />
+        <activity
+            android:name=".Explore_user"
+            android:exported="false" />
+        <activity
+            android:name=".chat"
+            android:exported="false" />
+        <activity
+            android:name=".AI"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Saved"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MyProfile"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".admin_cultivation"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".animal_category_Activity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".admin_resell_category"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".admin_animal"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".admin_ecom"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".orderbydate"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".news"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".User_output"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".add_tools_accesories"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".category_cultivation"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".add_news"
             android:exported="false"
@@ -182,5 +218,17 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+    <uses-permission android:name="@android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
 </manifest>

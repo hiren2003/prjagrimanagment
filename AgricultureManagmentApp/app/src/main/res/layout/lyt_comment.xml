@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+    android:background="@drawable/layfeedback"
+    app:cardCornerRadius="15dp"
+    android:elevation="20dp"
+    android:minHeight="80dp"
+   >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:background="#5C8374"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/btndelete"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:visibility="gone"
+        android:layout_marginBottom="5dp"
+        android:src="@drawable/baseline_delete_24" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="35dp"
+        android:gravity="start"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/sendotp"
+            android:id="@+id/prfpc"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/uname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/cambay"
+                android:text="john thomsan"
+                android:layout_marginTop="1dp"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="this is comment"
+                android:layout_marginStart="10dp"
+                android:textSize="15dp"
+                android:textColor="@color/white"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/cambay"
+                android:id="@+id/txtcomment"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
+</androidx.cardview.widget.CardView>

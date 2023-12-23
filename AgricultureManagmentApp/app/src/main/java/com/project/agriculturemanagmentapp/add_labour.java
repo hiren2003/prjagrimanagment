@@ -1,15 +1,11 @@
 package com.project.agriculturemanagmentapp;
 
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.view.Gravity;
@@ -26,12 +22,9 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.UploadTask;
 
 import java.util.Calendar;
 import java.util.Locale;
-import java.util.Stack;
 
 public class add_labour extends AppCompatActivity {
     TextInputEditText edtlname, edtlmo, edtlplace, edtlwages, edtldes;
@@ -158,9 +151,9 @@ public class add_labour extends AppCompatActivity {
         Toast ts = new Toast(getBaseContext());
         View view;
         if (isgreen) {
-            view = getLayoutInflater().inflate(R.layout.lyttoastgreen, (ViewGroup) findViewById(R.id.container));
+            view = getLayoutInflater().inflate(R.layout.lyt_green_toast, (ViewGroup) findViewById(R.id.container));
         } else {
-            view = getLayoutInflater().inflate(R.layout.lyttoast, (ViewGroup) findViewById(R.id.container));
+            view = getLayoutInflater().inflate(R.layout.lyt_red_toast, (ViewGroup) findViewById(R.id.container));
         }
         TextView txtmessage = view.findViewById(R.id.txtmsg);
         txtmessage.setText(msg);

@@ -13,6 +13,7 @@
     android:layout_alignParentEnd="true"
     android:textColor="#023502"
     android:backgroundTint="@color/background"
+    android:visibility="gone"
     android:layout_margin="20dp"
     android:text="@string/sell"/>
     <com.google.android.material.tabs.TabLayout
@@ -20,8 +21,8 @@
         android:layout_width="match_parent"
         android:background="@color/white"
         android:layout_height="?actionBarSize"
-        app:tabIndicatorColor="#038808"
-        app:tabTextColor="#038808"
+        app:tabIndicatorColor="#066006"
+        app:tabTextColor="#066006"
         android:visibility="visible">
     </com.google.android.material.tabs.TabLayout>
     <androidx.viewpager.widget.ViewPager

@@ -14,53 +14,51 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.io.File;
+import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class RcGovAdapter extends FirebaseRecyclerAdapter<clsgovmodel,RcGovAdapter.ViewHolder> {
+public class RcGovAdapter extends RecyclerView.Adapter<RcGovAdapter.ViewHolder> {
 Context context;
 boolean isAdmin;
-    /**
-     * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
-     * {@link FirebaseRecyclerOptions} for configuration options.
-     *
-     * @param options
-     */
-    public RcGovAdapter(@NonNull FirebaseRecyclerOptions<clsgovmodel> options,Context context,boolean isAdmin) {
-        super(options);
-        this.context=context;
-        this.isAdmin=isAdmin;
+ArrayList<clsgovmodel> clsgovmodelArrayList;
+
+    public RcGovAdapter(Context context, boolean isAdmin, ArrayList<clsgovmodel> clsgovmodelArrayList) {
+        this.context = context;
+        this.isAdmin = isAdmin;
+        this.clsgovmodelArrayList = clsgovmodelArrayList;
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull RcGovAdapter.ViewHolder holder, int position, @NonNull clsgovmodel model) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        //Animation
         Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
         holder.itemView.setAnimation(anim);
+        //Setting Up News Value
         Glide.with(context)
-                .load(model.url)
+                .load(clsgovmodelArrayList.get(position).url)
                 .into(holder.imageView);
-        holder.txtdes.setText(model.des);
-        holder.txtstate.setText(model.state);
-        holder.txttitle.setText(model.name);
+        holder.txtdes.setText(clsgovmodelArrayList.get(position).des);
+        holder.txtstate.setText(clsgovmodelArrayList.get(position).state);
+        holder.txttitle.setText(clsgovmodelArrayList.get(position).name);
         holder.cdlyt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               context.startActivity(new Intent(Intent.ACTION_VIEW,
-                        Uri.parse(model.lnk)));
+                //Redirecting to Url
+                context.startActivity(new Intent(Intent.ACTION_VIEW,
+                        Uri.parse(clsgovmodelArrayList.get(position).lnk)));
             }
         });
         holder.cdlyt.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
+                //For Admin Only-Delete Only
                 Dialog dg=new Dialog(context);
-                dg.setContentView(R.layout.lytdelete);
+                dg.setContentView(R.layout.lyt_delete_dg);
                 dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
                 Button yes=dg.findViewById(R.id.yes);
                 Button no=dg.findViewById(R.id.no);
@@ -70,14 +68,16 @@ boolean isAdmin;
                 no.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        //DO Not Delete
                         dg.dismiss();
                     }
                 });
                 yes.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                         dg.dismiss();
-                        FirebaseDatabase.getInstance().getReference().child("Gov_scheme").child(model.getKey()).removeValue();
+                        //Delete News
+                        dg.dismiss();
+                        FirebaseDatabase.getInstance().getReference().child("Gov_scheme").child(clsgovmodelArrayList.get(position).getKey()).removeValue();
                     }
                 });
                 return false;
@@ -85,13 +85,17 @@ boolean isAdmin;
         });
     }
 
-
     @NonNull
     @Override
     public RcGovAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.lytgov,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.lyt_gov_scheme,parent,false);
         ViewHolder viewHolder=new ViewHolder(view);
         return viewHolder;
+    }
+
+    @Override
+    public int getItemCount() {
+        return clsgovmodelArrayList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

@@ -1,9 +1,9 @@
 package com.project.agriculturemanagmentapp;
 
 public class ClsCultivationProductModel {
-    String category,pname,specie,qty,price,payment,state,district,tehsil,village,des,img,prfpc,uname,mo,date,key,sname;
+    String category,pname,specie,qty,price,payment,state,district,tehsil,village,des,img,mo,date,key,sname,umo;
 
-    public ClsCultivationProductModel(String category, String pname, String specie, String qty, String price, String payment, String state, String district, String tehsil, String village, String des, String img, String prfpc, String uname, String mo, String date, String key, String sname) {
+    public ClsCultivationProductModel(String category, String pname, String specie, String qty, String price, String payment, String state, String district, String tehsil, String village, String des, String img, String mo, String date, String key, String sname, String umo) {
         this.category = category;
         this.pname = pname;
         this.specie = specie;
@@ -16,12 +16,19 @@ public class ClsCultivationProductModel {
         this.village = village;
         this.des = des;
         this.img = img;
-        this.prfpc = prfpc;
-        this.uname = uname;
         this.mo = mo;
         this.date = date;
         this.key = key;
         this.sname = sname;
+        this.umo = umo;
+    }
+
+    public String getUmo() {
+        return umo;
+    }
+
+    public void setUmo(String umo) {
+        this.umo = umo;
     }
 
     public String getSname() {
@@ -148,21 +155,6 @@ public class ClsCultivationProductModel {
         this.img = img;
     }
 
-    public String getPrfpc() {
-        return prfpc;
-    }
-
-    public void setPrfpc(String prfpc) {
-        this.prfpc = prfpc;
-    }
-
-    public String getUname() {
-        return uname;
-    }
-
-    public void setUname(String uname) {
-        this.uname = uname;
-    }
 
     public String getDate() {
         return date;

@@ -35,17 +35,16 @@
             app:boxCornerRadiusTopStart="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            app:counterEnabled="true"
-            app:counterMaxLength="15"
             app:hintEnabled="true"
             app:hintTextColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtpname"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
+                android:minHeight="60dp
+"
                 android:fontFamily="@font/allerta"
-                android:maxLength="15"
                 android:shadowColor="@color/black"
                 android:textColor="@color/black" />
 

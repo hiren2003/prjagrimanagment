@@ -1,5 +1,6 @@
 package com.project.agriculturemanagmentapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,7 +11,12 @@ import android.view.View;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 import static java.security.AccessController.getContext;
 
@@ -30,39 +36,41 @@ public class govermentScheme extends AppCompatActivity {
         type=intent.getIntExtra("type",0);
 
         FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
-        FirebaseRecyclerOptions<clsgovmodel> options=new FirebaseRecyclerOptions.Builder<clsgovmodel>()
-                .setQuery(FirebaseDatabase.getInstance().getReference().child("Gov_scheme"), clsgovmodel.class)
-                .build();
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(govermentScheme.this);
-        linearLayoutManager.setReverseLayout(true);
-        linearLayoutManager.setStackFromEnd(true);
-        rc.setLayoutManager(linearLayoutManager);
-        if(type==1){
-            addscheme.setVisibility(View.VISIBLE);
-            rcGovAdapter=new RcGovAdapter(options,govermentScheme.this,true);
-        }
-        else{
-            rcGovAdapter=new RcGovAdapter(options,govermentScheme.this,false);
-        }
-        rc.setAdapter(rcGovAdapter);
-        addscheme.setOnClickListener(new View.OnClickListener() {
+        FirebaseDatabase.getInstance().getReference().child("Gov_scheme").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(govermentScheme.this, add_gov_scheme.class));
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<clsgovmodel> clsgovmodelArrayList =new ArrayList<>();
+                for (DataSnapshot datasnapshot:
+                     snapshot.getChildren()) {
+                    clsgovmodelArrayList.add(datasnapshot.getValue(clsgovmodel.class));
+                }
+                LinearLayoutManager linearLayoutManager=new LinearLayoutManager(govermentScheme.this);
+                linearLayoutManager.setReverseLayout(true);
+                linearLayoutManager.setStackFromEnd(true);
+                rc.setLayoutManager(linearLayoutManager);
+                if(type==1){
+                    rcGovAdapter=new RcGovAdapter(govermentScheme.this,true,clsgovmodelArrayList);
+                }
+                else{
+                    rcGovAdapter=new RcGovAdapter(govermentScheme.this,false,clsgovmodelArrayList);
+                }
+                rc.setAdapter(rcGovAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        rcGovAdapter.startListening();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        rcGovAdapter.stopListening();
+        if(type==1){
+            addscheme.setVisibility(View.VISIBLE);
+        }
+        addscheme.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Add news
+                startActivity(new Intent(govermentScheme.this, add_gov_scheme.class));
+            }
+        });
     }
 }

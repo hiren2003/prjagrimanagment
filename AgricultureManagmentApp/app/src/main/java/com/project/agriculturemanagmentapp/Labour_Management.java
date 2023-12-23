@@ -20,7 +20,12 @@ import android.view.ViewGroup;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 import static android.Manifest.permission.SEND_SMS;
 
@@ -78,15 +83,28 @@ RcLabourAdapter rcLabourAdapter;
         RecyclerView recyclerView=view.findViewById(R.id.rc);
         ExtendedFloatingActionButton btnAddWorker = view.findViewById(R.id.addlabor);
         SharedPreferences sharedPreferences=getContext().getSharedPreferences("data", Context.MODE_PRIVATE);
-        FirebaseRecyclerOptions<clsLaborModel> options= new FirebaseRecyclerOptions.Builder<clsLaborModel>()
-                .setQuery(FirebaseDatabase.getInstance().getReference().child("Labor_data").child(sharedPreferences.getString("mo","1234567890")), clsLaborModel.class)
-                .build();
-        rcLabourAdapter=new RcLabourAdapter(options,getContext());
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
-        linearLayoutManager.setReverseLayout(true);
-        linearLayoutManager.setStackFromEnd(true);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(rcLabourAdapter);
+        FirebaseDatabase.getInstance().getReference().child("Labor_data").child(sharedPreferences.getString("mo","1234567890")).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<clsLaborModel> clsLaborModels=new ArrayList<>();
+                for (DataSnapshot datasnapshot:
+                     snapshot.getChildren()) {
+                    clsLaborModels.add(datasnapshot.getValue(clsLaborModel.class));
+                }
+                rcLabourAdapter=new RcLabourAdapter(getContext(),clsLaborModels);
+                LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
+                linearLayoutManager.setReverseLayout(true);
+                linearLayoutManager.setStackFromEnd(true);
+                recyclerView.setLayoutManager(linearLayoutManager);
+                recyclerView.setAdapter(rcLabourAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         btnAddWorker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,17 +118,4 @@ RcLabourAdapter rcLabourAdapter;
         });
         return view;
     }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        rcLabourAdapter.stopListening();
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        rcLabourAdapter.startListening();
-    }
-
 }

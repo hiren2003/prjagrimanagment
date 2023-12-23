@@ -1,7 +1,7 @@
 package com.project.agriculturemanagmentapp;
 
 public class clsFeedModel {
-    String prfpc, uname, date, post, des, key, key2, mediatype;
+    String date, post, des, key, key2, mediatype,umo;
 
     public String getMediatype() {
         return mediatype;
@@ -11,15 +11,14 @@ public class clsFeedModel {
         this.mediatype = mediatype;
     }
 
-    public clsFeedModel(String prfpc, String uname, String date, String post, String des, String key, String key2, String mediatype) {
-        this.prfpc = prfpc;
-        this.uname = uname;
+    public clsFeedModel(String date, String post, String des, String key, String key2, String mediatype, String umo) {
         this.date = date;
         this.post = post;
         this.des = des;
         this.key = key;
         this.key2 = key2;
         this.mediatype = mediatype;
+        this.umo = umo;
     }
 
     public String getKey() {
@@ -49,21 +48,7 @@ public class clsFeedModel {
         this.des = des;
     }
 
-    public String getPrfpc() {
-        return prfpc;
-    }
 
-    public void setPrfpc(String prfpc) {
-        this.prfpc = prfpc;
-    }
-
-    public String getUname() {
-        return uname;
-    }
-
-    public void setUname(String uname) {
-        this.uname = uname;
-    }
 
     public String getDate() {
         return date;
@@ -75,6 +60,14 @@ public class clsFeedModel {
 
     public String getPost() {
         return post;
+    }
+
+    public String getUmo() {
+        return umo;
+    }
+
+    public void setUmo(String umo) {
+        this.umo = umo;
     }
 
     public void setPost(String post) {

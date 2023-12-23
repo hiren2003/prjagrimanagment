@@ -1,7 +1,6 @@
 package com.project.agriculturemanagmentapp;
 
 import android.content.Context;
-import android.content.Intent;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,23 +23,21 @@ public class VpAdapterResell extends FragmentPagerAdapter {
             return new Cultivation_Product();
         } else if (position == 1) {
             return new animals();
-        } else if (position == 2) {
-            return new toos_accesories();
-        } else {
-            return new MyProducts();
+        } else  {
+            return new tools_accesories();
         }
     }
 
     @Override
     public int getCount() {
-        return 4;
+        return 3;
     }
 
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
         if (position == 0) {
-            return context.getResources().getString(R.string.Cultivation_Product);
+            return context.getResources().getString(R.string.Cuti_prd);
         } else if (position == 1) {
             return context.getResources().getString(R.string.animals);
         } else if (position == 2) {

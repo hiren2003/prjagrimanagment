@@ -1,7 +1,6 @@
 package com.project.agriculturemanagmentapp;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,8 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.firebase.ui.database.FirebaseArray;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -59,7 +56,7 @@ public class show_CultivationProduct extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String mo = "+91" + clsCultivationProductModel.getMo();
-                String msg = "Hello " + clsCultivationProductModel.getUname() + "," + getResources().getString(R.string.Interest2) + " " + clsCultivationProductModel.getPname();
+                String msg = "Hello " + clsCultivationProductModel.getSname() + "," + getResources().getString(R.string.Interest2) + " " + clsCultivationProductModel.getPname();
                 String url = "https://api.whatsapp.com/send?phone=" + mo + "&text=" + msg;
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
@@ -84,10 +81,21 @@ public class show_CultivationProduct extends AppCompatActivity {
                 Glide.with(show_CultivationProduct.this)
                         .load(clsCultivationProductModel.getImg())
                         .into(imgprdt);
-                Glide.with(show_CultivationProduct.this)
-                        .load(clsCultivationProductModel.getPrfpc())
-                        .circleCrop()
-                        .into(prfpc);
+                FirebaseDatabase.getInstance().getReference().child("Users_List").child(clsCultivationProductModel.getUmo()).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        clsUserModel clsUserModel=snapshot.getValue(com.project.agriculturemanagmentapp.clsUserModel.class);
+                        txtuname.setText(clsUserModel.getUname());
+                        Glide.with(getApplicationContext())
+                                .load(clsUserModel.getUrl())
+                                .circleCrop()
+                                .into(prfpc);
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
                 txtcategory.setText(clsCultivationProductModel.getCategory());
                 txtpname.setText(clsCultivationProductModel.getPname());
                 txtspecie.setText(clsCultivationProductModel.getSpecie());
@@ -99,7 +107,6 @@ public class show_CultivationProduct extends AppCompatActivity {
                 txtdistrict.setText(clsCultivationProductModel.getDistrict());
                 txtvillage.setText(clsCultivationProductModel.getVillage());
                 txtdes.setText(clsCultivationProductModel.getDes());
-                txtuname.setText(clsCultivationProductModel.getUname());
                 txtdate.setText(clsCultivationProductModel.getDate());
             }
 
@@ -113,9 +120,9 @@ public class show_CultivationProduct extends AppCompatActivity {
         Toast ts = new Toast(getBaseContext());
         View view;
         if (isgreen) {
-            view = getLayoutInflater().inflate(R.layout.lyttoastgreen, (ViewGroup) findViewById(R.id.container));
+            view = getLayoutInflater().inflate(R.layout.lyt_green_toast, (ViewGroup) findViewById(R.id.container));
         } else {
-            view = getLayoutInflater().inflate(R.layout.lyttoast, (ViewGroup) findViewById(R.id.container));
+            view = getLayoutInflater().inflate(R.layout.lyt_red_toast, (ViewGroup) findViewById(R.id.container));
         }
         TextView txtmessage = view.findViewById(R.id.txtmsg);
         txtmessage.setText(msg);

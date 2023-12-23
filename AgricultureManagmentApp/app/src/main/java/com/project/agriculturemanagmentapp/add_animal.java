@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -171,7 +170,7 @@ public class add_animal extends AppCompatActivity {
                     launcher.launch("image/*");
                 } else {
                     Dialog dg = new Dialog(add_animal.this);
-                    dg.setContentView(R.layout.lytloading);
+                    dg.setContentView(R.layout.lyt_loading_dg);
                     dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
                     dg.setCancelable(false);
                     dg.show();
@@ -200,12 +199,10 @@ public class add_animal extends AppCompatActivity {
                                             edtvillage.getText().toString(),
                                             edtdescription.getText().toString(),
                                             uri.toString(),
-                                            sharedPreferences1.getString("uname", "null"),
-                                            sharedPreferences1.getString("url", "unknown"),
                                             Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR)
-                                            , edtsname.getText().toString()
-                                    );
-                                    FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences1.getString("mo", "1234567890")).child("Resell").child("animal").child(key).setValue(clsAnimalModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            , edtsname.getText().toString(),
+                                            sharedPreferences1.getString("mo", "1234567890")
+                                    );                                    FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences1.getString("mo", "1234567890")).child("Resell").child("animal").child(key).setValue(clsAnimalModel).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             FirebaseDatabase.getInstance().getReference().child("animals").child(key).setValue(clsAnimalModel).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -256,9 +253,9 @@ public class add_animal extends AppCompatActivity {
         Toast ts = new Toast(getBaseContext());
         View view;
         if (isgreen) {
-            view = getLayoutInflater().inflate(R.layout.lyttoastgreen, (ViewGroup) findViewById(R.id.container));
+            view = getLayoutInflater().inflate(R.layout.lyt_green_toast, (ViewGroup) findViewById(R.id.container));
         } else {
-            view = getLayoutInflater().inflate(R.layout.lyttoast, (ViewGroup) findViewById(R.id.container));
+            view = getLayoutInflater().inflate(R.layout.lyt_red_toast, (ViewGroup) findViewById(R.id.container));
         }
         TextView txtmessage = view.findViewById(R.id.txtmsg);
         txtmessage.setText(msg);

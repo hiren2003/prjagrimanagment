@@ -1,9 +1,9 @@
 package com.project.agriculturemanagmentapp;
 
 public class clsVacancyModel {
-    String key,oname,ocan,twork,wtype,eamt,wdur,state,district,tehsil,village,des,prfpc,uname,date;
+    String key,oname,ocan,twork,wtype,eamt,wdur,state,district,tehsil,village,des,date,umo;
 
-    public clsVacancyModel(String key, String oname, String ocan, String twork, String wtype, String eamt, String wdur, String state, String district, String tehsil, String village, String des, String prfpc, String uname, String date) {
+    public clsVacancyModel(String key, String oname, String ocan, String twork, String wtype, String eamt, String wdur, String state, String district, String tehsil, String village, String des, String date, String umo) {
         this.key = key;
         this.oname = oname;
         this.ocan = ocan;
@@ -16,9 +16,8 @@ public class clsVacancyModel {
         this.tehsil = tehsil;
         this.village = village;
         this.des = des;
-        this.prfpc = prfpc;
-        this.uname = uname;
         this.date = date;
+        this.umo = umo;
     }
 
     public String getOcan() {
@@ -120,27 +119,21 @@ public class clsVacancyModel {
         this.des = des;
     }
 
-    public String getPrfpc() {
-        return prfpc;
-    }
-
-    public void setPrfpc(String prfpc) {
-        this.prfpc = prfpc;
-    }
-
-    public String getUname() {
-        return uname;
-    }
-
-    public void setUname(String uname) {
-        this.uname = uname;
-    }
 
     public String getDate() {
         return date;
     }
 
+
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getUmo() {
+        return umo;
+    }
+
+    public void setUmo(String umo) {
+        this.umo = umo;
     }
 }

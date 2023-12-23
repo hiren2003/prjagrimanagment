@@ -3,30 +3,27 @@ package com.project.agriculturemanagmentapp;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,6 +32,8 @@ import com.google.firebase.storage.FirebaseStorage;
  */
 public class Myfeed extends Fragment {
     RcFeedAdapter rcFeedAdapter;
+    String Mo;
+    Boolean SelfAccount;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -44,6 +43,11 @@ public class Myfeed extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    public Myfeed(String Mo,Boolean SelfAccount) {
+        this.Mo=Mo;
+        this.SelfAccount=SelfAccount;
+        // Required empty public constructor
+    }
     public Myfeed() {
         // Required empty public constructor
     }
@@ -83,20 +87,32 @@ public class Myfeed extends Fragment {
         FloatingActionButton addfeed=view.findViewById(R.id.addfeed);
         SharedPreferences sharedPreferences= getContext().getSharedPreferences("data", Context.MODE_PRIVATE);
         String mo=sharedPreferences.getString("mo","123456789");
-        FirebaseRecyclerOptions<clsFeedModel> options=new FirebaseRecyclerOptions.Builder<clsFeedModel>()
-                .setQuery(FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Feed"), clsFeedModel.class)
-                .build();
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
-        linearLayoutManager.setReverseLayout(true);
-        linearLayoutManager.setStackFromEnd(true);
-        rcFeedAdapter=new RcFeedAdapter(options,getContext(),true);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(rcFeedAdapter);
+        FirebaseDatabase.getInstance().getReference().child("User").child(Mo).child("Feed").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<clsFeedModel> feedModelArrayList = new ArrayList<>();
+                for (DataSnapshot datasnapshot:
+                     snapshot.getChildren()) {
+                    feedModelArrayList.add(datasnapshot.getValue(clsFeedModel.class));
+                }
+                LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
+                linearLayoutManager.setReverseLayout(true);
+                linearLayoutManager.setStackFromEnd(true);
+                RcImageGridAdapter rcImageGridAdapter=new RcImageGridAdapter(getContext(),SelfAccount,feedModelArrayList);
+                recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
+                recyclerView.setAdapter(rcImageGridAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         addfeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(getContext());
-                View v1=LayoutInflater.from(getContext()).inflate(R.layout.lytaddfeed,null,false);
+                View v1=LayoutInflater.from(getContext()).inflate(R.layout.lyt_add_feed_category,null,false);
                 CardView cdfeed = v1.findViewById(R.id.cdfeed);
                 CardView cdvideo=v1.findViewById(R.id.cdvideo);
                 CardView cdwc=v1.findViewById(R.id.cdwc);
@@ -131,21 +147,5 @@ public class Myfeed extends Fragment {
             }
         });
         return view;
-    }
-
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        rcFeedAdapter.startListening();
-    }
-
-    // Function to tell the app to stop getting
-    // data from database on stopping of the activity
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        rcFeedAdapter.stopListening();
     }
 }

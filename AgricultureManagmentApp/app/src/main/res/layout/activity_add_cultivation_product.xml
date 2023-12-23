@@ -47,6 +47,7 @@
                 android:layout_marginLeft="10dp"
                 android:background="#28C828" />
             <androidx.cardview.widget.CardView
+                android:id="@+id/cd"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:layout_margin="5dp"

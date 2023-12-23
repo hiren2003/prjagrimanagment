@@ -22,7 +22,7 @@
             android:text="@string/Add_Worker"
             android:textColor="#066006"
             android:textSize="30dp"
-            android:fontFamily="@font/montserrat_bold"
+            android:fontFamily="@font/cambay"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
@@ -135,6 +135,43 @@
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+              <com.google.android.material.textfield.TextInputLayout
+                  style="@style/Add_vacancy"
+                  app:boxBackgroundColor="#D5D5D5"
+                  app:boxCornerRadiusBottomEnd="10sp"
+                  app:boxCornerRadiusBottomStart="10dp"
+                  app:boxCornerRadiusTopEnd="10dp"
+                  app:boxCornerRadiusTopStart="10dp"
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginRight="10dp"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="5dp"
+                  android:layout_marginBottom="5dp"
+                  android:background="@drawable/curvebackground"
+                  android:hint="@string/Experience"
+                  app:hintEnabled="true"
+                  app:hintTextColor="@color/black"
+                  app:prefixTextColor="@color/black"
+                  app:startIconDrawable="@drawable/baseline_agriculture_24"
+                  app:startIconTint="#3E6018">
+
+                  <com.google.android.material.textfield.TextInputEditText
+                      android:id="@+id/expe"
+                      android:layout_width="match_parent"
+                      android:layout_height="60dp"
+                      android:fontFamily="@font/allerta"
+                      android:maxLength="15"
+                      android:shadowColor="@color/black"
+                      android:textColor="@color/black" />
+
+              </com.google.android.material.textfield.TextInputLayout>
+
+          </LinearLayout>
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Add_vacancy"
                 app:boxBackgroundColor="#D5D5D5"
@@ -175,6 +212,39 @@
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
+
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/curvebackground"
+                android:hint="@string/Education"
+                app:hintEnabled="true"
+                app:hintTextColor="@color/black"
+                app:prefixTextColor="@color/black"
+                app:startIconDrawable="@drawable/baseline_currency_rupee_24"
+                app:startIconTint="#3E6018">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edu"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:fontFamily="@font/allerta"
+                    android:maxLength="15"
+                    android:inputType="numberSigned"
+                    android:shadowColor="@color/black"
+                    android:textColor="@color/black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Add_vacancy"
+                app:boxBackgroundColor="#D5D5D5"
+                app:boxCornerRadiusBottomEnd="10sp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
                 app:hintTextColor="@color/black"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
@@ -199,31 +269,88 @@
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
-            <RelativeLayout
-                android:id="@+id/rldate"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:backgroundTint="#AC5F0D"
-                android:background="@drawable/sendotp"
-                android:gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/txtdate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Select_date"
-                    android:fontFamily="@font/allerta"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20dp" />
-            </RelativeLayout>
 
+                <RelativeLayout
+
+                    android:layout_width="305dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/sendotp"
+                    android:backgroundTint="#E3A18C"
+                    android:gravity="center">
+
+
+                    <TextView
+                        android:id="@+id/time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/allerta"
+                        android:text="@string/Select_time"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20dp" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/rltime"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/clock1"
+                    />
+            </LinearLayout>
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center_vertical"
+               android:orientation="horizontal">
+
+
+               <RelativeLayout
+
+                   android:layout_width="305dp"
+                   android:layout_height="60dp"
+                   android:layout_marginLeft="10dp"
+                   android:layout_marginTop="5dp"
+                   android:layout_marginBottom="5dp"
+                   android:backgroundTint="#9BD8DF"
+                   android:background="@drawable/sendotp"
+                   android:gravity="center">
+
+
+                   <TextView
+                       android:id="@+id/txtdate"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="@string/Select_date"
+                       android:fontFamily="@font/allerta"
+                       android:textColor="#FFFFFF"
+                       android:textSize="20dp" />
+               </RelativeLayout>
+               <ImageView
+                   android:id="@+id/rldate"
+                   android:layout_width="50dp"
+                   android:layout_height="50dp"
+                   android:layout_marginLeft="5dp"
+                   android:layout_gravity="center_vertical"
+                   android:src="@drawable/calendar"
+                   />
+           </LinearLayout>
             <RelativeLayout
                 android:id="@+id/btnsavedetail"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginTop="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/sendotp"
                 android:gravity="center">
 

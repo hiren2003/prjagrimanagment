@@ -215,23 +215,9 @@
     <string name="FarmerFriend">Farmer Friend</string>
     <string name="Enter_Prompt">Enter Prompt</string>
     <string name="post">post</string>
-    <string name="Warning">Warning</string>
-    <string name="dbwarningmsg">Are You Sure? \n This can not be undone.</string>
-    <string name="Countinue">Countinue</string>
-    <string name="Done">Done</string>
-    <string name="Task_have_done_sucessfully">Task have done sucessfully.</string>
-    <string name="Explore_User">Explore User</string>
-    <string name="Resell">Resell</string>
-    <string name="Customer_Information">Customer Information</string>
-    <string name="Cash_On_Delivery">Cash On Delivery</string>
-    <string name="digital_payment">Digital Payment</string>
-    <string name="Payment_Mode">Payment Mode</string>
-    <string name="Order_Confirm2">Confirm Order</string>
-    <string name="Billing">Billing</string>
-    <string name="Payable_Amount">Payable Amount</string>
-    <string name="Discount">Discount</string>
-    <string name="Shipping_Charges">Shipping Charges</string>
-    <string name="Order_Amount">Order Amount</string>
+    <string name="Experience">Experience</string>
+    <string name="Education">Education\n</string>
+    <string name="Select_time">Select time</string>
     <string-array name="toolstype">
         <item>Tools</item>
         <item>Accessories</item>

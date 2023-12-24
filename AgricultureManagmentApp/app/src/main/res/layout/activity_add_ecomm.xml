@@ -81,6 +81,96 @@
                 android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/choose_category"
+            app:boxBackgroundColor="#D5D5D5"
+            app:boxCornerRadiusBottomEnd="10sp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/curvebackground"
+            android:hint="CGST"
+            app:counterEnabled="true"
+            app:counterMaxLength="15"
+            app:hintEnabled="true"
+            app:hintTextColor="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtcgst"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:fontFamily="@font/allerta"
+                android:inputType="numberDecimal"
+                android:maxLength="15"
+                android:shadowColor="@color/black"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/choose_category"
+            app:boxBackgroundColor="#D5D5D5"
+            app:boxCornerRadiusBottomEnd="10sp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/curvebackground"
+            android:hint="SGST"
+            app:counterEnabled="true"
+            app:counterMaxLength="15"
+            app:hintEnabled="true"
+            app:hintTextColor="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtsgst"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:fontFamily="@font/allerta"
+                android:inputType="numberDecimal"
+                android:maxLength="15"
+                android:shadowColor="@color/black"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/choose_category"
+            app:boxBackgroundColor="#D5D5D5"
+            app:boxCornerRadiusBottomEnd="10sp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/curvebackground"
+            android:hint="@string/Discount"
+            app:counterEnabled="true"
+            app:counterMaxLength="15"
+            app:hintEnabled="true"
+            app:hintTextColor="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtdiscount"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:fontFamily="@font/allerta"
+                android:inputType="numberDecimal"
+                android:maxLength="15"
+                android:shadowColor="@color/black"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
 
@@ -112,6 +202,7 @@
                 android:textAlignment="viewStart"
                 android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
 
             android:layout_width="match_parent"

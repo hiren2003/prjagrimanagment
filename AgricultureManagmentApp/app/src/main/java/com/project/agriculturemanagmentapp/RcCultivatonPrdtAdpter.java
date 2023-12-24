@@ -192,7 +192,7 @@ public class RcCultivatonPrdtAdpter extends RecyclerView.Adapter<RcCultivatonPrd
                 return false;
             }
         });
-        // Stting Data For Each Item in Grid
+        // Setting Data For Each Item in Grid
         holder.txtprdt.setText(clsCultivationProductModelArrayList.get(position).getPname());
         holder.txtprc.setText(context.getResources().getString(R.string.prc)+clsCultivationProductModelArrayList.get(position).getPrice()+"/K.G.");
         holder.txtqty.setText(clsCultivationProductModelArrayList.get(position).getQty()+" K.G.");

@@ -14,6 +14,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ConfirmOrder"
+            android:exported="false" />
+        <activity
+            android:name=".Payment"
+            android:exported="false"></activity>
+        <activity
             android:name=".Detailed_Feed"
             android:exported="false" />
         <activity
@@ -217,21 +223,61 @@
             android:exported="false"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name="com.razorpay.CheckoutActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:theme="@style/CheckoutTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <data
+                    android:host="rzp.io"
+                    android:scheme="io.rzp" />
+            </intent-filter>
+        </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <meta-data
+            android:name="com.razorpay.ApiKey"
+            android:value="rzp_test_UHPUiPFiPwwVZt" />
+
+        <receiver
+            android:name="com.razorpay.RzpTokenReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="rzp.device_token.share" />
+            </intent-filter>
+        </receiver>
     </application>
+
+    <queries>
+
+        <!-- List of apps which you want to support for Intent pay -->
+        <intent>
+            <action android:name="android.intent.action.SEND" />
+        </intent>
+        <package android:name="com.phonepe.app" />
+        <!--
+             Specific intents you query for,
+             eg: for a custom share UI
+        -->
+        <package android:name="com.google.android.apps.nbu.paisa.user" />
+    </queries>
 
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.SEND_SMS" />
-
     <uses-permission android:name="@android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>

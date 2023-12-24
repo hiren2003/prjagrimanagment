@@ -3,6 +3,7 @@ package com.project.agriculturemanagmentapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -23,10 +24,15 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.razorpay.Checkout;
+import com.razorpay.PaymentData;
+import com.razorpay.PaymentResultWithDataListener;
+
+import org.json.JSONObject;
 
 import java.util.Calendar;
 
-public class show_ecom_prdt extends AppCompatActivity {
+public class show_ecom_prdt extends AppCompatActivity implements PaymentResultWithDataListener {
     String key;
     ImageView imageView;
     TextView txtpname, txtprice, txtspec, txtdes, txtrecom,txtkey;
@@ -125,14 +131,19 @@ public class show_ecom_prdt extends AppCompatActivity {
                     SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
                     boolean hasadd = sharedPreferences.getBoolean("hasadd", false);
                     if (hasadd) {
-                        String date = java.util.Calendar.getInstance().get(java.util.Calendar.DAY_OF_MONTH) + "-" + Calendar.getInstance().get(java.util.Calendar.MONTH) + "-" + java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);
-                        String key = FirebaseDatabase.getInstance().getReference().child("orders").child(date.toString()).push().getKey();
-                        clsOrderModel clsOrderModel = new clsOrderModel(model, model.getKey(),sharedPreferences.getString("mo", "1234567890"), sharedPreferences.getString("add", "null"), edtqty.getText().toString(), date);
-                        FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Myorder").child(key).setValue(clsOrderModel);
-                        FirebaseDatabase.getInstance().getReference().child("Orders").child(date).child(key).setValue(clsOrderModel);
-                        FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Cart").child(model.getKey()).removeValue();
-                        show_toast(getResources().getString(R.string.Confirm_order),true);
-                        finish();
+                        Intent intent=new Intent(show_ecom_prdt.this, ConfirmOrder.class);
+                        intent.putExtra("key",model.getKey());
+                        intent.putExtra("qty",edtqty.getText().toString());
+                        startActivity(intent);
+
+                    //    String date = java.util.Calendar.getInstance().get(java.util.Calendar.DAY_OF_MONTH) + "-" + Calendar.getInstance().get(java.util.Calendar.MONTH) + "-" + java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);
+                      //  String key = FirebaseDatabase.getInstance().getReference().child("orders").child(date.toString()).push().getKey();
+                        //clsOrderModel clsOrderModel = new clsOrderModel(model, model.getKey(),sharedPreferences.getString("mo", "1234567890"), sharedPreferences.getString("add", "null"), edtqty.getText().toString(), date);
+                       // FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Myorder").child(key).setValue(clsOrderModel);
+                        //FirebaseDatabase.getInstance().getReference().child("Orders").child(date).child(key).setValue(clsOrderModel);
+                       // FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Cart").child(model.getKey()).removeValue();
+                        //show_toast(getResources().getString(R.string.Confirm_order),true);
+                        //finish();
                     } else {
                         show_toast(getResources().getString(R.string.Enter_address), false);
                         startActivity(new Intent(getBaseContext(), EditprofileActivity.class));
@@ -171,5 +182,14 @@ public class show_ecom_prdt extends AppCompatActivity {
         ts.setGravity(Gravity.TOP, 0, 30);
         ts.setDuration(Toast.LENGTH_SHORT);
         ts.show();
+    }
+    @Override
+    public void onPaymentSuccess(String s, PaymentData paymentData) {
+
+    }
+
+    @Override
+    public void onPaymentError(int i, String s, PaymentData paymentData) {
+
     }
 }

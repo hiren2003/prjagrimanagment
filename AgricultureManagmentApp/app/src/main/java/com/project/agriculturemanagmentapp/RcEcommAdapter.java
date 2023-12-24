@@ -22,7 +22,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class RcEcommAdapter extends RecyclerView.Adapter<RcEcommAdapter.ViewHolder>{
+public class RcEcommAdapter extends RecyclerView.Adapter<RcEcommAdapter.ViewHolder> {
 
     Context context;
 

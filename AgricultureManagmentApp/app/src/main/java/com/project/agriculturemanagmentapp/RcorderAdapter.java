@@ -17,7 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class RcorderAdapter extends RecyclerView.Adapter<RcorderAdapter.ViewHolder>{
+public class RcorderAdapter extends RecyclerView.Adapter<RcorderAdapter.ViewHolder> {
     Context context;
     ArrayList<clsOrderModel> orderModelArrayList;
 

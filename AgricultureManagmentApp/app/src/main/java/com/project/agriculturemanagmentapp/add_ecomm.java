@@ -34,7 +34,7 @@ public class add_ecomm extends AppCompatActivity {
     ImageView imgprdt;
     Button btnsavedata;
     Spinner spntype;
-    TextInputEditText edtdes, edtspe, edtrecomm, edtprice, edtpname;
+    TextInputEditText edtdes, edtspe, edtrecomm, edtprice, edtpname,edtsgst,edtcgst,edtdiscount;
     SharedPreferences sharedPreferences;
 
     @Override
@@ -50,6 +50,9 @@ public class add_ecomm extends AppCompatActivity {
         edtrecomm = findViewById(R.id.edtrecom);
         edtpname = findViewById(R.id.edtpname);
         edtprice = findViewById(R.id.edtprc);
+        edtcgst=findViewById(R.id.edtcgst);
+        edtsgst=findViewById(R.id.edtsgst);
+        edtdiscount=findViewById(R.id.edtdiscount);
         ActivityResultLauncher<String> launcher = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
             public void onActivityResult(Uri result) {
@@ -105,10 +108,11 @@ public class add_ecomm extends AppCompatActivity {
                             reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").child(key).setValue(new clsEcommModel(key, edtpname.getText().toString(), uri.toString(), edtprice.getText().toString(), edtspe.getText().toString(), edtdes.getText().toString(), edtrecomm.getText().toString(), "0")).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    clsEcommModel model=new clsEcommModel(key, edtpname.getText().toString(), uri.toString(), edtprice.getText().toString(), edtspe.getText().toString(), edtdes.getText().toString(), edtrecomm.getText().toString(), "0",Float.parseFloat(edtcgst.getText().toString()),Float.parseFloat(edtsgst.getText().toString()),Float.parseFloat(edtdiscount.getText().toString()));
+                                    FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").child(key).setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
-                                            FirebaseDatabase.getInstance().getReference().child("ECommerce").child(spntype.getSelectedItem().toString()).child(key).setValue(new clsEcommModel(key, edtpname.getText().toString(), uri.toString(), edtprice.getText().toString(), edtspe.getText().toString(), edtdes.getText().toString(), edtrecomm.getText().toString(), "0")).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            FirebaseDatabase.getInstance().getReference().child("ECommerce").child(spntype.getSelectedItem().toString()).child(key).setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override
                                                 public void onSuccess(Void unused) {
                                                     show_toast(getResources().getString(R.string.successfullyuploaded), true);

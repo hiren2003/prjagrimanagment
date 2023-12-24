@@ -2,8 +2,9 @@ package com.project.agriculturemanagmentapp;
 
 public class clsEcommModel {
     String key,pname,img,price,dpec,des,recomm,qty;
+    Float cgst,sgst,discount;
 
-    public clsEcommModel(String key, String pname, String img, String price, String dpec, String des, String recomm, String qty) {
+    public clsEcommModel(String key, String pname, String img, String price, String dpec, String des, String recomm, String qty, Float cgst, Float sgst, Float discount) {
         this.key = key;
         this.pname = pname;
         this.img = img;
@@ -12,6 +13,9 @@ public class clsEcommModel {
         this.des = des;
         this.recomm = recomm;
         this.qty = qty;
+        this.cgst = cgst;
+        this.sgst = sgst;
+        this.discount = discount;
     }
 
     public String getQty() {
@@ -79,5 +83,29 @@ public class clsEcommModel {
 
     public void setRecomm(String recomm) {
         this.recomm = recomm;
+    }
+
+    public Float getCgst() {
+        return cgst;
+    }
+
+    public void setCgst(Float cgst) {
+        this.cgst = cgst;
+    }
+
+    public Float getSgst() {
+        return sgst;
+    }
+
+    public void setSgst(Float sgst) {
+        this.sgst = sgst;
+    }
+
+    public Float getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Float discount) {
+        this.discount = discount;
     }
 }

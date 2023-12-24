@@ -3,6 +3,8 @@ package com.project.agriculturemanagmentapp;
 public class clsOrderModel {
     clsEcommModel clsEcommModel;
     String key,mo,address,qty,date;
+    Boolean PaymentStatus;
+    String orderdate;
 
     public clsOrderModel(com.project.agriculturemanagmentapp.clsEcommModel clsEcommModel, String key, String mo, String address, String qty, String date) {
         this.clsEcommModel = clsEcommModel;

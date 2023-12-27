@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".chat">
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/rvprofile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp">
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="5dp"
+        android:background="#79AC78"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="40dp"
+            android:src="@drawable/down" />
 
         <ImageView
             android:id="@+id/profilepc"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="40dp"
             android:src="@drawable/baseline_account_circle_24" />
 
         <ImageView
@@ -33,21 +41,24 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="43dp"
+            android:layout_marginStart="15dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/txtuname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_bold"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat"
                 android:text="John Thomsan"
-                android:textSize="15dp"
+                android:textColor="@color/white"
+                android:textSize="20dp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txtdate"
                 android:layout_width="wrap_content"
+                android:textColor="@color/white"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
                 android:text="12/10/2023" />
@@ -58,24 +69,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal" />
-    </RelativeLayout>
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcchat"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="70dp"
+        android:layout_height="580dp"
+        android:layout_marginBottom="10dp"
         />
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
         android:gravity="center_vertical" >
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="290dp"
             android:layout_height="wrap_content"
             android:hint="@string/Enter_Prompt"
-            android:minHeight="70dp"
+            android:minHeight="60dp"
             style="@style/choose_category"
             app:boxBackgroundColor="#D5D5D5"
             app:boxCornerRadiusBottomEnd="10sp"
@@ -102,8 +113,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/send"
+            android:layout_marginLeft="10dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="65dp"
             android:layout_centerVertical="true"
             android:id="@+id/btnsendmsg"/>
         <ImageView
@@ -111,8 +122,8 @@
             android:layout_height="40dp"
             android:src="@drawable/chooseimage"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="15dp"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
             android:id="@+id/btn2"/>
         <ProgressBar
             android:id="@+id/prgbar"
@@ -123,5 +134,5 @@
             android:layout_marginEnd="65dp"
             android:visibility="gone"
             />
-    </RelativeLayout>
-</RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

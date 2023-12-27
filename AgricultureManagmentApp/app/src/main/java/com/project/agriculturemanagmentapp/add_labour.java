@@ -28,8 +28,8 @@ import java.util.Locale;
 
 public class add_labour extends AppCompatActivity {
     TextInputEditText edtlname, edtlmo, edtlplace, edtlwages, edtldes;
-    ImageView imageView;
-    RelativeLayout rldate, submit;
+    ImageView imageView,rldate;
+    RelativeLayout submit;
     TextView date;
     DatePickerDialog datePickerDialog;
     SharedPreferences sharedPreferences;

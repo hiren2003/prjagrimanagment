@@ -19,16 +19,16 @@ import com.bumptech.glide.Glide;
 
 public class Navigation extends AppCompatActivity {
 ImageView imgprfpc;
-Button profile;
+Button rvloout;
 TextView txtuname,txtumo,close;
 SharedPreferences sharedPreferences;
-RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc,rvnews,rvsave;
+RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvtc,rvnews,rvsave,profile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
         Window window = this.getWindow();
-        window.setStatusBarColor(this.getResources().getColor(R.color.drawer));
+        window.setStatusBarColor(this.getResources().getColor(R.color.lan));
         txtumo=findViewById(R.id.txtumo);
         txtuname=findViewById(R.id.txtuname);
         profile=findViewById(R.id.profile);

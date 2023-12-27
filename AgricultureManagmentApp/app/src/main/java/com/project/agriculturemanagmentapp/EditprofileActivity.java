@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -22,6 +23,7 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -40,9 +42,10 @@ public class EditprofileActivity extends AppCompatActivity {
     Spinner states;
     EditText edtname, edtemail, edtmo, edtaddress;
     RadioButton rdmale, rdfemale;
-    ImageView prfpc;
+    ImageView prfpc,rldate,back;
+    Dialog dialog;
     TextView txtdate,txtstate,txtgen;
-    RelativeLayout rldate, rlupdate;
+    RelativeLayout  rlupdate;
     SharedPreferences sharedPreferences;
     ActivityResultLauncher<String> launcher;
     boolean ispicChanged = false;
@@ -56,10 +59,11 @@ public class EditprofileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editprofile);
         Window window = this.getWindow();
-        window.setStatusBarColor(this.getResources().getColor(R.color.dddd));
+        window.setStatusBarColor(this.getResources().getColor(R.color.lan));
         edtname = findViewById(R.id.name);
         edtemail = findViewById(R.id.email);
         edtmo = findViewById(R.id.mobile);
+        back = findViewById(R.id.back);
         edtaddress = findViewById(R.id.address);
         rdmale = findViewById(R.id.rdmale);
         rdfemale = findViewById(R.id.rdfemale);
@@ -220,6 +224,15 @@ public class EditprofileActivity extends AppCompatActivity {
             }
         });
 
+        dialog = new Dialog(EditprofileActivity.this);
+      dialog.setContentView(R.layout.custome_dialogbox);
 
+    back.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            dialog.show();
+
+        }
+    });
     }
 }

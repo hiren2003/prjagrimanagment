@@ -134,7 +134,7 @@ public class frghome extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ArrayList<clsNewsModel> clsNewsModelArrayList=new ArrayList<>();
                 for (DataSnapshot datasnapshot:
-                     snapshot.getChildren()) {
+                        snapshot.getChildren()) {
                     clsNewsModelArrayList.add(datasnapshot.getValue(clsNewsModel.class));
                 }
                 LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
@@ -235,19 +235,19 @@ public class frghome extends Fragment {
     public void getlocation() {
         if (ActivityCompat.checkSelfPermission(getContext(), ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(getActivity(), new String[]{ACCESS_FINE_LOCATION}, 101);
-    }
-    else
-    {
-        Criteria criteria=new Criteria();
-        criteria.setAccuracy(Criteria.ACCURACY_FINE);
-        String provider = locationManager.getBestProvider(criteria,true);
-        if (provider==null){
-            setTemprature(28.7041,77.1025);
         }
-        else{
-             Location location =locationManager.getLastKnownLocation(provider);
-             setTemprature(location.getLatitude(),location.getLongitude());
+        else
+        {
+            Criteria criteria=new Criteria();
+            criteria.setAccuracy(Criteria.ACCURACY_FINE);
+            String provider = locationManager.getBestProvider(criteria,true);
+            if (provider==null){
+                setTemprature(28.7041,77.1025);
+            }
+            else{
+                Location location =locationManager.getLastKnownLocation(provider);
+                setTemprature(location.getLatitude(),location.getLongitude());
+            }
         }
     }
-}
 }

@@ -11,6 +11,7 @@
       android:layout_height="wrap_content"
       android:orientation="vertical">
       <androidx.cardview.widget.CardView
+          android:id="@+id/cdprdt"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_margin="10dp"
@@ -289,6 +290,7 @@
           </LinearLayout>
       </androidx.cardview.widget.CardView>
       <androidx.cardview.widget.CardView
+          android:id="@+id/cdpmod"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_margin="10dp"
@@ -359,6 +361,74 @@
               </LinearLayout>
           </RadioGroup>
       </androidx.cardview.widget.CardView>
+      <androidx.cardview.widget.CardView
+          android:id="@+id/cdpdetail"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="10dp"
+          app:cardCornerRadius="15dp">
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:padding="10dp"
+              android:orientation="vertical">
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/Order_Id"
+                  android:textStyle="bold"
+                  android:textSize="20dp"/>
+              <TextView
+                  android:id="@+id/txtoid"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textSize="15dp"
+                  android:text="-NmRkGVpP7afIlnODjGf"/>
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/Payment_Mode"
+                  android:textStyle="bold"
+                  android:textSize="20dp"/>
+              <TextView
+                  android:id="@+id/txtpmod"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textSize="15dp"
+                  android:text="Online"/>
+             <LinearLayout
+                 android:id="@+id/lnpoption"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:orientation="vertical">
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="@string/Payment_Status"
+                     android:textStyle="bold"
+                     android:textSize="20dp"/>
+                 <TextView
+                     android:id="@+id/txtpstatus"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:textSize="15dp"
+                     android:text="Sucess"/>
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="@string/Payment_Id"
+                     android:textStyle="bold"
+                     android:textSize="20dp"/>
+                 <TextView
+                     android:id="@+id/txtpid"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:textSize="15dp"
+                     android:text="pay_NGWvrWHPVW1uX5"/>
+             </LinearLayout>
+          </LinearLayout>
+      </androidx.cardview.widget.CardView>
+
       <androidx.appcompat.widget.AppCompatButton
           android:id="@+id/btnconfirm"
           android:layout_width="match_parent"

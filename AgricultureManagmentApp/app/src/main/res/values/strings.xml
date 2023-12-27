@@ -232,6 +232,12 @@
     <string name="Discount">Discount</string>
     <string name="Shipping_Charges">Shipping Charges</string>
     <string name="Order_Amount">Order Amount</string>
+    <string name="Order_Detail">Order Detail</string>
+    <string name="Order_Id">Order Id</string>
+    <string name="Payment_Id">Payment Id</string>
+    <string name="Payment_Status">Payment Status</string>
+    <string name="Product_Name">Product Name</string>
+    <string name="Product_Id">Product Id</string>
     <string-array name="toolstype">
         <item>Tools</item>
         <item>Accessories</item>

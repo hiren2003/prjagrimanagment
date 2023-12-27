@@ -42,8 +42,7 @@
                 android:id="@+id/edtpname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="60dp
-"
+                android:minHeight="60dp"
                 android:fontFamily="@font/allerta"
                 android:shadowColor="@color/black"
                 android:textColor="@color/black" />

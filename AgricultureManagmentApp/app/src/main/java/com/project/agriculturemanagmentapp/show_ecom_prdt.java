@@ -35,7 +35,7 @@ import java.util.Calendar;
 public class show_ecom_prdt extends AppCompatActivity implements PaymentResultWithDataListener {
     String key;
     ImageView imageView;
-    TextView txtpname, txtprice, txtspec, txtdes, txtrecom,txtkey;
+    TextView txtpname, txtprice, txtspec, txtdes, txtrecom,txtkey,txtsgst,txtcgst,txtdiscount;
     ImageButton btncart, btnrmcart, btnorder, btncancelorder,rmprdt;
     clsEcommModel model;
     TextInputLayout txtqty2;
@@ -60,6 +60,9 @@ public class show_ecom_prdt extends AppCompatActivity implements PaymentResultWi
         txtkey=findViewById(R.id.txtkey);
         rmprdt=findViewById(R.id.dprdt);
         txtqty2=findViewById(R.id.txtqty2);
+        txtcgst=findViewById(R.id.txtcgst);
+        txtsgst=findViewById(R.id.txtsgst);
+        txtdiscount=findViewById(R.id.txtdiscount);
         btncancelorder = findViewById(R.id.btncancelorder);
         Intent intent = getIntent();
         key = intent.getStringExtra("key");
@@ -76,7 +79,8 @@ public class show_ecom_prdt extends AppCompatActivity implements PaymentResultWi
             edtqty.setInputType(InputType.TYPE_NULL);
             edtqty.setVisibility(View.VISIBLE);
             txtqty2.setVisibility(View.VISIBLE);
-        }         reference = FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").child(key);
+        }
+        reference = FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").child(key);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -91,6 +95,9 @@ public class show_ecom_prdt extends AppCompatActivity implements PaymentResultWi
                 txtrecom.setText(model.getRecomm());
                 edtqty.setText(model.getQty());
                 txtkey.setText(model.getKey());
+                txtcgst.setText(model.getCgst()+"%");
+                txtsgst.setText(model.getSgst()+"%");
+                txtdiscount.setText(model.getDiscount()+"%");
             }
 
             @Override

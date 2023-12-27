@@ -103,6 +103,7 @@
     <string name="msgsent">Message Sent</string>
     <string name="Update_Profile">Update_Profile</string>
     <string name="Scheme_name">Scheme name</string>
+    <string name="Scheme">Scheme</string>
     <string name="Add_Scheme">Add Scheme</string>
     <string name="Applicable_region">Applicable region</string>
     <string name="title_activity_add_ecomm">add_ecomm</string>
@@ -225,6 +226,17 @@
     <string name="Select_time">Select_time</string>
     <string name="Education">Education</string>
     <string name="Experience">Experience</string>
+    <string name="Discount">Discount</string>
+    <string name="Customer_Information">Customer Information</string>
+    <string name="Payment_Mode">Payment Mode</string>
+    <string name="Cash_On_Delivery">Cash On Delivery</string>
+    <string name="digital_payment">digital payment</string>
+    <string name="Order_Confirm2">Order Confirm</string>
+    <string name="Payable_Amount">Payable Amount</string>
+    <string name="AgroCare">AgroCare</string>
+    <string name="Dashboard">Dashboard\n</string>
+    <string name="User">User</string>
+    <string name="Link">Link</string>
     <string-array name="toolstype">
         <item>Tools</item>
         <item>Accessories</item>

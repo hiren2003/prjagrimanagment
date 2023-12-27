@@ -41,8 +41,8 @@ public class RcuserAdapter extends RecyclerView.Adapter<RcuserAdapter.ViewHolder
     }
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
-        holder.itemView.setAnimation(anim);
+      //  Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
+       // holder.itemView.setAnimation(anim);
         holder.txtpname.setText(userModelArrayList.get(position).getUname());
        // holder.txtprice.setText("+91 "+userModelArrayList.get(position).getMo());
         Glide.with(context)

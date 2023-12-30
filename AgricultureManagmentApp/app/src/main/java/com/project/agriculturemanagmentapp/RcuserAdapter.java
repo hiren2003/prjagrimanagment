@@ -41,9 +41,10 @@ public class RcuserAdapter extends RecyclerView.Adapter<RcuserAdapter.ViewHolder
     }
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
-        holder.itemView.setAnimation(anim);
-        holder.txtname.setText(userModelArrayList.get(position).getUname());
+      //  Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
+       // holder.itemView.setAnimation(anim);
+        holder.txtpname.setText(userModelArrayList.get(position).getUname());
+       // holder.txtprice.setText("+91 "+userModelArrayList.get(position).getMo());
         Glide.with(context)
                 .load(userModelArrayList.get(position).getUrl())
                 .circleCrop()
@@ -91,13 +92,15 @@ public class RcuserAdapter extends RecyclerView.Adapter<RcuserAdapter.ViewHolder
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txtname;
+        TextView txtpname;
         ImageView imgprdt;
         CardView cd;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            txtpname = itemView.findViewById(R.id.txtname);
+           // txtprice = itemView.findViewById(R.id.txtprice);
             imgprdt = itemView.findViewById(R.id.imgprfpc);
-            txtname=itemView.findViewById(R.id.txtname);
+            //cd = itemView.findViewById(R.id.cdlyt);
         }
     }
 }

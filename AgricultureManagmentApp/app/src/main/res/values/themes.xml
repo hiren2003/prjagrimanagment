@@ -12,9 +12,9 @@
         <item name="android:cursorVisible">@color/green</item>
     </style>
     <style name="CustomOutlineBoxComment" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeColor">#88AB8E</item>
-        <item name="android:textColorHint">#FFFFFF</item>
-        <item name="hintTextColor">#FFFFFF</item>
+        <item name="boxStrokeColor">#2C2C2C</item>
+        <item name="android:textColorHint">#000000</item>
+        <item name="hintTextColor">#000000</item>
         <item name="android:cursorVisible">@color/green</item>
     </style>
 

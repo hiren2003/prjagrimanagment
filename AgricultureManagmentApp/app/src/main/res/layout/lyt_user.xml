@@ -3,30 +3,34 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="5dp"
+    android:layout_margin="10dp"
     app:cardCornerRadius="20dp"
     app:cardElevation="10dp"
+    android:backgroundTint="#88BFE1"
     android:orientation="vertical">
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
-    android:padding="10dp"
-    android:orientation="vertical">
-    <ImageView
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:id="@+id/imgprfpc"/>
-    <TextView
-        android:id="@+id/txtname"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/cambay"
-        android:text="John Thomsan"
-        android:textSize="18dp"
-        android:textColor="#000"
-        android:layout_margin="2dp"
-        android:textStyle="bold"
-        />
-</LinearLayout>
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/imgprfpc"
+            android:layout_width="160dp"
+            android:layout_height="160dp" />
+
+        <TextView
+            android:id="@+id/txtname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:fontFamily="@font/cambay"
+            android:text="John Thomsan"
+            android:layout_marginTop="10dp"
+            android:textColor="#000"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+    </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -314,7 +314,9 @@
                     android:backgroundTint="#176B87"
                     android:foregroundTint="#8BC34A"
                     android:progressTint="#8BC34A"
-                    android:visibility="gone" />
+                    android:visibility="gone"
+                    android:layout_centerInParent="true"
+                    />
 
                 <TextView
                     android:id="@+id/txt"

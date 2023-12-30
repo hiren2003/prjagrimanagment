@@ -1,5 +1,7 @@
 package com.project.agriculturemanagmentapp;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -27,6 +29,7 @@ import java.util.Optional;
  */
 public class ShowFeed extends Fragment {
     RcFeedAdapter rcFeedAdapter;
+    Boolean isFollowerFeed;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -36,8 +39,11 @@ public class ShowFeed extends Fragment {
     private String mParam1;
     private String mParam2;
 
+
+    public ShowFeed(Boolean isFollowerFeed) {
+        this.isFollowerFeed=isFollowerFeed;
+    }
     public ShowFeed() {
-        // Required empty public constructor
     }
 
     /**
@@ -72,20 +78,52 @@ public class ShowFeed extends Fragment {
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_show_feed, container, false);
         RecyclerView recyclerView=view.findViewById(R.id.rcviewshfeed);
+        SharedPreferences sharedPreferences=getContext().getSharedPreferences("data", Context.MODE_PRIVATE);
         FirebaseDatabase.getInstance().getReference().child("Feed").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ArrayList<clsFeedModel> feedModelArrayList = new ArrayList<>();
                 for (DataSnapshot datasnapshot:
                         snapshot.getChildren()) {
-                    feedModelArrayList.add(datasnapshot.getValue(clsFeedModel.class));
+                    clsFeedModel model=datasnapshot.getValue(clsFeedModel.class);
+                    feedModelArrayList.add(model);
                 }
-                LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
-                linearLayoutManager.setReverseLayout(true);
-                linearLayoutManager.setStackFromEnd(true);
-                recyclerView.setLayoutManager(linearLayoutManager);
-                rcFeedAdapter =new RcFeedAdapter(getContext(),false,feedModelArrayList);
-                recyclerView.setAdapter(rcFeedAdapter);
+
+
+                FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo","null")).child("Following").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot2) {
+                        ArrayList<String> arrayList=new ArrayList<>();
+                        for (DataSnapshot dataSnapshot:snapshot2.getChildren()){
+                            arrayList.add(dataSnapshot.getValue().toString());
+                        }
+                        ArrayList<clsFeedModel> feedModelArrayList2 = new ArrayList<>();
+                        if (isFollowerFeed){
+                            for (clsFeedModel clsFeedModel:feedModelArrayList){
+                                if (arrayList.contains(clsFeedModel.getUmo())){
+                                    feedModelArrayList2.add(clsFeedModel);
+                                }
+                            }
+                        }
+                        else {
+                            for (clsFeedModel clsFeedModel:feedModelArrayList){
+                                if (!arrayList.contains(clsFeedModel.getUmo())){
+                                    feedModelArrayList2.add(clsFeedModel);
+                                }
+                            }
+                        }
+                        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
+                        linearLayoutManager.setReverseLayout(true);
+                        linearLayoutManager.setStackFromEnd(true);
+                        recyclerView.setLayoutManager(linearLayoutManager);
+                        rcFeedAdapter =new RcFeedAdapter(getContext(),false,feedModelArrayList2);
+                        recyclerView.setAdapter(rcFeedAdapter);
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
 
             @Override

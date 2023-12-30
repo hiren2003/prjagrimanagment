@@ -18,6 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -26,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -44,7 +46,8 @@ public class EditprofileActivity extends AppCompatActivity {
     RadioButton rdmale, rdfemale;
     ImageView prfpc,rldate,back;
     Dialog dialog;
-    TextView txtdate,txtstate,txtgen;
+    TextView txtdate,txtstate,txtgen,txt;
+    ProgressBar progressBar;
     RelativeLayout  rlupdate;
     SharedPreferences sharedPreferences;
     ActivityResultLauncher<String> launcher;
@@ -75,6 +78,8 @@ public class EditprofileActivity extends AppCompatActivity {
         states = findViewById(R.id.state);
         rdbgrp=findViewById(R.id.rdbgrp);
         txtgen=findViewById(R.id.txtgen);
+        progressBar=findViewById(R.id.progressBar2);
+        txt=findViewById(R.id.txt);
         String[] arr = getResources().getStringArray(R.array.india_states);
         states.setAdapter(new ArrayAdapter<String>(this, com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item, arr));
         Intent intent=getIntent();
@@ -166,26 +171,34 @@ public class EditprofileActivity extends AppCompatActivity {
         rlupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
+                txt.setVisibility(View.GONE);
                 SharedPreferences.Editor sedit = sharedPreferences.edit();
                 StorageReference referencetostorage = FirebaseStorage.getInstance().getReference().child("User_Profiles").child(edtmo.getText().toString());
                 if (ispicChanged == false) {
-                    FirebaseDatabase.getInstance().getReference().child("Users_List").child(edtmo.getText().toString()).setValue(new clsUserModel(edtname.getText().toString(), edtmo.getText().toString(), sharedPreferences.getString("url", "null"), edtemail.getText().toString(), txtdate.getText().toString(), rdmale.isChecked() ? "Male" : "Female", edtaddress.getText().toString(), states.getSelectedItem().toString()));
-                    sedit.putString("uname", edtname.getText().toString());
-                    sedit.putString("mo", edtmo.getText().toString());
-                    sedit.putString("email", edtemail.getText().toString());
-                    sedit.putString("add", edtaddress.getText().toString());
-                    sedit.putString("dob", txtdate.getText().toString());
-                    sedit.putInt("gender", rdmale.isChecked() ? 1 : 0);
-                    sedit.putInt("state", states.getSelectedItemPosition());
-                    sedit.putBoolean("iscomplete",true);
-                    if(edtaddress.getText().toString().trim().isEmpty()){
-                        sedit.putBoolean("hasadd",false);
-                    }
-                    else{
-                        sedit.putBoolean("hasadd",true);
-                    }
-                    sedit.apply();
-                    sedit.commit();
+                    FirebaseDatabase.getInstance().getReference().child("Users_List").child(edtmo.getText().toString()).setValue(new clsUserModel(edtname.getText().toString(), edtmo.getText().toString(), sharedPreferences.getString("url", "null"), edtemail.getText().toString(), txtdate.getText().toString(), rdmale.isChecked() ? "Male" : "Female", edtaddress.getText().toString(), states.getSelectedItem().toString())).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            progressBar.setVisibility(View.GONE);
+                            txt.setVisibility(View.VISIBLE);
+                            sedit.putString("uname", edtname.getText().toString());
+                            sedit.putString("mo", edtmo.getText().toString());
+                            sedit.putString("email", edtemail.getText().toString());
+                            sedit.putString("add", edtaddress.getText().toString());
+                            sedit.putString("dob", txtdate.getText().toString());
+                            sedit.putInt("gender", rdmale.isChecked() ? 1 : 0);
+                            sedit.putInt("state", states.getSelectedItemPosition());
+                            sedit.putBoolean("iscomplete",true);
+                            if(edtaddress.getText().toString().trim().isEmpty()){
+                                sedit.putBoolean("hasadd",false);
+                            }
+                            else{
+                                sedit.putBoolean("hasadd",true);
+                            }
+                            sedit.apply();
+                            sedit.commit();
+                        }
+                    });
                     finish();
                 } else {
                     referencetostorage.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -212,8 +225,9 @@ public class EditprofileActivity extends AppCompatActivity {
                                     }
                                     sedit.apply();
                                     sedit.commit();
+                                    progressBar.setVisibility(View.GONE);
+                                    txt.setVisibility(View.VISIBLE);
                                     finish();
-
                                 }
                             });
                         }
@@ -231,7 +245,6 @@ public class EditprofileActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             dialog.show();
-
         }
     });
     }

@@ -237,6 +237,15 @@
     <string name="Dashboard">Dashboard\n</string>
     <string name="User">User</string>
     <string name="Link">Link</string>
+    <string name="Product_Name">Product Name</string>
+    <string name="Product_Id">Product Id</string>
+    <string name="Order_Id">Order Id</string>
+    <string name="Payment_Status">Payment Status</string>
+    <string name="Payment_Id">Payment Id</string>
+    <string name="Follow">Follow</string>
+    <string name="Following">Following</string>
+    <string name="Followers">Followers</string>
+    <string name="Message">Message</string>
     <string-array name="toolstype">
         <item>Tools</item>
         <item>Accessories</item>

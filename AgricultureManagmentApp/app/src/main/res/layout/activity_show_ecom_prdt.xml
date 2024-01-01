@@ -44,14 +44,16 @@
                              android:textColor="#000000"
                              android:textSize="15dp"
                              android:textStyle="bold" />
+
                          <TextView
                              android:id="@+id/txtpname"
                              android:layout_width="wrap_content"
                              android:layout_height="wrap_content"
+                             android:fontFamily="@font/allerta"
                              android:text="Product Name"
                              android:textColor="#000000"
-                             android:fontFamily="@font/allerta"
-                             android:textSize="15dp"/>
+                             android:textSize="15dp" />
+
                          <TextView
                              android:id="@+id/ttt"
                              android:layout_width="wrap_content"

@@ -97,26 +97,11 @@ public class ShowFeed extends Fragment {
                         for (DataSnapshot dataSnapshot:snapshot2.getChildren()){
                             arrayList.add(dataSnapshot.getValue().toString());
                         }
-                        ArrayList<clsFeedModel> feedModelArrayList2 = new ArrayList<>();
-                        if (isFollowerFeed){
-                            for (clsFeedModel clsFeedModel:feedModelArrayList){
-                                if (arrayList.contains(clsFeedModel.getUmo())){
-                                    feedModelArrayList2.add(clsFeedModel);
-                                }
-                            }
-                        }
-                        else {
-                            for (clsFeedModel clsFeedModel:feedModelArrayList){
-                                if (!arrayList.contains(clsFeedModel.getUmo())){
-                                    feedModelArrayList2.add(clsFeedModel);
-                                }
-                            }
-                        }
                         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
                         linearLayoutManager.setReverseLayout(true);
                         linearLayoutManager.setStackFromEnd(true);
                         recyclerView.setLayoutManager(linearLayoutManager);
-                        rcFeedAdapter =new RcFeedAdapter(getContext(),false,feedModelArrayList2);
+                        rcFeedAdapter =new RcFeedAdapter(getContext(),false,feedModelArrayList);
                         recyclerView.setAdapter(rcFeedAdapter);
                     }
                     @Override

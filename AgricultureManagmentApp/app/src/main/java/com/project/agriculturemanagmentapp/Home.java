@@ -155,7 +155,7 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
                 .circleCrop()
                 .into(prfpc);
         frameLayout.removeAllViews();
-        getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new Feed()).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new ShowFeed()).commit();
         prfpc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -191,7 +191,7 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
             public Unit invoke(MeowBottomNavigation.Model model) {
                 if (model.getId() == 0) {
                     frameLayout.removeAllViews();
-                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new Feed()).commit();
+                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new ShowFeed()).commit();
                 } else if (model.getId() == 1) {
                     frameLayout.removeAllViews();
                     getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new Labour_Vacancy()).commit();
@@ -215,7 +215,7 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
             public void onNavigationChanged(View view, int position) {
                 if (position == 0) {
                     frameLayout.removeAllViews();
-                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new Feed()).commit();
+                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new ShowFeed()).commit();
                 } else if (position == 1) {
                     frameLayout.removeAllViews();
                     getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new Other_vacancy()).commit();

@@ -246,6 +246,8 @@
     <string name="Following">Following</string>
     <string name="Followers">Followers</string>
     <string name="Message">Message</string>
+    <string name="del">Delete</string>
+    <string name="Delete_Message">Delete message ?</string>
     <string-array name="toolstype">
         <item>Tools</item>
         <item>Accessories</item>

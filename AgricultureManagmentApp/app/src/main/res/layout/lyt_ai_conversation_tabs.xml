@@ -20,7 +20,7 @@
       <LinearLayout
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:backgroundTint="#DEDEDE"
+          android:backgroundTint="#ffffff"
           android:background="@drawable/oneflat"
           android:layout_marginStart="25dp"
           android:padding="5dp"
@@ -76,7 +76,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#DEDEDE"
+            android:backgroundTint="#dcf8c6"
             android:background="@drawable/oneflat2"
             android:layout_marginEnd="25dp"
             android:padding="5dp"

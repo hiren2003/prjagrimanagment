@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -78,6 +79,8 @@ public class ShowFeed extends Fragment {
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_show_feed, container, false);
         RecyclerView recyclerView=view.findViewById(R.id.rcviewshfeed);
+        ShimmerFrameLayout shimmerFrameLayout = view.findViewById(R.id.shimmer_view_container);
+        shimmerFrameLayout.startShimmer();
         SharedPreferences sharedPreferences=getContext().getSharedPreferences("data", Context.MODE_PRIVATE);
         FirebaseDatabase.getInstance().getReference().child("Feed").addValueEventListener(new ValueEventListener() {
             @Override
@@ -103,6 +106,8 @@ public class ShowFeed extends Fragment {
                         recyclerView.setLayoutManager(linearLayoutManager);
                         rcFeedAdapter =new RcFeedAdapter(getContext(),false,feedModelArrayList);
                         recyclerView.setAdapter(rcFeedAdapter);
+                        shimmerFrameLayout.setVisibility(View.GONE);
+                        shimmerFrameLayout.stopShimmer();
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {

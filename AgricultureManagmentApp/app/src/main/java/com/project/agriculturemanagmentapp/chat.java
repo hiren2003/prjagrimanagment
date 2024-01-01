@@ -75,7 +75,9 @@ TextView txtrname;
         surl=sharedPreferences.getString("url","none");
         sname = sharedPreferences.getString("uname","none");
          calendar = Calendar.getInstance();
-        date=calendar.get(Calendar.DAY_OF_MONTH)+"/"+calendar.get(Calendar.MONTH)+"/"+calendar.get(Calendar.YEAR);
+         int month=calendar.get(Calendar.MONTH);
+         month++;
+        date=calendar.get(Calendar.DAY_OF_MONTH)+"/"+month+"/"+calendar.get(Calendar.YEAR);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(chat.this);
         rcchat.setLayoutManager(linearLayoutManager);
         rvprofile.setOnClickListener(new View.OnClickListener() {
@@ -141,7 +143,21 @@ TextView txtrname;
             public void onClick(View v) {
                 prgbar.setVisibility(View.VISIBLE);
                 send.setVisibility(View.GONE);
-                time=calendar.get(Calendar.HOUR_OF_DAY)+":"+calendar.get(Calendar.MINUTE);
+                String hour=calendar.get(Calendar.HOUR_OF_DAY)+"";
+                String minute=calendar.get(Calendar.MINUTE)+"";
+                if(minute.length()<2){
+                    minute+="0";
+                    if(hour.length()<2) {
+                        hour+="0";
+                    }
+                    }
+                if(hour.length()<2){
+                    hour+="0";
+                    if(minute.length()<2) {
+                        minute+="0";
+                    }
+                }
+                time=hour+":"+minute;
                 String key=FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("Chats").child(rmo.toString()).push().getKey().toString();
                 if(uri==null){
                     clsChatModel model = new clsChatModel(edtmsg.getText().toString(),smo,rmo,date,time,key,"");

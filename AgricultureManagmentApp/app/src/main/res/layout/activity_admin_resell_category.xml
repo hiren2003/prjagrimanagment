@@ -7,66 +7,95 @@
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".Resell_Category">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:backgroundTint="#83d0cb"
+        app:cardCornerRadius="20dp"
+        android:layout_margin="10dp"
+        android:elevation="50dp"
+        android:background="@drawable/userbac"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/resell"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Resell_Items"
+                android:textStyle="bold"
+                android:textSize="40dp"
+                android:textColor="@color/white"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/cambay"
+                android:layout_marginLeft="20dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
         android:scrollbars="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             >
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Category"
-                android:textColor="#066006"
-                android:textSize="40dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/montserrat_bold"
-                android:layout_marginLeft="20dp"/>
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:background="@color/frame"
-                android:layout_below="@+id/hh"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
-                android:layout_height="2dp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Animals"
-                android:textColor="#000000"
-                android:textSize="30dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/montserrat_bold"
-                android:layout_marginLeft="20dp"/>
+<!--            <LinearLayout-->
+<!--                android:layout_width="150dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:background="@drawable/drawer"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:backgroundTint="#f5f5f5"-->
+<!--                android:orientation="horizontal">-->
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Animals"
+                    android:textColor="#47716F"
+                    android:gravity="center"
+                    android:textSize="30dp"
+                    android:fontFamily="@font/montserrat_bold"
+                  />
+<!--         </LinearLayout>-->
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/cdanimal"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_margin="20dp"
+                android:layout_margin="25dp"
                 android:backgroundTint="#ECECEC"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="10dp">
-
                 <ImageView
                     android:layout_width="120dp"
                     android:layout_height="120dp"
-                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="120dp"
                     android:src="@drawable/animals" />
+
             </androidx.cardview.widget.CardView>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Foods"
-                android:textColor="#000000"
+                android:textColor="#47716F"
+                android:gravity="center"
                 android:textSize="30dp"
                 android:fontFamily="@font/montserrat_bold"
-                android:layout_marginLeft="20dp"/>
+                />
             <androidx.cardview.widget.CardView
                 android:id="@+id/cdagrprdt"
                 android:layout_width="match_parent"
@@ -111,10 +140,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Equipments"
-                android:textColor="#000000"
+                android:textColor="#47716F"
+                android:gravity="center"
                 android:textSize="30dp"
                 android:fontFamily="@font/montserrat_bold"
-                android:layout_marginLeft="20dp"/>
+                />
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/cdta"
                 android:layout_width="match_parent"

@@ -30,7 +30,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import java.util.Locale;
 
 public class Home extends AppCompatActivity {
-    MeowBottomNavigation btmnv;
     FrameLayout frameLayout;
     RelativeLayout toolbar;
     ImageView prfpc, imgcart, imgorder,imgmessage;
@@ -52,7 +51,6 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
         setLanguage();
      sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
      view=findViewById(R.id.view);
-        btmnv = findViewById(R.id.btmnv);
         toolbar = findViewById(R.id.toolbar);
         prfpc = findViewById(R.id.prfpc);
         imgcart = findViewById(R.id.imgcart);
@@ -180,35 +178,6 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
                 startActivity(new Intent(Home.this, ChatList.class));
             }
         });
-        btmnv.show(3, true);
-        btmnv.add(new MeowBottomNavigation.Model(1, R.drawable.feed2));
-        btmnv.add(new MeowBottomNavigation.Model(2, R.drawable.labour));
-        btmnv.add(new MeowBottomNavigation.Model(3, R.drawable.house));
-        btmnv.add(new MeowBottomNavigation.Model(4, R.drawable.resell));
-        btmnv.add(new MeowBottomNavigation.Model(5, R.drawable.online_store));
-        btmnv.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
-            @Override
-            public Unit invoke(MeowBottomNavigation.Model model) {
-                if (model.getId() == 0) {
-                    frameLayout.removeAllViews();
-                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new ShowFeed()).commit();
-                } else if (model.getId() == 1) {
-                    frameLayout.removeAllViews();
-                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new Labour_Vacancy()).commit();
-                }  else if (model.getId() == 3) {
-                    frameLayout.removeAllViews();
-                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new Resell()).commit();
-                } else if (model.getId() == 4) {
-                    frameLayout.removeAllViews();
-                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new E_commrce()).commit();
-                }
-                else {
-                    frameLayout.removeAllViews();
-                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new frghome()).commit();
-                }
-                return null;
-            }
-        });
         bubbleNavigationLinearView.setCurrentActiveItem(2);
         bubbleNavigationLinearView.setNavigationChangeListener(new BubbleNavigationChangeListener() {
             @Override
@@ -229,15 +198,19 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
                     frameLayout.removeAllViews();
                     getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new E_commrce()).commit();
                 } else {
-
+                    frameLayout.removeAllViews();
+                    onAddClick();
                 }
+            }
+        });
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onAddClick();
             }
         });
 
     }
-
-
-
 
     public void setLanguage() {
         SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);

@@ -92,30 +92,29 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/white"
-                    android:layout_marginBottom="75dp" />
+                />
 
                 <com.gauravk.bubblenavigation.BubbleNavigationLinearView
                     android:id="@+id/bottom_navigation_view_linear"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:elevation="8dp"
-                    android:orientation="horizontal"
-                    android:padding="12dp"
                     android:layout_alignParentBottom="true"
-                    >
+                    android:layout_margin="20dp"
+                    android:background="@drawable/full_curve"
+                    android:backgroundTint="#073B3A"
+                    android:layout_centerHorizontal="true"
+                    android:padding="10dp"
+                    android:orientation="horizontal">
 
                     <com.gauravk.bubblenavigation.BubbleToggleView
                         android:id="@+id/itemfeed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:bt_active="true"
-                        app:bt_colorActive="@color/red_active"
-                        app:bt_colorInactive="@color/red_inactive"
-                        app:bt_icon="@drawable/feed2"
-                        bt_iconWidth="50dp"
-                        android:layout_marginEnd="10dp"
-                        app:bt_shape="@drawable/transition_background_drawable_home"
+                        app:bt_colorActive="@color/Dark_green"
+                        app:bt_colorInactive="@color/Light_green"
+                        app:bt_icon="@drawable/instagram"
+                        app:bt_shape="@drawable/person_background_oval"
                         app:bt_title="Feed" />
 
                     <com.gauravk.bubblenavigation.BubbleToggleView
@@ -123,59 +122,53 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:bt_badgeBackgroundColor="@color/green_active"
-                        app:bt_colorActive="@color/blue_active"
-                        app:bt_colorInactive="@color/blue_inactive"
-                        app:bt_icon="@drawable/labour"
-                        android:layout_marginEnd="10dp"
-                        app:bt_shape="@drawable/transition_background_drawable_search"
-                        app:bt_title="Labour" />
+                        app:bt_colorActive="@color/Dark_green"
+                        app:bt_colorInactive="@color/Light_green"
+                        app:bt_icon="@drawable/worker"
+                        app:bt_shape="@drawable/person_background_oval"
+                        app:bt_title="Vacancy" />
 
                     <com.gauravk.bubblenavigation.BubbleToggleView
                         android:id="@+id/itemhome"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:bt_colorActive="@color/blue_grey_active"
-                        app:bt_colorInactive="@color/blue_grey_inactive"
-                        app:bt_icon="@drawable/house"
-                        android:layout_marginEnd="10dp"
-                        app:bt_shape="@drawable/transition_background_drawable_like"
+                        app:bt_colorActive="@color/Dark_green"
+                        app:bt_colorInactive="@color/Light_green"
+                        app:bt_icon="@drawable/home"
+                        app:bt_shape="@drawable/person_background_oval"
                         app:bt_title="Home" />
 
                     <com.gauravk.bubblenavigation.BubbleToggleView
                         android:id="@+id/itemresell"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:bt_colorActive="@color/green_active"
-                        app:bt_colorInactive="@color/green_inactive"
+                        app:bt_colorActive="@color/Dark_green"
+                        app:bt_colorInactive="@color/Light_green"
                         app:bt_icon="@drawable/resell"
-                        android:layout_marginEnd="10dp"
-                        app:bt_shape="@drawable/transition_background_drawable_list"
+                        app:bt_shape="@drawable/person_background_oval"
                         app:bt_title="Resell" />
 
                     <com.gauravk.bubblenavigation.BubbleToggleView
                         android:id="@+id/itemecom"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:bt_colorActive="@color/purple_active"
-                        app:bt_colorInactive="@color/purple_inactive"
-                        app:bt_icon="@drawable/online_store"
-                        app:bt_shape="@drawable/transition_background_drawable_person"
-                        app:bt_title="Ecommerce "/>
+                        app:bt_colorActive="@color/Dark_green"
+                        app:bt_colorInactive="@color/Light_green"
+                        app:bt_icon="@drawable/store"
+                        app:bt_shape="@drawable/person_background_oval"
+                        app:bt_title="Store"
+                        />
+                    <com.gauravk.bubblenavigation.BubbleToggleView
+                        android:id="@+id/itemmore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:bt_colorActive="@color/Dark_green"
+                        app:bt_colorInactive="@color/Light_green"
+                        app:bt_icon="@drawable/add"
+                        app:bt_shape="@drawable/person_background_oval"
+                         />
                 </com.gauravk.bubblenavigation.BubbleNavigationLinearView>
-                <com.etebarian.meowbottomnavigation.MeowBottomNavigation
-                    android:id="@+id/btmnv"
-                    android:visibility="gone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    app:mbn_backgroundBottomColor="#FFFFFF"
-                    app:mbn_circleColor="#038808"
-                    app:mbn_countBackgroundColor="#ff6f00"
-                    app:mbn_countTextColor="#ffffff"
-                    app:mbn_defaultIconColor="#A8C7D6"
-                    app:mbn_rippleColor="#2f424242"
-                    app:mbn_selectedIconColor="#EFF3EF"
-                    app:mbn_shadowColor="#1f212121" />
+
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
@@ -191,8 +184,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="75dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="95dp"
+        android:layout_marginEnd="20dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -354,6 +347,7 @@
             android:clickable="true"
             android:layout_margin="10dp"
             app:lottie_autoPlay="true"
+            android:visibility="gone"
             app:lottie_loop="true"
             android:focusable="true"
             app:lottie_rawRes="@raw/add" />

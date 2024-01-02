@@ -9,10 +9,10 @@
     tools:context=".Resell_Category">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:backgroundTint="#83d0cb"
+        android:layout_height="80dp"
+        android:backgroundTint="#135983"
         app:cardCornerRadius="20dp"
-        android:layout_margin="10dp"
+        android:layout_margin="20dp"
         android:elevation="50dp"
         android:background="@drawable/userbac"
         >
@@ -24,6 +24,7 @@
             <ImageView
                 android:layout_width="65dp"
                 android:layout_height="65dp"
+                android:layout_gravity="center_vertical"
                 android:layout_marginLeft="20dp"
                 android:src="@drawable/resell"/>
             <TextView
@@ -62,7 +63,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Animals"
-                    android:textColor="#47716F"
+                    android:textColor="#000000"
                     android:gravity="center"
                     android:textSize="30dp"
                     android:fontFamily="@font/montserrat_bold"
@@ -91,7 +92,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Foods"
-                android:textColor="#47716F"
+                android:textColor="#070707"
                 android:gravity="center"
                 android:textSize="30dp"
                 android:fontFamily="@font/montserrat_bold"
@@ -140,7 +141,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Equipments"
-                android:textColor="#47716F"
+                android:textColor="#0F1010"
                 android:gravity="center"
                 android:textSize="30dp"
                 android:fontFamily="@font/montserrat_bold"

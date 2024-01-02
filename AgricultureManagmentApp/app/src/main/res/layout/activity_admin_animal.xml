@@ -8,25 +8,27 @@
     tools:context=".admin_animal">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
+        android:layout_gravity="center_vertical"
         android:background="@drawable/drawer"
-        android:layout_margin="10dp"
-        android:backgroundTint="#9FCED5"
+        android:layout_margin="20dp"
+        android:backgroundTint="#F5F5F5"
         android:orientation="horizontal">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="A N I M A L"
+            android:text="Animal"
             android:textColor="#065A65"
             android:gravity="center"
-            android:textSize="50dp"
+            android:textSize="45dp"
             android:fontFamily="@font/montserrat_bold"
             />
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcanimal"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_width="match_parent"
-        android:layout_margin="10dp"
         android:layout_height="match_parent" />
 </LinearLayout>

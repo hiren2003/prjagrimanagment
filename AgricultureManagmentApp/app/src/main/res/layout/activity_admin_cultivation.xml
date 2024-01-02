@@ -8,18 +8,18 @@
     tools:context=".admin_cultivation">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:background="@drawable/drawer"
         android:layout_margin="10dp"
-        android:backgroundTint="#9FCED5"
+        android:backgroundTint="#F5F5F5"
         android:orientation="horizontal">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="F O O D S"
+        android:text="Foods"
         android:textColor="#065A65"
         android:gravity="center"
-        android:textSize="50dp"
+        android:textSize="45dp"
         android:fontFamily="@font/montserrat_bold"
         />
     \</LinearLayout>

@@ -13,7 +13,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:backgroundTint="#56B2EA"
+            android:backgroundTint="#135983"
             app:cardCornerRadius="20dp"
             android:layout_margin="10dp"
             android:elevation="50dp"
@@ -45,6 +45,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rccprdt"
+            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </LinearLayout>

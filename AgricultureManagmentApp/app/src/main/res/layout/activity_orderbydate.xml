@@ -6,16 +6,61 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".orderbydate">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:backgroundTint="#135983"
+        app:cardCornerRadius="20dp"
+        android:layout_margin="10dp"
+        android:elevation="50dp"
+        android:background="@drawable/userbac"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/tracking"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/My_Order"
+                android:textStyle="bold"
+                android:textSize="40dp"
+                android:textColor="@color/white"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/cambay"
+                android:layout_marginLeft="20dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select date :"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_gravity="center_vertical"
+        android:textSize="25dp" />
     <RelativeLayout
         android:id="@+id/rldate"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
         android:padding="5dp"
-        android:background="@color/Light_green"
+        android:backgroundTint="#ECECEC"
+        android:background="@drawable/drawer"
         android:gravity="center">
 
         <TextView
@@ -23,12 +68,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Select_date"
-            android:textColor="@color/Dark_green"
-            android:textSize="20dp" />
+            android:textColor="@color/black"
+            android:textSize="25dp" />
     </RelativeLayout>
+</LinearLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rccprdt"
         android:layout_width="match_parent"
+        android:layout_margin="10dp"
         android:layout_height="match_parent"/>
 </LinearLayout>

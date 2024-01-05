@@ -7,7 +7,7 @@
     android:layout_margin="10dp"
     android:id="@+id/cdlyt"
     android:elevation="30dp"
-    android:backgroundTint="#65A0C3"
+    android:backgroundTint="#FFFFFF"
     android:layout_height="wrap_content"
     android:minHeight="150dp"
     >

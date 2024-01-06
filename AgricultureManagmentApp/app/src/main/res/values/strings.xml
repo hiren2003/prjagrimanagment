@@ -203,6 +203,12 @@
     <string name="Message">Message</string>
     <string name="del">Delete</string>
     <string name="Delete_Message">Delete message ?</string>
+    <string name="less">Less</string>
+    <string name="Please_Enter_CGST">Please enter CGST</string>
+    <string name="Please_Enter_SGST">Please enter SGST</string>
+    <string name="Total_Order">Total orders</string>
+    <string name="Avg_Daily_Order">Avg. daily orders</string>
+    <string name="Avg_Daily_Order">Avg. daily orders</string>
     <string-array name="toolstype">
         <item>Tools</item>
         <item>Accessories</item>
@@ -279,7 +285,9 @@
         <item>West Bengal</item>
     </string-array>
     <string-array name="arrcategory">
-        <item>seeds and Plants</item>
+        <item>Seeds</item>
+        <item>Plants</item>
+        <item>Fertilizer</item>
         <item>Crop protection and Nutrition</item>
         <item>Tools and Equipment</item>
     </string-array>

@@ -43,8 +43,13 @@
         <item name="android:textColorHint">#000000</item>
         <item name="hintTextColor">#273E05</item>
         <item name="android:cursorVisible">@color/green</item>
+    </style>xx`
+    <style name="SpecificCornerCut">
+        <item name="cornerSizeTopRight">20dp</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerSizeTopLeft">20dp</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
     </style>
-
     <style name="Theme.AgricultureManagmentApp" parent="Base.Theme.AgricultureManagmentApp" />
     <style name="SheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
     </style>

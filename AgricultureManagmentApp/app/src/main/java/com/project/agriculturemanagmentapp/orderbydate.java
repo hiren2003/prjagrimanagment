@@ -26,6 +26,7 @@ RcorderAdapter rcorderAdapter;
 RecyclerView recyclerView;
 RelativeLayout rldate;
 TextView txtdate;
+    String date;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +38,7 @@ TextView txtdate;
         int year = calendar.get(Calendar.YEAR);
         rldate=findViewById(R.id.rldate);
         txtdate=findViewById(R.id.txtdate);
-        String date = day + "-" + (month) + "-" + year;
+        date = day + "-" + (++month) + "-" + year;
         FirebaseDatabase.getInstance().getReference().child("Orders").child(date).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -57,7 +58,6 @@ TextView txtdate;
             }
         });
 
-        date = day + "-" + (++month) + "-" + year;
         txtdate.setText(date);
         rldate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +65,7 @@ TextView txtdate;
                 DatePickerDialog datePickerDialog = new DatePickerDialog(orderbydate.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        String date=dayOfMonth + "-" + (month) + "-" + year;
+                        String date=dayOfMonth + "-" + (++month) + "-" + year;
                         txtdate.setText(dayOfMonth + "/" + (++month) + "/" + year);
                         FirebaseDatabase.getInstance().getReference().child("Orders").child(date).addValueEventListener(new ValueEventListener() {
                             @Override

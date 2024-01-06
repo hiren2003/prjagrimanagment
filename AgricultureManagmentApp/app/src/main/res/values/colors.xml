@@ -33,4 +33,5 @@
     <color name="blue_bg_light">#e3f2fd</color>
     <color name="green_bg_light">#e8f5e9</color>
     <color name="blue_grey_bg_light">#eceff1</color>
+    <color name="orange">#FF5722</color>
 </resources>

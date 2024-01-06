@@ -36,6 +36,8 @@ public class add_ecomm extends AppCompatActivity {
     Spinner spntype;
     TextInputEditText edtdes, edtspe, edtrecomm, edtprice, edtpname,edtsgst,edtcgst,edtdiscount;
     SharedPreferences sharedPreferences;
+    float discount;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +84,16 @@ public class add_ecomm extends AppCompatActivity {
                 } else if (edtprice.getText().toString().trim().isEmpty()) {
                     show_toast(getResources().getString(R.string.Please_Enter_Price), false);
                     edtprice.requestFocus();
-                } else if (edtdes.getText().toString().trim().isEmpty()) {
+                }
+                else if (edtcgst.getText().toString().trim().isEmpty()) {
+                    show_toast(getResources().getString(R.string.Please_Enter_CGST), false);
+                    edtprice.requestFocus();
+                }
+                else if (edtsgst.getText().toString().trim().isEmpty()) {
+                    show_toast(getResources().getString(R.string.Please_Enter_SGST), false);
+                    edtprice.requestFocus();
+                }
+                else if (edtdes.getText().toString().trim().isEmpty()) {
                     show_toast(getResources().getString(R.string.Please_Enter_Description), false);
                     edtdes.requestFocus();
                 } else if (edtspe.getText().toString().trim().isEmpty()) {
@@ -95,6 +106,12 @@ public class add_ecomm extends AppCompatActivity {
                     show_toast(getResources().getString(R.string.Please_Enter_Image), false);
                     launcher.launch("image/*");
                 } else {
+                    if (edtdiscount.getText().toString().trim().isEmpty()){
+                        discount=0;
+                    }
+                    else{
+                        discount=Float.parseFloat(edtdiscount.getText().toString());
+                    }
                     Dialog dg = new Dialog(add_ecomm.this);
                     dg.setContentView(R.layout.lyt_loading_dg);
                     dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
@@ -108,7 +125,7 @@ public class add_ecomm extends AppCompatActivity {
                             reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    clsEcommModel model=new clsEcommModel(key, edtpname.getText().toString(), uri.toString(), edtprice.getText().toString(), edtspe.getText().toString(), edtdes.getText().toString(), edtrecomm.getText().toString(), "0",Float.parseFloat(edtcgst.getText().toString()),Float.parseFloat(edtsgst.getText().toString()),Float.parseFloat(edtdiscount.getText().toString()));
+                                    clsEcommModel model=new clsEcommModel(key, edtpname.getText().toString(), uri.toString(), edtprice.getText().toString(), edtspe.getText().toString(), edtdes.getText().toString(), edtrecomm.getText().toString(), "0",Float.parseFloat(edtcgst.getText().toString()),Float.parseFloat(edtsgst.getText().toString()),discount);
                                     FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").child(key).setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {

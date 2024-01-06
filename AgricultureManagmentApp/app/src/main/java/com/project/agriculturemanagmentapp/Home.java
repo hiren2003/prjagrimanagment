@@ -1,5 +1,6 @@
 package com.project.agriculturemanagmentapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import kotlin.Unit;
@@ -11,6 +12,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Message;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.animation.Animation;
@@ -25,7 +27,9 @@ import com.bumptech.glide.Glide;
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.gauravk.bubblenavigation.BubbleNavigationLinearView;
 import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.Locale;
 
@@ -178,7 +182,7 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
                 startActivity(new Intent(Home.this, ChatList.class));
             }
         });
-        bubbleNavigationLinearView.setCurrentActiveItem(2);
+    //    bubbleNavigationLinearView.setCurrentActiveItem(2);
         bubbleNavigationLinearView.setNavigationChangeListener(new BubbleNavigationChangeListener() {
             @Override
             public void onNavigationChanged(View view, int position) {
@@ -190,7 +194,7 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
                     getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new Other_vacancy()).commit();
                 } else if (position == 2) {
                     frameLayout.removeAllViews();
-                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new frghome()).commit();
+                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new frghome(Home.this)).commit();
                 } else if (position == 3) {
                     frameLayout.removeAllViews();
                     getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new Resell()).commit();
@@ -198,7 +202,6 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
                     frameLayout.removeAllViews();
                     getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new E_commrce()).commit();
                 } else {
-                    frameLayout.removeAllViews();
                     onAddClick();
                 }
             }

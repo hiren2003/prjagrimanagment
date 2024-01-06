@@ -58,6 +58,7 @@ import static android.Manifest.permission.SEND_SMS;
 public class frghome extends Fragment {
     RcnewsAdapter rcnewsAdapter;
     ImageView imageview;
+    Context context;
     TextView txttempcity, txtdes,txttemp, txtmintemp, txtmaxtemp, txthumidity, txtcloud, txtpressure, txtwind, txtvisiblity;
     String api = "c19c16e82898cc7627f4e02e485861de";
     String url = "https://api.openweathermap.org/data/2.5/weather";
@@ -82,6 +83,10 @@ public class frghome extends Fragment {
 
     public frghome() {
         // Required empty public constructor
+    }
+    public frghome(Context context) {
+        // Required empty public constructor
+        this.context=context;
     }
 
     /**
@@ -197,7 +202,7 @@ public class frghome extends Fragment {
                     txttempcity.setText(city);
                     txtdes.setText(des);
                     String img = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
-                    Glide.with(getContext())
+                    Glide.with(context)
                             .load(img)
                             .into(imageview);
 

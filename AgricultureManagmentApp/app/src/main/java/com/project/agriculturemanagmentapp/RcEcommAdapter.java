@@ -10,9 +10,11 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.imageview.ShapeableImageView;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
@@ -37,12 +39,16 @@ public class RcEcommAdapter extends RecyclerView.Adapter<RcEcommAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        if (ecommModelArrayList.get(position).getDiscount()==0.0){
+            holder.txtdiscount.setVisibility(View.GONE);
+        }
         //Animation
         Animation anim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
         holder.itemView.setAnimation(anim);
         //Setting Value For Each Grid Item
         holder.txtpname.setText(ecommModelArrayList.get(position).getPname());
         holder.txtprice.setText("₹"+ecommModelArrayList.get(position).getPrice());
+        holder.txtdiscount.setText(ecommModelArrayList.get(position).getDiscount()+"% "+context.getString(R.string.less));
         Glide.with(context)
                 .load(ecommModelArrayList.get(position).getImg())
                 .into(holder.imgprdt);
@@ -85,7 +91,7 @@ public class RcEcommAdapter extends RecyclerView.Adapter<RcEcommAdapter.ViewHold
     @NonNull
     @Override
     public RcEcommAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.lyt_ecom_tb, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.lyt_animal_tab, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
@@ -96,9 +102,9 @@ public class RcEcommAdapter extends RecyclerView.Adapter<RcEcommAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txtpname, txtprice,txtqty;
-        ImageView imgprdt;
-        CardView cd;
+        TextView txtpname, txtprice,txtqty,txtdiscount;
+        ShapeableImageView imgprdt;
+        LinearLayout cd;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -106,6 +112,7 @@ public class RcEcommAdapter extends RecyclerView.Adapter<RcEcommAdapter.ViewHold
             txtprice = itemView.findViewById(R.id.txtprice);
             imgprdt = itemView.findViewById(R.id.imgprdt);
             cd = itemView.findViewById(R.id.cdlyt);
+            txtdiscount=itemView.findViewById(R.id.txtdiscount);
         }
     }
 }

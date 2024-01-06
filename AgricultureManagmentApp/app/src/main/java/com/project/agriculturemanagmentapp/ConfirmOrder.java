@@ -44,6 +44,7 @@ CardView cdprdt,cdpmod,cdpdetail;
 LinearLayout lnpoption;
 boolean IsOrder=false;
 clsOrderModel clsOrderModel;
+String date;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +75,9 @@ clsOrderModel clsOrderModel;
         txtpmod=findViewById(R.id.txtpmod);
         txtpstatus=findViewById(R.id.txtpstatus);
         txtpid=findViewById(R.id.txtpid);
+        int month=Calendar.getInstance().get(java.util.Calendar.MONTH);
+        month++;
+        date = java.util.Calendar.getInstance().get(java.util.Calendar.DAY_OF_MONTH) + "-" + month + "-" + java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);
         Checkout.preload(getApplicationContext());
         Intent intent=getIntent();
         sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
@@ -240,7 +244,6 @@ clsOrderModel clsOrderModel;
     }
 
     public void AddOrder(){
-        String date = java.util.Calendar.getInstance().get(java.util.Calendar.DAY_OF_MONTH) + "-" + Calendar.getInstance().get(java.util.Calendar.MONTH) + "-" + java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);
         String time=Calendar.getInstance().get(Calendar.HOUR_OF_DAY)+":"+Calendar.getInstance().get(Calendar.MINUTE);
         String key = FirebaseDatabase.getInstance().getReference().child("orders").child(date.toString()).push().getKey();
         clsOrderModel clsOrderModel = new clsOrderModel(clsEcommModel,key,sharedPreferences.getString("uname", "unknown"),sharedPreferences.getString("mo", "1234567890"), sharedPreferences.getString("add", "null"), qty+"", date,time,"COD","","");
@@ -253,7 +256,6 @@ clsOrderModel clsOrderModel;
 
     @Override
     public void onPaymentSuccess(String s, PaymentData paymentData) {
-        String date = java.util.Calendar.getInstance().get(java.util.Calendar.DAY_OF_MONTH) + "-" + Calendar.getInstance().get(java.util.Calendar.MONTH) + "-" + java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);
         String time=Calendar.getInstance().get(Calendar.HOUR_OF_DAY)+":"+Calendar.getInstance().get(Calendar.MINUTE);
         String key = FirebaseDatabase.getInstance().getReference().child("orders").child(date.toString()).push().getKey();
         clsOrderModel clsOrderModel = new clsOrderModel(clsEcommModel,key,sharedPreferences.getString("uname", "unknown"),sharedPreferences.getString("mo", "1234567890"), sharedPreferences.getString("add", "null"), qty+"", date,time,"COD","","");

@@ -20,7 +20,7 @@
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/cambay"
         android:text="@string/Select_Language"
-        android:textColor="#066006"
+        android:textColor="#000000"
         android:textSize="30dp"
         android:textStyle="bold"/>
 
@@ -45,6 +45,7 @@
                    android:layout_width="360dp"
                    android:layout_height="70dp"
                    android:background="@drawable/bgtoggle"
+                   android:backgroundTint="#F5F5F5"
                    android:orientation="horizontal">
                    <de.hdodenhof.circleimageview.CircleImageView
                        android:layout_width="50dp"
@@ -61,7 +62,6 @@
                        android:layout_height="50dp"
                        android:layout_gravity="center_vertical"
                        android:layout_margin="10dp"
-                       android:background="@drawable/bgtoggle"
                        android:padding="9dp"
                        android:text="English"
                        android:textColor="@color/black"
@@ -87,6 +87,8 @@
                    android:layout_marginTop="10dp"
                    android:layout_marginLeft="10dp"
                    android:layout_marginRight="10dp"
+                   android:backgroundTint="#F5F5F5"
+
                    android:background="@drawable/bgtoggle"
                    android:orientation="horizontal">
                    <de.hdodenhof.circleimageview.CircleImageView
@@ -101,7 +103,6 @@
                    <TextView
                        android:layout_width="100dp"
                        android:layout_height="50dp"
-                       android:background="@drawable/bgtoggle"
                        android:layout_gravity="center_vertical"
                        android:textSize="25dp"
                        android:layout_margin="10dp"
@@ -132,6 +133,8 @@
                    android:layout_width="360dp"
                    android:layout_height="70dp"
                    android:layout_marginTop="10dp"
+                   android:backgroundTint="#F5F5F5"
+
                    android:background="@drawable/bgtoggle"
                    android:orientation="horizontal">
                    <de.hdodenhof.circleimageview.CircleImageView
@@ -146,7 +149,6 @@
                    <TextView
                        android:layout_width="100dp"
                        android:layout_height="60dp"
-                       android:background="@drawable/bgtoggle"
                        android:layout_gravity="center_vertical"
                        android:textSize="25dp"
                        android:layout_margin="10dp"
@@ -169,6 +171,8 @@
                    android:layout_width="360dp"
                    android:layout_height="70dp"
                    android:layout_marginTop="10dp"
+                   android:backgroundTint="#F5F5F5"
+
                    android:background="@drawable/bgtoggle"
                    android:orientation="horizontal">
                    <de.hdodenhof.circleimageview.CircleImageView
@@ -183,7 +187,6 @@
                    <TextView
                        android:layout_width="100dp"
                        android:layout_height="50dp"
-                       android:background="@drawable/bgtoggle"
                        android:layout_gravity="center_vertical"
                        android:textSize="25dp"
                        android:layout_margin="10dp"
@@ -216,7 +219,10 @@
                    android:layout_width="360dp"
                    android:layout_height="70dp"
                    android:background="@drawable/bgtoggle"
+                   android:backgroundTint="#F5F5F5"
+
                    android:orientation="horizontal">
+
                    <de.hdodenhof.circleimageview.CircleImageView
                        android:layout_width="50dp"
                        android:layout_height="50dp"
@@ -229,7 +235,6 @@
                    <TextView
                        android:layout_width="100dp"
                        android:layout_height="50dp"
-                       android:background="@drawable/bgtoggle"
                        android:layout_gravity="center_vertical"
                        android:textSize="25dp"
                        android:layout_margin="10dp"
@@ -252,6 +257,8 @@
                    android:layout_width="360dp"
                    android:layout_height="70dp"
                    android:layout_marginTop="10dp"
+                   android:backgroundTint="#F5F5F5"
+
                    android:background="@drawable/bgtoggle"
                    android:orientation="horizontal">
                    <de.hdodenhof.circleimageview.CircleImageView
@@ -266,7 +273,6 @@
                    <TextView
                        android:layout_width="100dp"
                        android:layout_height="50dp"
-                       android:background="@drawable/bgtoggle"
                        android:layout_gravity="center_vertical"
                        android:textSize="25dp"
                        android:layout_margin="10dp"
@@ -299,6 +305,8 @@
                    android:layout_width="360dp"
                    android:layout_height="70dp"
                    android:background="@drawable/bgtoggle"
+                   android:backgroundTint="#F5F5F5"
+
                    android:orientation="horizontal">
                    <de.hdodenhof.circleimageview.CircleImageView
                        android:layout_width="50dp"
@@ -312,7 +320,6 @@
                    <TextView
                        android:layout_width="100dp"
                        android:layout_height="50dp"
-                       android:background="@drawable/bgtoggle"
                        android:layout_gravity="center_vertical"
                        android:textSize="25dp"
                        android:layout_margin="10dp"
@@ -336,6 +343,8 @@
                    android:layout_height="70dp"
                    android:layout_marginTop="10dp"
                    android:background="@drawable/bgtoggle"
+                   android:backgroundTint="#F5F5F5"
+
                    android:orientation="horizontal">
                    <de.hdodenhof.circleimageview.CircleImageView
                        android:layout_width="50dp"
@@ -349,7 +358,6 @@
                    <TextView
                        android:layout_width="100dp"
                        android:layout_height="50dp"
-                       android:background="@drawable/bgtoggle"
                        android:layout_gravity="center_vertical"
                        android:textSize="25dp"
                        android:layout_margin="10dp"
@@ -381,6 +389,8 @@
 
                <LinearLayout
                    android:layout_width="360dp"
+                   android:backgroundTint="#F5F5F5"
+
                    android:layout_height="70dp"
                    android:background="@drawable/bgtoggle"
                    android:orientation="horizontal">
@@ -396,7 +406,6 @@
                    <TextView
                        android:layout_width="100dp"
                        android:layout_height="50dp"
-                       android:background="@drawable/bgtoggle"
                        android:layout_gravity="center_vertical"
                        android:textSize="25dp"
                        android:layout_margin="10dp"
@@ -418,6 +427,8 @@
                <LinearLayout
                    android:layout_width="360dp"
                    android:layout_height="70dp"
+                   android:backgroundTint="#F5F5F5"
+
                    android:background="@drawable/bgtoggle"
                    android:layout_marginTop="10dp"
                    android:orientation="horizontal">
@@ -433,7 +444,6 @@
                    <TextView
                        android:layout_width="100dp"
                        android:layout_height="50dp"
-                       android:background="@drawable/bgtoggle"
                        android:layout_gravity="center_vertical"
                        android:textSize="25dp"
                        android:layout_margin="10dp"
@@ -460,6 +470,8 @@
                android:layout_height="70dp"
                android:layout_marginTop="10dp"
                android:layout_marginLeft="15dp"
+               android:backgroundTint="#F5F5F5"
+
                android:background="@drawable/bgtoggle"
                android:orientation="horizontal">
                <de.hdodenhof.circleimageview.CircleImageView
@@ -474,7 +486,6 @@
                <TextView
                    android:layout_width="110dp"
                    android:layout_height="50dp"
-                   android:background="@drawable/bgtoggle"
                    android:layout_gravity="center_vertical"
                    android:textSize="25dp"
                    android:layout_margin="10dp"
@@ -507,6 +518,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginTop="20sp"
+            android:backgroundTint="#070707"
             android:background="@drawable/sendotp"
             app:srcCompat="@drawable/baseline_arrow_forward_24"
             app:tint="#FFFFFF"

@@ -143,7 +143,7 @@
                android:textSize="20dp"
                android:layout_marginTop="20dp"
                android:textColor="@color/white"
-               android:backgroundTint="#373937"
+               android:backgroundTint="#135983"
                android:background="@drawable/sendotp"
                android:text="@string/Publish_news"
                android:layout_marginLeft="20dp"

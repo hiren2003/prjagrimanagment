@@ -216,7 +216,7 @@ public class RcAnimalAdapter extends RecyclerView.Adapter<RcAnimalAdapter.ViewHo
                                             sharedPreferences.getString("mo", "1234567890")
                                     );
                                     FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("animal").child(model.getKey()).setValue(clsAnimalModel);
-                                    FirebaseDatabase.getInstance().getReference().child("animals").child(model.getKey()).setValue(clsAnimalModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    FirebaseDatabase.getInstance().getReference().child("Resell").child("animals").child(model.getKey()).setValue(clsAnimalModel).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             Toast.makeText(context, context.getResources().getString(R.string.Data_Added_Sucessfully), Toast.LENGTH_SHORT).show();

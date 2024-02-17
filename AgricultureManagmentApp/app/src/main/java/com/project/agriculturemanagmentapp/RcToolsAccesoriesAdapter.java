@@ -150,7 +150,7 @@ public class RcToolsAccesoriesAdapter extends RecyclerView.Adapter<RcToolsAcceso
                                         clsToolsAccessoriesModelArrayList.get(position).getCategory(),
                                         sharedPreferences.getString("mo", "1234567890")
                                 );
-                                FirebaseDatabase.getInstance().getReference().child("Tools&Accessories").child(clsToolsAccessoriesModelArrayList.get(position).getKey()).setValue(clsToolsAccessoriesModel);
+                                FirebaseDatabase.getInstance().getReference().child("Resell").child("Tools&Accessories").child(clsToolsAccessoriesModelArrayList.get(position).getKey()).setValue(clsToolsAccessoriesModel);
                                 FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("Tools&Accessories").child(clsToolsAccessoriesModelArrayList.get(position).getKey()).setValue(clsToolsAccessoriesModel);
                                 bottomSheetDialog.cancel();
                             }

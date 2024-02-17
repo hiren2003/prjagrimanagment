@@ -180,7 +180,7 @@ public class RcCultivatonPrdtAdpter extends RecyclerView.Adapter<RcCultivatonPrd
                                         edtsellername.getText().toString(),
                                         sharedPreferences.getString("url", "1234567890")
                                 );
-                                FirebaseDatabase.getInstance().getReference().child("Cultivation Product").child(clsCultivationProductModelArrayList.get(position).getKey()).setValue(clsCultivationProductModel);
+                                FirebaseDatabase.getInstance().getReference().child("Resell").child("Cultivation Product").child(clsCultivationProductModelArrayList.get(position).getKey()).setValue(clsCultivationProductModel);
                                 FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("Cultivatio_Product").child(clsCultivationProductModelArrayList.get(position).getKey()).setValue(clsCultivationProductModel);
                                 bottomSheetDialog.cancel();
                             }

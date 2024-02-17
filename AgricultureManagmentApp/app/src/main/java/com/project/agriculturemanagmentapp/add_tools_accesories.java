@@ -144,7 +144,7 @@ public class add_tools_accesories extends AppCompatActivity {
                                             spncat.getSelectedItem().toString(),
                                             sharedPreferences.getString("mo", "1234567890")
                                     );
-                                    FirebaseDatabase.getInstance().getReference().child("Tools&Accessories").child(key).setValue(clsToolsAccessoriesModel);
+                                    FirebaseDatabase.getInstance().getReference().child("Resell").child("Tools&Accessories").child(key).setValue(clsToolsAccessoriesModel);
                                     FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("Tools&Accessories").child(key).setValue(clsToolsAccessoriesModel).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {

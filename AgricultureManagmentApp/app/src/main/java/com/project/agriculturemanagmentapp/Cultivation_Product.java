@@ -74,7 +74,7 @@ public class Cultivation_Product extends Fragment {
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_cultivation__product, container, false);
         RecyclerView rccprdt=view.findViewById(R.id.rccprdt);
-        FirebaseDatabase.getInstance().getReference("Cultivation Product").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference().child("Resell").child("Cultivation Product").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ArrayList<ClsCultivationProductModel> clsCultivationProductModelArrayList=new ArrayList<>();

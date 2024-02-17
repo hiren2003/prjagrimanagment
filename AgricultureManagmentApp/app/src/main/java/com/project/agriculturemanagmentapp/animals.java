@@ -75,7 +75,7 @@ RcAnimalAdapter rcAnimalAdapter;
         View view= inflater.inflate(R.layout.fragment_animals, container, false);
         rcanimal=view.findViewById(R.id.rcanimal);
         arrayList=new ArrayList<>();
-        FirebaseDatabase.getInstance().getReference().child("animals").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference().child("Resell").child("animals").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot:snapshot.getChildren()) {

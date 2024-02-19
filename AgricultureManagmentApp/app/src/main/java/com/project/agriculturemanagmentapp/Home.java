@@ -3,6 +3,7 @@ package com.project.agriculturemanagmentapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.viewpager.widget.ViewPager;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 
@@ -29,6 +30,7 @@ import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.Locale;
 
@@ -45,23 +47,21 @@ public class Home extends AppCompatActivity {
 View view;
 TextView txt1,txt2,txt3,txt4,txt5,txt6;
 Animation rotateOpen,rotateClose,fromBottom,toBottom;
+ViewPager vp;
+TabLayout tb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        Window window = this.getWindow();
-        window.setStatusBarColor(this.getResources().getColor(R.color.white));
-        setLanguage();
-     sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
-     view=findViewById(R.id.view);
+        tb=findViewById(R.id.tl_landing);
+        vp=findViewById(R.id.vp_landing);
+        view=findViewById(R.id.view);
         toolbar = findViewById(R.id.toolbar);
         prfpc = findViewById(R.id.prfpc);
         imgcart = findViewById(R.id.imgcart);
-        frameLayout = findViewById(R.id.fmlayout);
         txtname = findViewById(R.id.txtname);
         imgorder = findViewById(R.id.imgorder);
         imgmessage=findViewById(R.id.imgmessage);
-        bubbleNavigationLinearView = findViewById(R.id.bottom_navigation_view_linear);
         rotateOpen= AnimationUtils.loadAnimation(this,R.anim.rotate_open_anim);
         rotateClose= AnimationUtils.loadAnimation(this,R.anim.rotate_close_anim);
         fromBottom= AnimationUtils.loadAnimation(this,R.anim.from_bottom_anim);
@@ -73,12 +73,20 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
         fltrsell=findViewById(R.id.floatingActionButton4);
         fltai=findViewById(R.id.floatingActionButton5);
         fltsearch=findViewById(R.id.floatingActionButton6);
-        txt1=findViewById(R.id.txt1);
-        txt2=findViewById(R.id.txt2);
-        txt3=findViewById(R.id.txt3);
-        txt4=findViewById(R.id.txt4);
-        txt5=findViewById(R.id.txt5);
-        txt6=findViewById(R.id.txt6);
+
+        VpHomeAdapter vpHomeAdapter=new VpHomeAdapter(getSupportFragmentManager(),Home.this);
+        vp.setAdapter(vpHomeAdapter);
+        tb.setupWithViewPager(vp);
+        tb.getTabAt(0).setIcon(R.drawable.instagram);
+        tb.getTabAt(1).setIcon(R.drawable.suitcase);
+        tb.getTabAt(2).setIcon(R.drawable.home2);
+        tb.getTabAt(3).setIcon(R.drawable.resell);
+        tb.getTabAt(4).setIcon(R.drawable.store);
+
+        Window window = this.getWindow();
+        window.setStatusBarColor(this.getResources().getColor(R.color.white));
+        setLanguage();
+        sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
         fltsearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -129,7 +137,7 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
         fltvacancy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            startActivity(new Intent(Home.this, add_labour_vacancy.class));
+                startActivity(new Intent(Home.this, add_labour_vacancy.class));
             }
         });
         fltlbr.setOnClickListener(new View.OnClickListener() {
@@ -150,13 +158,6 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
                 startActivity(new Intent(Home.this,AI.class));
             }
         });
-        txtname.setText(sharedPreferences.getString("uname", "man"));
-        Glide.with(this)
-                .load(sharedPreferences.getString("url", "null"))
-                .circleCrop()
-                .into(prfpc);
-        frameLayout.removeAllViews();
-        getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new ShowFeed()).commit();
         prfpc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -181,30 +182,14 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
                 startActivity(new Intent(Home.this, ChatList.class));
             }
         });
-    //    bubbleNavigationLinearView.setCurrentActiveItem(2);
-        bubbleNavigationLinearView.setNavigationChangeListener(new BubbleNavigationChangeListener() {
-            @Override
-            public void onNavigationChanged(View view, int position) {
-                if (position == 0) {
-                    frameLayout.removeAllViews();
-                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new ShowFeed()).commit();
-                } else if (position == 1) {
-                    frameLayout.removeAllViews();
-                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new Other_vacancy()).commit();
-                } else if (position == 2) {
-                    frameLayout.removeAllViews();
-                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new frghome(Home.this)).commit();
-                } else if (position == 3) {
-                    frameLayout.removeAllViews();
-                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new Resell()).commit();
-                } else if (position == 4) {
-                    frameLayout.removeAllViews();
-                    getSupportFragmentManager().beginTransaction().add(R.id.fmlayout, new E_commrce()).commit();
-                } else {
-                    onAddClick();
-                }
-            }
-        });
+        txtname.setText(sharedPreferences.getString("uname", "man"));
+        Glide.with(this)
+                .load(sharedPreferences.getString("url", "null"))
+                .circleCrop()
+                .into(prfpc);
+
+
+
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -246,13 +231,6 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
             fltlbr.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
             fltrsell.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
             fltai.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
-            fltsearch.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
-            txt1.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
-            txt2.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
-            txt3.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
-            txt4.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
-            txt5.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
-            txt6.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
         }
         else{
             fltfeed.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
@@ -260,13 +238,7 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
             fltlbr.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
             fltrsell.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
             fltai.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
-            fltsearch.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
-            txt1.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
-            txt2.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
-            txt3.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
-            txt4.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
-            txt5.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
-            txt6.setAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right));
+
         }
     }
     void setVisibility(boolean clicked){
@@ -276,14 +248,8 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
             fltlbr.setVisibility(View.VISIBLE);
             fltrsell.setVisibility(View.VISIBLE);
             fltai.setVisibility(View.VISIBLE);
-            fltsearch.setVisibility(View.VISIBLE);
             view.setVisibility(View.VISIBLE);
-            txt1.setVisibility(View.VISIBLE);
-            txt2.setVisibility(View.VISIBLE);
-            txt3.setVisibility(View.VISIBLE);
-            txt4.setVisibility(View.VISIBLE);
-            txt5.setVisibility(View.VISIBLE);
-            txt6.setVisibility(View.VISIBLE);
+
         }
         else{
             fltfeed.setVisibility(View.INVISIBLE);
@@ -291,14 +257,8 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
             fltlbr.setVisibility(View.INVISIBLE);
             fltrsell.setVisibility(View.INVISIBLE);
             fltai.setVisibility(View.INVISIBLE);
-            fltsearch.setVisibility(View.INVISIBLE);
             view.setVisibility(View.INVISIBLE);
-            txt1.setVisibility(View.INVISIBLE);
-            txt2.setVisibility(View.INVISIBLE);
-            txt3.setVisibility(View.INVISIBLE);
-            txt4.setVisibility(View.INVISIBLE);
-            txt5.setVisibility(View.INVISIBLE);
-            txt6.setVisibility(View.INVISIBLE);
+
         }
     }
     void setClickable(boolean clicked){
@@ -308,5 +268,7 @@ Animation rotateOpen,rotateClose,fromBottom,toBottom;
         }
         fltfeed.setClickable(false);
         fltvacancy.setClickable(false);
+
+
     }
 }

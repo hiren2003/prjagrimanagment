@@ -6,13 +6,13 @@ public class clsOrderModel {
 
 
     public clsOrderModel(com.project.agriculturemanagmentapp.clsEcommModel clsEcommModel, String key, String name, String mo, String address, String qty, String date, String time, String paymentMode, String paymentId, String paymentStatus) {
-        this.clsEcommModel = clsEcommModel;
-        this.key = key;
-        this.name = name;
-        this.mo = mo;
-        this.address = address;
-        this.qty = qty;
-        this.date = date;
+            this.clsEcommModel = clsEcommModel;
+            this.key = key;
+            this.name = name;
+            this.mo = mo;
+            this.address = address;
+            this.qty = qty;
+            this.date = date;
         this.time = time;
         PaymentMode = paymentMode;
         PaymentId = paymentId;

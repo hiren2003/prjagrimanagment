@@ -117,6 +117,7 @@ public class add_ecomm extends AppCompatActivity {
                     dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
                     dg.setCancelable(false);
                     dg.show();
+
                     String key = FirebaseDatabase.getInstance().getReference().child("ECommerce").push().getKey();
                     StorageReference reference = FirebaseStorage.getInstance().getReference().child("Ecommerce").child(key);
                     reference.putFile(selectedimg).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {

@@ -55,7 +55,7 @@ import static android.Manifest.permission.SEND_SMS;
  * Use the {@link frghome#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class frghome extends Fragment {
+public class                            frghome extends Fragment {
     RcnewsAdapter rcnewsAdapter;
     ImageView imageview;
     Context context;

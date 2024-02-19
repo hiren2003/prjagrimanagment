@@ -73,6 +73,9 @@ public class Resell extends Fragment {
         VpAdapterResell vpAdapterResell=new VpAdapterResell(getChildFragmentManager(),getContext());
         vpresell.setAdapter(vpAdapterResell);
         tbresell.setupWithViewPager(vpresell);
+        tbresell.getTabAt(0).setIcon(R.drawable.wheat);
+        tbresell.getTabAt(1).setIcon(R.drawable.animals);
+        tbresell.getTabAt(2).setIcon(R.drawable.cultivator);
         fltsell.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

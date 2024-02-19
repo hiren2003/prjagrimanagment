@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".Other_vacancy">
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchvacancy"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcothervacancy"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
-
-</FrameLayout>
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="10dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/empty"
+        android:id="@+id/loty1"
+        android:visibility="gone"
+        />
+</LinearLayout>

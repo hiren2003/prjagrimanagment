@@ -226,6 +226,8 @@
     <string name="State_wise_User">State wise user</string>
     <string name="Month_wise_Order">Monthly Order</string>
     <string name="Resell_split">Resell split</string>
+    <string name="My_Network">My Network</string>
+    <string name="Explore_Network">Explore Network</string>
     <string-array name="toolstype">
         <item>Tools</item>
         <item>Accessories</item>

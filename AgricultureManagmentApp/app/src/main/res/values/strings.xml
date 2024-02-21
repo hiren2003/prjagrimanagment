@@ -84,9 +84,9 @@
     <string name="Scheme_name">Scheme name</string>
     <string name="Add_Scheme">Add Scheme</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="Product_Description">Product Description</string>
+    <string name="Product_Description">Product Description :</string>
     <string name="Recommandation">Recommandation</string>
-    <string name="Specification">Specification</string>
+    <string name="Specification">Specification :</string>
     <string name="add_product">add product</string>
     <string name="qty2">Quantity</string>
     <string name="Headline">Headline</string>
@@ -183,7 +183,7 @@
     <string name="Select_time">Select_time</string>
     <string name="Education">Education</string>
     <string name="Experience">Experience</string>
-    <string name="Discount">Discount</string>
+    <string name="Discount">Discount :</string>
     <string name="Customer_Information">Customer Information</string>
     <string name="Payment_Mode">Payment Mode</string>
     <string name="Cash_On_Delivery">Cash On Delivery</string>

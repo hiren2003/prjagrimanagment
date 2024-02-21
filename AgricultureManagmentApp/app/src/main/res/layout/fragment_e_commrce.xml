@@ -1,22 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/drawer"
+    android:backgroundTint="#f5faf7"
+    android:orientation="vertical"
     tools:context=".E_commrce">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Marketplace"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_margin="10dp"
+        android:textSize="25dp"/>
+
     <Spinner
         android:id="@+id/category"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_margin="10dp"
-        android:minHeight="30dp"
-        android:padding="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
         android:background="@drawable/border_green"
-        />
+        android:minHeight="30dp"
+        android:padding="5dp" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rccprdt"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_height="match_parent"/>
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/addecomm"
@@ -31,4 +48,4 @@
         android:layout_marginBottom="20dp"
         android:src="@android:drawable/ic_input_add"
         android:text="@string/Add_Scheme" />
-</RelativeLayout>
+</LinearLayout>

@@ -26,16 +26,17 @@
                 android:layout_height="70dp"
                 android:layout_marginLeft="20dp"
                 android:src="@drawable/mans"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/User"
-                android:textStyle="bold"
-                android:textSize="40dp"
-                android:textColor="@color/white"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/cambay"
-                android:layout_marginLeft="20dp"/>
+                android:text="@string/User"
+                android:textColor="@color/white"
+                android:textSize="40dp"
+                android:textStyle="bold" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

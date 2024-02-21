@@ -34,7 +34,7 @@
                 android:textStyle="bold"
                 android:layout_gravity="start"
                 android:layout_marginLeft="10dp"
-                android:fontFamily="@font/mavenpro"
+                android:fontFamily="@font/quicksandbold"
                 android:textColor="@color/black"
                 android:textSize="40dp"/>
 
@@ -93,7 +93,7 @@
                     android:id="@+id/edtpname"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:fontFamily="@font/allerta"
+                    android:fontFamily="@font/quicksandregular"
                     android:maxLength="15"
                     android:shadowColor="@color/black"
                     android:textColor="@color/black" />
@@ -122,7 +122,7 @@
                     android:id="@+id/edtspecie"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:fontFamily="@font/allerta"
+                    android:fontFamily="@font/quicksandregular"
                     android:maxLength="15"
                     android:shadowColor="@color/black"
                     android:textColor="@color/black" />
@@ -157,7 +157,7 @@
                        android:id="@+id/edtqty"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
-                        android:fontFamily="@font/allerta"
+                        android:fontFamily="@font/quicksandregular"
                         android:maxLength="15"
                         android:inputType="numberSigned"
                         android:shadowColor="@color/black"
@@ -189,7 +189,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:inputType="numberDecimal"
-                        android:fontFamily="@font/allerta"
+                        android:fontFamily="@font/quicksandregular"
                         android:maxLength="15"
                         android:shadowColor="@color/black"
                         android:textColor="@color/black" />
@@ -220,7 +220,7 @@
                     android:id="@+id/edtsellername"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:fontFamily="@font/allerta"
+                    android:fontFamily="@font/quicksandregular"
                     android:maxLength="15"
                     android:shadowColor="@color/black"
 
@@ -253,7 +253,7 @@
                     android:id="@+id/edtmo"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:fontFamily="@font/allerta"
+                    android:fontFamily="@font/quicksandregular"
                     android:inputType="number"
                     android:maxLength="10"
                     android:shadowColor="@color/black"
@@ -292,7 +292,7 @@
                         android:id="@+id/edtstate"
                         android:layout_width="wrap_content"
                         android:layout_height="60dp"
-                        android:fontFamily="@font/allerta"
+                        android:fontFamily="@font/quicksandregular"
                         android:maxLength="15"
                         android:shadowColor="@color/black"
                         android:textColor="@color/black" />
@@ -325,7 +325,7 @@
                         android:id="@+id/edtdist"
                         android:layout_width="wrap_content"
                         android:layout_height="60dp"
-                        android:fontFamily="@font/allerta"
+                        android:fontFamily="@font/quicksandregular"
                         android:maxLength="15"
                         android:shadowColor="@color/black"
                         android:textColor="@color/black" />
@@ -367,7 +367,7 @@
                         android:id="@+id/edttehsil"
                         android:layout_width="wrap_content"
                         android:layout_height="60dp"
-                        android:fontFamily="@font/allerta"
+                        android:fontFamily="@font/quicksandregular"
                         android:maxLength="15"
                         android:shadowColor="@color/black"
                         android:textColor="@color/black" />
@@ -399,7 +399,7 @@
                         android:id="@+id/edtvlg"
                         android:layout_width="wrap_content"
                         android:layout_height="60dp"
-                        android:fontFamily="@font/allerta"
+                        android:fontFamily="@font/quicksandregular"
                         android:maxLength="15"
                         android:shadowColor="@color/black"
                         android:textColor="@color/black" />
@@ -424,7 +424,8 @@
                 android:layout_marginRight="10dp"
 >                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtdes"
-                    android:layout_width="match_parent"
+                android:fontFamily="@font/quicksandregular"
+                android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -433,6 +434,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:textSize="20dp"
+                android:fontFamily="@font/quicksandregular"
                 android:layout_marginTop="20dp"
                     android:background="@drawable/sendotp"
                     android:text="@string/Choose_Image"
@@ -453,6 +455,7 @@
                 android:background="@drawable/sendotp"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="#8BC34A"
+                android:fontFamily="@font/quicksandregular"
                 android:text="@string/Save_Detail"
                 />
         </LinearLayout>

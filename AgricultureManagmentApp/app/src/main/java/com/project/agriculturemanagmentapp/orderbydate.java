@@ -13,6 +13,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -25,7 +31,8 @@ public class orderbydate extends AppCompatActivity {
 RcorderAdapter rcorderAdapter;
 RecyclerView recyclerView;
 RelativeLayout rldate;
-TextView txtdate;
+TextView txtdate,txtallorder,txtavgorder,txtallpayment,txtavgpayment;
+    String date;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +44,8 @@ TextView txtdate;
         int year = calendar.get(Calendar.YEAR);
         rldate=findViewById(R.id.rldate);
         txtdate=findViewById(R.id.txtdate);
-        String date = day + "-" + (month) + "-" + year;
+
+        date = day + "-" + (++month) + "-" + year;
         FirebaseDatabase.getInstance().getReference().child("Orders").child(date).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -57,7 +65,6 @@ TextView txtdate;
             }
         });
 
-        date = day + "-" + (++month) + "-" + year;
         txtdate.setText(date);
         rldate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +72,7 @@ TextView txtdate;
                 DatePickerDialog datePickerDialog = new DatePickerDialog(orderbydate.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        String date=dayOfMonth + "-" + (month) + "-" + year;
+                        String date=dayOfMonth + "-" + (++month) + "-" + year;
                         txtdate.setText(dayOfMonth + "/" + (++month) + "/" + year);
                         FirebaseDatabase.getInstance().getReference().child("Orders").child(date).addValueEventListener(new ValueEventListener() {
                             @Override
@@ -91,6 +98,7 @@ TextView txtdate;
                 datePickerDialog.show();
             }
         });
+
 
     }
 }

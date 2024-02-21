@@ -12,7 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
@@ -29,8 +32,12 @@ import java.util.Optional;
  * create an instance of this fragment.
  */
 public class ShowFeed extends Fragment {
-    RcFeedAdapter rcFeedAdapter;
+    RcFeedAdapter rcFeedAdapter,rcFeedAdapter2;
     Boolean isFollowerFeed;
+    ArrayList<clsFeedModel> feedModelArrayList;
+    ArrayList<clsFeedModel> FollowingfeedModelArrayList;
+    ArrayList<clsFeedModel> OtherfeedModelArrayList;
+    Boolean feed1=true,feed2=false;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -77,37 +84,108 @@ public class ShowFeed extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view= inflater.inflate(R.layout.fragment_show_feed, container, false);
         RecyclerView recyclerView=view.findViewById(R.id.rcviewshfeed);
-        ShimmerFrameLayout shimmerFrameLayout = view.findViewById(R.id.shimmer_view_container);
-        shimmerFrameLayout.startShimmer();
+        RecyclerView rcviewotherfeed=view.findViewById(R.id.rcviewotherfeed);
         SharedPreferences sharedPreferences=getContext().getSharedPreferences("data", Context.MODE_PRIVATE);
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
+        LottieAnimationView loty1=view.findViewById(R.id.loty1);
+        LottieAnimationView loty2=view.findViewById(R.id.loty2);
+        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setStackFromEnd(true);
+        ImageView img1=view.findViewById(R.id.img1);
+        ImageView img2=view.findViewById(R.id.img2);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        LinearLayoutManager linearLayoutManager2=new LinearLayoutManager(getContext());
+        linearLayoutManager2.setReverseLayout(true);
+        linearLayoutManager2.setStackFromEnd(true);
+        rcviewotherfeed.setLayoutManager(linearLayoutManager2);
+        FollowingfeedModelArrayList= new ArrayList<>();
+        OtherfeedModelArrayList= new ArrayList<>();
+        view.findViewById(R.id.ll1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(feed1){
+                    feed1=false;
+                    img1.setImageDrawable(getContext().getDrawable(R.drawable.rightarrow));
+                    recyclerView.setVisibility(View.GONE);
+                    loty1.setVisibility(View.GONE);
+
+                }
+                else {
+                    feed1=true;
+                    img1.setImageDrawable(getContext().getDrawable(R.drawable.downarrow));
+                    recyclerView.setVisibility(View.VISIBLE);
+                    if(FollowingfeedModelArrayList.isEmpty()){
+                        loty1.setVisibility(View.VISIBLE);
+                    }
+                    else{
+                        loty1.setVisibility(View.GONE);
+                    }
+                }
+
+            }
+        });
+        view.findViewById(R.id.ll2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(feed2){
+                    feed2=false;
+                    img2.setImageDrawable(getContext().getDrawable(R.drawable.rightarrow));
+                    rcviewotherfeed.setVisibility(View.GONE);
+                    loty2.setVisibility(View.GONE);
+                }
+                else {
+                    feed2=true;
+                    img2.setImageDrawable(getContext().getDrawable(R.drawable.downarrow));
+                    rcviewotherfeed.setVisibility(View.VISIBLE);
+                    if(OtherfeedModelArrayList.isEmpty()){
+                        loty2.setVisibility(View.VISIBLE);
+                    }
+                    else{
+                        loty2.setVisibility(View.GONE);
+                    }
+                }
+            }
+        });
         FirebaseDatabase.getInstance().getReference().child("Feed").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ArrayList<clsFeedModel> feedModelArrayList = new ArrayList<>();
+                feedModelArrayList = new ArrayList<>();
                 for (DataSnapshot datasnapshot:
                         snapshot.getChildren()) {
                     clsFeedModel model=datasnapshot.getValue(clsFeedModel.class);
                     feedModelArrayList.add(model);
                 }
 
-
                 FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo","null")).child("Following").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot2) {
                         ArrayList<String> arrayList=new ArrayList<>();
+                        FollowingfeedModelArrayList= new ArrayList<>();
+                        OtherfeedModelArrayList= new ArrayList<>();
                         for (DataSnapshot dataSnapshot:snapshot2.getChildren()){
                             arrayList.add(dataSnapshot.getValue().toString());
                         }
-                        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
-                        linearLayoutManager.setReverseLayout(true);
-                        linearLayoutManager.setStackFromEnd(true);
-                        recyclerView.setLayoutManager(linearLayoutManager);
-                        rcFeedAdapter =new RcFeedAdapter(getContext(),false,feedModelArrayList);
+                        for (clsFeedModel model:feedModelArrayList) {
+                            if(arrayList.contains(model.getUmo())){
+                             FollowingfeedModelArrayList.add(model);
+                            }
+                            else{
+                              OtherfeedModelArrayList.add(model);
+                            }
+                        }
+                        if(FollowingfeedModelArrayList.isEmpty()){
+                            loty1.setVisibility(View.VISIBLE);
+                        }
+                        else{
+                         loty1.setVisibility(View.GONE);
+                        }
+                        rcFeedAdapter =new RcFeedAdapter(getContext(),false,FollowingfeedModelArrayList);
                         recyclerView.setAdapter(rcFeedAdapter);
-                        shimmerFrameLayout.setVisibility(View.GONE);
-                        shimmerFrameLayout.stopShimmer();
+                        rcFeedAdapter2 =new RcFeedAdapter(getContext(),false,OtherfeedModelArrayList);
+                        rcviewotherfeed.setAdapter(rcFeedAdapter2);
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {

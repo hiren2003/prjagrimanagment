@@ -150,7 +150,7 @@ public class RcToolsAccesoriesAdapter extends RecyclerView.Adapter<RcToolsAcceso
                                         clsToolsAccessoriesModelArrayList.get(position).getCategory(),
                                         sharedPreferences.getString("mo", "1234567890")
                                 );
-                                FirebaseDatabase.getInstance().getReference().child("Tools&Accessories").child(clsToolsAccessoriesModelArrayList.get(position).getKey()).setValue(clsToolsAccessoriesModel);
+                                FirebaseDatabase.getInstance().getReference().child("Resell").child("Tools&Accessories").child(clsToolsAccessoriesModelArrayList.get(position).getKey()).setValue(clsToolsAccessoriesModel);
                                 FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("Tools&Accessories").child(clsToolsAccessoriesModelArrayList.get(position).getKey()).setValue(clsToolsAccessoriesModel);
                                 bottomSheetDialog.cancel();
                             }
@@ -169,7 +169,7 @@ public class RcToolsAccesoriesAdapter extends RecyclerView.Adapter<RcToolsAcceso
         holder.itemView.setAnimation(anim);
         holder.txtprdt.setText(clsToolsAccessoriesModelArrayList.get(position).getPname());
         holder.txtprc.setText(context.getResources().getString(R.string.prc)+clsToolsAccessoriesModelArrayList.get(position).getPrice());
-        holder.txtqty.setText(context.getResources().getString(R.string.Usage)+clsToolsAccessoriesModelArrayList.get(position).getMonth()+"Months");
+        holder.txtqty.setText(context.getResources().getString(R.string.Usage)+" : "+clsToolsAccessoriesModelArrayList.get(position).getMonth()+" Month");
         holder.cd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -40,7 +40,7 @@
                              android:layout_width="wrap_content"
                              android:layout_height="wrap_content"
                              android:text="@string/Product_Name"
-                             android:fontFamily="@font/allerta"
+                             android:fontFamily="@font/quicksandbold"
                              android:textColor="#000000"
                              android:textSize="15dp"
                              android:textStyle="bold" />
@@ -49,7 +49,7 @@
                              android:id="@+id/txtpname"
                              android:layout_width="wrap_content"
                              android:layout_height="wrap_content"
-                             android:fontFamily="@font/allerta"
+                             android:fontFamily="@font/quicksandregular"
                              android:text="Product Name"
                              android:textColor="#000000"
                              android:textSize="15dp" />
@@ -59,7 +59,7 @@
                              android:layout_width="wrap_content"
                              android:layout_height="wrap_content"
                              android:text="@string/Price2"
-                             android:fontFamily="@font/allerta"
+                             android:fontFamily="@font/quicksandbold"
                              android:textColor="#000000"
                              android:textStyle="bold"
                              android:textSize="15dp"
@@ -70,13 +70,13 @@
                              android:layout_height="wrap_content"
                              android:text="Product Name"
                              android:textColor="#000000"
-                             android:fontFamily="@font/allerta"
+                             android:fontFamily="@font/quicksandregular"
                              android:textSize="15dp"/>
                          <TextView
                              android:layout_width="wrap_content"
                              android:layout_height="wrap_content"
                              android:text="@string/Product_Id"
-                             android:fontFamily="@font/allerta"
+                             android:fontFamily="@font/quicksandbold"
                              android:textColor="#000000"
                              android:textStyle="bold"
                              android:textSize="15dp"
@@ -87,7 +87,7 @@
                              android:layout_height="wrap_content"
                              android:text="Product Name"
                              android:textColor="#000000"
-                             android:fontFamily="@font/allerta"
+                             android:fontFamily="@font/quicksandregular"
                              android:textSize="15dp"/>
                      </LinearLayout>
 
@@ -123,7 +123,7 @@
                              <TextView
                                  android:layout_width="wrap_content"
                                  android:layout_height="wrap_content"
-                                 android:fontFamily="@font/allerta"
+                                 android:fontFamily="@font/quicksandbold"
                                  android:text="CGST"
                                  android:textColor="#000000"
                                  android:textSize="15dp"
@@ -133,7 +133,7 @@
                                  android:id="@+id/txtcgst"
                                  android:layout_width="wrap_content"
                                  android:layout_height="wrap_content"
-                                 android:fontFamily="@font/allerta"
+                                 android:fontFamily="@font/quicksandregular"
                                  android:text="28"
                                  android:textColor="#000000"
                                  android:textSize="15dp" />
@@ -157,7 +157,7 @@
                                  android:layout_width="wrap_content"
                                  android:layout_height="wrap_content"
                                  android:text="SGST"
-                                 android:fontFamily="@font/allerta"
+                                 android:fontFamily="@font/quicksandbold"
                                  android:textColor="#000000"
                                  android:textStyle="bold"
                                  android:textSize="15dp"/>
@@ -167,7 +167,7 @@
                                  android:layout_height="wrap_content"
                                  android:text="28"
                                  android:textColor="#000000"
-                                 android:fontFamily="@font/allerta"
+                                 android:fontFamily="@font/quicksandregular"
                                  android:textSize="15dp"/>
                          </LinearLayout>
                      </androidx.cardview.widget.CardView>
@@ -189,7 +189,7 @@
                                  android:layout_width="wrap_content"
                                  android:layout_height="wrap_content"
                                  android:text="@string/Discount"
-                                 android:fontFamily="@font/allerta"
+                                 android:fontFamily="@font/quicksandbold"
                                  android:textColor="#000000"
                                  android:textStyle="bold"
                                  android:textSize="15dp"/>
@@ -199,7 +199,7 @@
                                  android:layout_height="wrap_content"
                                  android:text="28"
                                  android:textColor="#000000"
-                                 android:fontFamily="@font/allerta"
+                                 android:fontFamily="@font/quicksandregular"
                                  android:textSize="15dp"/>
                          </LinearLayout>
                      </androidx.cardview.widget.CardView>
@@ -248,7 +248,7 @@
                              android:layout_width="match_parent"
                              android:layout_height="wrap_content"
                              android:layout_marginLeft="10dp"
-                             android:fontFamily="@font/montserrat_medium"
+                             android:fontFamily="@font/quicksandbold"
                              android:text="@string/Specification"
                              android:textColor="#000000"
                              android:textSize="15dp"
@@ -259,7 +259,7 @@
                              android:layout_width="match_parent"
                              android:layout_height="wrap_content"
                              android:text="Fruits"
-                             android:fontFamily="@font/montserrat"
+                             android:fontFamily="@font/quicksandregular"
                              android:layout_marginLeft="10dp"
                              android:textColor="#000000"
                              android:textSize="15dp" />
@@ -281,7 +281,7 @@
                      android:layout_width="match_parent"
                      android:layout_height="wrap_content"
                      android:text="@string/Product_Description"
-                     android:fontFamily="@font/montserrat_medium"
+                     android:fontFamily="@font/quicksandbold"
                      android:layout_marginLeft="10dp"
                      android:textColor="#000000"
                      android:textSize="15dp"
@@ -292,7 +292,7 @@
                      android:layout_width="match_parent"
                      android:layout_height="wrap_content"
                      android:text="Fruits"
-                     android:fontFamily="@font/montserrat"
+                     android:fontFamily="@font/quicksandregular"
                      android:layout_marginLeft="10dp"
                      android:textColor="#000000"
                      android:textSize="15dp" />
@@ -315,7 +315,7 @@
                      android:layout_height="wrap_content"
                      android:text="@string/Recommandation"
                      android:textColor="#000000"
-                     android:fontFamily="@font/montserrat_medium"
+                     android:fontFamily="@font/quicksandbold"
                      android:layout_marginLeft="10dp"
                      android:textSize="15dp"
                      android:textStyle="bold" />
@@ -325,7 +325,7 @@
                      android:layout_width="match_parent"
                      android:layout_height="wrap_content"
                      android:textColor="#000000"
-                     android:fontFamily="@font/montserrat"
+                     android:fontFamily="@font/quicksandregular"
                      android:layout_marginLeft="10dp"
                      android:textSize="15dp"
                      android:text="nfhf"

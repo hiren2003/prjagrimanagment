@@ -182,6 +182,8 @@ public class add_animal extends AppCompatActivity {
                             firebaseStorage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
+                                    int mon=Calendar.getInstance().get(Calendar.MONTH);
+                                    mon++;
                                     SharedPreferences sharedPreferences1 = getSharedPreferences("data", MODE_PRIVATE);
                                     clsAnimalModel clsAnimalModel = new clsAnimalModel(
                                             key,
@@ -199,13 +201,14 @@ public class add_animal extends AppCompatActivity {
                                             edtvillage.getText().toString(),
                                             edtdescription.getText().toString(),
                                             uri.toString(),
-                                            Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR)
+                                            Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + mon + "/" + Calendar.getInstance().get(Calendar.YEAR)
                                             , edtsname.getText().toString(),
                                             sharedPreferences1.getString("mo", "1234567890")
-                                    );                                    FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences1.getString("mo", "1234567890")).child("Resell").child("animal").child(key).setValue(clsAnimalModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    );
+                                    FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences1.getString("mo", "1234567890")).child("Resell").child("animal").child(key).setValue(clsAnimalModel).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
-                                            FirebaseDatabase.getInstance().getReference().child("animals").child(key).setValue(clsAnimalModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            FirebaseDatabase.getInstance().getReference().child("Resell").child("animals").child(key).setValue(clsAnimalModel).addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override
                                                 public void onSuccess(Void unused) {
                                                     show_toast(getResources().getString(R.string.successfullyuploaded), true);

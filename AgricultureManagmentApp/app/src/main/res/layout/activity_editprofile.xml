@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="90dp"
             android:layout_gravity="center_vertical"
-            android:fontFamily="@font/cambay"
+            android:fontFamily="@font/quicksandsemibold"
             android:text="@string/Edit_Profile"
             android:layout_marginTop="5dp"
             android:textColor="@color/black"
@@ -58,7 +58,7 @@
                 android:layout_height="35dp"
                 android:layout_marginLeft="25dp"
                 android:textStyle="bold"
-                android:fontFamily="@font/montserrat"
+                android:fontFamily="@font/quicksandsemibold"
                 android:text="Name :"
                 android:layout_marginTop="25dp"
                 android:textColor="@color/black"
@@ -75,13 +75,14 @@
                 android:textColor="@color/black"
                 android:hint="Jason Roy"
                 android:paddingLeft="20dp"
+                android:fontFamily="@font/quicksandregular"
                 app:hintTextColor="@color/black" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:layout_marginLeft="25dp"
                 android:textStyle="bold"
-                android:fontFamily="@font/montserrat"
+                android:fontFamily="@font/quicksandsemibold"
                 android:text="E-mail :"
                 android:layout_marginTop="25dp"
                 android:textColor="@color/black"
@@ -91,6 +92,7 @@
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
+                android:fontFamily="@font/quicksandregular"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/curvebackground"
@@ -105,7 +107,7 @@
                 android:layout_height="35dp"
                 android:layout_marginLeft="25dp"
                 android:textStyle="bold"
-                android:fontFamily="@font/montserrat"
+                android:fontFamily="@font/quicksandsemibold"
                 android:text="Mobile number :"
                 android:layout_marginTop="25dp"
                 android:textColor="@color/black"
@@ -120,6 +122,7 @@
                 android:backgroundTint="#F5F5F5"
                 android:textColor="@color/black"
                 android:hint="+91 98565 95456"
+                android:fontFamily="@font/quicksandregular"
                 android:paddingLeft="20dp"
                 app:hintTextColor="@color/black" />
 
@@ -129,7 +132,7 @@
                 android:layout_height="35dp"
                 android:layout_marginLeft="25dp"
                 android:textStyle="bold"
-                android:fontFamily="@font/montserrat"
+                android:fontFamily="@font/quicksandsemibold"
                 android:text="Date of birth :"
                 android:layout_marginTop="25dp"
                 android:textColor="@color/black"
@@ -167,8 +170,8 @@
                         android:id="@+id/txtdate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/montserrat_medium"
                         android:text="@string/Select_date"
+                        android:fontFamily="@font/quicksandregular"
                         android:textColor="#AEAEAE"
                         android:textSize="20dp" />
                 </RelativeLayout>
@@ -180,7 +183,7 @@
                 android:layout_height="35dp"
                 android:layout_marginLeft="25dp"
                 android:textStyle="bold"
-                android:fontFamily="@font/montserrat"
+                android:fontFamily="@font/quicksandsemibold"
                 android:text="Gender:"
                 android:layout_marginTop="25dp"
                 android:textColor="@color/black"
@@ -220,8 +223,8 @@
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:text="Male"
-                 android:fontFamily="@font/montserrat"
                  android:textColor="@color/black"
+                 android:fontFamily="@font/quicksandregular"
                  android:textSize="20dp"
                  android:layout_marginLeft="80dp"
                  android:layout_marginTop="2dp"/>
@@ -231,9 +234,9 @@
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:text="Female"
-                 android:fontFamily="@font/montserrat"
                  android:textColor="@color/black"
                  android:textSize="20dp"
+                 android:fontFamily="@font/quicksandregular"
                  android:layout_marginLeft="50dp"
                  android:layout_marginTop="2dp"/>
          </RadioGroup>
@@ -245,7 +248,7 @@
                 android:layout_height="35dp"
                 android:layout_marginLeft="25dp"
                 android:textStyle="bold"
-                android:fontFamily="@font/montserrat"
+                android:fontFamily="@font/quicksandsemibold"
                 android:text="State :"
                 android:layout_marginTop="25dp"
                 android:textColor="@color/black"
@@ -269,6 +272,7 @@
                 android:layout_height="40dp"
                 android:backgroundTint="@color/black"
                 android:layout_marginLeft="20dp"
+                android:fontFamily="@font/quicksandregular"
                 android:layout_marginRight="20dp"/>
 
 
@@ -277,7 +281,7 @@
                 android:layout_height="35dp"
                 android:layout_marginLeft="25dp"
                 android:textStyle="bold"
-                android:fontFamily="@font/montserrat"
+                android:fontFamily="@font/quicksandsemibold"
                 android:text="Address :"
                 android:layout_marginTop="25dp"
                 android:textColor="@color/black"
@@ -294,6 +298,7 @@
                 android:textColor="@color/black"
                 android:hint="Flat no, society, Landmark, Area, city"
                 android:paddingLeft="20dp"
+                android:fontFamily="@font/quicksandregular"
                 app:hintTextColor="@color/black" />
 
             <RelativeLayout
@@ -321,7 +326,7 @@
                     android:id="@+id/txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_medium"
+                    android:fontFamily="@font/quicksandsemibold"
                     android:text="@string/Update_Profile"
                     android:textColor="#FFFFFF"
                     android:textSize="20dp" />

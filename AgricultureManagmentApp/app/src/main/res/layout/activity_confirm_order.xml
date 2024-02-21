@@ -42,6 +42,7 @@
                       android:layout_height="wrap_content"
                       android:textColor="#000"
                       android:textSize="25dp"
+                      android:fontFamily="@font/quicksandregular"
                       android:textStyle="bold"
                       android:text="Product Name"/>
                   <TextView
@@ -49,6 +50,7 @@
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
                       android:textColor="#000"
+                      android:fontFamily="@font/quicksandregular"
                       android:textSize="20dp"
                       android:text="$900"/>
                   <TextView
@@ -56,6 +58,7 @@
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
                       android:textColor="#000"
+                      android:fontFamily="@font/quicksandregular"
                       android:textSize="20dp"
                       android:text="Quantity : 2"/>
                   <TextView
@@ -63,6 +66,7 @@
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
                       android:textColor="#000"
+                      android:fontFamily="@font/quicksandregular"
                       android:textSize="15dp"
                       android:text="hello this is a description and hello ok i am hiren and my name is "/>
               </LinearLayout>
@@ -86,6 +90,7 @@
                       android:layout_height="wrap_content"
                       android:textSize="25dp"
                       android:textStyle="bold"
+                      android:fontFamily="@font/quicksandsemibold"
                       android:textColor="#000"
                       android:text="@string/Customer_Information"/>
                   <ImageView
@@ -101,6 +106,7 @@
                   android:id="@+id/txtcname"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
+                  android:fontFamily="@font/quicksandregular"
                   android:textSize="20dp"
                   android:text="Hiren Bhalani"/>
               <TextView
@@ -108,12 +114,14 @@
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:textSize="15dp"
+                  android:fontFamily="@font/quicksandregular"
                   android:text="+91 7229005896"/>
               <TextView
                   android:id="@+id/txtcadd"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:textSize="15dp"
+                  android:fontFamily="@font/quicksandregular"
                   android:text="B 28 Swaminarayan Part 2 Simada Gam Surat."/>
           </LinearLayout>
       </androidx.cardview.widget.CardView>
@@ -133,6 +141,7 @@
                   android:textSize="25dp"
                   android:textStyle="bold"
                   android:textColor="#000"
+                  android:fontFamily="@font/quicksandsemibold"
                   android:text="Billing"/>
               <RelativeLayout
                   android:layout_width="match_parent"
@@ -141,6 +150,7 @@
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
                       android:textSize="20dp"
+                      android:fontFamily="@font/quicksandregular"
                       android:text="Order Amount"/>
                   <TextView
                       android:layout_width="wrap_content"
@@ -156,6 +166,7 @@
                       android:layout_height="wrap_content"
                       android:layout_alignParentEnd="true"
                       android:text="$900"
+                      android:fontFamily="@font/quicksandregular"
                       android:textSize="20dp" />
               </RelativeLayout>
               <RelativeLayout
@@ -165,6 +176,7 @@
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
                       android:textSize="20dp"
+                      android:fontFamily="@font/quicksandregular"
                       android:text="CGST"/>
                   <TextView
                       android:layout_width="wrap_content"
@@ -180,6 +192,7 @@
                       android:layout_height="wrap_content"
                       android:layout_alignParentEnd="true"
                       android:text="$900"
+                      android:fontFamily="@font/quicksandregular"
                       android:textSize="20dp" />
               </RelativeLayout>
               <RelativeLayout
@@ -189,6 +202,7 @@
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
                       android:textSize="20dp"
+                      android:fontFamily="@font/quicksandregular"
                       android:text="SGST"/>
                   <TextView
                       android:layout_width="wrap_content"
@@ -203,6 +217,7 @@
                       android:layout_height="wrap_content"
                       android:textSize="20dp"
                       android:layout_alignParentEnd="true"
+                      android:fontFamily="@font/quicksandregular"
                       android:text="$900"/>
               </RelativeLayout>
               <RelativeLayout
@@ -212,6 +227,7 @@
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
                       android:textSize="20dp"
+                      android:fontFamily="@font/quicksandregular"
                       android:text="Shipping Charges"/>
                   <TextView
                       android:layout_width="wrap_content"
@@ -227,6 +243,7 @@
                       android:layout_height="wrap_content"
                       android:layout_alignParentEnd="true"
                       android:text="$900"
+                      android:fontFamily="@font/quicksandregular"
                       android:textSize="20dp" />
               </RelativeLayout>
               <RelativeLayout
@@ -237,6 +254,7 @@
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
                       android:text="@string/Discount"
+                      android:fontFamily="@font/quicksandregular"
                       android:textSize="20dp" />
                   <TextView
                       android:layout_width="wrap_content"
@@ -252,6 +270,7 @@
                       android:layout_height="wrap_content"
                       android:layout_alignParentEnd="true"
                       android:text="$900"
+                      android:fontFamily="@font/quicksandregular"
                       android:textSize="20dp" />
               </RelativeLayout>
               <FrameLayout
@@ -269,6 +288,7 @@
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
                       android:text="@string/Payable_Amount"
+                      android:fontFamily="@font/quicksandregular"
                       android:textSize="20dp" />
                   <TextView
                       android:layout_width="wrap_content"
@@ -284,6 +304,7 @@
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
                       android:textSize="20dp"
+                      android:fontFamily="@font/quicksandregular"
                       android:layout_alignParentEnd="true"
                       android:text="$900"/>
               </LinearLayout>
@@ -305,6 +326,7 @@
                   android:layout_height="wrap_content"
                   android:textSize="25dp"
                   android:textStyle="bold"
+                  android:fontFamily="@font/quicksandsemibold"
                   android:textColor="#000"
                   android:text="@string/Payment_Mode"/>
               <LinearLayout
@@ -329,6 +351,7 @@
                       android:text="@string/Cash_On_Delivery"
                       android:layout_marginStart="10dp"
                       android:textColor="#000"
+                      android:fontFamily="@font/quicksandregular"
                       android:textStyle="bold"
                       android:textSize="20dp"
                       />
@@ -356,6 +379,7 @@
                       android:layout_marginStart="10dp"
                       android:textColor="#000"
                       android:textStyle="bold"
+                      android:fontFamily="@font/quicksandregular"
                       android:textSize="20dp"
                       />
               </LinearLayout>
@@ -377,24 +401,28 @@
                   android:layout_height="wrap_content"
                   android:text="@string/Order_Id"
                   android:textStyle="bold"
+                  android:fontFamily="@font/quicksandsemibold"
                   android:textSize="20dp"/>
               <TextView
                   android:id="@+id/txtoid"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:textSize="15dp"
+                  android:fontFamily="@font/quicksandregular"
                   android:text="-NmRkGVpP7afIlnODjGf"/>
               <TextView
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:text="@string/Payment_Mode"
                   android:textStyle="bold"
+                  android:fontFamily="@font/quicksandsemibold"
                   android:textSize="20dp"/>
               <TextView
                   android:id="@+id/txtpmod"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:textSize="15dp"
+                  android:fontFamily="@font/quicksandregular"
                   android:text="Online"/>
              <LinearLayout
                  android:id="@+id/lnpoption"
@@ -406,24 +434,29 @@
                      android:layout_height="wrap_content"
                      android:text="@string/Payment_Status"
                      android:textStyle="bold"
+                     android:fontFamily="@font/quicksandsemibold"
                      android:textSize="20dp"/>
                  <TextView
                      android:id="@+id/txtpstatus"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:textSize="15dp"
+                     android:fontFamily="@font/quicksandregular"
                      android:text="Sucess"/>
                  <TextView
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:text="@string/Payment_Id"
+                     android:fontFamily="@font/quicksandsemibold"
                      android:textStyle="bold"
+
                      android:textSize="20dp"/>
                  <TextView
                      android:id="@+id/txtpid"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:textSize="15dp"
+                     android:fontFamily="@font/quicksandregular"
                      android:text="pay_NGWvrWHPVW1uX5"/>
              </LinearLayout>
           </LinearLayout>
@@ -437,6 +470,7 @@
           android:text="@string/Order_Confirm2"
           android:textStyle="bold"
           android:textSize="20dp"
+          android:fontFamily="@font/quicksandsemibold"
           android:background="@drawable/curvebackground"
           android:textColor="#ffffff"
           android:backgroundTint="#FFB302"

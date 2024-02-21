@@ -18,7 +18,7 @@
                 android:textStyle="bold"
                 android:textColor="#066006"
                 android:layout_marginLeft="10dp"
-                android:fontFamily="@font/montserrat_bold"
+                android:fontFamily="@font/quicksandbold"
                 android:textSize="50dp"/>
             <FrameLayout
                 android:layout_width="match_parent"
@@ -58,7 +58,7 @@
                        android:textStyle="bold"
                        android:layout_marginLeft="20dp"
                        android:layout_gravity="center_vertical"
-                       android:fontFamily="@font/montserrat"
+                       android:fontFamily="@font/quicksandsemibold"
                        android:textColor="@color/black"
                        android:textSize="30dp"/>
                    <com.google.android.material.card.MaterialCardView
@@ -150,7 +150,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="20dp"
-                        android:fontFamily="@font/montserrat"
+                        android:fontFamily="@font/quicksandsemibold"
                         android:text="Fruits"
                         android:textColor="@color/black"
                         android:textSize="30dp"
@@ -186,7 +186,7 @@
                         android:textStyle="bold"
                         android:layout_marginLeft="20dp"
                         android:layout_gravity="center_vertical"
-                        android:fontFamily="@font/montserrat"
+                        android:fontFamily="@font/quicksandsemibold"
                         android:textColor="@color/black"
                         android:textSize="30dp"/>
                     <com.google.android.material.card.MaterialCardView
@@ -274,7 +274,7 @@
                         android:textStyle="bold"
                         android:layout_marginLeft="10dp"
                         android:layout_gravity="center_vertical"
-                        android:fontFamily="@font/montserrat"
+                        android:fontFamily="@font/quicksandsemibold"
                         android:textColor="@color/black"
                         android:textSize="30dp"/>
                 </LinearLayout>
@@ -308,7 +308,7 @@
                         android:textStyle="bold"
                         android:layout_marginLeft="20dp"
                         android:layout_gravity="center_vertical"
-                        android:fontFamily="@font/montserrat"
+                        android:fontFamily="@font/quicksandsemibold"
                         android:textColor="@color/black"
                         android:textSize="30dp"/>
                     <com.google.android.material.card.MaterialCardView

@@ -204,6 +204,31 @@
     <string name="Message">Message</string>
     <string name="del">Delete</string>
     <string name="Delete_Message">Delete message ?</string>
+    <string name="less">Less</string>
+    <string name="Please_Enter_CGST">Please enter CGST</string>
+    <string name="Please_Enter_SGST">Please enter SGST</string>
+    <string name="Total_Order">Total orders</string>
+    <string name="Avg_Daily_Order">Average daily orders</string>
+    <string name="Payment_split">Payment split</string>
+    <string name="Total_Orders">Total orders</string>
+    <string name="Total_Payments">Total Payment</string>
+    <string name="Avg_Payment">Avg. Payment</string>
+    <string name="OrderDetail">Order Detail</string>
+    <string name="Feed_Detail">Feed Detail</string>
+    <string name="Total_feed">Total feed</string>
+    <string name="Total_comments">Total comments</string>
+    <string name="Total_likes">Total likes</string>
+    <string name="Avg_Daily_Posts">Average daily posts</string>
+    <string name="Total_picture">Total Picture</string>
+    <string name="Total_Tweet">Total Tweet</string>
+    <string name="Feed_Split">Feed Split</string>
+    <string name="Month_wise_Feed">Monthly feed</string>
+    <string name="State_wise_User">State wise user</string>
+    <string name="Month_wise_Order">Monthly Order</string>
+    <string name="Resell_split">Resell split</string>
+    <string name="My_Network">My Network</string>
+    <string name="Explore_Network">Explore Network</string>
+    <string name="Search_here">Search Here</string>
     <string-array name="toolstype">
         <item>Tools</item>
         <item>Accessories</item>
@@ -280,7 +305,9 @@
         <item>West Bengal</item>
     </string-array>
     <string-array name="arrcategory">
-        <item>seeds and Plants</item>
+        <item>Seeds</item>
+        <item>Plants</item>
+        <item>Fertilizer</item>
         <item>Crop protection and Nutrition</item>
         <item>Tools and Equipment</item>
     </string-array>

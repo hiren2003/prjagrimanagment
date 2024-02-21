@@ -33,8 +33,8 @@
                 android:textAlignment="center"
                 android:textColor="#111"
                 android:textStyle="bold"
+                android:fontFamily="@font/quicksandregular"
                 android:textSize="15dp"
-                android:fontFamily="@font/andika"
                 android:text="
 1.Account Creation
 \n-Users must create account to access the app's features.

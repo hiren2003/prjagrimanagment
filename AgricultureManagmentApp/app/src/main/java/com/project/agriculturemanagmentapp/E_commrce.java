@@ -117,7 +117,11 @@ public class E_commrce extends Fragment {
                                 snapshot.getChildren()) {
                             ecommModelArrayList.add(datasnapshot.getValue(clsEcommModel.class));
                         }
-                        rcEcommAdapter=new RcEcommAdapter(getContext(),1,ecommModelArrayList);
+                        ArrayList<clsEcommModel> revresedecommModelArrayList=new ArrayList<>();
+                        for (int i = ecommModelArrayList.size()-1; i >= 0; i--) {
+                            revresedecommModelArrayList.add(ecommModelArrayList.get(i));
+                        }
+                        rcEcommAdapter=new RcEcommAdapter(getContext(),1,revresedecommModelArrayList);
                         rcprdt.setAdapter(rcEcommAdapter);
                     }
 

@@ -164,6 +164,8 @@ public class add_cultivation_product extends AppCompatActivity {
                             firebaseStorage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
+                                    int mon=Calendar.getInstance().get(Calendar.MONTH);
+                                    mon++;
                                     String payment = String.valueOf((Integer.parseInt(edtqty.getText().toString()) * Integer.parseInt(edtprc.getText().toString())));
                                     ClsCultivationProductModel clsCultivationProductModel = new ClsCultivationProductModel(
                                             category,
@@ -179,12 +181,12 @@ public class add_cultivation_product extends AppCompatActivity {
                                             edtdescription.getText().toString(),
                                             uri.toString(),
                                             edtmo.getText().toString(),
-                                            Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR),
+                                            Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + mon + "/" + Calendar.getInstance().get(Calendar.YEAR),
                                             key,
                                             edtsellername.getText().toString(),
                                             sharedPreferences.getString("mo", "1234567890")
                                             );
-                                    FirebaseDatabase.getInstance().getReference().child("Cultivation Product").child(key).setValue(clsCultivationProductModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    FirebaseDatabase.getInstance().getReference().child("Resell").child("Cultivation Product").child(key).setValue(clsCultivationProductModel).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("Cultivatio_Product").child(key).setValue(clsCultivationProductModel).addOnSuccessListener(new OnSuccessListener<Void>() {

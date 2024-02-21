@@ -46,6 +46,7 @@ public class RcVacancyAdapter extends RecyclerView.Adapter<RcVacancyAdapter.View
         else{
             holder.imgcall.setVisibility(View.VISIBLE);
             holder.imgwhat.setVisibility(View.VISIBLE);
+            holder.imgdlt.setVisibility(View.GONE);
         }
         holder.txtwtype.setText(vacancyModelArrayList.get(position).getWtype());
         holder.txtdur.setText(vacancyModelArrayList.get(position).getWdur()+context.getResources().getString(R.string.Month));

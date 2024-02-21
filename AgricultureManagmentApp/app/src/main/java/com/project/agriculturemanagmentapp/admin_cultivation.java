@@ -22,7 +22,7 @@ RcCultivatonPrdtAdpter rcCultivatonPrdtAdpter;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_cultivation);
         RecyclerView rccprdt=findViewById(R.id.rccprdt);
-        FirebaseDatabase.getInstance().getReference("Cultivation Product").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference().child("Resell").child("Cultivation Product").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ArrayList<ClsCultivationProductModel> clsCultivationProductModelArrayList=new ArrayList<>();

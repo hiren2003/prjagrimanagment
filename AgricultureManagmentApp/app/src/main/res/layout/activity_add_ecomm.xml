@@ -19,23 +19,20 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="center"
             android:orientation="horizontal">
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginLeft="20dp"
                 android:src="@drawable/box"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Add Product"
-                android:textStyle="bold"
                 android:textSize="40dp"
                 android:textColor="@color/white"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/cambay"
-                android:layout_marginLeft="20dp"/>
+                android:fontFamily="@font/quicksandbold"
+             />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 <ScrollView
@@ -58,7 +55,7 @@
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:layout_marginLeft="10dp"
-                android:fontFamily="@font/montserrat_medium"/>
+                android:fontFamily="@font/quicksandsemibold"/>
             <Spinner
                 android:id="@+id/category"
                 android:layout_width="match_parent"
@@ -68,6 +65,7 @@
                 android:layout_marginTop="10dp"
                 android:backgroundTint="#C6DEEC"
                 android:padding="10dp"
+                android:fontFamily="@font/quicksandregular"
                 android:background="@drawable/border_green"
                 />
         </LinearLayout>
@@ -76,7 +74,7 @@
             android:layout_height="35dp"
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
-            android:fontFamily="@font/montserrat_medium"
+            android:fontFamily="@font/quicksandsemibold"
             android:text="Product Name :"
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
@@ -90,7 +88,7 @@
             android:layout_marginRight="10dp"
             android:background="@drawable/curvebackground"
             android:backgroundTint="#C6DEEC"
-
+            android:fontFamily="@font/quicksandregular"
             android:textColor="@color/black"
             android:hint="@string/Name_of_product"
             android:paddingLeft="20dp"
@@ -101,7 +99,7 @@
             android:layout_height="35dp"
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
-            android:fontFamily="@font/montserrat_medium"
+            android:fontFamily="@font/quicksandsemibold"
             android:text="Price ( In INR ):"
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
@@ -115,6 +113,7 @@
             android:layout_marginRight="10dp"
             android:background="@drawable/curvebackground"
             android:backgroundTint="#C6DEEC"
+            android:fontFamily="@font/quicksandregular"
             android:textColor="@color/black"
             android:hint="Price"
             android:paddingLeft="20dp"
@@ -124,7 +123,7 @@
             android:layout_height="35dp"
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
-            android:fontFamily="@font/montserrat_medium"
+            android:fontFamily="@font/quicksandsemibold"
             android:text="CGST :"
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
@@ -140,6 +139,7 @@
             android:backgroundTint="#C6DEEC"
             android:textColor="@color/black"
             android:hint="CGST"
+            android:fontFamily="@font/quicksandregular"
             android:paddingLeft="20dp"
             app:hintTextColor="@color/black" />
 
@@ -149,7 +149,7 @@
             android:layout_height="35dp"
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
-            android:fontFamily="@font/montserrat_medium"
+            android:fontFamily="@font/quicksandsemibold"
             android:text="SGST :"
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
@@ -161,6 +161,7 @@
             android:layout_height="55dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:fontFamily="@font/quicksandregular"
             android:background="@drawable/curvebackground"
             android:backgroundTint="#C6DEEC"
             android:textColor="@color/black"
@@ -174,7 +175,7 @@
             android:layout_height="35dp"
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
-            android:fontFamily="@font/montserrat_medium"
+            android:fontFamily="@font/quicksandsemibold"
             android:text="Discount :"
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
@@ -189,6 +190,7 @@
             android:background="@drawable/curvebackground"
             android:backgroundTint="#C6DEEC"
             android:textColor="@color/black"
+            android:fontFamily="@font/quicksandregular"
             android:hint="@string/Discount"
             android:paddingLeft="20dp"
             app:hintTextColor="@color/black" />
@@ -199,7 +201,7 @@
             android:layout_height="35dp"
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
-            android:fontFamily="@font/montserrat_medium"
+            android:fontFamily="@font/quicksandsemibold"
             android:text="Product Description :"
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
@@ -213,6 +215,7 @@
             android:layout_marginRight="10dp"
             android:background="@drawable/curvebackground"
             android:backgroundTint="#C6DEEC"
+            android:fontFamily="@font/quicksandregular"
             android:textColor="@color/black"
             android:hint="@string/Product_Description"
             android:paddingLeft="20dp"
@@ -223,7 +226,7 @@
             android:layout_height="35dp"
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
-            android:fontFamily="@font/montserrat_medium"
+            android:fontFamily="@font/quicksandsemibold"
             android:text="Specification :"
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
@@ -239,6 +242,7 @@
             android:backgroundTint="#C6DEEC"
             android:textColor="@color/black"
             android:hint="@string/Specification"
+            android:fontFamily="@font/quicksandregular"
             android:paddingLeft="20dp"
             app:hintTextColor="@color/black" />
 
@@ -251,7 +255,7 @@
             android:layout_height="35dp"
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
-            android:fontFamily="@font/montserrat_medium"
+            android:fontFamily="@font/quicksandsemibold"
             android:text="Recommandation :"
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
@@ -266,6 +270,7 @@
             android:background="@drawable/curvebackground"
             android:backgroundTint="#C6DEEC"
             android:textColor="@color/black"
+            android:fontFamily="@font/quicksandregular"
             android:hint="@string/Recommandation"
             android:paddingLeft="20dp"
             app:hintTextColor="@color/black" />
@@ -282,6 +287,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="20dp"
+            android:fontFamily="@font/quicksandregular"
             android:backgroundTint="#F1FBF9"
             android:background="@drawable/sendotp"
             android:text="@string/Choose_Image"
@@ -304,6 +310,7 @@
             android:textColor="#FFFFFF"
             android:background="@drawable/sendotp"
             android:layout_marginTop="20dp"
+            android:fontFamily="@font/quicksandregular"
             android:backgroundTint="#135983"
             android:text="@string/add_product"
             />

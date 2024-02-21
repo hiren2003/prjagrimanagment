@@ -16,7 +16,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
-        android:fontFamily="@font/cambay"
+        android:fontFamily="@font/quicksandbold"
         android:text="@string/Agro_Farm"
         android:textColor="#066006"
         android:textSize="35dp"

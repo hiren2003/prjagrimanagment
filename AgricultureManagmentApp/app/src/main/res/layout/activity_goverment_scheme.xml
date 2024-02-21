@@ -19,24 +19,22 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="center"
             android:orientation="horizontal">
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="5dp"
                 android:src="@drawable/goverment"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Scheme"
                 android:textStyle="bold"
+                android:layout_marginStart="10dp"
                 android:textSize="40dp"
+                android:fontFamily="@font/quicksandbold"
                 android:textColor="@color/white"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/cambay"
-                android:layout_marginLeft="20dp"/>
+                />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
     <RelativeLayout

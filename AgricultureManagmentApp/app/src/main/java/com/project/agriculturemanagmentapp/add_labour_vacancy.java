@@ -90,6 +90,8 @@ public class add_labour_vacancy extends AppCompatActivity {
                     dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
                     dg.setCancelable(false);
                     dg.show();
+                    int mon=Calendar.getInstance().get(Calendar.MONTH);
+                    mon++;
                     String mo = sharedPreferences.getString("mo", "1234567890");
                     String key = FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("MyVacancy").push().getKey().toString();
                     clsVacancyModel obj = new clsVacancyModel(key,
@@ -104,7 +106,7 @@ public class add_labour_vacancy extends AppCompatActivity {
                             edttehsil.getText().toString(),
                             edtvlg.getText().toString(),
                             edtdes.getText().toString(),
-                            Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR),
+                            Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + mon + "/" + Calendar.getInstance().get(Calendar.YEAR),
                             sharedPreferences.getString("mo", "1234567890")
                     );
                     FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("MyVacancy").child(key).setValue(obj).addOnSuccessListener(new OnSuccessListener<Void>() {

@@ -74,9 +74,9 @@
         android:id="@+id/txtdes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/allerta"
         android:layout_marginStart="10dp"
         android:text="My First Post"
+        android:fontFamily="@font/quicksandregular"
         android:visibility="gone"
         android:textColor="#121212"
         android:layout_margin="7dp"
@@ -104,7 +104,7 @@
                 android:id="@+id/txtuname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/cambay"
+                android:fontFamily="@font/quicksandsemibold"
                 android:text="John Thomsan"
                 android:textSize="15dp"
                 />
@@ -112,7 +112,7 @@
                 android:id="@+id/txtdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat"
+                android:fontFamily="@font/quicksandmedium"
                 android:text="12/10/2023"
                 android:textSize="10dp"
                 />
@@ -156,8 +156,8 @@
                             android:id="@+id/likecount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_medium"
                             android:text="0"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:layout_marginStart="7dp"
                             android:textSize="12dp" />
                     </LinearLayout>
@@ -183,8 +183,8 @@
                             android:id="@+id/commentcount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_medium"
                             android:text="0"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:layout_marginStart="7dp"
                             android:textSize="12dp" />
                     </LinearLayout>

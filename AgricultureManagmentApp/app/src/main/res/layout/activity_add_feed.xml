@@ -21,7 +21,7 @@
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:layout_margin="10dp"
-               android:fontFamily="@font/montserrat_bold"
+               android:fontFamily="@font/quicksandbold"
                android:text="@string/Add_Post"
                android:textAlignment="textStart"
                android:textColor="#066006"
@@ -68,7 +68,7 @@
                    android:id="@+id/edtdes"
                    android:layout_width="match_parent"
                    android:layout_height="60dp"
-                   android:fontFamily="@font/allerta"
+                   android:fontFamily="@font/quicksandregular"
                    android:textColorHint="@color/black" />
            </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,7 +87,7 @@
                    android:id="@+id/txt"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:fontFamily="@font/allerta"
+                   android:fontFamily="@font/quicksandregular"
                    android:text="@string/Upload"
                    android:textColor="#FFFFFF"
                    android:textStyle="bold"
@@ -118,7 +118,7 @@
                    android:id="@+id/cancle"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:fontFamily="@font/allerta"
+                   android:fontFamily="@font/quicksandregular"
                    android:text="@string/cancel"
                    android:textColor="#121212"
                    android:textStyle="bold"

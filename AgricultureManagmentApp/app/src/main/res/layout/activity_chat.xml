@@ -34,7 +34,7 @@
             android:id="@+id/txtuname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat"
+            android:fontFamily="@font/quicksandsemibold"
             android:text="John Thomsan"
             android:layout_marginStart="5dp"
             android:layout_gravity="center_vertical"
@@ -82,7 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="60dp"
-                android:fontFamily="@font/allerta"
+                android:fontFamily="@font/quicksandregular"
                 android:shadowColor="@color/black"
                 android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>

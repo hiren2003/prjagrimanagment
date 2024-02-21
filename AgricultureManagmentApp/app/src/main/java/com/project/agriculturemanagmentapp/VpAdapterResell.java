@@ -33,18 +33,5 @@ public class VpAdapterResell extends FragmentPagerAdapter {
         return 3;
     }
 
-    @Nullable
-    @Override
-    public CharSequence getPageTitle(int position) {
-        if (position == 0) {
-            return context.getResources().getString(R.string.Cuti_prd);
-        } else if (position == 1) {
-            return context.getResources().getString(R.string.animals);
-        } else if (position == 2) {
-            return context.getResources().getString(R.string.Tools_Accesories);
-        } else {
-            return context.getResources().getString(R.string.My_Product);
-        }
-    }
 
 }

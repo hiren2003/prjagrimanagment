@@ -94,15 +94,18 @@ public class add_feed extends AppCompatActivity {
                     txt.setVisibility(View.GONE);
                     String key = firebaseDatabase.getReference().child("Feed").push().getKey().toString();
                     reference = firebaseStorage.getReference().child("feedimg").child(mo).child(key);
+
                     reference.putFile(uri1).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
+                                    int mon=Calendar.getInstance().get(Calendar.MONTH);
+                                    mon++;
                                     String key2 = firebaseDatabase.getReference().child("User").child(mo).child("Feed").push().getKey().toString();
-                                    firebaseDatabase.getReference().child("Feed").child(key).setValue(new clsFeedModel(Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR), uri.toString(), textInputEditText.getText().toString(), key2, key, "1", sharedPreferences.getString("mo", "1234567890")));
-                                    FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Feed").child(key2).setValue(new clsFeedModel(Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR), uri.toString(), textInputEditText.getText().toString(), key2, key, "1", sharedPreferences.getString("mo", "1234567890"))).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    firebaseDatabase.getReference().child("Feed").child(key).setValue(new clsFeedModel(Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + mon+ "/" + Calendar.getInstance().get(Calendar.YEAR), uri.toString(), textInputEditText.getText().toString(), key2, key, "1", sharedPreferences.getString("mo", "1234567890")));
+                                    FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Feed").child(key2).setValue(new clsFeedModel(Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" +mon + "/" + Calendar.getInstance().get(Calendar.YEAR), uri.toString(), textInputEditText.getText().toString(), key2, key, "1", sharedPreferences.getString("mo", "1234567890"))).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             show_toast(getResources().getString(R.string.Upload_Successfully), true);

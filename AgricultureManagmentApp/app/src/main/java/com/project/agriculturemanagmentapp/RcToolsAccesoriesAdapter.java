@@ -169,7 +169,7 @@ public class RcToolsAccesoriesAdapter extends RecyclerView.Adapter<RcToolsAcceso
         holder.itemView.setAnimation(anim);
         holder.txtprdt.setText(clsToolsAccessoriesModelArrayList.get(position).getPname());
         holder.txtprc.setText(context.getResources().getString(R.string.prc)+clsToolsAccessoriesModelArrayList.get(position).getPrice());
-        holder.txtqty.setText(context.getResources().getString(R.string.Usage)+clsToolsAccessoriesModelArrayList.get(position).getMonth()+"Months");
+        holder.txtqty.setText(context.getResources().getString(R.string.Usage)+" : "+clsToolsAccessoriesModelArrayList.get(position).getMonth()+" Month");
         holder.cd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

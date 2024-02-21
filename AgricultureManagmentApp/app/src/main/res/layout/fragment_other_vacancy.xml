@@ -9,8 +9,18 @@
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchvacancy"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:minHeight="50dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/searchviewback"
+        android:layout_margin="10dp"
+        app:queryBackground="@android:color/transparent"
+        app:searchPrefixText="@string/Search_here"
+        android:fontFamily="@font/quicksandregular"
+        app:searchIcon="@drawable/green_search"
+        app:closeIcon="@drawable/green_close"
+        app:searchHintIcon="@null"
         />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcothervacancy"
         android:layout_width="match_parent"

@@ -52,13 +52,14 @@
                     android:layout_height="wrap_content"
                     android:text="John Thomsan"
                     android:textSize="15dp"
-                    android:fontFamily="@font/alegreya_sc_bold"
+                    android:fontFamily="@font/quicksandsemibold"
                     android:textStyle="bold"
                     />
                 <TextView
                     android:id="@+id/txtdate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksandmedium"
                     android:text="12/10/2023"
                     />
             </LinearLayout>
@@ -93,7 +94,7 @@
                         android:id="@+id/txttype"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/arial"
+                        android:fontFamily="@font/quicksandbold"
                         android:text="Sugar Cane"
                         android:textColor="#000000"
                         android:textSize="20dp"
@@ -117,6 +118,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="start"
                             android:text="@string/Price2"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:layout_gravity="center_horizontal"
                             android:textColor="@color/lightt"
                             android:textSize="15dp"
@@ -128,7 +130,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:text="Fruits"
-                            android:fontFamily="@font/federo"
+                            android:fontFamily="@font/quicksandregular"
                             android:layout_marginTop="5dp"
                             android:textColor="#000000"
                             android:textStyle="bold"
@@ -156,6 +158,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="start"
                             android:text="@string/Seller_name"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:layout_gravity="center_horizontal"
                             android:textColor="@color/lightt"
                             android:textSize="15dp"
@@ -167,7 +170,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:text="Fruits"
-                            android:fontFamily="@font/federo"
+                            android:fontFamily="@font/quicksandregular"
                             android:layout_marginTop="5dp"
                             android:textColor="#000000"
                             android:textStyle="bold"
@@ -197,6 +200,7 @@
                             android:layout_gravity="center_horizontal"
                             android:gravity="start"
                             android:text="@string/mobile_no"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:textColor="@color/lightt"
                             android:textSize="15dp" />
                         <TextView
@@ -205,7 +209,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:text="98249 45785"
-                            android:fontFamily="@font/federo"
+                            android:fontFamily="@font/quicksandregular"
                             android:layout_marginTop="5dp"
                             android:textColor="#000000"
                             android:textStyle="bold"
@@ -238,6 +242,7 @@
                             android:text="Specie"
                             android:textSize="15dp"
                             android:gravity="end"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:layout_gravity="center_horizontal"
                             android:textColor="@color/lightt"
                             />
@@ -247,7 +252,7 @@
                             android:layout_height="wrap_content"
                             android:text="Sugar Cane"
                             android:gravity="end"
-
+                            android:fontFamily="@font/quicksandregular"
                             android:layout_marginTop="5dp"
                             android:textSize="15dp"
                             android:textStyle="bold"
@@ -270,6 +275,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/Age"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:textSize="15dp"
                             android:textColor="@color/lightt"
                             />
@@ -283,6 +289,7 @@
                             android:text="200 Kilogram"
                             android:layout_marginTop="5dp"
                             android:textSize="15dp"
+                            android:fontFamily="@font/quicksandregular"
                             android:textStyle="bold"
                             android:textColor="#000000"
                             />
@@ -307,6 +314,7 @@
                             android:text="@string/Weight"
                             android:gravity="end"
                             android:textSize="15dp"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:layout_gravity="center_horizontal"
                             android:textColor="@color/lightt"
                             />
@@ -318,6 +326,7 @@
                             android:gravity="end"
                             android:layout_marginTop="5dp"
                             android:textSize="15dp"
+                            android:fontFamily="@font/quicksandregular"
                             android:textStyle="bold"
                             android:textColor="#000000"
                             />
@@ -339,6 +348,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/p2"
                             android:textSize="15dp"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:textColor="@color/lightt"
                             />
                         <TextView
@@ -349,6 +359,7 @@
                             android:layout_marginTop="5dp"
                             android:textSize="15dp"
                             android:textStyle="bold"
+                            android:fontFamily="@font/quicksandregular"
                             android:textColor="#000000"
                             />
                     </LinearLayout>
@@ -379,6 +390,7 @@
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:text="Address"
+                           android:fontFamily="@font/quicksandsemibold"
                            android:layout_marginLeft="10dp"
                            android:textColor="@color/lightt"
                            android:textSize="15dp" />
@@ -391,6 +403,7 @@
                         android:text="Village : Simada gam"
                         android:textStyle="bold"
                         android:textColor="#000"
+                        android:fontFamily="@font/quicksandregular"
                         android:layout_marginTop="5dp"
                         android:layout_marginStart="30dp"
                         android:textSize="15dp" />
@@ -414,6 +427,7 @@
                             android:layout_height="wrap_content"
                             android:text="Descreption"
                             android:layout_marginLeft="10dp"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:textColor="@color/lightt"
                             android:textSize="15dp" />
                     </LinearLayout>
@@ -425,6 +439,7 @@
                         android:text="Village : Simada gam"
                         android:textStyle="bold"
                         android:textColor="#000"
+                        android:fontFamily="@font/quicksandregular"
                         android:layout_marginTop="5dp"
                         android:layout_marginStart="30dp"
                         android:textSize="15dp" />

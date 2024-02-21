@@ -18,7 +18,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
-        android:fontFamily="@font/cambay"
+        android:fontFamily="@font/quicksandbold"
         android:text="@string/Select_Language"
         android:textColor="#000000"
         android:textSize="30dp"
@@ -62,6 +62,7 @@
                        android:layout_height="50dp"
                        android:layout_gravity="center_vertical"
                        android:layout_margin="10dp"
+                       android:fontFamily="@font/quicksandregular"
                        android:padding="9dp"
                        android:text="English"
                        android:textColor="@color/black"
@@ -107,6 +108,7 @@
                        android:textSize="25dp"
                        android:layout_margin="10dp"
                        android:padding="9dp"
+                       android:fontFamily="@font/quicksandregular"
                        android:text="हिन्दी"
                        android:textOff="हिन्दी"
                        android:textColor="@color/black"
@@ -153,6 +155,7 @@
                        android:textSize="25dp"
                        android:layout_margin="10dp"
                        android:padding="9dp"
+                       android:fontFamily="@font/quicksandregular"
                        android:text="ગુજરાતી"
                        android:textOff="ગુજરાતી"
                        android:textColor="@color/black"
@@ -192,6 +195,7 @@
                        android:layout_margin="10dp"
                        android:padding="9dp"
                        android:text="தமிழ்"
+                       android:fontFamily="@font/quicksandregular"
                        android:textOff="தமிழ்"
                        android:textColor="@color/black"
                        />
@@ -220,7 +224,6 @@
                    android:layout_height="70dp"
                    android:background="@drawable/bgtoggle"
                    android:backgroundTint="#F5F5F5"
-
                    android:orientation="horizontal">
 
                    <de.hdodenhof.circleimageview.CircleImageView
@@ -239,6 +242,7 @@
                        android:textSize="25dp"
                        android:layout_margin="10dp"
                        android:padding="9dp"
+                       android:fontFamily="@font/quicksandregular"
                        android:textOff="ಕನ್ನಡ"
                        android:text="ಕನ್ನಡ"
                        android:textColor="@color/black"
@@ -277,6 +281,7 @@
                        android:textSize="25dp"
                        android:layout_margin="10dp"
                        android:padding="9dp"
+                       android:fontFamily="@font/quicksandregular"
                        android:textOff="اردو"
                        android:text="اردو"
                        android:textColor="@color/black"
@@ -326,6 +331,7 @@
                        android:padding="9dp"
                        android:textOff="తెలుగు"
                        android:text="తెలుగు"
+                       android:fontFamily="@font/quicksandregular"
                        android:textColor="@color/black"
                        />
                    <RadioButton
@@ -344,7 +350,6 @@
                    android:layout_marginTop="10dp"
                    android:background="@drawable/bgtoggle"
                    android:backgroundTint="#F5F5F5"
-
                    android:orientation="horizontal">
                    <de.hdodenhof.circleimageview.CircleImageView
                        android:layout_width="50dp"
@@ -363,6 +368,7 @@
                        android:layout_margin="10dp"
                        android:padding="9dp"
                        android:textOff="বাংলা"
+                       android:fontFamily="@font/quicksandregular"
                        android:text="বাংলা"
                        android:textColor="@color/black"
                        />
@@ -411,6 +417,7 @@
                        android:layout_margin="10dp"
                        android:padding="9dp"
                        android:textOff="پَن٘جابی"
+                       android:fontFamily="@font/quicksandregular"
                        android:text="پَن٘جابی"
                        android:textColor="@color/black"
                        />
@@ -428,7 +435,6 @@
                    android:layout_width="360dp"
                    android:layout_height="70dp"
                    android:backgroundTint="#F5F5F5"
-
                    android:background="@drawable/bgtoggle"
                    android:layout_marginTop="10dp"
                    android:orientation="horizontal">
@@ -450,6 +456,7 @@
                        android:padding="9dp"
                        android:textOff="മലയാളം"
                        android:text="മലയാളം"
+                       android:fontFamily="@font/quicksandregular"
                        android:textColor="@color/black"
                        />
                    <RadioButton
@@ -469,9 +476,8 @@
                android:layout_width="360dp"
                android:layout_height="70dp"
                android:layout_marginTop="10dp"
-               android:layout_marginLeft="15dp"
+               android:layout_gravity="center_horizontal"
                android:backgroundTint="#F5F5F5"
-
                android:background="@drawable/bgtoggle"
                android:orientation="horizontal">
                <de.hdodenhof.circleimageview.CircleImageView
@@ -491,6 +497,7 @@
                    android:layout_margin="10dp"
                    android:padding="9dp"
                    android:textOff="मराठी"
+                   android:fontFamily="@font/quicksandregular"
                    android:text="मराठी"
                    android:textColor="@color/black"
                    />

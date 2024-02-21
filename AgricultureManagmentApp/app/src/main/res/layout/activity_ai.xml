@@ -28,6 +28,7 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:textSize="25dp"
+                android:fontFamily="@font/quicksandsemibold"
                 android:layout_marginStart="10dp"
                 />
         </LinearLayout>
@@ -66,7 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="60dp"
-                android:fontFamily="@font/allerta"
+                android:fontFamily="@font/quicksandregular"
                 android:shadowColor="@color/black"
                 android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>

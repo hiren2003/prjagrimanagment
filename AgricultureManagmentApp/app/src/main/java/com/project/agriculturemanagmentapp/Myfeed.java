@@ -127,13 +127,7 @@ public class Myfeed extends Fragment {
                         bottomSheetDialog.cancel();
                     }
                 });
-                cdvideo.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(new Intent(getContext(),add_video.class));
-                        bottomSheetDialog.cancel();
-                    }
-                });
+
                 cdwc.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

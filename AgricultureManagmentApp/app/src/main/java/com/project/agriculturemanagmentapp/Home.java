@@ -114,13 +114,7 @@ TabLayout tb;
                         bottomSheetDialog.cancel();
                     }
                 });
-                cdvideo.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(new Intent(Home.this,add_video.class));
-                        bottomSheetDialog.cancel();
-                    }
-                });
+
                 cdwc.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -36,6 +37,7 @@ import static android.Manifest.permission.SEND_SMS;
  */
 public class Labour_Management extends Fragment {
 RcLabourAdapter rcLabourAdapter;
+    ArrayList<clsLaborModel> clsLaborModels;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -82,11 +84,13 @@ RcLabourAdapter rcLabourAdapter;
         View view= inflater.inflate(R.layout.fragment_labour__management, container, false);
         RecyclerView recyclerView=view.findViewById(R.id.rc);
         ExtendedFloatingActionButton btnAddWorker = view.findViewById(R.id.addlabor);
+        SearchView searchView=view.findViewById(R.id.srhlabr);
+        clsLaborModels=new ArrayList<>();
         SharedPreferences sharedPreferences=getContext().getSharedPreferences("data", Context.MODE_PRIVATE);
         FirebaseDatabase.getInstance().getReference().child("Labor_data").child(sharedPreferences.getString("mo","1234567890")).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ArrayList<clsLaborModel> clsLaborModels=new ArrayList<>();
+                clsLaborModels=new ArrayList<>();
                 for (DataSnapshot datasnapshot:
                      snapshot.getChildren()) {
                     clsLaborModels.add(datasnapshot.getValue(clsLaborModel.class));
@@ -102,6 +106,33 @@ RcLabourAdapter rcLabourAdapter;
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                newText=newText.toString().trim().toLowerCase();
+                ArrayList<clsLaborModel> filteredlist=new ArrayList<>();
+                for (clsLaborModel model:
+                     clsLaborModels) {
+                    if(model.getLloc().toString().trim().toLowerCase().contains(newText)||
+                            model.getLloc().toString().trim().toLowerCase().contains(newText)||
+                            model.getLdate().toString().trim().toLowerCase().contains(newText)||
+                            model.getLmo().toString().trim().toLowerCase().contains(newText)||
+                            model.getLname().toString().trim().toLowerCase().contains(newText)||
+                            model.getLwages().toString().trim().toLowerCase().contains(newText)
+                    ){
+                        filteredlist.add(model);
+                    }
+                }
+               RcLabourAdapter newrcLabourAdapter=new RcLabourAdapter(getContext(),filteredlist);
+                recyclerView.setAdapter(newrcLabourAdapter);
+                return false;
             }
         });
 

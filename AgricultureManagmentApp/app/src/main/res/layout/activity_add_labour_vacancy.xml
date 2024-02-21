@@ -28,7 +28,7 @@
                 android:layout_marginRight="10dp"
 
                 android:layout_marginBottom="10dp"
-                android:fontFamily="@font/montserrat_bold"
+                android:fontFamily="@font/quicksandbold"
                 android:text="@string/Add_Vacancy"
                 android:textColor="#066006"
                 android:textSize="30dp"
@@ -71,7 +71,7 @@
                     android:id="@+id/edtoname"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:fontFamily="@font/allerta"
+                    android:fontFamily="@font/quicksandregular"
                     android:maxLength="15"
                     android:shadowColor="@color/black"
                     android:textColor="@color/black" />
@@ -105,7 +105,7 @@
                     android:id="@+id/edtmo"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:fontFamily="@font/allerta"
+                    android:fontFamily="@font/quicksandregular"
                     android:inputType="number"
                     android:maxLength="10"
                     android:shadowColor="@color/black"
@@ -137,7 +137,7 @@
                     android:id="@+id/edtwtype"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:fontFamily="@font/allerta"
+                    android:fontFamily="@font/quicksandregular"
                     android:shadowColor="@color/black"
                     android:textColor="@color/black" />
 
@@ -153,7 +153,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/allerta"
+                    android:fontFamily="@font/quicksandregular"
                     android:text="@string/Fix_Wages"
                     android:textSize="18dp" />
 
@@ -162,7 +162,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:fontFamily="@font/allerta"
+                    android:fontFamily="@font/quicksandregular"
                     android:text="@string/On_Partenership"
                     android:textSize="18dp" />
             </RadioGroup>
@@ -193,7 +193,7 @@
                     android:id="@+id/edtincome"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:fontFamily="@font/allerta"
+                    android:fontFamily="@font/quicksandregular"
                     android:inputType="number"
                     android:maxLength="10"
                     android:shadowColor="@color/black"
@@ -226,7 +226,7 @@
                     android:id="@+id/edtduration"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:fontFamily="@font/allerta"
+                    android:fontFamily="@font/quicksandregular"
                     android:inputType="number"
                     android:maxLength="10"
                     android:shadowColor="@color/black"
@@ -266,7 +266,7 @@
                         android:layout_height="60dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:fontFamily="@font/allerta"
+                        android:fontFamily="@font/quicksandregular"
                         android:maxLength="15"
                         android:shadowColor="@color/black"
                         android:textColor="@color/black" />
@@ -299,7 +299,7 @@
                         android:layout_width="170dp"
                         android:layout_height="60dp"
                         android:layout_marginRight="10dp"
-                        android:fontFamily="@font/allerta"
+                        android:fontFamily="@font/quicksandregular"
                         android:maxLength="15"
                         android:shadowColor="@color/black"
                         android:textColor="@color/black" />
@@ -340,7 +340,7 @@
                         android:id="@+id/edttehsil"
                         android:layout_width="170dp"
                         android:layout_height="60dp"
-                        android:fontFamily="@font/allerta"
+                        android:fontFamily="@font/quicksandregular"
                         android:maxLength="15"
                         android:shadowColor="@color/black"
                         android:textColor="@color/black" />
@@ -374,7 +374,7 @@
                         android:id="@+id/edtvlg"
                         android:layout_width="170dp"
                         android:layout_height="60dp"
-                        android:fontFamily="@font/allerta"
+                        android:fontFamily="@font/quicksandregular"
                         android:maxLength="15"
                         android:shadowColor="@color/black"
                         android:textColor="@color/black" />
@@ -403,9 +403,10 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtdes"
+                    android:fontFamily="@font/quicksandregular"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/allerta" />
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -433,7 +434,7 @@
                     android:id="@+id/txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/allerta"
+                    android:fontFamily="@font/quicksandsemibold"
                     android:text="@string/Save_Detail"
                     android:textColor="#FFFFFF"
                     android:textSize="20dp" />

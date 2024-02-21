@@ -28,6 +28,7 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:textSize="25dp"
+                android:fontFamily="@font/quicksandbold"
                 android:layout_marginStart="10dp"
                 />
         </LinearLayout>

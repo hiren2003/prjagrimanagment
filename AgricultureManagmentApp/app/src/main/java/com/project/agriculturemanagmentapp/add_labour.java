@@ -108,12 +108,11 @@ public class add_labour extends AppCompatActivity {
                         public void onSuccess(Void unused) {
                             progressBar.setVisibility(View.GONE);
                             txt.setVisibility(View.VISIBLE);
-                            String msg = getResources().getString(R.string.Hello) + " " + edtlname.getText().toString() + " ,\n" + getResources().getString(R.string.msg1) + "\n" +
-                                    getResources().getString(R.string.Worker_name) + " : " + edtlname.getText().toString() + "\n" +
-                                    getResources().getString(R.string.loc) + " : " + edtlplace.getText().toString() + "\n" +
-                                    getResources().getString(R.string.date) + " : " + date.getText().toString() + "\n" +
-                                    getResources().getString(R.string.Wages) + " : " + edtlwages.getText().toString() + "\n" +
-                                    getResources().getString(R.string.Sender) + " : " + sharedPreferences.getString("uname", "unknown");
+                            String msg ="Hello " + edtlname.getText().toString() + ",\nYour wages details are following \nName of worker" + " : " + edtlname.getText().toString() + "\n" +
+                                    "Location of Work" + " : " + edtlplace.getText().toString() + "\n" +
+                                    "Date" + " : " + date.getText().toString() + "\n" +
+                                    "Wages" + " : " + edtlwages.getText().toString() + "\n" +
+                                    "Sender" + " : " + sharedPreferences.getString("uname", "unknown");
                             SmsManager smsManager = SmsManager.getDefault();
                             smsManager.sendTextMessage("+91" + edtlmo.getText().toString(), null, msg, null, null);
                             show_toast(getResources().getString(R.string.Upload_Successfully), true);

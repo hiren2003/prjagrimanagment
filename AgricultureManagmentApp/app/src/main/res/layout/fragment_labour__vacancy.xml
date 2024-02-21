@@ -16,6 +16,7 @@
        android:layout_width="match_parent"
        app:tabIndicatorColor="#038808"
        app:tabTextColor="#038808"
+       android:fontFamily="@font/quicksandregular"
        android:background="@color/white"
        android:layout_height="wrap_content"/>
     <androidx.viewpager.widget.ViewPager

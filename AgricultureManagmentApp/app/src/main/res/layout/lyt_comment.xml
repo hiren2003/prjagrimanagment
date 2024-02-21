@@ -48,10 +48,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:fontFamily="@font/cambay"
+                android:fontFamily="@font/quicksandmedium"
                 android:text="john thomsan"
                 android:layout_marginTop="1dp"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textColor="#000000"
                 android:textStyle="bold" />
 
@@ -60,10 +60,10 @@
                 android:layout_height="wrap_content"
                 android:text="this is comment"
                 android:layout_marginStart="10dp"
+                android:fontFamily="@font/quicksandregular"
                 android:textSize="15dp"
                 android:textColor="#222121"
                 android:layout_marginTop="4dp"
-                android:fontFamily="@font/cambay"
                 android:id="@+id/txtcomment"/>
         </LinearLayout>
 

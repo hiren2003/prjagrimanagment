@@ -35,7 +35,7 @@
                 android:textSize="40dp"
                 android:textColor="@color/white"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/cambay"
+                android:fontFamily="@font/quicksandbold"
                 android:layout_marginLeft="20dp"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -66,7 +66,7 @@
                     android:textColor="#000000"
                     android:gravity="center"
                     android:textSize="30dp"
-                    android:fontFamily="@font/montserrat_bold"
+                    android:fontFamily="@font/quicksandsemibold"
                   />
 <!--         </LinearLayout>-->
 
@@ -95,7 +95,7 @@
                 android:textColor="#070707"
                 android:gravity="center"
                 android:textSize="30dp"
-                android:fontFamily="@font/montserrat_bold"
+                android:fontFamily="@font/quicksandsemibold"
                 />
             <androidx.cardview.widget.CardView
                 android:id="@+id/cdagrprdt"
@@ -144,7 +144,7 @@
                 android:textColor="#0F1010"
                 android:gravity="center"
                 android:textSize="30dp"
-                android:fontFamily="@font/montserrat_bold"
+                android:fontFamily="@font/quicksandsemibold"
                 />
 
             <androidx.cardview.widget.CardView

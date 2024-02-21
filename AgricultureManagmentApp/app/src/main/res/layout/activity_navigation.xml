@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="60dp"
         android:layout_gravity="center_vertical"
-        android:fontFamily="@font/cambay"
+        android:fontFamily="@font/quicksandbold"
         android:text="@string/My_Profile"
         android:layout_marginTop="5dp"
         android:textColor="@color/black"
@@ -99,7 +99,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="2dp"
-                            android:fontFamily="@font/cambay_bold"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:text="John Thomsan"
                             android:textColor="#000000"
                             android:textSize="25dp"
@@ -111,7 +111,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="10dp"
-                            android:fontFamily="@font/cambay"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:text="+91 7229005896"
                             android:textColor="#090909"
                             android:textSize="20dp"
@@ -154,7 +154,7 @@
                     android:textColor="#000000"
                     android:gravity="center_vertical"
                     android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/montserrat_medium"
+                    android:fontFamily="@font/quicksandmedium"
                     android:text="@string/My_Profile"
                     android:textSize="20dp" />
 
@@ -201,7 +201,7 @@
                     android:textColor="#000000"
                     android:gravity="center_vertical"
                     android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/montserrat_medium"
+                    android:fontFamily="@font/quicksandmedium"
                     android:text="@string/language"
                     android:textSize="20dp" />
 
@@ -249,7 +249,7 @@
                     android:textColor="#000000"
                     android:gravity="center_vertical"
                     android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/montserrat_medium"
+                    android:fontFamily="@font/quicksandmedium"
                     android:text="@string/Goverment_scheme"
                     android:textSize="20dp" />
 
@@ -390,7 +390,7 @@
                     android:textColor="#000000"
                     android:gravity="center_vertical"
                     android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/montserrat_medium"
+                    android:fontFamily="@font/quicksandmedium"
                     android:text="@string/Contact_us"
                     android:textSize="20dp" />
 
@@ -437,7 +437,7 @@
                     android:textColor="#000000"
                     android:gravity="center_vertical"
                     android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/montserrat_medium"
+                    android:fontFamily="@font/quicksandmedium"
                     android:text="@string/Share_app"
                     android:textSize="20dp" />
 
@@ -484,7 +484,7 @@
                     android:textColor="#000000"
                     android:gravity="center_vertical"
                     android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/montserrat_medium"
+                    android:fontFamily="@font/quicksandmedium"
                     android:text="@string/Term_Condition"
                     android:textSize="20dp" />
 
@@ -556,6 +556,7 @@
             android:layout_marginTop="25dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:fontFamily="@font/quicksandsemibold"
             android:background="@drawable/logg"
             android:textSize="25dp"/>
 
@@ -565,8 +566,9 @@
             android:layout_height="wrap_content"
             android:text="v 2.0.1"
             android:textSize="20dp"
-            android:fontFamily="@font/montserrat_medium"
-            android:textColor="#000000"            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/quicksandmedium"
+            android:textColor="#000000"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"/>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

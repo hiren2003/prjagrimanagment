@@ -57,7 +57,7 @@
                         android:layout_height="wrap_content"
                         android:text="John Thomsan"
                         android:textSize="15dp"
-                        android:fontFamily="@font/alegreya_sc_bold"
+                        android:fontFamily="@font/quicksandsemibold"
                         android:textStyle="bold"
                         />
                     <TextView
@@ -67,6 +67,7 @@
                         android:textColor="@color/lightt"
                         android:textSize="15dp"
                         android:text="12/10/2023"
+                        android:fontFamily="@font/quicksandmedium"
                         />
                 </LinearLayout>
 
@@ -119,7 +120,7 @@
                         android:id="@+id/txtpname"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/arial"
+                        android:fontFamily="@font/quicksandbold"
                         android:text="Sugar Cane"
                         android:textColor="#000000"
                         android:textSize="20dp"
@@ -145,6 +146,7 @@
                             android:gravity="start"
                             android:layout_gravity="center_horizontal"
                             android:text="@string/Category"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:textColor="@color/lightt"
                             android:textSize="15dp"
                              />
@@ -156,7 +158,7 @@
                             android:layout_marginTop="5dp"
                             android:text="Fruits"
                             android:textStyle="bold"
-                            android:fontFamily="@font/federo"
+                            android:fontFamily="@font/quicksandregular"
                             android:layout_gravity="center_horizontal"
                             android:textColor="#000000"
                             android:textSize="15dp" />
@@ -182,6 +184,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="start"
                             android:text="@string/Seller_name"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:layout_gravity="center_horizontal"
                             android:textColor="@color/lightt"
                             android:textSize="15dp"
@@ -193,7 +196,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:text="Fruits"
-                            android:fontFamily="@font/federo"
+                            android:fontFamily="@font/quicksandregular"
                             android:layout_marginTop="5dp"
                             android:textColor="#000000"
                             android:textStyle="bold"
@@ -223,7 +226,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="start"
                             android:text="@string/mobile_no"
-                            android:textColor="@color/lightt"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:textSize="15dp"
                             android:layout_gravity="center_horizontal"
                              />
@@ -234,7 +237,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:text="98249 45785"
-                            android:fontFamily="@font/federo"
+                            android:fontFamily="@font/quicksandregular"
                             android:layout_marginTop="5dp"
                             android:textColor="#000000"
                             android:textStyle="bold"
@@ -266,6 +269,7 @@
                            android:layout_height="wrap_content"
                            android:text="Specie"
                            android:textSize="15dp"
+                           android:fontFamily="@font/quicksandsemibold"
                            android:layout_gravity="center_horizontal"
                            android:textColor="@color/lightt"
                            />
@@ -276,6 +280,7 @@
                            android:text="Sugar Cane"
                            android:layout_marginTop="5dp"
                            android:textSize="15dp"
+                           android:fontFamily="@font/quicksandregular"
                            android:textStyle="bold"
                            android:textColor="#000000"
                            />
@@ -297,6 +302,7 @@
                            android:layout_height="wrap_content"
                            android:text="Quantity(In kg)"
                            android:textSize="15dp"
+                           android:fontFamily="@font/quicksandsemibold"
                            android:textColor="@color/lightt"
                            />
                        <TextView
@@ -306,6 +312,7 @@
                            android:text="200 Kilogram"
                            android:layout_marginTop="5dp"
                            android:textSize="15dp"
+                           android:fontFamily="@font/quicksandregular"
                            android:textStyle="bold"
                            android:textColor="#000000"
                            />
@@ -329,6 +336,7 @@
                             android:layout_height="wrap_content"
                             android:text="Price(In kg)"
                             android:textSize="15dp"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:textColor="@color/lightt"
                             />
                         <TextView
@@ -337,6 +345,7 @@
                             android:layout_height="wrap_content"
                             android:text="$500"
                             android:textSize="15dp"
+                            android:fontFamily="@font/quicksandregular"
                             android:textStyle="bold"
                             android:layout_marginTop="5dp"
                             android:textColor="#000000"
@@ -359,6 +368,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/Total_Payment"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:textSize="15dp"
                             android:textColor="@color/lightt"
                             />
@@ -367,6 +377,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="$500000"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:textSize="15dp"
                             android:layout_marginTop="5dp"
                             android:textStyle="bold"
@@ -390,6 +401,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/State"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:textColor="@color/lightt"
                             android:textSize="15dp" />
 
@@ -400,6 +412,7 @@
                             android:text="Gujrat"
                             android:textColor="#000000"
                             android:textStyle="bold"
+                            android:fontFamily="@font/quicksandregular"
                             android:layout_marginTop="5dp"
                             android:textSize="15dp" />
                     </LinearLayout>
@@ -419,6 +432,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/District"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:textColor="@color/lightt"
                             android:textSize="15dp"
                              />
@@ -431,6 +445,7 @@
                             android:layout_marginTop="5dp"
                             android:textColor="#000000"
                             android:textSize="15dp"
+                            android:fontFamily="@font/quicksandregular"
                             android:textStyle="bold"/>
                     </LinearLayout>
 
@@ -453,6 +468,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/Tehsil"
                             android:textSize="15dp"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:textColor="@color/lightt"
                             />
                         <TextView
@@ -462,6 +478,7 @@
                             android:layout_marginTop="5dp"
                             android:text="Surat"
                             android:textSize="15dp"
+                            android:fontFamily="@font/quicksandregular"
                             android:textStyle="bold"
                             android:textColor="#000000"
                             />
@@ -482,6 +499,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/city_town_village"
                             android:textSize="15dp"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:textColor="@color/lightt"
                             />
                         <TextView
@@ -491,6 +509,7 @@
                             android:text="Surat"
                             android:textSize="15dp"
                             android:textStyle="bold"
+                            android:fontFamily="@font/quicksandregular"
                             android:layout_marginTop="5dp"
                             android:textColor="#000000"
                             />
@@ -509,6 +528,7 @@
                        android:layout_height="wrap_content"
                        android:layout_marginLeft="20dp"
                        android:text="@string/Description"
+                       android:fontFamily="@font/quicksandsemibold"
                        android:textColor="@color/lightt"
                        android:textSize="15dp" />
 
@@ -517,6 +537,7 @@
                        android:layout_width="330dp"
                        android:layout_height="wrap_content"
                        android:layout_gravity="start"
+                       android:fontFamily="@font/quicksandregular"
                        android:text="This is Description"
                        android:textColor="#000000"
                        android:textStyle="bold"
@@ -524,42 +545,30 @@
                        android:layout_marginTop="5dp"
                        android:textSize="15dp" />
                </LinearLayout>
-                <TextView
-                    android:layout_width="330dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:text="Share here.."
-                    android:textColor="@color/lightt"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="15dp"
-                    android:textSize="15dp" />
+
                 <LinearLayout
-                    android:layout_width="370dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_gravity="center_horizontal"
                     android:orientation="horizontal">
                     <ImageButton
                         android:id="@+id/btnwhatsapp"
-                        android:layout_width="10dp"
+                        android:layout_width="0dp"
                         android:layout_height="50dp"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/whatsapp1"
-                        android:backgroundTint="#DDDCDC"
+                        android:src="@drawable/whatsapp"
                         android:scaleType="centerInside"
+                        android:backgroundTint="#CFE8B2"
                         android:layout_weight="1"/>
                     <ImageButton
                         android:id="@+id/btncall"
-                        android:layout_width="10dp"
+                        android:layout_width="0dp"
                         android:layout_height="50dp"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/phone1"
-                        android:backgroundTint="#DDDCDC"
+                        android:src="@drawable/phone"
                         android:scaleType="centerInside"
+                        android:backgroundTint="#E2D987"
                         android:layout_weight="1"/>
 
                 </LinearLayout>
+
 
             </LinearLayout>
 

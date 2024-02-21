@@ -228,6 +228,7 @@
     <string name="Resell_split">Resell split</string>
     <string name="My_Network">My Network</string>
     <string name="Explore_Network">Explore Network</string>
+    <string name="Search_here">Search Here</string>
     <string-array name="toolstype">
         <item>Tools</item>
         <item>Accessories</item>

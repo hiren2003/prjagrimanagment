@@ -19,6 +19,7 @@
           android:minHeight="50dp"
           android:padding="10dp"
           android:layout_margin="5dp"
+          android:fontFamily="@font/quicksandregular"
           android:background="@drawable/border_green"
           />
       <com.google.android.material.textfield.TextInputLayout
@@ -45,7 +46,7 @@
               android:id="@+id/edtpname"
               android:layout_width="match_parent"
               android:layout_height="60dp"
-              android:fontFamily="@font/allerta"
+              android:fontFamily="@font/quicksandregular"
               android:maxLength="15"
               android:shadowColor="@color/black"
               android:textColor="@color/black" />
@@ -77,7 +78,7 @@
               android:layout_width="match_parent"
               android:layout_height="60dp"
               android:inputType="numberDecimal"
-              android:fontFamily="@font/allerta"
+              android:fontFamily="@font/quicksandregular"
               android:maxLength="2"
               android:shadowColor="@color/black"
               android:textColor="@color/black" />
@@ -108,7 +109,7 @@
               android:id="@+id/edtsellername"
               android:layout_width="match_parent"
               android:layout_height="60dp"
-              android:fontFamily="@font/allerta"
+              android:fontFamily="@font/quicksandregular"
               android:maxLength="15"
               android:shadowColor="@color/black"
               android:textColor="@color/black" />
@@ -141,7 +142,7 @@
               android:id="@+id/edtmo"
               android:layout_width="match_parent"
               android:layout_height="60dp"
-              android:fontFamily="@font/allerta"
+              android:fontFamily="@font/quicksandregular"
               android:inputType="number"
               android:maxLength="10"
               android:shadowColor="@color/black"
@@ -172,7 +173,7 @@
               android:layout_width="match_parent"
               android:layout_height="60dp"
               android:inputType="numberDecimal"
-              android:fontFamily="@font/allerta"
+              android:fontFamily="@font/quicksandregular"
               android:maxLength="15"
               android:shadowColor="@color/black"
               android:textColor="@color/black" />
@@ -210,7 +211,7 @@
                   android:id="@+id/edtstate"
                   android:layout_width="wrap_content"
                   android:layout_height="60dp"
-                  android:fontFamily="@font/allerta"
+                  android:fontFamily="@font/quicksandregular"
                   android:maxLength="15"
                   android:shadowColor="@color/black"
                   android:textColor="@color/black" />
@@ -245,7 +246,7 @@
                   android:id="@+id/edtdist"
                   android:layout_width="wrap_content"
                   android:layout_height="60dp"
-                  android:fontFamily="@font/allerta"
+                  android:fontFamily="@font/quicksandregular"
                   android:maxLength="15"
                   android:shadowColor="@color/black"
                   android:textColor="@color/black" />
@@ -286,7 +287,7 @@
                   android:id="@+id/edttehsil"
                   android:layout_width="wrap_content"
                   android:layout_height="60dp"
-                  android:fontFamily="@font/allerta"
+                  android:fontFamily="@font/quicksandregular"
                   android:maxLength="15"
                   android:shadowColor="@color/black"
                   android:textColor="@color/black" />
@@ -321,7 +322,7 @@
                   android:id="@+id/edtvlg"
                   android:layout_width="wrap_content"
                   android:layout_height="60dp"
-                  android:fontFamily="@font/allerta"
+                  android:fontFamily="@font/quicksandregular"
                   android:maxLength="15"
                   android:shadowColor="@color/black"
                   android:textColor="@color/black" />
@@ -348,6 +349,7 @@
           >
           <com.google.android.material.textfield.TextInputEditText
               android:id="@+id/edtdes"
+              android:fontFamily="@font/quicksandregular"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"/>
       </com.google.android.material.textfield.TextInputLayout>
@@ -357,6 +359,7 @@
           android:layout_height="55dp"
           android:textSize="20dp"
           android:layout_marginTop="20dp"
+          android:fontFamily="@font/quicksandsemibold"
           android:background="@drawable/sendotp"
           android:text="@string/Choose_Image"
           />
@@ -376,6 +379,7 @@
           android:background="@drawable/sendotp"
           android:layout_marginTop="20dp"
           android:backgroundTint="#8BC34A"
+          android:fontFamily="@font/quicksandsemibold"
           android:text="@string/Save_Detail"
           />
 

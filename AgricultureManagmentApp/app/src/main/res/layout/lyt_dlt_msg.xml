@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000"
+        android:fontFamily="@font/quicksandregular"
         android:text="@string/Delete_Message"
         android:textSize="15dp" />
     <TextView
@@ -19,6 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_marginTop="10dp"
+        android:fontFamily="@font/quicksandsemibold"
         android:textStyle="bold"
         android:text="@string/del"
         android:textColor="#075e54"

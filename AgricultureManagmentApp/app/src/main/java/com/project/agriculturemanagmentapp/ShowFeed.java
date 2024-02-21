@@ -84,6 +84,7 @@ public class ShowFeed extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view= inflater.inflate(R.layout.fragment_show_feed, container, false);
         RecyclerView recyclerView=view.findViewById(R.id.rcviewshfeed);
         RecyclerView rcviewotherfeed=view.findViewById(R.id.rcviewotherfeed);

@@ -37,8 +37,7 @@
                 android:textStyle="bold"
                 android:textSize="40dp"
                 android:textColor="@color/white"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/cambay"
+                android:fontFamily="@font/quicksandbold"
                 android:layout_marginLeft="20dp"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -54,6 +53,7 @@
         android:layout_marginLeft="20dp"
         android:textColor="@color/black"
         android:textStyle="bold"
+        android:fontFamily="@font/quicksandsemibold"
         android:layout_gravity="center_vertical"
         android:textSize="25dp" />
     <RelativeLayout
@@ -74,6 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Select_date"
+            android:fontFamily="@font/quicksandmedium"
             android:textColor="@color/black"
             android:textSize="25dp" />
     </RelativeLayout>

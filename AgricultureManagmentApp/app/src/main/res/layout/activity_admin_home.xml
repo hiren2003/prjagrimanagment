@@ -38,7 +38,7 @@
         android:textSize="20dp"
         android:layout_gravity="center_horizontal"
         android:textColor="@color/black"
-        android:fontFamily="@font/cambay_bold"/>
+        android:fontFamily="@font/quicksandregular"/>
     <TextView
         android:id="@+id/txtmo"
         android:textAlignment="center"
@@ -226,6 +226,7 @@
                             android:layout_margin="3dp"
                             android:text="@string/State_wise_User"
                             android:textColor="#000"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:textSize="20dp"
                             android:textStyle="bold" />
 
@@ -257,6 +258,7 @@
                             android:layout_margin="3dp"
                             android:text="@string/OrderDetail"
                             android:textColor="#000"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:textSize="20dp"
                             android:textStyle="bold" />
                         <com.github.mikephil.charting.charts.PieChart
@@ -280,12 +282,14 @@
                                     android:layout_height="wrap_content"
                                     android:text="@string/Total_Orders"
                                     android:textSize="20dp"
+                                    android:fontFamily="@font/quicksandsemibold"
                                     android:textStyle="bold" />
 
                                 <TextView
                                     android:id="@+id/txtallorder"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/quicksandsemibold"
                                     android:text="@string/Total_Orders"
                                     android:textSize="15dp" />
 
@@ -294,12 +298,14 @@
                                     android:layout_height="wrap_content"
                                     android:text="@string/Avg_Daily_Order"
                                     android:textSize="20dp"
+                                    android:fontFamily="@font/quicksandsemibold"
                                     android:textStyle="bold" />
 
                                 <TextView
                                     android:id="@+id/txtavgorder"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/quicksandsemibold"
                                     android:text="@string/Total_Orders"
                                     android:textSize="15dp" />
                             </LinearLayout>
@@ -314,6 +320,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/Total_Payment"
+                                    android:fontFamily="@font/quicksandsemibold"
                                     android:textSize="20dp"
                                     android:textStyle="bold" />
 
@@ -321,6 +328,7 @@
                                     android:id="@+id/txtallpayment"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/quicksandsemibold"
                                     android:text="@string/Total_Orders"
                                     android:textSize="15dp" />
 
@@ -328,6 +336,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/Avg_Payment"
+                                    android:fontFamily="@font/quicksandsemibold"
                                     android:textSize="20dp"
                                     android:textStyle="bold" />
 
@@ -336,6 +345,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/Total_Orders"
+                                    android:fontFamily="@font/quicksandsemibold"
                                     android:textSize="15dp" />
                             </LinearLayout>
                         </RelativeLayout>
@@ -360,6 +370,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="3dp"
                             android:text="@string/Month_wise_Order"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:textColor="#000"
                             android:textSize="20dp"
                             android:textStyle="bold" />
@@ -390,6 +401,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="3dp"
                             android:text="@string/Feed_Detail"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:textColor="#000"
                             android:textSize="20dp"
                             android:textStyle="bold" />
@@ -416,6 +428,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="@string/Total_feed"
                                     android:textSize="20dp"
+                                    android:fontFamily="@font/quicksandsemibold"
                                     android:textStyle="bold" />
 
                                 <TextView
@@ -423,6 +436,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/Total_Orders"
+                                    android:fontFamily="@font/quicksandsemibold"
                                     android:textSize="15dp" />
 
                                 <TextView
@@ -430,6 +444,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="@string/Avg_Daily_Posts"
                                     android:textSize="20dp"
+                                    android:fontFamily="@font/quicksandsemibold"
                                     android:textStyle="bold" />
 
                                 <TextView
@@ -437,6 +452,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/Total_Orders"
+                                    android:fontFamily="@font/quicksandsemibold"
                                     android:textSize="15dp" />
                             </LinearLayout>
 
@@ -451,6 +467,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="@string/Total_comments"
                                     android:textSize="20dp"
+                                    android:fontFamily="@font/quicksandsemibold"
                                     android:textStyle="bold" />
 
                                 <TextView
@@ -458,6 +475,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/Total_Orders"
+                                    android:fontFamily="@font/quicksandsemibold"
                                     android:textSize="15dp" />
 
                                 <TextView
@@ -465,11 +483,13 @@
                                     android:layout_height="wrap_content"
                                     android:text="@string/Total_likes"
                                     android:textSize="20dp"
+                                    android:fontFamily="@font/quicksandsemibold"
                                     android:textStyle="bold" />
 
                                 <TextView
                                     android:id="@+id/txtttllikes"
                                     android:layout_width="wrap_content"
+                                    android:fontFamily="@font/quicksandsemibold"
                                     android:layout_height="wrap_content"
                                     android:text="@string/Total_Orders"
                                     android:textSize="15dp" />
@@ -496,6 +516,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="3dp"
                             android:text="@string/Month_wise_Feed"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:textColor="#000"
                             android:textSize="20dp"
                             android:textStyle="bold" />
@@ -527,6 +548,7 @@
                             android:layout_margin="3dp"
                             android:text="@string/Resell_split"
                             android:textColor="#000"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:textSize="20dp"
                             android:textStyle="bold" />
 

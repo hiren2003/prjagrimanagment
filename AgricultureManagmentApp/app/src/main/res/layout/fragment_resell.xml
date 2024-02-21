@@ -23,6 +23,7 @@
         android:layout_height="?actionBarSize"
         app:tabIndicatorColor="@color/Dark_green"
         app:tabIconTint="@color/Dark_green"
+        android:fontFamily="@font/quicksandregular"
         android:visibility="visible">
     </com.google.android.material.tabs.TabLayout>
     <androidx.viewpager.widget.ViewPager

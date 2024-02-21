@@ -39,6 +39,7 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:textSize="16dp"
+              android:fontFamily="@font/quicksandregular"
               android:textColor="#000"
               />
           <TextView
@@ -96,6 +97,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16dp"
+                android:fontFamily="@font/quicksandregular"
                 android:textColor="#000"
                 />
 

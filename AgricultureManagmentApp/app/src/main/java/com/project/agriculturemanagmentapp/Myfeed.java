@@ -29,6 +29,13 @@ public class Myfeed extends Fragment {
     RcFeedAdapter rcFeedAdapter;
     String Mo;
     Boolean SelfAccount;
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
+
 
     public Myfeed(String Mo,Boolean SelfAccount) {
         this.Mo=Mo;

@@ -12,7 +12,12 @@ import android.view.ViewGroup;
 import com.google.android.material.tabs.TabLayout;
 
 public class Feed extends Fragment {
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
 
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
 
     public Feed() {
         // Required empty public constructor

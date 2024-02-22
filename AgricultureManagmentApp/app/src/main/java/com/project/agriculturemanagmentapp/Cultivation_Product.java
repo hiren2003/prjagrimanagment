@@ -24,6 +24,12 @@ import java.util.ArrayList;
 
 public class Cultivation_Product extends Fragment {
     RcCultivatonPrdtAdpter rcCultivatonPrdtAdpter;
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
 
     public Cultivation_Product() {
         // Required empty public constructor

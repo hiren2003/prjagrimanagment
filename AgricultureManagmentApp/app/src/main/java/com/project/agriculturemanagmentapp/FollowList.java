@@ -21,7 +21,14 @@ import java.util.ArrayList;
 
 public class FollowList extends Fragment {
 
+String ListType;
+String Mo;
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
 
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
 
     public FollowList() {
         // Required empty public constructor

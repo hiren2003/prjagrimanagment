@@ -33,6 +33,13 @@ import static android.Manifest.permission.SEND_SMS;
 public class Labour_Management extends Fragment {
 RcLabourAdapter rcLabourAdapter;
     ArrayList<clsLaborModel> clsLaborModels;
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
+
     public Labour_Management() {
         // Required empty public constructor
     }

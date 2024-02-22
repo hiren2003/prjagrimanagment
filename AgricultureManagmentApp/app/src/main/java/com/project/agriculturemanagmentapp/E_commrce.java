@@ -30,6 +30,12 @@ import java.util.ArrayList;
 
 public class E_commrce extends Fragment {
     RcEcommAdapter rcEcommAdapter;
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
 
     public E_commrce() {
         // Required empty public constructor

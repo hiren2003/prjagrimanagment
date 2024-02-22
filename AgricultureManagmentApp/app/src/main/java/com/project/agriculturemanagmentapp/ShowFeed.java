@@ -38,6 +38,13 @@ public class ShowFeed extends Fragment {
     public ShowFeed() {
     }
 
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
+
     public static ShowFeed newInstance(String param1, String param2) {
         ShowFeed fragment = new ShowFeed();
         Bundle args = new Bundle();

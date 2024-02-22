@@ -9,16 +9,26 @@
     <string name="Invalid_MobileNumber">Invalid MobileNumber</string>
     <string name="Otp_Sent_to">OTP Sent To </string>
     <string name="Verify_Otp">Verify Otp</string>
+    <string name="Not_Recieved_Otp">Otp Not Recieved? </string>
+    <string name="Resend_otp">Resend otp</string>
     <string name="Code_sent">Code sent Successfully</string>
     <string name="Signin_Failed">SignIn Failed</string>
+    <string name="Previous">Privious</string>
+
+    <string name="Next">Next</string>
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Explore_Feed">Explore Feed</string>
     <string name="My_Feed">My Feed</string>
     <string name="Description">Description</string>
     <string name="Upload">Upload</string>
     <string name="cancel">Cancel</string>
+    <string name="Opencamara">Open camera</string>
+    <string name="Post_Uploaded">Post Uploaded</string>
+    <string name="Post_Deleted">Post Deleted</string>
     <string name="Labour_mobile_number">Worker Mobile Number</string>
     <string name="Labour_Vacancy">Worker Vacancy</string>
+    <string name="My_Labour_Vacancy">My Worker Vacancy</string>
     <string name="Labour_Managment">Worker Managment</string>
     <string name="Add_Labour">Add Worker</string>
     <string name="Labour_name">Worker Name</string>
@@ -35,8 +45,14 @@
     <string name="date">Date</string>
     <string name="Wages">Wages</string>
     <string name="Sender">Sender</string>
+    <string name="Save_data">Save_data</string>
+    <string name="Delete_data">Delete Data</string>
+    <string name="msgdlt">Do You Want To Delete This Data ?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
     <string name="msg2">Your Wages Detail of</string>
     <string name="msg3">is Deleted</string>
+    <string name="Required_Field">Required Field</string>
     <string name="language">Language</string>
     <string name="log_Out">Log Out</string>
     <string name="Rate_us">Rate us</string>
@@ -53,6 +69,7 @@
     <string name="city_town_village">city/town/village</string>
     <string name="Owner_name">Name of Owner</string>
     <string name="Work_type">Type of Work</string>
+    <string name="Wages_Type">Wages Type</string>
     <string name="Fix_Wages">Fix Wages</string>
     <string name="On_Partenership">On Partenership</string>
     <string name="Extected_Income">Expected Annual Income</string>
@@ -66,33 +83,49 @@
     <string name="Total_Payment">Total Payment</string>
     <string name="Choose_Image">Choose Image</string>
     <string name="Category">Category</string>
+    <string name="Kilogram">Kilogram</string>
     <string name="animals">animals</string>
+    <string name="Cultivation_Product">Cultivation_Product</string>
     <string name="Tools_Accesories">Tools&amp;Accesories</string>
     <string name="My_Product">My Product</string>
     <string name="Interest2">I am interested in your Product</string>
     <string name="qty">Quntity:</string>
     <string name="prc">Price:₹</string>
+    <string name="Data_Uploading">Data Uploading</string>
     <string name="add_Video">Add Video</string>
     <string name="add_Photo">Add Photo</string>
     <string name="Write_Share">Write And Share</string>
     <string name="Write_Something">Write Something Here...</string>
     <string name="Month">Month</string>
+    <string name="Myvacancy">My Vacancy</string>
+    <string name="Vacancy">Vacancy</string>
     <string name="internet_on">Please! Turn On Your internet</string>
     <string name="Network_error">Network error</string>
     <string name="msgsent">Message Sent</string>
     <string name="Update_Profile">Update_Profile</string>
     <string name="Scheme_name">Scheme name</string>
     <string name="Add_Scheme">Add Scheme</string>
+    <string name="Applicable_region">Applicable region</string>
+    <string name="title_activity_add_ecomm">add_ecomm</string>
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
     <!-- Strings used for fragments for navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
     <string name="Product_Description">Product Description</string>
     <string name="Recommandation">Recommandation</string>
     <string name="Specification">Specification</string>
     <string name="add_product">add product</string>
+    <string name="add_to_cart">Add to cart</string>
     <string name="qty2">Quantity</string>
     <string name="Headline">Headline</string>
     <string name="Publish_news">Publish news</string>
+    <string name="title_activity_myorder">Myorder</string>
+    <string name="Animal">Animal</string>
+    <string name="Breed">Breed</string>
     <string name="Age">Age</string>
     <string name="Weight">Weight</string>
+    <string name="Gender">Gender</string>
     <string name="Milk_Production">Milk Production(/Ltr)</string>
     <string name="year">Year</string>
     <string name="month">Month</string>
@@ -115,6 +148,7 @@
     <string name="Select_Language">Select Language</string>
 
     <string name="Seller_name">Seller name</string>
+    <string name="Milk_Production2">Milk Production/Ltr</string>
     <string name="Usage">Usage</string>
     <string name="Cuti_prd">Cultivation Product</string>
     <string name="MyAnimal">Animals</string>
@@ -159,8 +193,11 @@
     <string name="Please_Enter_Wagetype">Please Select one Wage type</string>
     <string name="Please_Enter_Video">Please Select a Video post</string>
     <string name="p2">Production(ltr/unit)</string>
+    <string name="Product_removed">Product removed</string>
     <string name="Added_cart">Added to cart</string>
+    <string name="Confirm_order">Order confirmed</string>
     <string name="remove_cart">Removed from cart</string>
+    <string name="ProductDetail">Product Detail</string>
     <string name="Invalid_Quntity">Invalid Quantity</string>
     <string name="Login_SuccessFully">Login Successfully</string>
     <string name="successfullyuploaded">Details Saved Successfully</string>
@@ -168,67 +205,17 @@
     <string name="news">News</string>
     <string name="Add_Worker">Add Worker</string>
     <string name="Add_Post">Add Post</string>
+    <string name="Administrator">Administrator</string>
     <string name="My_Profile">My Profile</string>
-    <string name="Close">Close</string>
+    <string name="close">close</string>
     <string name="Edit_Profile">Edit Profile</string>
+    <string name="mcart">My Cart</string>
+    <string name="morder">My Orders</string>
+    <string name="myprofile">My Profile</string>
     <string name="Saved">Saved Item</string>
     <string name="FarmerFriend">Farmer Friend</string>
     <string name="Enter_Prompt">Enter Prompt</string>
-    <string name="Warning">Warning</string>
-    <string name="dbwarningmsg">Are You Sure? \n This can not be undone.</string>
-    <string name="Countinue">Countinue</string>
-    <string name="Explore_User">Explore User</string>
-    <string name="Resell">Resell</string>
-    <string name="Resell_Items">Resell Items</string>
-    <string name="Select_time">Select_time</string>
-    <string name="Education">Education</string>
-    <string name="Experience">Experience</string>
-    <string name="Discount">Discount</string>
-    <string name="Customer_Information">Customer Information</string>
-    <string name="Payment_Mode">Payment Mode</string>
-    <string name="Cash_On_Delivery">Cash On Delivery</string>
-    <string name="digital_payment">digital payment</string>
-    <string name="Order_Confirm2">Order Confirm</string>
-    <string name="Payable_Amount">Payable Amount</string>
-    <string name="AgroCare">AgroCare</string>
-    <string name="User">User</string>
-    <string name="Link">Link</string>
-    <string name="Product_Name">Product Name</string>
-    <string name="Product_Id">Product Id</string>
-    <string name="Order_Id">Order Id</string>
-    <string name="Payment_Status">Payment Status</string>
-    <string name="Payment_Id">Payment Id</string>
-    <string name="Follow">Follow</string>
-    <string name="Following">Following</string>
-    <string name="Followers">Followers</string>
-    <string name="Message">Message</string>
-    <string name="del">Delete</string>
-    <string name="Delete_Message">Delete message ?</string>
-    <string name="less">Less</string>
-    <string name="Please_Enter_CGST">Please enter CGST</string>
-    <string name="Please_Enter_SGST">Please enter SGST</string>
-    <string name="Total_Order">Total orders</string>
-    <string name="Avg_Daily_Order">Average daily orders</string>
-    <string name="Payment_split">Payment split</string>
-    <string name="Total_Orders">Total orders</string>
-    <string name="Total_Payments">Total Payment</string>
-    <string name="Avg_Payment">Avg. Payment</string>
-    <string name="OrderDetail">Order Detail</string>
-    <string name="Feed_Detail">Feed Detail</string>
-    <string name="Total_feed">Total feed</string>
-    <string name="Total_comments">Total comments</string>
-    <string name="Total_likes">Total likes</string>
-    <string name="Avg_Daily_Posts">Average daily posts</string>
-    <string name="Total_picture">Total Picture</string>
-    <string name="Total_Tweet">Total Tweet</string>
-    <string name="Feed_Split">Feed Split</string>
-    <string name="Month_wise_Feed">Monthly feed</string>
-    <string name="State_wise_User">State wise user</string>
-    <string name="Month_wise_Order">Monthly Order</string>
-    <string name="Resell_split">Resell split</string>
-    <string name="My_Network">My Network</string>
-    <string name="Explore_Network">Explore Network</string>
-    <string name="Search_here">Search Here</string>
+    <string name="post">post</string>
     <string-array name="toolstype">
         <item>Tools</item>
         <item>Accessories</item>
@@ -305,9 +292,7 @@
         <item>West Bengal</item>
     </string-array>
     <string-array name="arrcategory">
-        <item>Seeds</item>
-        <item>Plants</item>
-        <item>Fertilizer</item>
+        <item>seeds and Plants</item>
         <item>Crop protection and Nutrition</item>
         <item>Tools and Equipment</item>
     </string-array>

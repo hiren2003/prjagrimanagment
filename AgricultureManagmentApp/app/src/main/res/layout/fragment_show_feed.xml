@@ -50,6 +50,18 @@
             android:id="@+id/loty1"
             android:visibility="gone"
             />
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="10dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/load"
+            android:id="@+id/loty3"
+            android:visibility="gone"
+            />
         <LinearLayout
             android:id="@+id/ll2"
             android:layout_width="wrap_content"

@@ -18,7 +18,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 
 public class Navigation extends AppCompatActivity {
-ImageView imgprfpc;
+ImageView imgprfpc,back;
 Button rvloout;
 TextView txtuname,txtumo,close;
 SharedPreferences sharedPreferences;
@@ -41,7 +41,7 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvtc,rvnews,rvsave,profile;
         rvshareapp=findViewById(R.id.rvshareapp);
         rvloout=findViewById(R.id.rvloout);
         rvtc=findViewById(R.id.rvtc);
-
+        back=findViewById(R.id.back);
         rvsave=findViewById(R.id.rvsave);
         sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
         String mo=sharedPreferences.getString("mo","1234567890");
@@ -55,6 +55,12 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvtc,rvnews,rvsave,profile;
                 .into(imgprfpc);
         txtuname.setText(sharedPreferences.getString("uname","null"));
         txtumo.setText("+91 "+sharedPreferences.getString("mo","null"));
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         rvlang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

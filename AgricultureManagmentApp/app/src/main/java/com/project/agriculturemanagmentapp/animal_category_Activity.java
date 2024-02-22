@@ -26,7 +26,6 @@ MaterialCardView sheep,cow,buffalo,goat,ox,chicken,hourse,camel,other;
         chicken=findViewById(R.id.chicken);
         hourse=findViewById(R.id.horse);
         camel=findViewById(R.id.camel);
-//        other=findViewById(R.id.btn);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +55,7 @@ MaterialCardView sheep,cow,buffalo,goat,ox,chicken,hourse,camel,other;
         cow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(animal_category_Activity.this, add_animal.class).putExtra("category", 1));
                 cow.setChecked(!cow.isChecked());
                 sheep.setChecked(false);
                 buffalo.setChecked(false);
@@ -69,6 +69,7 @@ MaterialCardView sheep,cow,buffalo,goat,ox,chicken,hourse,camel,other;
         sheep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(animal_category_Activity.this,add_animal.class).putExtra("category",2));
                 sheep.setChecked(!sheep.isChecked());
                 buffalo.setChecked(false);
                 goat.setChecked(false);
@@ -82,6 +83,7 @@ MaterialCardView sheep,cow,buffalo,goat,ox,chicken,hourse,camel,other;
         buffalo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(animal_category_Activity.this, add_animal.class).putExtra("category", 3));
                 buffalo.setChecked(!buffalo.isChecked());
                 sheep.setChecked(false);
                 goat.setChecked(false);
@@ -95,6 +97,7 @@ MaterialCardView sheep,cow,buffalo,goat,ox,chicken,hourse,camel,other;
         goat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(animal_category_Activity.this, add_animal.class).putExtra("category", 4));
                 goat.setChecked(!goat.isChecked());
                 buffalo.setChecked(false);
                 sheep.setChecked(false);
@@ -108,6 +111,7 @@ MaterialCardView sheep,cow,buffalo,goat,ox,chicken,hourse,camel,other;
         ox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(animal_category_Activity.this, add_animal.class).putExtra("category", 5));
                 ox.setChecked(!ox.isChecked());
                 buffalo.setChecked(false);
                 goat.setChecked(false);
@@ -121,6 +125,7 @@ MaterialCardView sheep,cow,buffalo,goat,ox,chicken,hourse,camel,other;
         chicken.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(animal_category_Activity.this, add_animal.class).putExtra("category", 6));
                 chicken.setChecked(!chicken.isChecked());
                 buffalo.setChecked(false);
                 goat.setChecked(false);
@@ -134,6 +139,7 @@ MaterialCardView sheep,cow,buffalo,goat,ox,chicken,hourse,camel,other;
         hourse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(animal_category_Activity.this, add_animal.class).putExtra("category", 7));
                 hourse.setChecked(!hourse.isChecked());
                 buffalo.setChecked(false);
                 goat.setChecked(false);
@@ -147,6 +153,7 @@ MaterialCardView sheep,cow,buffalo,goat,ox,chicken,hourse,camel,other;
         camel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(animal_category_Activity.this, add_animal.class).putExtra("category", 8));
                 camel.setChecked(!camel.isChecked());
                 buffalo.setChecked(false);
                 goat.setChecked(false);

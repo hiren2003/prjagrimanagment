@@ -100,8 +100,6 @@ public class Myfeed extends Fragment {
                     reversefeedModelArrayList.add(feedModelArrayList.get(i));
                 }
                 LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
-                linearLayoutManager.setReverseLayout(true);
-                linearLayoutManager.setStackFromEnd(true);
                 RcImageGridAdapter rcImageGridAdapter=new RcImageGridAdapter(getContext(),SelfAccount,reversefeedModelArrayList);
                 recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
                 recyclerView.setAdapter(rcImageGridAdapter);

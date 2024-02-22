@@ -35,7 +35,11 @@ RcEcommAdapter rcEcommAdapter;
                         snapshot.getChildren()) {
                     ecommModelArrayList.add(datasnapshot.getValue(clsEcommModel.class));
                 }
-                rcEcommAdapter=new RcEcommAdapter(Cart.this,2,ecommModelArrayList);
+                ArrayList<clsEcommModel> reversedlist=new ArrayList<>();
+                for (int i = ecommModelArrayList.size() - 1; i >= 0; i--) {
+                    reversedlist.add(ecommModelArrayList.get(i));
+                }
+                rcEcommAdapter=new RcEcommAdapter(Cart.this,2,reversedlist);
                 rcprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
                 rcprdt.setAdapter(rcEcommAdapter);
             }

@@ -55,28 +55,5 @@ if (SelfAccount){
       }
     }
 
-    @Nullable
-    @Override
-    public CharSequence getPageTitle(int position) {
-       if (SelfAccount){
-           if (position == 0) {
-               return context.getString(R.string.My_Feed);
-           } else if (position == 1) {
-               return context.getString( R.string.Labour_Vacancy);
-           } else if (position == 2) {
-               return context.getString( R.string.Labour_Managment);
-           } else {
-               return  context.getString(R.string.My_Product);
-           }
-       }
-       else{
-           if (position == 0) {
-               return context.getString(R.string.My_Feed);
-           } else if (position == 1) {
-               return context.getString( R.string.Labour_Vacancy);
-           } else {
-               return  context.getString(R.string.My_Product);
-           }
-       }
-    }
+
 }

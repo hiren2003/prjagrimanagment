@@ -652,10 +652,11 @@
             android:layout_marginTop="20sp"
             android:layout_margin="10dp"
             android:paddingTop="18dp"
-            android:background="@drawable/sendotp"
+
             android:drawableTop="@drawable/baseline_arrow_forward_24"
             android:drawableTint="@color/white"
             app:tint="#FFFFFF"
+            android:visibility="gone"
             android:layout_gravity="end"
 
             />

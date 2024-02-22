@@ -82,7 +82,11 @@ public class Cultivation_Product extends Fragment {
                         snapshot.getChildren()) {
                     clsCultivationProductModelArrayList.add(datasnapshot.getValue(ClsCultivationProductModel.class));
                 }
-                rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(getContext(),false,clsCultivationProductModelArrayList);
+                ArrayList<ClsCultivationProductModel> reversedlist=new ArrayList<>();
+                for (int i = clsCultivationProductModelArrayList.size() - 1; i >= 0; i--) {
+                    reversedlist.add(clsCultivationProductModelArrayList.get(i));
+                }
+                rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(getContext(),false,reversedlist);
                 rccprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
                 rccprdt.setAdapter(rcCultivatonPrdtAdpter);
             }

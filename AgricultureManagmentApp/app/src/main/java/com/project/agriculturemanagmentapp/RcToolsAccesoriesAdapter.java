@@ -80,7 +80,7 @@ public class RcToolsAccesoriesAdapter extends RecyclerView.Adapter<RcToolsAcceso
                         yes.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                FirebaseDatabase.getInstance().getReference().child("Tools&Accessories").child(clsToolsAccessoriesModelArrayList.get(position).getKey()).removeValue();
+                                FirebaseDatabase.getInstance().getReference().child("Resell").child("Tools&Accessories").child(clsToolsAccessoriesModelArrayList.get(position).getKey()).removeValue();
                                 FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("Tools&Accessories").child(clsToolsAccessoriesModelArrayList.get(position).getKey()).removeValue();
                                 dg.dismiss();
 

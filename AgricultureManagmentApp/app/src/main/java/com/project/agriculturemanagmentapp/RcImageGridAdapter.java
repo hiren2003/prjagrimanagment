@@ -58,7 +58,7 @@ public class RcImageGridAdapter extends RecyclerView.Adapter<RcImageGridAdapter.
             public void onClick(View v) {
                 Intent intent=new Intent(context,Posts.class);
                 intent.putExtra("mo",feedModelArrayList.get(position).getUmo());
-                intent.putExtra("position",feedModelArrayList.size()-position);
+                intent.putExtra("position",feedModelArrayList.size()-1-position);
                 intent.putExtra("SelfAccount",isMyFeed);
                 context.startActivity(intent);
             }

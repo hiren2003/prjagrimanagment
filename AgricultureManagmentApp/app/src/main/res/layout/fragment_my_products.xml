@@ -13,6 +13,7 @@
         >
 
         <TextView
+            android:id="@+id/txt1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/MyAnimal"
@@ -27,6 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"/>
         <TextView
+            android:id="@+id/txt2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Cuti_prd"
@@ -40,14 +42,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             />
+
         <TextView
+            android:id="@+id/txt3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksandbold"
             android:text="@string/Toolsacc"
             android:textSize="25dp"
-            android:fontFamily="@font/quicksandbold"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcmytools"
             android:layout_width="match_parent"

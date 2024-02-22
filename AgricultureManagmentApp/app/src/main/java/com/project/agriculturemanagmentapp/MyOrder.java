@@ -32,7 +32,11 @@ RcorderAdapter rcorderAdapter;
                  snapshot.getChildren()) {
                 orderModelArrayList.add(datasnapshot.getValue(clsOrderModel.class));
             }
-            rcorderAdapter=new RcorderAdapter(MyOrder.this,orderModelArrayList);
+            ArrayList<clsOrderModel> reversedlist=new ArrayList<>();
+            for (int i = orderModelArrayList.size() - 1; i >= 0; i--) {
+                reversedlist.add(orderModelArrayList.get(i));
+            }
+            rcorderAdapter=new RcorderAdapter(MyOrder.this,reversedlist);
             rcprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
             rcprdt.setAdapter(rcorderAdapter);
         }

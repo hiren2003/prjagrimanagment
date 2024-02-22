@@ -78,11 +78,16 @@ RcAnimalAdapter rcAnimalAdapter;
         FirebaseDatabase.getInstance().getReference().child("Resell").child("animals").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                arrayList=new ArrayList<>();
                 for (DataSnapshot dataSnapshot:snapshot.getChildren()) {
                     arrayList.add(dataSnapshot.getValue(clsAnimalModel.class));
                 }
+                ArrayList<clsAnimalModel> reversedlist=new ArrayList<>();
+                for (int i = arrayList.size() - 1; i >= 0; i--) {
+                    reversedlist.add(arrayList.get(i));
+                }
                 rcanimal.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-                rcAnimalAdapter=new RcAnimalAdapter(getContext(),false,arrayList);
+                rcAnimalAdapter=new RcAnimalAdapter(getContext(),false,reversedlist);
                 rcanimal.setAdapter(rcAnimalAdapter);
             }
 

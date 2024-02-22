@@ -88,7 +88,7 @@ public class RcCultivatonPrdtAdpter extends RecyclerView.Adapter<RcCultivatonPrd
                         yes.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                FirebaseDatabase.getInstance().getReference().child("Cultivation Product").child(clsCultivationProductModelArrayList.get(position).getKey()).removeValue();
+                                FirebaseDatabase.getInstance().getReference().child("Resell").child("Cultivation Product").child(clsCultivationProductModelArrayList.get(position).getKey()).removeValue();
                                 FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("Cultivatio_Product").child(clsCultivationProductModelArrayList.get(position).getKey()).removeValue();
                                 dg.dismiss();
 

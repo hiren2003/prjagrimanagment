@@ -54,7 +54,7 @@ public class MyProfile extends AppCompatActivity {
         txtfollowercount=findViewById(R.id.txtfollowercount);
         sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
         profile=findViewById(R.id.profile);
-         intent=getIntent();
+        intent=getIntent();
          SelfAccount=intent.getBooleanExtra("selfaccount",false);
         Mo=intent.getStringExtra("mo");
         if (SelfAccount||sharedPreferences.getString("mo","null").equals(Mo)&&!SelfAccount){
@@ -65,16 +65,26 @@ public class MyProfile extends AppCompatActivity {
                      .error(getDrawable(R.drawable.baseline_warning_24))
                      .into(imgprfpc);
              btnfollow.setVisibility(View.GONE);
+            VpProfileAdapter=new VpProfileAdapter(getSupportFragmentManager(),this,Mo,true);
+            viewPager.setAdapter(VpProfileAdapter);
+            tabLayout.setupWithViewPager(viewPager);
+            tabLayout.getTabAt(0).setIcon(getDrawable(R.drawable.instagram));
+            tabLayout.getTabAt(1).setIcon(getDrawable(R.drawable.suitcase));
+            tabLayout.getTabAt(2).setIcon(getDrawable(R.drawable.labour));
+            tabLayout.getTabAt(3).setIcon(getDrawable(R.drawable.resell));
              txtuname.setText(sharedPreferences.getString("uname","null"));
-             VpProfileAdapter=new VpProfileAdapter(getSupportFragmentManager(),this,Mo,true);
          }
          else{
              Mo=intent.getStringExtra("mo");
              profile.setVisibility(View.GONE);
-             VpProfileAdapter=new VpProfileAdapter(getSupportFragmentManager(),this,Mo,false);
+            VpProfileAdapter=new VpProfileAdapter(getSupportFragmentManager(),this,Mo,false);
+            viewPager.setAdapter(VpProfileAdapter);
+            tabLayout.setupWithViewPager(viewPager);
+            tabLayout.getTabAt(0).setIcon(getDrawable(R.drawable.instagram));
+            tabLayout.getTabAt(1).setIcon(getDrawable(R.drawable.suitcase));
+            tabLayout.getTabAt(2).setIcon(getDrawable(R.drawable.resell));
          }
-        viewPager.setAdapter(VpProfileAdapter);
-        tabLayout.setupWithViewPager(viewPager);
+
              profile.setOnClickListener(new View.OnClickListener() {
                  @Override
                  public void onClick(View view) {

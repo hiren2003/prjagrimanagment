@@ -40,13 +40,13 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class chat extends AppCompatActivity {
-String smo,rmo,surl,rurl,sname,rname,date,time;
-RecyclerView rcchat;
-LinearLayout rvprofile;
-TextInputEditText edtmsg;
-ImageView send,prfpc,chooseimage;
+    String smo,rmo,surl,rurl,sname,rname,date,time;
+    RecyclerView rcchat;
+    LinearLayout rvprofile;
+    TextInputEditText edtmsg;
+    ImageView send,prfpc,chooseimage;
     ArrayList<clsChatModel> chatModelArrayList;
-TextView txtrname;
+    TextView txtrname;
     Calendar calendar;
     Uri uri=null;
     RcChatAdapter rcChatAdapter;
@@ -69,14 +69,14 @@ TextView txtrname;
         SharedPreferences sharedPreferences = getSharedPreferences("data",MODE_PRIVATE);
         Intent intent = getIntent();
         rmo=intent.getStringExtra("rmo");
-       // smo="6353007116";
-       smo=sharedPreferences.getString("mo","unknown");
+        // smo="6353007116";
+        smo=sharedPreferences.getString("mo","unknown");
         //rmo = "7229005896";
         surl=sharedPreferences.getString("url","none");
         sname = sharedPreferences.getString("uname","none");
-         calendar = Calendar.getInstance();
-         int month=calendar.get(Calendar.MONTH);
-         month++;
+        calendar = Calendar.getInstance();
+        int month=calendar.get(Calendar.MONTH);
+        month++;
         date=calendar.get(Calendar.DAY_OF_MONTH)+"/"+month+"/"+calendar.get(Calendar.YEAR);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(chat.this);
         rcchat.setLayoutManager(linearLayoutManager);
@@ -91,9 +91,9 @@ TextView txtrname;
         FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("Chats").child(rmo.toString()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-            chatModelArrayList=new ArrayList<>();
+                chatModelArrayList=new ArrayList<>();
                 for (DataSnapshot dataSnapshot:
-                     snapshot.getChildren()) {
+                        snapshot.getChildren()) {
                     chatModelArrayList.add(dataSnapshot.getValue(clsChatModel.class));
                 }
                 rcChatAdapter=new RcChatAdapter(chat.this,chatModelArrayList);
@@ -127,9 +127,9 @@ TextView txtrname;
         ActivityResultLauncher<String> launcher = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
             public void onActivityResult(Uri result) {
-               if(result!=null){
-                   uri=result;
-               }
+                if(result!=null){
+                    uri=result;
+                }
             }
         });
         chooseimage.setOnClickListener(new View.OnClickListener() {
@@ -150,7 +150,7 @@ TextView txtrname;
                     if(hour.length()<2) {
                         hour+="0";
                     }
-                    }
+                }
                 if(hour.length()<2){
                     hour+="0";
                     if(minute.length()<2) {
@@ -179,34 +179,34 @@ TextView txtrname;
 
                 }
                 else{
-                   StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Chats").child(smo.toString()).child(key);
-                   storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                       @Override
-                       public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                           storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                               @Override
-                               public void onSuccess(Uri uri2) {
-                                   clsChatModel model = new clsChatModel(edtmsg.getText().toString(),smo,rmo,date,time,key,uri2.toString());
-                                   FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("Chats").child(rmo.toString()).child(key).setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                       @Override
-                                       public void onSuccess(Void unused) {
-                                           FirebaseDatabase.getInstance().getReference().child("User").child(rmo.toString()).child("Chats").child(smo.toString()).child(key).setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                               @Override
-                                               public void onSuccess(Void unused) {
-                                                   prgbar.setVisibility(View.GONE);
-                                                   send.setVisibility(View.VISIBLE);
-                                                   edtmsg.setText("");
-                                                   uri=null;
-                                                   FirebaseDatabase.getInstance().getReference().child("User").child(rmo.toString()).child("RecentChats").child(key).setValue(smo.toString());
-                                                   FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("RecentChats").child(key).setValue(rmo.toString());
-                                               }
-                                           });
-                                       }
-                                   });
-                               }
-                           });
-                       }
-                   });
+                    StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Chats").child(smo.toString()).child(key);
+                    storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri2) {
+                                    clsChatModel model = new clsChatModel(edtmsg.getText().toString(),smo,rmo,date,time,key,uri2.toString());
+                                    FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("Chats").child(rmo.toString()).child(key).setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            FirebaseDatabase.getInstance().getReference().child("User").child(rmo.toString()).child("Chats").child(smo.toString()).child(key).setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void unused) {
+                                                    prgbar.setVisibility(View.GONE);
+                                                    send.setVisibility(View.VISIBLE);
+                                                    edtmsg.setText("");
+                                                    uri=null;
+                                                    FirebaseDatabase.getInstance().getReference().child("User").child(rmo.toString()).child("RecentChats").child(key).setValue(smo.toString());
+                                                    FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("RecentChats").child(key).setValue(rmo.toString());
+                                                }
+                                            });
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    });
                 }
             }
         });

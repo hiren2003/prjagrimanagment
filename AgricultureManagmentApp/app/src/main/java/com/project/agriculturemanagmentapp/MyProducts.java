@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
@@ -33,7 +34,10 @@ public class MyProducts extends Fragment {
 RcAnimalAdapter rcAnimalAdapter;
 RcCultivatonPrdtAdpter rcCultivatonPrdtAdpter;
 RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
-String Mo;
+    ArrayList<clsAnimalModel> animalModelArrayList;
+    ArrayList<clsToolsAccessoriesModel> toolsAccessoriesModelArrayList;
+    ArrayList<ClsCultivationProductModel> cultivationProductModelArrayList;
+    String Mo;
     Boolean SelfAccount;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -88,7 +92,9 @@ String Mo;
         RecyclerView myanimal=view.findViewById(R.id.rcmyanimal);
         RecyclerView myproduct=view.findViewById(R.id.rcmyproduct);
         RecyclerView mytools=view.findViewById(R.id.rcmytools);
-        ExtendedFloatingActionButton fltsell=view.findViewById(R.id.fltsell);
+        TextView txt1=view.findViewById(R.id.txt1);
+        TextView txt2=view.findViewById(R.id.txt2);
+        TextView txt3=view.findViewById(R.id.txt3);
         SharedPreferences sharedPreferences=getContext().getSharedPreferences("data", Context.MODE_PRIVATE);
         myproduct.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
         mytools.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
@@ -97,10 +103,13 @@ String Mo;
         FirebaseDatabase.getInstance().getReference().child("User").child(Mo).child("Resell").child("animal").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ArrayList<clsAnimalModel> animalModelArrayList=new ArrayList<>();
+                animalModelArrayList=new ArrayList<>();
                 for (DataSnapshot dataSnapshot:
                      snapshot.getChildren()) {
                     animalModelArrayList.add(dataSnapshot.getValue(clsAnimalModel.class));
+                }
+                if (animalModelArrayList.isEmpty()){
+                    txt1.setVisibility(View.GONE);
                 }
                  rcAnimalAdapter=new RcAnimalAdapter(getContext(),SelfAccount, animalModelArrayList);
                 myanimal.setAdapter(rcAnimalAdapter);
@@ -114,12 +123,19 @@ String Mo;
         FirebaseDatabase.getInstance().getReference().child("User").child(Mo).child("Resell").child("Cultivatio_Product").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ArrayList<ClsCultivationProductModel> cultivationProductModelArrayList = new ArrayList<>();
+           cultivationProductModelArrayList = new ArrayList<>();
                 for (DataSnapshot dataSnapshot:
                         snapshot.getChildren()) {
                     cultivationProductModelArrayList.add(dataSnapshot.getValue(ClsCultivationProductModel.class));
                 }
-                rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(getContext(),SelfAccount,cultivationProductModelArrayList);
+                if (cultivationProductModelArrayList.isEmpty()){
+                    txt2.setVisibility(View.GONE);
+                }
+                ArrayList<ClsCultivationProductModel> reversedlist=new ArrayList<>();
+                for (int i = cultivationProductModelArrayList.size() - 1; i >= 0; i--) {
+                    reversedlist.add(cultivationProductModelArrayList.get(i));
+                }
+                rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(getContext(),SelfAccount,reversedlist);
                 myproduct.setAdapter(rcCultivatonPrdtAdpter);
             }
 
@@ -131,24 +147,24 @@ String Mo;
         FirebaseDatabase.getInstance().getReference().child("User").child(Mo).child("Resell").child("Tools&Accessories").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ArrayList<clsToolsAccessoriesModel> toolsAccessoriesModelArrayList = new ArrayList<>();
+                 toolsAccessoriesModelArrayList = new ArrayList<>();
                 for (DataSnapshot dataSnapshot:
                         snapshot.getChildren()) {
                     toolsAccessoriesModelArrayList.add(dataSnapshot.getValue(clsToolsAccessoriesModel.class));
                 }
-                rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(getContext(),SelfAccount,toolsAccessoriesModelArrayList);
+                if (toolsAccessoriesModelArrayList.isEmpty()){
+                    txt3.setVisibility(View.GONE);
+                }
+                ArrayList<clsToolsAccessoriesModel> reversedlist=new ArrayList<>();
+                for (int i = toolsAccessoriesModelArrayList.size() - 1; i >= 0; i--) {
+                    reversedlist.add(toolsAccessoriesModelArrayList.get(i));
+                }
+                rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(getContext(),SelfAccount,reversedlist);
                 mytools.setAdapter(rcToolsAccesoriesAdapter);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-        fltsell.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getContext(), Resell_Category.class));
 
             }
         });

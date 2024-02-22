@@ -86,8 +86,8 @@ public class add_animal extends AppCompatActivity {
             txtname.setText(arranimal[0]);
         } else if (cat == 3) {
             imgcat.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.buffalo));
-            category = arranimal[5];
-            txtname.setText(arranimal[5]);
+            category = arranimal[4];
+            txtname.setText(arranimal[4]);
         } else if (cat == 4) {
             imgcat.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.goat));
             category = arranimal[1];

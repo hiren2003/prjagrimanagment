@@ -92,6 +92,7 @@ public class ShowFeed extends Fragment {
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
         LottieAnimationView loty1=view.findViewById(R.id.loty1);
         LottieAnimationView loty2=view.findViewById(R.id.loty2);
+        LottieAnimationView loty3=view.findViewById(R.id.loty3);
         linearLayoutManager.setReverseLayout(true);
         linearLayoutManager.setStackFromEnd(true);
         ImageView img1=view.findViewById(R.id.img1);
@@ -103,6 +104,7 @@ public class ShowFeed extends Fragment {
         rcviewotherfeed.setLayoutManager(linearLayoutManager2);
         FollowingfeedModelArrayList= new ArrayList<>();
         OtherfeedModelArrayList= new ArrayList<>();
+        loty3.setVisibility(View.VISIBLE);
         view.findViewById(R.id.ll1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -178,9 +180,11 @@ public class ShowFeed extends Fragment {
                         }
                         if(FollowingfeedModelArrayList.isEmpty()){
                             loty1.setVisibility(View.VISIBLE);
+                            loty3.setVisibility(View.GONE);
                         }
                         else{
                          loty1.setVisibility(View.GONE);
+                            loty3.setVisibility(View.GONE);
                         }
                         rcFeedAdapter =new RcFeedAdapter(getContext(),false,FollowingfeedModelArrayList);
                         recyclerView.setAdapter(rcFeedAdapter);

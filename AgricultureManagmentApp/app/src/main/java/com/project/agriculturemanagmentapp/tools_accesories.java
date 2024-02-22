@@ -79,7 +79,11 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
                         snapshot.getChildren()) {
                     toolsAccessoriesModelArrayList.add(datasnapshot.getValue(clsToolsAccessoriesModel.class));
                 }
-                rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(getContext(),false,toolsAccessoriesModelArrayList);
+                ArrayList<clsToolsAccessoriesModel> reversedlist=new ArrayList<>();
+                for (int i = toolsAccessoriesModelArrayList.size() - 1; i >= 0; i--) {
+                    reversedlist.add(toolsAccessoriesModelArrayList.get(i));
+                }
+                rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(getContext(),false,reversedlist);
                 recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
                 recyclerView.setAdapter(rcToolsAccesoriesAdapter);
             }

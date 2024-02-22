@@ -18,13 +18,13 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class ChatList extends AppCompatActivity {
-RecyclerView rcchatlist;
-RcuserAdapter rcuserAdapter;
-SharedPreferences sharedPreferences;
-androidx.appcompat.widget.SearchView searchView;
+    RecyclerView rcchatlist;
+    RcuserAdapter rcuserAdapter;
+    SharedPreferences sharedPreferences;
+    androidx.appcompat.widget.SearchView searchView;
     ArrayList<clsUserModel> userModelArrayList;
 
-String umo;
+    String umo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,9 +43,9 @@ String umo;
                         System.out.println(dataSnapshot.getValue().toString());
                     }
                 }
-                   userModelArrayList=new ArrayList<>();
+                userModelArrayList=new ArrayList<>();
                 for (String str:
-                     arrayList) {
+                        arrayList) {
                     FirebaseDatabase.getInstance().getReference().child("Users_List").child(str).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {

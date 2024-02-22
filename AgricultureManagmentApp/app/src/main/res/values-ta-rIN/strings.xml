@@ -99,6 +99,10 @@
     <string name="Price2">விலை</string>
     <string name="KiloGram2">கிலோகிராம்</string>
     <string name="choose_cat">வகையைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="Cart_product">வண்டி தயாரிப்பு</string>
+    <string name="My_Order">எனது ஆணை</string>
+    <string name="Agro_Farm">அக்ரோகேர்</string>
+    <string name="Select_Language">மொழியை தேர்ந்தெடுங்கள்</string>
     <string name="Seller_name">விற்பனையாளர் பெயர்</string>
     <string name="Usage">பயன்பாடு</string>
     <string name="Cuti_prd">சாகுபடி தயாரிப்பு</string>
@@ -163,5 +167,9 @@
     <string name="Add_Worker">தொழிலாளியைச் சேர்க்கவும்</string>
     <string name="Add_Post">இடுகையைச் சேர்க்கவும்</string>
     <string name="My_Profile">என் சுயவிவரம்</string>
+    <string name="Close">நெருக்கமான</string>
     <string name="Edit_Profile">சுயவிவரத்தைத் திருத்து</string>
+    <string name="Saved">சேமித்த பொருள்</string>
+    <string name="Explore_Network">நெட்வொர்க்கை ஆராயுங்கள்</string>
+    <string name="Search_here">இங்கே தேடவும்</string>
 </resources>

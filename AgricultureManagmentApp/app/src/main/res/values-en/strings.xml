@@ -99,6 +99,10 @@
     <string name="Price2">Price</string>
     <string name="KiloGram2">KiloGram</string>
     <string name="choose_cat">Choose Category</string>
+    <string name="Cart_product">Cart product</string>
+    <string name="My_Order">My Order</string>
+    <string name="Agro_Farm">AgroCare</string>
+    <string name="Select_Language">Select Language</string>
     <string name="Seller_name">Seller name</string>
     <string name="Usage">Usage</string>
     <string name="Cuti_prd">Cultivation Product</string>
@@ -163,6 +167,10 @@
     <string name="Add_Worker">Add Worker</string>
     <string name="Add_Post">Add Post</string>
     <string name="My_Profile">My Profile</string>
+    <string name="Close">Close</string>
     <string name="Edit_Profile">Edit Profile</string>
+    <string name="Saved">Saved Item</string>
+    <string name="Explore_Network">Explore Network</string>
+    <string name="Search_here">Search Here</string>
 
 </resources>

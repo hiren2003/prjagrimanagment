@@ -99,6 +99,10 @@
     <string name="Price2">قیمت</string>
     <string name="KiloGram2">کلو گرام</string>
     <string name="choose_cat">زمرہ منتخب کریں۔</string>
+    <string name="Cart_product">ٹوکری کی مصنوعات</string>
+    <string name="My_Order">میرا حکم</string>
+    <string name="Agro_Farm">ایگرو کیئر</string>
+    <string name="Select_Language">భాషను ఎంచుకోండి</string>
     <string name="Seller_name">بیچنے والے کا نام</string>
     <string name="Usage">استعمال</string>
     <string name="Cuti_prd">کاشت کی پیداوار</string>
@@ -163,5 +167,9 @@
     <string name="Add_Worker">کارکن شامل کریں۔</string>
     <string name="Add_Post">پوسٹ شامل کریں۔</string>
     <string name="My_Profile">میری پروفائل</string>
+    <string name="Close">بند کریں</string>
     <string name="Edit_Profile">پروفائل میں ترمیم کریں</string>
+    <string name="Saved">محفوظ کردہ آئٹم</string>
+    <string name="Explore_Network">نیٹ ورک دریافت کریں۔</string>
+    <string name="Search_here">یہاں تلاش کریں۔</string>
 </resources>

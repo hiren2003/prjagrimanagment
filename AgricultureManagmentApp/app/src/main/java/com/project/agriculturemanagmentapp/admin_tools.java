@@ -24,7 +24,7 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
         setContentView(R.layout.activity_admin_tools);
         rctools=findViewById(R.id.rctools);
         arrayList=new ArrayList<>();
-        FirebaseDatabase.getInstance().getReference().child("Tools&Accessories").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference().child("Resell").child("Tools&Accessories").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot:snapshot.getChildren()) {

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/feedback"
+    android:backgroundTint="#ece5dd"
+    android:padding="20dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/txtmsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:textSize="15dp" />
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxHeight="100dp"
+        android:maxWidth="100dp"
+        android:scaleType="centerInside" />
+
+    <TextView
+        android:id="@+id/txtdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10/12/2024"
+        android:fontFamily="@font/quicksandmedium"
+        android:textColor="#000"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/txttime"
+        android:layout_width="wrap_content"
+        android:fontFamily="@font/quicksandmedium"
+        android:layout_height="wrap_content"
+        android:text="20:18"
+        android:textColor="#000"
+        android:textSize="15dp" />
+</LinearLayout>

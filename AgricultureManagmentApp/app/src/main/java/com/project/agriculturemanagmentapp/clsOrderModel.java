@@ -2,15 +2,29 @@ package com.project.agriculturemanagmentapp;
 
 public class clsOrderModel {
     clsEcommModel clsEcommModel;
-    String key,mo,address,qty,date;
+    String key,name,mo,address,qty,date,time,PaymentMode,PaymentId,PaymentStatus;
 
-    public clsOrderModel(com.project.agriculturemanagmentapp.clsEcommModel clsEcommModel, String key, String mo, String address, String qty, String date) {
-        this.clsEcommModel = clsEcommModel;
-        this.key = key;
-        this.mo = mo;
-        this.address = address;
-        this.qty = qty;
-        this.date = date;
+
+    public clsOrderModel(com.project.agriculturemanagmentapp.clsEcommModel clsEcommModel, String key, String name, String mo, String address, String qty, String date, String time, String paymentMode, String paymentId, String paymentStatus) {
+            this.clsEcommModel = clsEcommModel;
+            this.key = key;
+            this.name = name;
+            this.mo = mo;
+            this.address = address;
+            this.qty = qty;
+            this.date = date;
+        this.time = time;
+        PaymentMode = paymentMode;
+        PaymentId = paymentId;
+        PaymentStatus = paymentStatus;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public clsOrderModel() {
@@ -62,5 +76,37 @@ public class clsOrderModel {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getPaymentMode() {
+        return PaymentMode;
+    }
+
+    public void setPaymentMode(String paymentMode) {
+        PaymentMode = paymentMode;
+    }
+
+    public String getPaymentId() {
+        return PaymentId;
+    }
+
+    public void setPaymentId(String paymentId) {
+        PaymentId = paymentId;
+    }
+
+    public String getPaymentStatus() {
+        return PaymentStatus;
+    }
+
+    public void setPaymentStatus(String paymentStatus) {
+        PaymentStatus = paymentStatus;
     }
 }

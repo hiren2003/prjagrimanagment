@@ -72,7 +72,7 @@ public class show_CultivationProduct extends AppCompatActivity {
             }
         });
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Cultivation Product").child(key);
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Resell").child("Cultivation Product").child(key);
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override

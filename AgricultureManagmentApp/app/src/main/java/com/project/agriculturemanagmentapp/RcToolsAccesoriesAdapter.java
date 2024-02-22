@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -51,21 +52,24 @@ public class RcToolsAccesoriesAdapter extends RecyclerView.Adapter<RcToolsAcceso
         holder.cd.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(context,R.style.SheetDialog);
-                View view2=LayoutInflater.from(context).inflate(R.layout.lyt_edit_option_sheet,null,false);
-                LinearLayout btnupdate=view2.findViewById(R.id.lnupdate);
-                LinearLayout btndelete=view2.findViewById(R.id.lndelete);
-                bottomSheetDialog.setContentView(view2);
+                Dialog dgop = new Dialog(context);
+                dgop.setContentView(R.layout.lyt_edit_option_sheet);
+                dgop.getWindow().setBackgroundDrawableResource(R.drawable.drb_round_edges);
+                LinearLayout btnupdate = dgop.findViewById(R.id.lnupdate);
+                LinearLayout btndelete = dgop.findViewById(R.id.lndelete);
+                if (isMyproduct){
+                    dgop.show();
+                }
 
                 btndelete.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        bottomSheetDialog.cancel();
+                        dgop.dismiss();
                         Dialog dg=new Dialog(context);
                         dg.setContentView(R.layout.lyt_delete_dg);
                         dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
-                        Button yes=dg.findViewById(R.id.yes);
-                        Button no=dg.findViewById(R.id.no);
+                        AppCompatButton yes = dg.findViewById(R.id.yes);
+                        ImageView no = dg.findViewById(R.id.no);
                         dg.show();
                         no.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -87,7 +91,7 @@ public class RcToolsAccesoriesAdapter extends RecyclerView.Adapter<RcToolsAcceso
                 btnupdate.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        bottomSheetDialog.cancel();
+                        dgop.dismiss();
                         BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(context);
                         View view2=LayoutInflater.from(context).inflate(R.layout.activity_add_tools_accesories,null,false);
                         bottomSheetDialog.setContentView(view2);
@@ -146,7 +150,7 @@ public class RcToolsAccesoriesAdapter extends RecyclerView.Adapter<RcToolsAcceso
                                         clsToolsAccessoriesModelArrayList.get(position).getCategory(),
                                         sharedPreferences.getString("mo", "1234567890")
                                 );
-                                FirebaseDatabase.getInstance().getReference().child("Tools&Accessories").child(clsToolsAccessoriesModelArrayList.get(position).getKey()).setValue(clsToolsAccessoriesModel);
+                                FirebaseDatabase.getInstance().getReference().child("Resell").child("Tools&Accessories").child(clsToolsAccessoriesModelArrayList.get(position).getKey()).setValue(clsToolsAccessoriesModel);
                                 FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("Tools&Accessories").child(clsToolsAccessoriesModelArrayList.get(position).getKey()).setValue(clsToolsAccessoriesModel);
                                 bottomSheetDialog.cancel();
                             }
@@ -154,9 +158,7 @@ public class RcToolsAccesoriesAdapter extends RecyclerView.Adapter<RcToolsAcceso
                         bottomSheetDialog.show();
                     }
                 });
-                if (isMyproduct){
-                    bottomSheetDialog.show();
-                }
+
                 return false;
             }
         });
@@ -167,7 +169,7 @@ public class RcToolsAccesoriesAdapter extends RecyclerView.Adapter<RcToolsAcceso
         holder.itemView.setAnimation(anim);
         holder.txtprdt.setText(clsToolsAccessoriesModelArrayList.get(position).getPname());
         holder.txtprc.setText(context.getResources().getString(R.string.prc)+clsToolsAccessoriesModelArrayList.get(position).getPrice());
-        holder.txtqty.setText(context.getResources().getString(R.string.Usage)+clsToolsAccessoriesModelArrayList.get(position).getMonth()+"Months");
+        holder.txtqty.setText(context.getResources().getString(R.string.Usage)+" : "+clsToolsAccessoriesModelArrayList.get(position).getMonth()+" Month");
         holder.cd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

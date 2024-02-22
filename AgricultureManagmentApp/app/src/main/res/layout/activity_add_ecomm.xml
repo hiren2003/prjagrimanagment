@@ -3,8 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".add_ecomm">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:backgroundTint="#135983"
+        app:cardCornerRadius="20dp"
+        android:layout_margin="10dp"
+        android:elevation="50dp"
+        android:background="@drawable/userbac"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/box"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Product"
+                android:textSize="40dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/quicksandbold"
+             />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -13,171 +43,252 @@
         android:layout_height="match_parent"
         android:padding="10dp"
         android:orientation="vertical">
-        <Spinner
-            android:id="@+id/category"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="50dp"
-            android:padding="10dp"
-            android:background="@drawable/border_green"
-            />
-        <com.google.android.material.textfield.TextInputLayout
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Choose Product catagory :"
+                android:textSize="22dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/quicksandsemibold"/>
+            <Spinner
+                android:id="@+id/category"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:minHeight="45dp"
+                android:layout_margin="10dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#C6DEEC"
+                android:padding="10dp"
+                android:fontFamily="@font/quicksandregular"
+                android:background="@drawable/border_green"
+                />
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/quicksandsemibold"
+            android:text="Product Name :"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtpname"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/curvebackground"
+            android:backgroundTint="#C6DEEC"
+            android:fontFamily="@font/quicksandregular"
+            android:textColor="@color/black"
             android:hint="@string/Name_of_product"
-            style="@style/choose_category"
-            app:boxBackgroundColor="#D5D5D5"
-            app:boxCornerRadiusBottomEnd="10sp"
-            app:boxCornerRadiusBottomStart="10dp"
-            app:boxCornerRadiusTopEnd="10dp"
-            app:boxCornerRadiusTopStart="10dp"
+            android:paddingLeft="20dp"
+            app:hintTextColor="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            app:hintEnabled="true"
-            app:hintTextColor="@color/black">
+            android:textStyle="bold"
+            android:fontFamily="@font/quicksandsemibold"
+            android:text="Price ( In INR ):"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtpname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="60dp
-"
-                android:fontFamily="@font/allerta"
-                android:shadowColor="@color/black"
-                android:textColor="@color/black" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtprc"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            style="@style/choose_category"
-            app:boxBackgroundColor="#D5D5D5"
-            app:boxCornerRadiusBottomEnd="10sp"
-            app:boxCornerRadiusBottomStart="10dp"
-            app:boxCornerRadiusTopEnd="10dp"
-            app:boxCornerRadiusTopStart="10dp"
+            android:layout_height="55dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/curvebackground"
+            android:backgroundTint="#C6DEEC"
+            android:fontFamily="@font/quicksandregular"
+            android:textColor="@color/black"
             android:hint="Price"
-            app:counterEnabled="true"
-            app:counterMaxLength="15"
-            app:hintEnabled="true"
-            app:hintTextColor="@color/black">
+            android:paddingLeft="20dp"
+            app:hintTextColor="@color/black" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/quicksandsemibold"
+            android:text="CGST :"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtprc"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:fontFamily="@font/allerta"
-                android:inputType="numberDecimal"
-                android:maxLength="15"
-                android:shadowColor="@color/black"
-                android:textColor="@color/black" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtcgst"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/curvebackground"
+            android:backgroundTint="#C6DEEC"
+            android:textColor="@color/black"
+            android:hint="CGST"
+            android:fontFamily="@font/quicksandregular"
+            android:paddingLeft="20dp"
+            app:hintTextColor="@color/black" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/quicksandsemibold"
+            android:text="SGST :"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtsgst"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/quicksandregular"
+            android:background="@drawable/curvebackground"
+            android:backgroundTint="#C6DEEC"
+            android:textColor="@color/black"
+            android:hint="SGST"
+            android:paddingLeft="20dp"
+            app:hintTextColor="@color/black" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/quicksandsemibold"
+            android:text="Discount :"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtdiscount"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/curvebackground"
+            android:backgroundTint="#C6DEEC"
+            android:textColor="@color/black"
+            android:fontFamily="@font/quicksandregular"
+            android:hint="@string/Discount"
+            android:paddingLeft="20dp"
+            app:hintTextColor="@color/black" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/quicksandsemibold"
+            android:text="Product Description :"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtdes"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/curvebackground"
+            android:backgroundTint="#C6DEEC"
+            android:fontFamily="@font/quicksandregular"
+            android:textColor="@color/black"
             android:hint="@string/Product_Description"
-            app:counterEnabled="true"
-            style="@style/choose_category"
-            app:boxBackgroundColor="#D5D5D5"
-            app:boxCornerRadiusBottomEnd="10sp"
-            app:boxCornerRadiusBottomStart="10dp"
-            app:boxCornerRadiusTopEnd="10dp"
-            app:boxCornerRadiusTopStart="10dp"
+            android:paddingLeft="20dp"
+            app:hintTextColor="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/quicksandsemibold"
+            android:text="Specification :"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtspe"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            app:hintEnabled="true"
-            app:hintTextColor="@color/black"
-            app:prefixTextColor="@color/black"
-            app:startIconTint="#3E6018">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtdes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/allerta"
-                android:gravity="top"
-                android:shadowColor="@color/black"
-                android:textAlignment="viewStart"
-                android:textColor="@color/black" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:background="@drawable/curvebackground"
+            android:backgroundTint="#C6DEEC"
+            android:textColor="@color/black"
             android:hint="@string/Specification"
-            app:counterEnabled="true"
-            style="@style/choose_category"
-            app:boxBackgroundColor="#D5D5D5"
-            app:boxCornerRadiusBottomEnd="10sp"
-            app:boxCornerRadiusBottomStart="10dp"
-            app:boxCornerRadiusTopEnd="10dp"
-            app:boxCornerRadiusTopStart="10dp"
+            android:fontFamily="@font/quicksandregular"
+            android:paddingLeft="20dp"
+            app:hintTextColor="@color/black" />
+
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            app:hintEnabled="true"
-            app:hintTextColor="@color/black"
-            app:prefixTextColor="@color/black"
-            app:startIconTint="#3E6018">
+            android:textStyle="bold"
+            android:fontFamily="@font/quicksandsemibold"
+            android:text="Recommandation :"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtspe"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/allerta"
-                android:shadowColor="@color/black"
-                android:textAlignment="viewStart"
-                android:gravity="top"
-                android:textColor="@color/black" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtrecom"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/curvebackground"
-            android:hint="@string/Recommandation"
-            app:counterEnabled="true"
-            app:hintEnabled="true"
-            app:hintTextColor="@color/black"
-            style="@style/choose_category"
-            app:boxBackgroundColor="#D5D5D5"
-            app:boxCornerRadiusBottomEnd="10sp"
-            app:boxCornerRadiusBottomStart="10dp"
-            app:boxCornerRadiusTopEnd="10dp"
-            app:boxCornerRadiusTopStart="10dp"
+            android:layout_height="55dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            app:prefixTextColor="@color/black"
-            app:startIconTint="#3E6018">
+            android:background="@drawable/curvebackground"
+            android:backgroundTint="#C6DEEC"
+            android:textColor="@color/black"
+            android:fontFamily="@font/quicksandregular"
+            android:hint="@string/Recommandation"
+            android:paddingLeft="20dp"
+            app:hintTextColor="@color/black" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtrecom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/allerta"
-                android:shadowColor="@color/black"
-                android:textAlignment="viewStart"
-                android:gravity="top"
-                android:textColor="@color/black" />
-        </com.google.android.material.textfield.TextInputLayout>
+
+
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnchooseimage"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:textSize="20dp"
+            android:textColor="#135983"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginTop="20dp"
+            android:fontFamily="@font/quicksandregular"
+            android:backgroundTint="#F1FBF9"
             android:background="@drawable/sendotp"
             android:text="@string/Choose_Image"
             />
@@ -194,9 +305,13 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:textSize="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="#FFFFFF"
             android:background="@drawable/sendotp"
             android:layout_marginTop="20dp"
-            android:backgroundTint="#8BC34A"
+            android:fontFamily="@font/quicksandregular"
+            android:backgroundTint="#135983"
             android:text="@string/add_product"
             />
     </LinearLayout>

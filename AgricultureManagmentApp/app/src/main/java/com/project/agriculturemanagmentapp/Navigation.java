@@ -19,16 +19,16 @@ import com.bumptech.glide.Glide;
 
 public class Navigation extends AppCompatActivity {
 ImageView imgprfpc;
-Button profile;
+Button rvloout;
 TextView txtuname,txtumo,close;
 SharedPreferences sharedPreferences;
-RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc,rvnews,rvsave;
+RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvtc,rvnews,rvsave,profile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
         Window window = this.getWindow();
-        window.setStatusBarColor(this.getResources().getColor(R.color.drawer));
+        window.setStatusBarColor(this.getResources().getColor(R.color.lan));
         txtumo=findViewById(R.id.txtumo);
         txtuname=findViewById(R.id.txtuname);
         profile=findViewById(R.id.profile);
@@ -41,7 +41,7 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc,rvnews,rvsave;
         rvshareapp=findViewById(R.id.rvshareapp);
         rvloout=findViewById(R.id.rvloout);
         rvtc=findViewById(R.id.rvtc);
-        close=findViewById(R.id.close);
+
         rvsave=findViewById(R.id.rvsave);
         sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
         String mo=sharedPreferences.getString("mo","1234567890");
@@ -105,12 +105,12 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvloout,rvtc,rvnews,rvsave;
                 startActivity(new Intent(Navigation.this, admin_home.class));
             }
         });
-        close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+//        close.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                finish();
+//            }
+//        });
         rvrate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

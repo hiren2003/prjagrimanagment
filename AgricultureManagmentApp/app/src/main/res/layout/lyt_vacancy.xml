@@ -45,14 +45,14 @@
                     android:layout_height="wrap_content"
                     android:text="John Thomsan"
                     android:textSize="15dp"
-                    android:fontFamily="@font/montserrat_bold"
+                    android:fontFamily="@font/quicksandbold"
                     android:textStyle="bold"
                     />
                 <TextView
                     android:id="@+id/txtdate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_medium"
+                    android:fontFamily="@font/quicksandsemibold"
                     android:text="12/10/2023"
                     />
             </LinearLayout>
@@ -64,7 +64,7 @@
             android:layout_below="@+id/hh"
             android:layout_marginLeft="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="0dp"
             android:layout_marginRight="10dp"
             android:layout_height="2dp"/>
         <LinearLayout
@@ -86,7 +86,7 @@
            android:text="Farming"
            android:textStyle="bold"
            android:textColor="#000"
-           android:fontFamily="@font/montserrat"
+           android:fontFamily="@font/quicksandmedium"
            android:textSize="15dp" />
        <TextView
            android:id="@+id/txtwtype"
@@ -94,7 +94,7 @@
            android:layout_height="wrap_content"
            android:text="Partenership"
            android:textColor="#000"
-           android:fontFamily="@font/montserrat_medium"
+           android:fontFamily="@font/quicksandmedium"
            android:textSize="15dp" />
    </LinearLayout>
         </LinearLayout>
@@ -114,7 +114,7 @@
              android:text="12 Months"
              android:textStyle="bold"
              android:textColor="#000"
-             android:fontFamily="@font/montserrat_medium"
+             android:fontFamily="@font/quicksandmedium"
              android:layout_marginStart="10dp"
              android:textSize="15dp" />
      </LinearLayout>
@@ -134,7 +134,7 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="10dp"
-                android:fontFamily="@font/montserrat_medium"
+                android:fontFamily="@font/quicksandmedium"
                 android:text="$ 2000"
                 android:textColor="#000"
                 android:textSize="15dp"
@@ -158,7 +158,7 @@
                 android:textStyle="bold"
                 android:textColor="#000"
                 android:layout_marginStart="10dp"
-                android:fontFamily="@font/montserrat_medium"
+                android:fontFamily="@font/quicksandmedium"
                 android:textSize="15dp" />
         </LinearLayout>
 
@@ -180,7 +180,7 @@
                 android:textColor="#000"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="110dp"
-                android:fontFamily="@font/montserrat_medium"
+                android:fontFamily="@font/quicksandmedium"
                 android:text="hello i am hiren i am farmer looking for greate people"
                 android:layout_alignParentBottom="true"
                 android:textSize="15dp" />
@@ -223,9 +223,8 @@
             android:id="@+id/imgdlt"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:visibility="gone"
             android:layout_margin="5dp"
-            android:src="@drawable/delete"
+            android:src="@drawable/baseline_close_24"
             />
 
     </LinearLayout>

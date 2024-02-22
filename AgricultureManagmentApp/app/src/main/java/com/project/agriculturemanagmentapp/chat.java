@@ -14,7 +14,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -40,7 +42,7 @@ import java.util.Calendar;
 public class chat extends AppCompatActivity {
 String smo,rmo,surl,rurl,sname,rname,date,time;
 RecyclerView rcchat;
-RelativeLayout rvprofile;
+LinearLayout rvprofile;
 TextInputEditText edtmsg;
 ImageView send,prfpc,chooseimage;
     ArrayList<clsChatModel> chatModelArrayList;
@@ -62,6 +64,8 @@ TextView txtrname;
         chooseimage=findViewById(R.id.btn2);
         prgbar=findViewById(R.id.prgbar);
         rvprofile=findViewById(R.id.rvprofile);
+        Window window=this.getWindow();
+        window.setStatusBarColor(this.getResources().getColor(R.color.greee));
         SharedPreferences sharedPreferences = getSharedPreferences("data",MODE_PRIVATE);
         Intent intent = getIntent();
         rmo=intent.getStringExtra("rmo");
@@ -71,7 +75,9 @@ TextView txtrname;
         surl=sharedPreferences.getString("url","none");
         sname = sharedPreferences.getString("uname","none");
          calendar = Calendar.getInstance();
-        date=calendar.get(Calendar.DAY_OF_MONTH)+"/"+calendar.get(Calendar.MONTH)+"/"+calendar.get(Calendar.YEAR);
+         int month=calendar.get(Calendar.MONTH);
+         month++;
+        date=calendar.get(Calendar.DAY_OF_MONTH)+"/"+month+"/"+calendar.get(Calendar.YEAR);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(chat.this);
         rcchat.setLayoutManager(linearLayoutManager);
         rvprofile.setOnClickListener(new View.OnClickListener() {
@@ -137,7 +143,21 @@ TextView txtrname;
             public void onClick(View v) {
                 prgbar.setVisibility(View.VISIBLE);
                 send.setVisibility(View.GONE);
-                time=calendar.get(Calendar.HOUR_OF_DAY)+":"+calendar.get(Calendar.MINUTE);
+                String hour=calendar.get(Calendar.HOUR_OF_DAY)+"";
+                String minute=calendar.get(Calendar.MINUTE)+"";
+                if(minute.length()<2){
+                    minute+="0";
+                    if(hour.length()<2) {
+                        hour+="0";
+                    }
+                    }
+                if(hour.length()<2){
+                    hour+="0";
+                    if(minute.length()<2) {
+                        minute+="0";
+                    }
+                }
+                time=hour+":"+minute;
                 String key=FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("Chats").child(rmo.toString()).push().getKey().toString();
                 if(uri==null){
                     clsChatModel model = new clsChatModel(edtmsg.getText().toString(),smo,rmo,date,time,key,"");

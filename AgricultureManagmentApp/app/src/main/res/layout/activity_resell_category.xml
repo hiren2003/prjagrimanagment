@@ -25,7 +25,7 @@
                 android:textColor="#066006"
                 android:textSize="40dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/montserrat_bold"
+                android:fontFamily="@font/quicksandbold"
                 android:layout_marginLeft="20dp"/>
             <FrameLayout
                 android:layout_width="match_parent"
@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/montserrat_bold"
+                android:fontFamily="@font/quicksandsemibold"
                 android:text="Animals"
                 android:textColor="#000000"
                 android:textSize="30dp" />
@@ -67,7 +67,7 @@
                 android:text="Foods"
                 android:textColor="#000000"
                 android:textSize="30dp"
-                android:fontFamily="@font/montserrat_bold"
+                android:fontFamily="@font/quicksandsemibold"
                 android:layout_marginLeft="20dp"/>
             <androidx.cardview.widget.CardView
                 android:id="@+id/cdagrprdt"
@@ -115,7 +115,7 @@
                 android:text="Equipments"
                 android:textColor="#000000"
                 android:textSize="30dp"
-                android:fontFamily="@font/montserrat_bold"
+                android:fontFamily="@font/quicksandsemibold"
                 android:layout_marginLeft="20dp"/>
             <androidx.cardview.widget.CardView
                 android:id="@+id/cdta"

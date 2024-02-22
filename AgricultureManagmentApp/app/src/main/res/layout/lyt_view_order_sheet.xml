@@ -57,7 +57,7 @@
                         android:id="@+id/txtpname"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/arial"
+                        android:fontFamily="@font/quicksandbold"
                         android:text="Sugar Cane"
                         android:textColor="#000000"
                         android:textSize="20dp"
@@ -81,6 +81,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="start"
                             android:text="@string/Price2"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:layout_gravity="center_horizontal"
                             android:textColor="@color/lightt"
                             android:textSize="15dp"
@@ -92,7 +93,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:text="Fruits"
-                            android:fontFamily="@font/federo"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:layout_marginTop="5dp"
                             android:textColor="#000000"
                             android:textStyle="bold"
@@ -123,6 +124,7 @@
                             android:text="@string/qty"
                             android:textColor="@color/lightt"
                             android:textSize="15dp"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:layout_gravity="center_horizontal"
                             />
 
@@ -132,7 +134,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:text="98249 45785"
-                            android:fontFamily="@font/federo"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:layout_marginTop="5dp"
                             android:textColor="#000000"
                             android:textStyle="bold"
@@ -163,6 +165,7 @@
                             android:text="@string/payment"
                             android:textColor="@color/lightt"
                             android:textSize="15dp"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:layout_gravity="center_horizontal"
                             />
 
@@ -172,7 +175,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:text="98249 45785"
-                            android:fontFamily="@font/federo"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:layout_marginTop="5dp"
                             android:textColor="#000000"
                             android:textStyle="bold"
@@ -204,6 +207,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/Specification"
                             android:textSize="15dp"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:textColor="@color/lightt"
                             />
                         <TextView
@@ -213,6 +217,7 @@
                             android:text="200 Kilogram"
                             android:layout_marginTop="5dp"
                             android:textSize="15dp"
+                            android:fontFamily="@font/quicksandregular"
                             android:textStyle="bold"
                             android:textColor="#000000"
                             />
@@ -240,6 +245,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/Description"
                             android:textSize="15dp"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:textColor="@color/lightt"
                             />
                         <TextView
@@ -247,6 +253,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="200 Kilogram"
+                            android:fontFamily="@font/quicksandregular"
                             android:layout_marginTop="5dp"
                             android:textSize="15dp"
                             android:textStyle="bold"
@@ -276,6 +283,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/Recommandation"
                             android:textSize="15dp"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:textColor="@color/lightt"
                             />
                         <TextView
@@ -284,6 +292,7 @@
                             android:layout_height="wrap_content"
                             android:text="200 Kilogram"
                             android:layout_marginTop="5dp"
+                            android:fontFamily="@font/quicksandregular"
                             android:textSize="15dp"
                             android:textStyle="bold"
                             android:textColor="#000000"
@@ -316,6 +325,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/mobile_no"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:layout_marginLeft="10dp"
                             android:textColor="@color/lightt"
                             android:textSize="15dp" />
@@ -327,6 +337,7 @@
                         android:layout_height="wrap_content"
                         android:text="Village : Simada gam"
                         android:textStyle="bold"
+                        android:fontFamily="@font/quicksandregular"
                         android:textColor="#000"
                         android:layout_marginTop="5dp"
                         android:layout_marginStart="30dp"
@@ -357,6 +368,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Address"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:layout_marginLeft="10dp"
                             android:textColor="@color/lightt"
                             android:textSize="15dp" />
@@ -368,6 +380,7 @@
                         android:layout_height="wrap_content"
                         android:text="Village : Simada gam"
                         android:textStyle="bold"
+                        android:fontFamily="@font/quicksandregular"
                         android:textColor="#000"
                         android:layout_marginTop="5dp"
                         android:layout_marginStart="30dp"

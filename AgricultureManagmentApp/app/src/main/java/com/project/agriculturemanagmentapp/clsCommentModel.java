@@ -1,7 +1,7 @@
 package com.project.agriculturemanagmentapp;
 
 public class clsCommentModel {
-    String key,uname,prfpc,comment;
+    String key,comment;
     String mo;
 
     public clsCommentModel(String key, String comment, String mo) {
@@ -19,14 +19,6 @@ public class clsCommentModel {
     }
 
     public clsCommentModel() {
-    }
-
-    public String getUname() {
-        return uname;
-    }
-
-    public void setUname(String uname) {
-        this.uname = uname;
     }
 
 

@@ -3,10 +3,92 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#00000000"
     tools:context=".ShowFeed">
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcviewshfeed"
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/ll1"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/img1"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/downarrow"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/My_Network"
+                android:layout_marginStart="10dp"
+                android:textSize="20dp"
+                android:fontFamily="@font/quicksandsemibold"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcviewshfeed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="10dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/empty"
+            android:id="@+id/loty1"
+            android:visibility="gone"
+            />
+        <LinearLayout
+            android:id="@+id/ll2"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/img2"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/rightarrow"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Explore_Feed"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/quicksandsemibold"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcviewotherfeed"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="10dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/empty"
+            android:id="@+id/loty2"
+            android:visibility="gone"
+            />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
 </FrameLayout>

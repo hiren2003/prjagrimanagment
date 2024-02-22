@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:fontFamily="@font/mavenpro"
+            android:fontFamily="@font/quicksandsemibold"
             android:text="SugarCane"
             android:textColor="#000000"
             android:textFontWeight="900"
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:fontFamily="@font/mavenpro"
+            android:fontFamily="@font/quicksandmedium"
             android:text="Quntity : 250 kg"
             android:textColor="#000000"
             android:textFontWeight="900"
@@ -50,11 +50,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:fontFamily="@font/mavenpro"
+            android:fontFamily="@font/quicksandmedium"
             android:text="Price : 100"
             android:textColor="#000000"
             android:textFontWeight="900"
             android:textSize="15dp"
+            android:layout_marginBottom="5dp"
             android:textStyle="bold" />
     </LinearLayout>
 

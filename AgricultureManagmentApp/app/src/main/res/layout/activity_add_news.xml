@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#f4f4f4"
+    android:background="#FFFFFF"
     android:padding="10dp"
     tools:context=".add_gov_scheme">
 
@@ -23,33 +23,40 @@
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="News"
+               android:text="Add News"
                android:textSize="30dp"
                android:textStyle="bold"
-               android:fontFamily="@font/federo"
-               android:textColor="#4DAC0C"
+               android:fontFamily="@font/quicksandbold"
+               android:textColor="#000000"
                android:layout_marginLeft="10dp"
                android:layout_marginBottom="10dp"
                />
-           <ImageView
-               android:id="@+id/imgnews"
-               android:layout_width="400dp"
+           <LinearLayout
+               android:layout_width="match_parent"
                android:layout_height="300dp"
-               android:scaleType="centerCrop"
                android:background="@drawable/addnews"
-               android:layout_marginBottom="50dp"
-               android:layout_gravity="center_horizontal"
-               android:src="@drawable/adddd1"
-               />
+               android:layout_margin="10dp"
+               android:orientation="vertical">
+               <ImageView
+                   android:id="@+id/imgnews"
+                   android:layout_width="400dp"
+                   android:layout_height="300dp"
+                   android:scaleType="centerCrop"
+                   android:background="@drawable/addnews"
+                   android:layout_marginBottom="50dp"
+                   android:layout_gravity="center_horizontal"
+                   android:src="@drawable/adddd1"
+                   />
 
+           </LinearLayout>
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="Select language"
                android:textSize="20dp"
                android:textStyle="bold"
-               android:fontFamily="@font/federo"
-               android:textColor="#4DAC0C"
+               android:fontFamily="@font/quicksandsemibold"
+               android:textColor="#000000"
                android:layout_marginLeft="10dp"
                android:layout_marginBottom="10dp"
                />
@@ -58,72 +65,94 @@
                android:layout_width="match_parent"
                android:layout_marginLeft="10dp"
                android:layout_marginBottom="10dp"
+               android:fontFamily="@font/quicksandregular"
                android:layout_marginRight="10dp"
                android:layout_height="40dp"/>
-           <com.google.android.material.textfield.TextInputLayout
-               style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="35dp"
+               android:layout_marginLeft="25dp"
+               android:textStyle="bold"
+               android:fontFamily="@font/quicksandsemibold"
+               android:text="@string/Headline"
+               android:layout_marginTop="25dp"
+               android:textColor="@color/black"
+               android:textSize="20dp" />
+           <com.google.android.material.textfield.TextInputEditText
+               android:id="@+id/edtheadline"
                android:layout_width="match_parent"
-               android:layout_height="wrap_content"
+               android:layout_height="55dp"
+               android:layout_marginLeft="15dp"
+               android:layout_marginRight="15dp"
+               android:fontFamily="@font/quicksandregular"
                android:background="@drawable/curvebackground"
-               android:hint="@string/Headline"
-               app:counterEnabled="true"
-               app:hintEnabled="true"
-               app:hintTextColor="@color/black"
-               app:prefixTextColor="@color/black"
-               app:startIconTint="#3E6018">
-
-               <com.google.android.material.textfield.TextInputEditText
-                   android:id="@+id/edtheadline"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:fontFamily="@font/allerta"
-                   android:layout_marginLeft="10dp"
-                   android:layout_marginRight="10dp"
-                   android:shadowColor="@color/black"
-                   android:textColor="@color/black" />
-           </com.google.android.material.textfield.TextInputLayout>
-           <com.google.android.material.textfield.TextInputLayout
-               style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+               android:backgroundTint="#F5F5F5"
+               android:textColor="@color/black"
+               android:hint="Enter Headline"
+               android:paddingLeft="20dp"
+               app:hintTextColor="@color/black" />
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="35dp"
+               android:layout_marginLeft="25dp"
+               android:textStyle="bold"
+               android:fontFamily="@font/quicksandsemibold"
+               android:text="@string/Link"
+               android:layout_marginTop="25dp"
+               android:textColor="@color/black"
+               android:textSize="20dp" />
+           <com.google.android.material.textfield.TextInputEditText
+               android:id="@+id/edtlnk"
                android:layout_width="match_parent"
-               android:layout_height="wrap_content"
+               android:layout_height="55dp"
+               android:layout_marginLeft="15dp"
+               android:layout_marginRight="15dp"
                android:background="@drawable/curvebackground"
-               android:hint="Link"
-               app:counterEnabled="true"
-               app:hintEnabled="true"
-               app:hintTextColor="@color/black"
-               app:startIconTint="#3E6018">
+               android:backgroundTint="#F5F5F5"
+               android:textColor="@color/black"
+               android:hint="Paste news link"
+               android:fontFamily="@font/quicksandregular"
+               android:paddingLeft="20dp"
+               app:hintTextColor="@color/black" />
 
-               <com.google.android.material.textfield.TextInputEditText
-                   android:id="@+id/edtlnk"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:fontFamily="@font/allerta"
-                   android:layout_marginLeft="10dp"
-                   android:layout_marginRight="10dp"                   android:shadowColor="@color/black"
-                   android:textColor="@color/black" />
-           </com.google.android.material.textfield.TextInputLayout>
-           <com.google.android.material.textfield.TextInputLayout
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="35dp"
+               android:layout_marginLeft="25dp"
+               android:textStyle="bold"
+               android:fontFamily="@font/quicksandsemibold"
+               android:text="@string/Description"
+               android:layout_marginTop="25dp"
+               android:textColor="@color/black"
+               android:textSize="20dp" />
+           <com.google.android.material.textfield.TextInputEditText
+               android:id="@+id/edtdes"
                android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_margin="10dp"
+               android:layout_height="55dp"
+               android:layout_marginLeft="15dp"
+               android:layout_marginRight="15dp"
+               android:fontFamily="@font/quicksandregular"
+               android:background="@drawable/curvebackground"
+               android:backgroundTint="#F5F5F5"
+               android:textColor="@color/black"
                android:hint="@string/Description"
-               app:startIconDrawable="@drawable/baseline_description_24"
-               app:startIconTint="#8BC34A"
-               style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox">
-               <com.google.android.material.textfield.TextInputEditText
-                   android:id="@+id/edtdes"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"/>
-           </com.google.android.material.textfield.TextInputLayout>
+               android:paddingLeft="20dp"
+               app:hintTextColor="@color/black" />
+
+
            <androidx.appcompat.widget.AppCompatButton
                android:id="@+id/btnpublishnews"
                android:layout_width="match_parent"
                android:layout_height="50dp"
                android:textSize="20dp"
+               android:layout_marginTop="20dp"
                android:textColor="@color/white"
+               android:fontFamily="@font/quicksandsemibold"
+               android:backgroundTint="#135983"
                android:background="@drawable/sendotp"
                android:text="@string/Publish_news"
-               android:layout_margin="12dp"
+               android:layout_marginLeft="20dp"
+               android:layout_marginRight="20dp"
                />
        </LinearLayout>
    </androidx.core.widget.NestedScrollView>

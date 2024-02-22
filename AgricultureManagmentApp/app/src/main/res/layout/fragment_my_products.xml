@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:text="@string/MyAnimal"
             android:textSize="25dp"
+            android:fontFamily="@font/quicksandbold"
             android:textStyle="bold"
 
             />
@@ -31,6 +32,7 @@
             android:text="@string/Cuti_prd"
             android:textSize="25dp"
             android:textStyle="bold"
+            android:fontFamily="@font/quicksandbold"
             />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcmyproduct"
@@ -43,6 +45,7 @@
             android:layout_height="wrap_content"
             android:text="@string/Toolsacc"
             android:textSize="25dp"
+            android:fontFamily="@font/quicksandbold"
             android:textStyle="bold"
             />
         <androidx.recyclerview.widget.RecyclerView

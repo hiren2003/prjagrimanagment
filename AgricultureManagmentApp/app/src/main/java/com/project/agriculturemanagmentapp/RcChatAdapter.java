@@ -1,5 +1,6 @@
 package com.project.agriculturemanagmentapp;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class RcChatAdapter extends RecyclerView.Adapter<RcChatAdapter.ViewHolder> {
@@ -39,6 +41,7 @@ public class RcChatAdapter extends RecyclerView.Adapter<RcChatAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
         SharedPreferences sharedPreferences=context.getSharedPreferences("data",Context.MODE_PRIVATE);
         String mo=sharedPreferences.getString("mo","1234567890");
         if(chatModelArrayList.get(position).getSmo().equals(mo)){
@@ -93,11 +96,60 @@ public class RcChatAdapter extends RecyclerView.Adapter<RcChatAdapter.ViewHolder
 
             }
         });
+        holder.rvright.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog dg=new Dialog(context);
+                dg.setContentView(R.layout.lyt_msg_info);
+                dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
+                TextView txtmsg=dg.findViewById(R.id.txtmsg);
+                TextView txtdate=dg.findViewById(R.id.txtdate);
+                TextView txttime=dg.findViewById(R.id.txttime);
+                ImageView img=dg.findViewById(R.id.img);
+                txtmsg.setText(chatModelArrayList.get(position).getMsg());
+                txtdate.setText(chatModelArrayList.get(position).getDate());
+                txttime.setText(chatModelArrayList.get(position).getTime());
+                Glide.with(context)
+                        .load(chatModelArrayList.get(position).getImg())
+                        .into(img);
+                dg.show();
+            }
+        });
+        holder.rvleft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog dg=new Dialog(context);
+                dg.setContentView(R.layout.lyt_msg_info);
+                dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
+                TextView txtmsg=dg.findViewById(R.id.txtmsg);
+                TextView txtdate=dg.findViewById(R.id.txtdate);
+                TextView txttime=dg.findViewById(R.id.txttime);
+                ImageView img=dg.findViewById(R.id.img);
+                txtmsg.setText(chatModelArrayList.get(position).getMsg());
+                txtdate.setText(chatModelArrayList.get(position).getDate());
+                txttime.setText(chatModelArrayList.get(position).getTime());
+                Glide.with(context)
+                        .load(chatModelArrayList.get(position).getImg())
+                        .into(img);
+                dg.show();
+            }
+        });
         holder.rvright.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                FirebaseDatabase.getInstance().getReference().child("User").child(chatModelArrayList.get(position).getSmo()).child("Chats").child(chatModelArrayList.get(position).getRmo()).child(chatModelArrayList.get(position).getKey()).removeValue();
-                FirebaseDatabase.getInstance().getReference().child("User").child(chatModelArrayList.get(position).getRmo()).child("Chats").child(chatModelArrayList.get(position).getSmo()).child(chatModelArrayList.get(position).getKey()).removeValue();
+                Dialog dg=new Dialog(context);
+                dg.setContentView(R.layout.lyt_dlt_msg);
+                dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
+                TextView txtdforeveryone=dg.findViewById(R.id.txtdforeveryone);
+                txtdforeveryone.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        FirebaseDatabase.getInstance().getReference().child("User").child(chatModelArrayList.get(position).getSmo()).child("Chats").child(chatModelArrayList.get(position).getRmo()).child(chatModelArrayList.get(position).getKey()).removeValue();
+                        FirebaseDatabase.getInstance().getReference().child("User").child(chatModelArrayList.get(position).getRmo()).child("Chats").child(chatModelArrayList.get(position).getSmo()).child(chatModelArrayList.get(position).getKey()).removeValue();
+                       dg.dismiss();
+                    }
+                });
+                dg.show();
                 return false;
             }
         });

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cdlyt"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="@drawable/drb_animal"
+    android:orientation="vertical">
+
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgprdt"
+        android:layout_width="190dp"
+        android:layout_height="190dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        app:shapeAppearanceOverlay="@style/SpecificCornerCut"
+        android:scaleType="centerCrop"
+        android:src="@drawable/hourse" />
+
+    <TextView
+        android:id="@+id/txtdiscount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/drb_txt_discount"
+        android:padding="2dp"
+        android:fontFamily="@font/quicksandlight"
+        android:text="10% less"
+        android:textSize="10dp"
+        android:textColor="@color/Dark_green"
+        android:textStyle="bold" />
+</RelativeLayout>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="2dp"
+      android:background="@drawable/drb_animal_bottom"
+      android:backgroundTint="#E3E8EB"
+      android:padding="5dp"
+      android:orientation="vertical">
+      <TextView
+          android:id="@+id/txtpname"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="SugarCane"
+          android:layout_marginTop="8dp"
+          android:fontFamily="@font/quicksandsemibold"
+          android:textColor="#000000"
+          android:textFontWeight="900"
+          android:textSize="20dp"
+          android:textStyle="bold" />
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/txtprice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksandmedium"
+        android:text="$ 100"
+        android:textColor="#000000"
+        android:textFontWeight="900"
+        android:textSize="15dp"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
+
+  </LinearLayout>
+
+    </LinearLayout>
+

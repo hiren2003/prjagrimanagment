@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/feedback"
+    android:backgroundTint="#ece5dd"
+    android:padding="20dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:fontFamily="@font/quicksandregular"
+        android:text="@string/Delete_Message"
+        android:textSize="15dp" />
+    <TextView
+        android:id="@+id/txtdforeveryone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/quicksandsemibold"
+        android:textStyle="bold"
+        android:text="@string/del"
+        android:textColor="#075e54"
+        android:textSize="15dp" />
+
+</LinearLayout>

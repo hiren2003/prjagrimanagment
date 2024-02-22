@@ -34,7 +34,7 @@ public class news extends AppCompatActivity {
                 ArrayList<clsNewsModel> newsModelArrayList=new ArrayList<>();
                 for (DataSnapshot datasnapshot:
                      snapshot.getChildren()) {
-                    newsModelArrayList.add(snapshot.getValue(clsNewsModel.class));
+                    newsModelArrayList.add(datasnapshot.getValue(clsNewsModel.class));
                 }
                 recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
                 rcnewsAdapter = new RcnewsAdapter(news.this,true,newsModelArrayList);

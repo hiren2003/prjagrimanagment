@@ -1,6 +1,7 @@
 package com.project.agriculturemanagmentapp;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -18,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -43,14 +46,24 @@ public class RcLabourAdapter extends RecyclerView.Adapter<RcLabourAdapter.ViewHo
         holder.rv.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                AlertDialog.Builder alert= new AlertDialog.Builder(context);
-                AlertDialog deletebox=alert.create();
-                alert.setIcon(context.getDrawable(R.drawable.baseline_warning_24));
-                alert.setTitle(context.getString(R.string.Delete_data));
-                alert.setMessage(context.getResources().getString(R.string.msgdlt));
-                alert.setPositiveButton(context.getString(R.string.yes), new DialogInterface.OnClickListener() {
+                Dialog dg=new Dialog(context);
+                dg.setContentView(R.layout.lyt_delete_dg);
+                dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
+                AppCompatButton yes = dg.findViewById(R.id.yes);
+                ImageView no = dg.findViewById(R.id.no);
+                dg.setCancelable(false);
+                dg.show();
+                // Do Not Delete
+                no.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                    public void onClick(View v) {
+                        dg.dismiss();
+                    }
+                });
+                //Delete the Post
+                yes.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
                         SharedPreferences sharedPreferences=context.getSharedPreferences("data", Context.MODE_PRIVATE);
                         String msg=context.getResources().getString(R.string.msg2)+" "+laborModelArrayList.get(position).getLdate()+" "+context.getResources().getString(R.string.msg3);
                         FirebaseDatabase.getInstance().getReference().child("Labor_data").child(sharedPreferences.getString("mo","1234567890")).child(laborModelArrayList.get(position).getKey()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -58,18 +71,13 @@ public class RcLabourAdapter extends RecyclerView.Adapter<RcLabourAdapter.ViewHo
                             public void onSuccess(Void unused) {
                                 SmsManager smsManager = SmsManager.getDefault();
                                 smsManager.sendTextMessage(laborModelArrayList.get(position).getLmo(),null,msg,null,null);
-                                deletebox.dismiss();
+                                dg.dismiss();
                             }
                         });
+                        dg.dismiss();
+
                     }
                 });
-                alert.setNegativeButton(context.getResources().getString(R.string.no), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        deletebox.dismiss();
-                    }
-                });
-                alert.show();
                 return false;
             }
         });

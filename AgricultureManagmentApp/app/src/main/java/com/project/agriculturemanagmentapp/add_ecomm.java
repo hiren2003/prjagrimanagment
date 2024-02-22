@@ -34,8 +34,10 @@ public class add_ecomm extends AppCompatActivity {
     ImageView imgprdt;
     Button btnsavedata;
     Spinner spntype;
-    TextInputEditText edtdes, edtspe, edtrecomm, edtprice, edtpname;
+    TextInputEditText edtdes, edtspe, edtrecomm, edtprice, edtpname,edtsgst,edtcgst,edtdiscount;
     SharedPreferences sharedPreferences;
+    float discount;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,9 @@ public class add_ecomm extends AppCompatActivity {
         edtrecomm = findViewById(R.id.edtrecom);
         edtpname = findViewById(R.id.edtpname);
         edtprice = findViewById(R.id.edtprc);
+        edtcgst=findViewById(R.id.edtcgst);
+        edtsgst=findViewById(R.id.edtsgst);
+        edtdiscount=findViewById(R.id.edtdiscount);
         ActivityResultLauncher<String> launcher = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
             public void onActivityResult(Uri result) {
@@ -79,7 +84,16 @@ public class add_ecomm extends AppCompatActivity {
                 } else if (edtprice.getText().toString().trim().isEmpty()) {
                     show_toast(getResources().getString(R.string.Please_Enter_Price), false);
                     edtprice.requestFocus();
-                } else if (edtdes.getText().toString().trim().isEmpty()) {
+                }
+                else if (edtcgst.getText().toString().trim().isEmpty()) {
+                    show_toast(getResources().getString(R.string.Please_Enter_CGST), false);
+                    edtprice.requestFocus();
+                }
+                else if (edtsgst.getText().toString().trim().isEmpty()) {
+                    show_toast(getResources().getString(R.string.Please_Enter_SGST), false);
+                    edtprice.requestFocus();
+                }
+                else if (edtdes.getText().toString().trim().isEmpty()) {
                     show_toast(getResources().getString(R.string.Please_Enter_Description), false);
                     edtdes.requestFocus();
                 } else if (edtspe.getText().toString().trim().isEmpty()) {
@@ -92,11 +106,18 @@ public class add_ecomm extends AppCompatActivity {
                     show_toast(getResources().getString(R.string.Please_Enter_Image), false);
                     launcher.launch("image/*");
                 } else {
+                    if (edtdiscount.getText().toString().trim().isEmpty()){
+                        discount=0;
+                    }
+                    else{
+                        discount=Float.parseFloat(edtdiscount.getText().toString());
+                    }
                     Dialog dg = new Dialog(add_ecomm.this);
                     dg.setContentView(R.layout.lyt_loading_dg);
                     dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
                     dg.setCancelable(false);
                     dg.show();
+
                     String key = FirebaseDatabase.getInstance().getReference().child("ECommerce").push().getKey();
                     StorageReference reference = FirebaseStorage.getInstance().getReference().child("Ecommerce").child(key);
                     reference.putFile(selectedimg).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -105,10 +126,11 @@ public class add_ecomm extends AppCompatActivity {
                             reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").child(key).setValue(new clsEcommModel(key, edtpname.getText().toString(), uri.toString(), edtprice.getText().toString(), edtspe.getText().toString(), edtdes.getText().toString(), edtrecomm.getText().toString(), "0")).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    clsEcommModel model=new clsEcommModel(key, edtpname.getText().toString(), uri.toString(), edtprice.getText().toString(), edtspe.getText().toString(), edtdes.getText().toString(), edtrecomm.getText().toString(), "0",Float.parseFloat(edtcgst.getText().toString()),Float.parseFloat(edtsgst.getText().toString()),discount);
+                                    FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").child(key).setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
-                                            FirebaseDatabase.getInstance().getReference().child("ECommerce").child(spntype.getSelectedItem().toString()).child(key).setValue(new clsEcommModel(key, edtpname.getText().toString(), uri.toString(), edtprice.getText().toString(), edtspe.getText().toString(), edtdes.getText().toString(), edtrecomm.getText().toString(), "0")).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            FirebaseDatabase.getInstance().getReference().child("ECommerce").child(spntype.getSelectedItem().toString()).child(key).setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override
                                                 public void onSuccess(Void unused) {
                                                     show_toast(getResources().getString(R.string.successfullyuploaded), true);

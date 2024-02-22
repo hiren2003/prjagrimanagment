@@ -30,7 +30,9 @@
             <TextView
                 android:id="@+id/txtheadline"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
+                android:maxHeight="50dp"
+                android:fontFamily="@font/quicksandbold"
                 android:textColor="#000"
                 android:text="This is HeadLine"
                 android:textSize="20dp"
@@ -41,6 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#000"
+                android:fontFamily="@font/quicksandmedium"
                 android:text="This is HeadLine This is HeadLine  This is HeadLine  This is HeadLine  This is HeadLine  This is HeadLine  "
                 android:textSize="15dp"
                 />

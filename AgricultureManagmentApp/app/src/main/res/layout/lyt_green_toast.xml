@@ -24,7 +24,7 @@
             android:id="@+id/txtmsg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/mavenpro"
+            android:fontFamily="@font/quicksandsemibold"
             android:text="Please! EnterName"
             android:textColor="#ffffff"
             android:textSize="18dp" />

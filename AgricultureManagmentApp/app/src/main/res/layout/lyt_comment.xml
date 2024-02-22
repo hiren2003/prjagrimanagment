@@ -7,13 +7,13 @@
     android:layout_margin="10dp"
     android:background="@drawable/layfeedback"
     app:cardCornerRadius="15dp"
-    android:elevation="20dp"
+    android:elevation="30dp"
     android:minHeight="80dp"
    >
 <RelativeLayout
     android:layout_width="match_parent"
     android:padding="10dp"
-    android:background="#5C8374"
+    android:background="#F5F5F5"
     android:layout_height="wrap_content">
 
     <ImageView
@@ -48,10 +48,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:fontFamily="@font/cambay"
+                android:fontFamily="@font/quicksandmedium"
                 android:text="john thomsan"
                 android:layout_marginTop="1dp"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textColor="#000000"
                 android:textStyle="bold" />
 
@@ -60,10 +60,10 @@
                 android:layout_height="wrap_content"
                 android:text="this is comment"
                 android:layout_marginStart="10dp"
+                android:fontFamily="@font/quicksandregular"
                 android:textSize="15dp"
-                android:textColor="@color/white"
+                android:textColor="#222121"
                 android:layout_marginTop="4dp"
-                android:fontFamily="@font/cambay"
                 android:id="@+id/txtcomment"/>
         </LinearLayout>
 

@@ -95,10 +95,14 @@ public class Myfeed extends Fragment {
                      snapshot.getChildren()) {
                     feedModelArrayList.add(datasnapshot.getValue(clsFeedModel.class));
                 }
+                ArrayList<clsFeedModel> reversefeedModelArrayList = new ArrayList<>();
+                for (int i = feedModelArrayList.size() - 1; i >= 0; i--) {
+                    reversefeedModelArrayList.add(feedModelArrayList.get(i));
+                }
                 LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
                 linearLayoutManager.setReverseLayout(true);
                 linearLayoutManager.setStackFromEnd(true);
-                RcImageGridAdapter rcImageGridAdapter=new RcImageGridAdapter(getContext(),SelfAccount,feedModelArrayList);
+                RcImageGridAdapter rcImageGridAdapter=new RcImageGridAdapter(getContext(),SelfAccount,reversefeedModelArrayList);
                 recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
                 recyclerView.setAdapter(rcImageGridAdapter);
             }
@@ -123,13 +127,7 @@ public class Myfeed extends Fragment {
                         bottomSheetDialog.cancel();
                     }
                 });
-                cdvideo.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(new Intent(getContext(),add_video.class));
-                        bottomSheetDialog.cancel();
-                    }
-                });
+
                 cdwc.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

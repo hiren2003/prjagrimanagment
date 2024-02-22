@@ -18,15 +18,15 @@
         android:layout_height="150dp"
         android:layout_gravity="center_horizontal"
         app:lottie_autoPlay="true"
-        android:visibility="gone"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/loading"/>
+        app:lottie_rawRes="@raw/load"/>
 
     <ProgressBar
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        android:visibility="gone"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:backgroundTint="@color/Dark_green" />

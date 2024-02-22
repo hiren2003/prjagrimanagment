@@ -12,9 +12,9 @@
         <item name="android:cursorVisible">@color/green</item>
     </style>
     <style name="CustomOutlineBoxComment" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeColor">#88AB8E</item>
-        <item name="android:textColorHint">#FFFFFF</item>
-        <item name="hintTextColor">#FFFFFF</item>
+        <item name="boxStrokeColor">#2C2C2C</item>
+        <item name="android:textColorHint">#000000</item>
+        <item name="hintTextColor">#000000</item>
         <item name="android:cursorVisible">@color/green</item>
     </style>
 
@@ -44,13 +44,13 @@
         <item name="hintTextColor">#273E05</item>
         <item name="android:cursorVisible">@color/green</item>
     </style>
-
+    <style name="SpecificCornerCut">
+        <item name="cornerSizeTopRight">20dp</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerSizeTopLeft">20dp</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+    </style>
     <style name="Theme.AgricultureManagmentApp" parent="Base.Theme.AgricultureManagmentApp" />
     <style name="SheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
-    </style>
-    <style name="BaseAppTheme" parent="android:Theme.Material">
-        <item name="android:windowActivityTransitions">true</item>
-        <item name="android:windowEnterTransition">@transition/explode</item>
-        <item name="android:windowExitTransition">@transition/explode</item>
     </style>
 </resources>

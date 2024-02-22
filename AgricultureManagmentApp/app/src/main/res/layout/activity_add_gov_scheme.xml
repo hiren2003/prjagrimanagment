@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:background="@drawable/page"
+    android:background="@color/white"
     tools:context=".add_gov_scheme">
 
 
@@ -14,7 +14,17 @@
         android:orientation="vertical"
         android:padding="10dp">
 
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Scheme"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/quicksandbold"
+            android:textColor="#135983"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            />
         <ImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/prfpc"
@@ -29,64 +39,86 @@
             />
 
 
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/curvebackground"
-            android:hint="@string/Scheme_name"
-            app:counterEnabled="true"
-            app:hintEnabled="true"
-            app:hintTextColor="@color/black"
-            app:prefixTextColor="@color/black"
-            app:startIconTint="#3E6018">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/allerta"
-                android:shadowColor="@color/black"
-                android:textColor="@color/black" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/curvebackground"
-            android:hint="Link"
-            app:counterEnabled="true"
-            app:hintEnabled="true"
-            app:hintTextColor="@color/black"
-            app:startIconTint="#3E6018">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtlnk"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/allerta"
-                android:shadowColor="@color/black"
-                android:textColor="@color/black" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/Description"
-            app:startIconDrawable="@drawable/baseline_description_24"
-            app:startIconTint="#8BC34A"
-            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtdes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </com.google.android.material.textfield.TextInputLayout>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="35dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="25dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/quicksandsemibold"
+            android:text="@string/Scheme_name"
+            android:layout_marginTop="25dp"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtname"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/curvebackground"
+            android:backgroundTint="#F5F5F5"
+            android:fontFamily="@font/quicksandregular"
+            android:textColor="@color/black"
+            android:hint="@string/Scheme_name"
+            android:paddingLeft="20dp"
+            app:hintTextColor="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginLeft="25dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/quicksandsemibold"
+            android:text="Link :"
+            android:layout_marginTop="25dp"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtlnk"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/curvebackground"
+            android:backgroundTint="#F5F5F5"
+            android:textColor="@color/black"
+            android:hint="Paste Link here.."
+            android:fontFamily="@font/quicksandregular"
+            android:paddingLeft="20dp"
+            app:hintTextColor="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginLeft="25dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/quicksandsemibold"
+            android:text="Description :"
+            android:layout_marginTop="25dp"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtdes"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/curvebackground"
+            android:backgroundTint="#F5F5F5"
+            android:fontFamily="@font/quicksandregular"
+            android:textColor="@color/black"
+            android:hint="Description"
+            android:paddingLeft="20dp"
+            app:hintTextColor="@color/black" />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/baloo_tammudu_2_medium"
+            android:fontFamily="@font/quicksandsemibold"
             android:text="State :"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -96,14 +128,22 @@
             android:id="@+id/state"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:fontFamily="@font/quicksandregular"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"/>
-        <Button
+
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnsavedata"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginTop="20dp"
             android:textSize="20dp"
-            android:backgroundTint="#8BC34A"
+            android:textColor="@color/white"
+            android:backgroundTint="#135983"
+            android:fontFamily="@font/quicksandsemibold"
+            android:background="@drawable/sendotp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:text="@string/Save_Detail"
             android:layout_margin="12dp"
             />

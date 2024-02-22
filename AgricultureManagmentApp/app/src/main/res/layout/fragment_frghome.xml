@@ -42,6 +42,7 @@
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:layout_marginStart="5dp"
+                       android:fontFamily="@font/quicksandregular"
                        android:text="City" />
                </LinearLayout>
                <LinearLayout
@@ -60,6 +61,7 @@
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:layout_marginStart="5dp"
+                       android:fontFamily="@font/quicksandregular"
                        android:text="Description" />
                </LinearLayout>
            </LinearLayout>
@@ -98,6 +100,7 @@
                         android:id="@+id/txttemp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksandregular"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="5dp"
                         android:text="00.00"
@@ -123,6 +126,7 @@
                             android:id="@+id/txttemphigh"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/quicksandregular"
                             android:layout_marginStart="5dp"
                             android:text="00.00°C" />
                     </LinearLayout>
@@ -142,6 +146,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
+                            android:fontFamily="@font/quicksandregular"
                             android:text="00.00°C" />
                     </LinearLayout>
 
@@ -167,6 +172,7 @@
                             android:id="@+id/txtcloud"
                             android:layout_width="50dp"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/quicksandregular"
                             android:layout_marginStart="5dp"
                             android:text="00.00" />
                     </LinearLayout>
@@ -185,6 +191,7 @@
                             android:id="@+id/txthumidity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/quicksandregular"
                             android:layout_marginStart="5dp"
                             android:text="00.00" />
                     </LinearLayout>
@@ -210,6 +217,7 @@
                         <TextView
                             android:id="@+id/txtvisiblity"
                             android:layout_width="50dp"
+                            android:fontFamily="@font/quicksandregular"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
                             android:text="00.00" />
@@ -229,6 +237,7 @@
                             android:id="@+id/txtwind"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/quicksandregular"
                             android:layout_marginStart="5dp"
                             android:text="00.00" />
                     </LinearLayout>
@@ -251,6 +260,7 @@
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
+                        android:fontFamily="@font/quicksandregular"
                         android:text="00.00" />
                 </LinearLayout>
             </LinearLayout>
@@ -262,6 +272,7 @@
         android:layout_height="wrap_content"
         android:textSize="30dp"
         android:text="@string/news"
+        android:fontFamily="@font/quicksandbold"
         android:textStyle="bold"
         android:layout_marginStart="10dp"
         />

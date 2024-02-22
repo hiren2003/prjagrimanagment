@@ -22,7 +22,7 @@
             android:text="@string/Add_Worker"
             android:textColor="#066006"
             android:textSize="30dp"
-            android:fontFamily="@font/montserrat_bold"
+            android:fontFamily="@font/quicksandbold"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
@@ -66,7 +66,7 @@
                     android:id="@+id/edtlname"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:fontFamily="@font/allerta"
+                    android:fontFamily="@font/quicksandregular"
                     android:maxLength="15"
                     android:shadowColor="@color/black"
                     android:textColor="@color/black" />
@@ -98,7 +98,7 @@
                     android:id="@+id/edtlmo"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:fontFamily="@font/allerta"
+                    android:fontFamily="@font/quicksandregular"
                     android:inputType="number"
                     android:maxLength="10"
                     android:shadowColor="@color/black"
@@ -129,12 +129,49 @@
                     android:id="@+id/edtlplace"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:fontFamily="@font/allerta"
+                    android:fontFamily="@font/quicksandregular"
                     android:maxLength="15"
                     android:shadowColor="@color/black"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+              <com.google.android.material.textfield.TextInputLayout
+                  style="@style/Add_vacancy"
+                  app:boxBackgroundColor="#D5D5D5"
+                  app:boxCornerRadiusBottomEnd="10sp"
+                  app:boxCornerRadiusBottomStart="10dp"
+                  app:boxCornerRadiusTopEnd="10dp"
+                  app:boxCornerRadiusTopStart="10dp"
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginRight="10dp"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="5dp"
+                  android:layout_marginBottom="5dp"
+                  android:background="@drawable/curvebackground"
+                  android:hint="@string/Experience"
+                  app:hintEnabled="true"
+                  app:hintTextColor="@color/black"
+                  app:prefixTextColor="@color/black"
+                  app:startIconDrawable="@drawable/baseline_agriculture_24"
+                  app:startIconTint="#3E6018">
+
+                  <com.google.android.material.textfield.TextInputEditText
+                      android:id="@+id/expe"
+                      android:layout_width="match_parent"
+                      android:layout_height="60dp"
+                      android:fontFamily="@font/quicksandregular"
+                      android:maxLength="15"
+                      android:shadowColor="@color/black"
+                      android:textColor="@color/black" />
+
+              </com.google.android.material.textfield.TextInputLayout>
+
+          </LinearLayout>
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Add_vacancy"
                 app:boxBackgroundColor="#D5D5D5"
@@ -161,7 +198,40 @@
                     android:id="@+id/edtlwages"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:fontFamily="@font/allerta"
+                    android:fontFamily="@font/quicksandregular"
+                    android:maxLength="15"
+                    android:inputType="numberSigned"
+                    android:shadowColor="@color/black"
+                    android:textColor="@color/black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Add_vacancy"
+                app:boxBackgroundColor="#D5D5D5"
+                app:boxCornerRadiusBottomEnd="10sp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/curvebackground"
+                android:hint="@string/Education"
+                app:hintEnabled="true"
+                app:hintTextColor="@color/black"
+                app:prefixTextColor="@color/black"
+                app:startIconDrawable="@drawable/baseline_currency_rupee_24"
+                app:startIconTint="#3E6018">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edu"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:fontFamily="@font/quicksandregular"
                     android:maxLength="15"
                     android:inputType="numberSigned"
                     android:shadowColor="@color/black"
@@ -193,37 +263,44 @@
                     android:id="@+id/edtldes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/allerta"
+                    android:fontFamily="@font/quicksandregular"
                     android:maxLength="300"
                     android:shadowColor="@color/black"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
-            <RelativeLayout
-                android:id="@+id/rldate"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:backgroundTint="#AC5F0D"
-                android:background="@drawable/sendotp"
-                android:gravity="center">
 
-                <TextView
-                    android:id="@+id/txtdate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Select_date"
-                    android:fontFamily="@font/allerta"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20dp" />
-            </RelativeLayout>
+
+
+               <RelativeLayout
+                   android:id="@+id/rldate"
+                   android:layout_width="match_parent"
+                   android:layout_height="60dp"
+                   android:layout_marginLeft="10dp"
+                   android:layout_marginTop="5dp"
+                   android:layout_marginBottom="5dp"
+                   android:backgroundTint="#9BD8DF"
+                   android:background="@drawable/sendotp"
+                   android:gravity="center">
+
+
+                   <TextView
+                       android:id="@+id/txtdate"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="@string/Select_date"
+                       android:fontFamily="@font/quicksandsemibold"
+                       android:textColor="#FFFFFF"
+                       android:textSize="20dp" />
+               </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/btnsavedetail"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginTop="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/sendotp"
                 android:gravity="center">
 
@@ -241,7 +318,7 @@
                     android:id="@+id/txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/allerta"
+                    android:fontFamily="@font/quicksandsemibold"
                     android:text="@string/Save_Detail"
                     android:textColor="#FFFFFF"
                     android:textSize="20dp" />

@@ -55,9 +55,10 @@ import static android.Manifest.permission.SEND_SMS;
  * Use the {@link frghome#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class frghome extends Fragment {
+public class                            frghome extends Fragment {
     RcnewsAdapter rcnewsAdapter;
     ImageView imageview;
+    Context context;
     TextView txttempcity, txtdes,txttemp, txtmintemp, txtmaxtemp, txthumidity, txtcloud, txtpressure, txtwind, txtvisiblity;
     String api = "c19c16e82898cc7627f4e02e485861de";
     String url = "https://api.openweathermap.org/data/2.5/weather";
@@ -69,7 +70,7 @@ public class frghome extends Fragment {
     private static final int REQUEST_LOCATION = 1;
     LocationManager locationManager;
     String latitude = "";
-    String longitude = " ";
+    String longitude = "";
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -82,6 +83,10 @@ public class frghome extends Fragment {
 
     public frghome() {
         // Required empty public constructor
+    }
+    public frghome(Context context) {
+        // Required empty public constructor
+        this.context=context;
     }
 
     /**
@@ -134,7 +139,7 @@ public class frghome extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ArrayList<clsNewsModel> clsNewsModelArrayList=new ArrayList<>();
                 for (DataSnapshot datasnapshot:
-                     snapshot.getChildren()) {
+                        snapshot.getChildren()) {
                     clsNewsModelArrayList.add(datasnapshot.getValue(clsNewsModel.class));
                 }
                 LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
@@ -197,7 +202,7 @@ public class frghome extends Fragment {
                     txttempcity.setText(city);
                     txtdes.setText(des);
                     String img = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
-                    Glide.with(getContext())
+                    Glide.with(context)
                             .load(img)
                             .into(imageview);
 
@@ -235,19 +240,19 @@ public class frghome extends Fragment {
     public void getlocation() {
         if (ActivityCompat.checkSelfPermission(getContext(), ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(getActivity(), new String[]{ACCESS_FINE_LOCATION}, 101);
-    }
-    else
-    {
-        Criteria criteria=new Criteria();
-        criteria.setAccuracy(Criteria.ACCURACY_FINE);
-        String provider = locationManager.getBestProvider(criteria,true);
-        if (provider==null){
-            setTemprature(28.7041,77.1025);
         }
-        else{
-             Location location =locationManager.getLastKnownLocation(provider);
-             setTemprature(location.getLatitude(),location.getLongitude());
+        else
+        {
+            Criteria criteria=new Criteria();
+            criteria.setAccuracy(Criteria.ACCURACY_FINE);
+            String provider = locationManager.getBestProvider(criteria,true);
+            if (provider==null){
+                setTemprature(28.7041,77.1025);
+            }
+            else{
+                Location location =locationManager.getLastKnownLocation(provider);
+                setTemprature(location.getLatitude(),location.getLongitude());
+            }
         }
     }
-}
 }

@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@drawable/layfeedback"
-    android:backgroundTint="#092635"
+    android:backgroundTint="#F5F5F5"
     android:layout_height="match_parent">
 
 
@@ -17,17 +17,16 @@
             android:layout_width="70dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
-            android:background="#092635"
-            android:tint="#CDC9C9"
+            android:background="#F5F5F5"
             android:src="@drawable/baseline_horizontal_rule_24" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:fontFamily="@font/cambay"
+            android:fontFamily="@font/quicksandbold"
             android:text="Comments"
-            android:textColor="#88AB8E"
+            android:textColor="#000000"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -56,17 +55,17 @@
                app:boxCornerRadiusBottomStart="15dp"
                app:boxCornerRadiusTopEnd="15dp"
                app:boxCornerRadiusTopStart="15dp"
-               app:hintTextColor="#FFFFFF"
+               app:hintTextColor="#0B0B0B"
                app:startIconDrawable="@drawable/baseline_description_24"
-               app:startIconTint="#88AB8E">
+               app:startIconTint="#000000">
                <com.google.android.material.textfield.TextInputEditText
                    android:id="@+id/edtcomment"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
-                   android:fontFamily="@font/cambay"
                    android:minHeight="60dp"
-                   android:textColor="#FFFFFF"
-                   android:textColorHint="#88AB8E"
+                   android:fontFamily="@font/quicksandregular"
+                   android:textColor="#000000"
+                   android:textColorHint="#000000"
                    android:textSize="15dp" />
 
            </com.google.android.material.textfield.TextInputLayout>
@@ -77,8 +76,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:src="@drawable/share2"
+            android:fontFamily="@font/quicksandregular"
             android:text="Post"
-            android:textColor="#88AB8E"
+            android:textColor="#007E24"
             android:textSize="15dp" />
     </LinearLayout>
 

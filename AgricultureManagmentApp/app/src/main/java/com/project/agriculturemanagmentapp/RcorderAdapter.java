@@ -1,6 +1,7 @@
 package com.project.agriculturemanagmentapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class RcorderAdapter extends RecyclerView.Adapter<RcorderAdapter.ViewHolder>{
+public class RcorderAdapter extends RecyclerView.Adapter<RcorderAdapter.ViewHolder> {
     Context context;
     ArrayList<clsOrderModel> orderModelArrayList;
 
@@ -37,6 +38,10 @@ public class RcorderAdapter extends RecyclerView.Adapter<RcorderAdapter.ViewHold
         holder.cd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent=new Intent(context,ConfirmOrder.class);
+                intent.putExtra("key",orderModelArrayList.get(position).getKey());
+                intent.putExtra("IsOrder",true);
+                context.startActivity(intent);
                 BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(context,R.style.SheetDialog);
                 View view=LayoutInflater.from(context).inflate(R.layout.lyt_view_order_sheet,null,false);
                 TextView txtpname,txtqty,txtprice,txttpayment,txtrec,txtspe,txtdes,txtmo,txtadd;
@@ -66,7 +71,7 @@ public class RcorderAdapter extends RecyclerView.Adapter<RcorderAdapter.ViewHold
                 txtmo.setText(orderModelArrayList.get(position).getMo());
                 txtadd.setText(orderModelArrayList.get(position).getAddress());
                 bottomSheetDialog.setContentView(view);
-                bottomSheetDialog.show();
+             //   bottomSheetDialog.show();
                 FrameLayout btncancel=view.findViewById(R.id.btncancel);
                 btncancel.setOnClickListener(new View.OnClickListener() {
                     @Override

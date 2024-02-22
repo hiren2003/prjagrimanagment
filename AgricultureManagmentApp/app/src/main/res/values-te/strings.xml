@@ -99,6 +99,10 @@
     <string name="Price2">ధర</string>
     <string name="KiloGram2">కిలోగ్రాము</string>
     <string name="choose_cat">వర్గాన్ని ఎంచుకోండి</string>
+    <string name="Cart_product">కార్ట్ ఉత్పత్తి</string>
+    <string name="My_Order">నా ఆజ్ఞ</string>
+    <string name="Agro_Farm">అగ్రోకేర్</string>
+    <string name="Select_Language">மொழியை தேர்ந்தெடுங்கள்</string>
     <string name="Seller_name">విక్రేత పేరు</string>
     <string name="Usage">వాడుక</string>
     <string name="Cuti_prd">సాగు ఉత్పత్తి</string>
@@ -163,5 +167,9 @@
     <string name="Add_Worker">కార్మికుడిని జోడించండి</string>
     <string name="Add_Post">పోస్ట్ జోడించండి</string>
     <string name="My_Profile">నా జీవన వివరణ</string>
+    <string name="Close">దగ్గరగా</string>
     <string name="Edit_Profile">ప్రొఫైల్‌ని సవరించండి</string>
+    <string name="Saved">సేవ్ చేసిన అంశం</string>
+    <string name="Explore_Network">నెట్‌వర్క్‌ని అన్వేషించండి</string>
+    <string name="Search_here">ఇక్కడ వెతకండి</string>
 </resources>

@@ -99,6 +99,10 @@
     <string name="Price2">किंमत</string>
     <string name="KiloGram2">किलोग्रॅम</string>
     <string name="choose_cat">श्रेणी निवडा</string>
+    <string name="Cart_product">कार्ट उत्पादन</string>
+    <string name="My_Order">माझी ऑर्डर</string>
+    <string name="Agro_Farm">ॲग्रोकेअर</string>
+    <string name="Select_Language">भाषा निवडा</string>
     <string name="Seller_name">विक्रेत्याचे नाव</string>
     <string name="Usage">वापर</string>
     <string name="Cuti_prd">लागवडीचे उत्पादन</string>
@@ -163,5 +167,9 @@
     <string name="Add_Worker">कार्यकर्ता जोडा</string>
     <string name="Add_Post">पोस्ट जोडा</string>
     <string name="My_Profile">माझे प्रोफाइल</string>
+    <string name="Close">बंद</string>
     <string name="Edit_Profile">प्रोफाईल संपादित करा</string>
+    <string name="Saved">सेव्ह केलेला आयटम</string>
+    <string name="Explore_Network">नेटवर्क एक्सप्लोर करा</string>
+    <string name="Search_here">येथे शोधा</string>
 </resources>

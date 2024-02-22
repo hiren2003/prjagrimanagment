@@ -99,6 +99,10 @@
     <string name="Price2">ਕੀਮਤ</string>
     <string name="KiloGram2">ਕਿਲੋਗ੍ਰਾਮ</string>
     <string name="choose_cat">ਸ਼੍ਰੇਣੀ ਚੁਣੋ</string>
+    <string name="Cart_product">ਕਾਰਟ ਉਤਪਾਦ</string>
+    <string name="My_Order">ਮੇਰਾ ਆਰਡਰ</string>
+    <string name="Agro_Farm">ਐਗਰੋਕੇਅਰ</string>
+    <string name="Select_Language">ਭਾਸ਼ਾ ਚੁਣੋ</string>
     <string name="Seller_name">ਵਿਕਰੇਤਾ ਦਾ ਨਾਮ</string>
     <string name="Usage">ਵਰਤੋਂ</string>
     <string name="Cuti_prd">ਕਾਸ਼ਤ ਉਤਪਾਦ</string>
@@ -163,5 +167,9 @@
     <string name="Add_Worker">ਵਰਕਰ ਸ਼ਾਮਲ ਕਰੋ</string>
     <string name="Add_Post">ਪੋਸਟ ਸ਼ਾਮਲ ਕਰੋ</string>
     <string name="My_Profile">ਮੇਰਾ ਪ੍ਰੋਫ਼ਾਈਲ</string>
+    <string name="Close">ਬੰਦ ਕਰੋ</string>
     <string name="Edit_Profile">ਸੋਧ ਪ੍ਰੋਫ਼ਾਈਲ</string>
+    <string name="Saved">ਸੁਰੱਖਿਅਤ ਕੀਤੀ ਆਈਟਮ</string>
+    <string name="Explore_Network">ਨੈੱਟਵਰਕ ਦੀ ਪੜਚੋਲ ਕਰੋ</string>
+    <string name="Search_here">ਇੱਥੇ ਖੋਜ ਕਰੋ</string>
 </resources>

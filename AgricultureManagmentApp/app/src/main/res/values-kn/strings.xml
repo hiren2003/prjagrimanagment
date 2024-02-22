@@ -99,6 +99,10 @@
     <string name="Price2">ಬೆಲೆ</string>
     <string name="KiloGram2">ಕಿಲೋಗ್ರಾಂ</string>
     <string name="choose_cat">ವರ್ಗವನ್ನು ಆರಿಸಿ</string>
+    <string name="Cart_product">ಕಾರ್ಟ್ ಉತ್ಪನ್ನ</string>
+    <string name="My_Order">ನನ್ನ ಆದೇಶ</string>
+    <string name="Agro_Farm">ಅಗ್ರೋಕೇರ್</string>
+    <string name="Select_Language">ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
     <string name="Seller_name">ಮಾರಾಟಗಾರರ ಹೆಸರು</string>
     <string name="Usage">ಬಳಕೆ</string>
     <string name="Cuti_prd">ಕೃಷಿ ಉತ್ಪನ್ನ</string>
@@ -161,7 +165,12 @@
     <string name="unsuccessfullyuploaded">ವಿವರಗಳನ್ನು ಉಳಿಸಲು ವಿಫಲವಾಗಿದೆ</string>
     <string name="news">ಸುದ್ದಿ</string>
 
+    <string name="Add_Worker">ಕೆಲಸಗಾರನನ್ನು ಸೇರಿಸಿ</string>
     <string name="Add_Post">ಪೋಸ್ಟ್ ಸೇರಿಸಿ</string>
     <string name="My_Profile">ಸ್ವ ಭೂಮಿಕೆ</string>
+    <string name="Close">ಮುಚ್ಚಿ</string>
     <string name="Edit_Profile">ಪ್ರೊಫೈಲ್ ಬದಲಿಸು</string>
+    <string name="Saved">ಉಳಿಸಿದ ಐಟಂ</string>
+    <string name="Explore_Network">ನೆಟ್‌ವರ್ಕ್ ಅನ್ವೇಷಿಸಿ</string>
+    <string name="Search_here">ಇಲ್ಲಿ ಹುಡುಕಿ</string>
 </resources>

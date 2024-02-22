@@ -101,6 +101,10 @@
     <string name="Price2">দাম</string>
     <string name="KiloGram2">কিলোগ্রাম</string>
     <string name="choose_cat">বিভাগ নির্বাচন</string>
+    <string name="Cart_product">কার্ট পণ্য</string>
+    <string name="My_Order">আমার আদেশ</string>
+    <string name="Agro_Farm">এগ্রোকেয়ার</string>
+    <string name="Select_Language">ভাষা নির্বাচন কর</string>
     <string name="Seller_name">বিক্রেতার নাম</string>
     <string name="Usage">ব্যবহার</string>
     <string name="Cuti_prd">চাষের পণ্য</string>
@@ -165,5 +169,9 @@
     <string name="Add_Worker">কর্মী যোগ করুন</string>
     <string name="Add_Post">পোস্ট যোগ করুন</string>
     <string name="My_Profile">আমার প্রোফাইল</string>
+    <string name="Close">বন্ধ</string>
     <string name="Edit_Profile">জীবন বৃত্তান্ত সম্পাদনা</string>
+    <string name="Saved">সংরক্ষিত আইটেম</string>
+    <string name="Explore_Network">নেটওয়ার্ক অন্বেষণ</string>
+    <string name="Search_here">এখানে অনুসন্ধান করুন</string>
 </resources>

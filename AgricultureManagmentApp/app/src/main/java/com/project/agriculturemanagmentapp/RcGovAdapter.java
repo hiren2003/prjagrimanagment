@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
 
@@ -79,6 +80,7 @@ ArrayList<clsgovmodel> clsgovmodelArrayList;
                         //Delete News
                         dg.dismiss();
                         FirebaseDatabase.getInstance().getReference().child("Gov_scheme").child(clsgovmodelArrayList.get(position).getKey()).removeValue();
+                        FirebaseStorage.getInstance().getReference().child("Gov_scheme").child(clsgovmodelArrayList.get(position).getKey()).delete();
                     }
                 });
                 return false;

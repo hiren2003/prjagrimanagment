@@ -19,6 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
@@ -27,7 +28,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
@@ -42,6 +46,7 @@ OTP extends AppCompatActivity {
     SharedPreferences.Editor sedit;
     ProgressBar progressBar;
     TextView txt,txtretry;
+    boolean isUser=false;
     FirebaseDatabase firebaseDatabase;
 
     @Override
@@ -237,7 +242,29 @@ OTP extends AppCompatActivity {
                             sedit.putBoolean("islogin",true);
                             sedit.apply();
                             sedit.commit();
-                            firebaseDatabase.getReference().child("Users_List").child(Mobile).setValue(new clsUserModel(Uname,Mobile,url," "," "," "," "," "));
+                            isUser=false;
+                            FirebaseDatabase.getInstance().getReference().child("Users_List").addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    for (DataSnapshot dataSnapshot:snapshot.getChildren()){
+                                        if(dataSnapshot.getKey().toString().equals(Mobile.toString())){
+                                            clsUserModel model=dataSnapshot.getValue(clsUserModel.class);
+                                            model.setUname(Uname);
+                                            model.setUrl(url);
+                                            firebaseDatabase.getReference().child("Users_List").child(Mobile).setValue(model);
+                                            isUser=true;
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+                            if (isUser){
+                                firebaseDatabase.getReference().child("Users_List").child(Mobile).setValue(new clsUserModel(Uname,Mobile,url," "," "," "," "," "));
+                            }
                             startActivity(intent);
                             show_toast(getResources().getString(R.string.Login_SuccessFully),true);
                             finish();

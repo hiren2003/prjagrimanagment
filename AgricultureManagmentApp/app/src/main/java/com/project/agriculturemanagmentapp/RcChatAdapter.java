@@ -15,6 +15,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
 
@@ -146,6 +147,7 @@ public class RcChatAdapter extends RecyclerView.Adapter<RcChatAdapter.ViewHolder
                     public void onClick(View v) {
                         FirebaseDatabase.getInstance().getReference().child("User").child(chatModelArrayList.get(position).getSmo()).child("Chats").child(chatModelArrayList.get(position).getRmo()).child(chatModelArrayList.get(position).getKey()).removeValue();
                         FirebaseDatabase.getInstance().getReference().child("User").child(chatModelArrayList.get(position).getRmo()).child("Chats").child(chatModelArrayList.get(position).getSmo()).child(chatModelArrayList.get(position).getKey()).removeValue();
+                        FirebaseStorage.getInstance().getReference().child("Chats").child(chatModelArrayList.get(position).getSmo()).child(chatModelArrayList.get(position).getKey()).delete();
                        dg.dismiss();
                     }
                 });

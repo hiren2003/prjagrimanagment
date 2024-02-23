@@ -46,7 +46,7 @@ public class EditprofileActivity extends AppCompatActivity {
     RadioButton rdmale, rdfemale;
     ImageView prfpc,rldate,back;
     Dialog dialog;
-    TextView txtdate,txtstate,txtgen,txt;
+    TextView txtdate,txt;
     ProgressBar progressBar;
     RelativeLayout  rlupdate;
     SharedPreferences sharedPreferences;
@@ -74,10 +74,8 @@ public class EditprofileActivity extends AppCompatActivity {
         txtdate = findViewById(R.id.txtdate);
         rldate = findViewById(R.id.rldate);
         rlupdate = findViewById(R.id.btnupdtedetail);
-        txtstate=findViewById(R.id.txtstatesss);
         states = findViewById(R.id.state);
         rdbgrp=findViewById(R.id.rdbgrp);
-        txtgen=findViewById(R.id.txtgen);
         progressBar=findViewById(R.id.progressBar2);
         txt=findViewById(R.id.txt);
         String[] arr = getResources().getStringArray(R.array.india_states);
@@ -90,10 +88,6 @@ public class EditprofileActivity extends AppCompatActivity {
             rlupdate.setVisibility(View.GONE);
             rldate.setEnabled(false);
             prfpc.setClickable(false);
-            states.setVisibility(View.GONE);
-            txtstate.setVisibility(View.VISIBLE);
-            rdbgrp.setVisibility(View.GONE);
-            txtgen.setVisibility(View.VISIBLE);
             DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users_List").child(mo);
             reference.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -107,8 +101,16 @@ public class EditprofileActivity extends AppCompatActivity {
                     edtaddress.setText(model.getAddress());
                     edtemail.setText(model.getEmail());
                     txtdate.setText(model.getDob());
-                   txtgen.setText(model.getGender());
-                    txtstate.setText(model.getState());
+                    if (model.getGender().toString().trim().equals("Male")) {
+                        rdmale.setChecked(true);
+                    } else {
+                        rdfemale.setChecked(true);
+                    }
+                    for (int i = 0; i < arr.length; i++) {
+                        if (arr[i].toString().trim().equals(model.getState().toString().trim())){
+                            states.setSelection(i);
+                        }
+                    }
                 }
 
                 @Override
@@ -118,21 +120,37 @@ public class EditprofileActivity extends AppCompatActivity {
             });
         }
         else{
-            Glide.with(this)
-                    .load(sharedPreferences.getString("url", "null"))
-                    .into(prfpc);
-            edtname.setText(sharedPreferences.getString("uname", " "));
-            edtmo.setText(sharedPreferences.getString("mo", " "));
-            edtaddress.setText(sharedPreferences.getString("add", " "));
-            edtemail.setText(sharedPreferences.getString("email", " "));
-            txtdate.setText(sharedPreferences.getString("dob", "Select Date"));
-            int isMale = sharedPreferences.getInt("gender", 2);
-            if (isMale == 1) {
-                rdmale.setChecked(true);
-            } else if (isMale == 0) {
-                rdfemale.setChecked(true);
-            }
-            states.setSelection(sharedPreferences.getInt("state", 0));
+            mo=sharedPreferences.getString("mo","");
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users_List").child(mo);
+            reference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    clsUserModel model=snapshot.getValue(clsUserModel.class);
+                    Glide.with(getBaseContext())
+                            .load(model.getUrl())
+                            .into(prfpc);
+                    edtname.setText(model.getUname());
+                    edtmo.setText(model.getMo());
+                    edtaddress.setText(model.getAddress());
+                    edtemail.setText(model.getEmail());
+                    txtdate.setText(model.getDob());
+                    if (model.getGender().toString().trim().equals("Male")) {
+                        rdmale.setChecked(true);
+                    } else {
+                        rdfemale.setChecked(true);
+                    }
+                    for (int i = 0; i < arr.length; i++) {
+                        if (arr[i].toString().trim().equals(model.getState().toString().trim())){
+                            states.setSelection(i);
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
         }
         launcher = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override

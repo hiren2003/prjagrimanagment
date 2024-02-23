@@ -11,6 +11,7 @@ import android.text.InputType;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -36,7 +37,8 @@ public class show_ecom_prdt extends AppCompatActivity implements PaymentResultWi
     String key;
     ImageView imageView;
     TextView txtpname, txtprice, txtspec, txtdes, txtrecom,txtkey,txtsgst,txtcgst,txtdiscount;
-    ImageButton btncart, btnrmcart, btnorder, btncancelorder,rmprdt;
+    ImageButton  btncancelorder,rmprdt;
+    Button btncart,gocart ,btnrmcart, btnorder ;
     clsEcommModel model;
     TextInputLayout txtqty2;
     TextInputEditText edtqty;
@@ -53,6 +55,7 @@ public class show_ecom_prdt extends AppCompatActivity implements PaymentResultWi
         txtspec = findViewById(R.id.txtspec);
         txtdes = findViewById(R.id.txtdec);
         btncart = findViewById(R.id.btncart);
+        gocart = findViewById(R.id.gocart);
         edtqty = findViewById(R.id.edtqty2);
         txtrecom = findViewById(R.id.txtrecom);
         btnrmcart = findViewById(R.id.btnremovecart);
@@ -113,6 +116,13 @@ public class show_ecom_prdt extends AppCompatActivity implements PaymentResultWi
                 SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
                 FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Cart").child(model.getKey()).setValue(model);
                 show_toast(getResources().getString(R.string.Added_cart),true);
+                finish();
+            }
+        });
+        gocart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(show_ecom_prdt.this,Cart.class));
                 finish();
             }
         });

@@ -48,6 +48,8 @@
         <item name="cornerSizeTopRight">20dp</item>
         <item name="cornerFamilyTopRight">rounded</item>
         <item name="cornerSizeTopLeft">20dp</item>
+        <item name="cornerSizeBottomLeft">20dp</item>
+        <item name="cornerSizeBottomRight">20dp</item>
         <item name="cornerFamilyBottomLeft">rounded</item>
     </style>
     <style name="Theme.AgricultureManagmentApp" parent="Base.Theme.AgricultureManagmentApp" />

@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
 
@@ -81,6 +82,7 @@ public class RcnewsAdapter extends RecyclerView.Adapter<RcnewsAdapter.ViewHolder
                         //Delete
                         dg.dismiss();
                         FirebaseDatabase.getInstance().getReference().child("news").child(newsModelArrayList.get(position).getKey()).removeValue();
+                        FirebaseStorage.getInstance().getReference().child("news").child(newsModelArrayList.get(position).getKey()).delete();
                     }
                 });
                 return false;

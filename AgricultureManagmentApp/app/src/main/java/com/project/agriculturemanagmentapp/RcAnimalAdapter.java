@@ -27,6 +27,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -93,6 +94,7 @@ public class RcAnimalAdapter extends RecyclerView.Adapter<RcAnimalAdapter.ViewHo
                             public void onClick(View v) {
                                 FirebaseDatabase.getInstance().getReference().child("Resell").child("animals").child(model.getKey()).removeValue();
                                 FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("animal").child(model.getKey()).removeValue();
+                                FirebaseStorage.getInstance().getReference().child("animals").child(model.getKey()).delete();
                                 dg.dismiss();
 
                             }

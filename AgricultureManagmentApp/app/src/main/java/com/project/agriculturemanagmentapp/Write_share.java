@@ -64,9 +64,8 @@ public class Write_share extends AppCompatActivity {
                     progressBar.setVisibility(View.VISIBLE);
                     txt.setVisibility(View.GONE);
                     String key = firebaseDatabase.getReference().child("Feed").push().getKey().toString();
-                    String key2 = firebaseDatabase.getReference().child("User").child(mo).child("Feed").push().getKey().toString();
-                    firebaseDatabase.getReference().child("Feed").child(key).setValue(new clsFeedModel(Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR), sharedPreferences.getString("url", "123"), textInputEditText.getText().toString(), key2, key, "3",sharedPreferences.getString("mo", "1234567890")));
-                    FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Feed").child(key2).setValue(new clsFeedModel(Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR), sharedPreferences.getString("url", "123"), textInputEditText.getText().toString(), key2, key, "3",sharedPreferences.getString("mo", "1234567890"))).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    firebaseDatabase.getReference().child("Feed").child(key).setValue(new clsFeedModel(Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR), sharedPreferences.getString("url", "123"), textInputEditText.getText().toString(), key, key, "3",sharedPreferences.getString("mo", "1234567890")));
+                    FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Feed").child(key).setValue(new clsFeedModel(Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + Calendar.getInstance().get(Calendar.MONTH) + "/" + Calendar.getInstance().get(Calendar.YEAR), sharedPreferences.getString("url", "123"), textInputEditText.getText().toString(), key, key, "3",sharedPreferences.getString("mo", "1234567890"))).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             progressBar.setVisibility(View.GONE);

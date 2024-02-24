@@ -377,6 +377,7 @@ public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder
                                 FirebaseStorage.getInstance().getReference().child("feedimg").child(Mo).child(key).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
+
                                     }
                                 });
                             }

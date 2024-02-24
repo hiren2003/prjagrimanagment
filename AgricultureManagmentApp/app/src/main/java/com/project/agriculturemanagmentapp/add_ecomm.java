@@ -130,20 +130,9 @@ public class add_ecomm extends AppCompatActivity {
                                     FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").child(key).setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
-                                            FirebaseDatabase.getInstance().getReference().child("ECommerce").child(spntype.getSelectedItem().toString()).child(key).setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                @Override
-                                                public void onSuccess(Void unused) {
-                                                    show_toast(getResources().getString(R.string.successfullyuploaded), true);
-                                                    dg.dismiss();
-                                                    finish();
-                                                }
-                                            }).addOnFailureListener(new OnFailureListener() {
-                                                @Override
-                                                public void onFailure(@NonNull Exception e) {
-                                                    show_toast(getResources().getString(R.string.unsuccessfullyuploaded), false);
-                                                    dg.dismiss();
-                                                }
-                                            });
+                                            show_toast(getResources().getString(R.string.successfullyuploaded), true);
+                                            dg.dismiss();
+                                            finish();
 
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {

@@ -11,6 +11,8 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +22,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.FirebaseException;
@@ -27,6 +30,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -47,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     StorageReference reference;
     ActivityResultLauncher<String> launcher;
     Uri uri=null;
-    String uri2;
+    String uri2=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +70,41 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         Window window = this.getWindow();
         window.setStatusBarColor(this.getResources().getColor(R.color.lan));
+        edtmo.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                FirebaseDatabase.getInstance().getReference().child("Users_List").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot dataSnapshot:snapshot.getChildren()){
+                            if(dataSnapshot.getKey().toString().equals(s.toString())){
+                                clsUserModel model=dataSnapshot.getValue(clsUserModel.class);
+                                Glide.with(MainActivity.this)
+                                        .load(model.getUrl())
+                                        .into(prfpc);
+                                edtuname.setText(model.getUname().toString());
+                                uri2=model.getUrl().toString().trim();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         prfpc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,10 +131,10 @@ public class MainActivity extends AppCompatActivity {
                     if (edtmo.getText().toString().length() != 10) {
                         show_toast(getResources().getString(R.string.Invalid_MobileNumber),false);
                         edtmo.requestFocus();
-                    } else if (uri==null) {
+                    } else if (uri==null&&uri2==null) {
                         show_toast(getResources().getString(R.string.Select_Image),false);
                         launcher.launch("image/*");
-                    } else {
+                    } else if (uri!=null){
                         txt.setVisibility(View.GONE);
                         progressBar.setVisibility(View.VISIBLE);
                         sendOtp();
@@ -109,6 +150,11 @@ public class MainActivity extends AppCompatActivity {
                                 });
                             }
                         });
+                    }
+                    else {
+                        txt.setVisibility(View.GONE);
+                        progressBar.setVisibility(View.VISIBLE);
+                        sendOtp();
                     }
 
                 }
@@ -184,6 +230,5 @@ public class MainActivity extends AppCompatActivity {
         ts.setGravity(Gravity.TOP, 0, 30);
         ts.setDuration(Toast.LENGTH_SHORT);
         ts.show();
-
     }
 }

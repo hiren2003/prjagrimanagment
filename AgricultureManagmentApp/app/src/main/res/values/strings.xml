@@ -81,7 +81,8 @@
     <string name="internet_on">Please! Turn On Your internet</string>
     <string name="Network_error">Network error</string>
     <string name="msgsent">Message Sent</string>
-    <string name="Update_Profile">Update_Profile</string>
+    <string name="Update_Profile">Update Profile</string>
+    <string name="Update_Profile_picture">Update profile picture</string>
     <string name="Scheme_name">Scheme name</string>
     <string name="Add_Scheme">Add Scheme</string>
     <!-- Strings used for fragments for navigation -->

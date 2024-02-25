@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".EditprofileActivity">
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,6 +16,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
             android:src="@drawable/down"/>
 
         <TextView
@@ -33,7 +35,6 @@
     </LinearLayout>
 
 
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -45,24 +46,33 @@
             android:orientation="vertical">
 
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                xmlns:app="http://schemas.android.com/apk/res-auto"
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/prfpc"
                 android:layout_width="170dp"
                 android:layout_height="170dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:layout_marginTop="20dp" android:layout_gravity="center_horizontal"
                 android:src="@drawable/editprocama" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Update_Profile_picture"
+                android:textSize="15dp"
+                android:textColor="#006A4E"
+                android:layout_gravity="center_horizontal"/>
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:layout_marginLeft="25dp"
-                android:textStyle="bold"
-                android:fontFamily="@font/quicksandsemibold"
-                android:text="Name :"
                 android:layout_marginTop="25dp"
+                android:fontFamily="@font/quicksandsemibold"
+                android:text="Name "
                 android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/name"
@@ -72,31 +82,32 @@
                 android:layout_marginRight="20dp"
                 android:background="@drawable/curvebackground"
                 android:backgroundTint="#F5F5F5"
-                android:textColor="@color/black"
+                android:fontFamily="@font/quicksandregular"
                 android:hint="Jason Roy"
                 android:paddingLeft="20dp"
-                android:fontFamily="@font/quicksandregular"
+                android:textColor="@color/black"
                 app:hintTextColor="@color/black" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:layout_marginLeft="25dp"
-                android:textStyle="bold"
-                android:fontFamily="@font/quicksandsemibold"
-                android:text="E-mail :"
                 android:layout_marginTop="25dp"
+                android:fontFamily="@font/quicksandsemibold"
+                android:text="E-mail "
                 android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
-                android:fontFamily="@font/quicksandregular"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/curvebackground"
                 android:backgroundTint="#F5F5F5"
+                android:fontFamily="@font/quicksandregular"
                 android:hint="jasonroy01@gmail.com"
                 android:paddingLeft="20dp"
                 android:textColor="@color/black"
@@ -106,12 +117,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:layout_marginLeft="25dp"
-                android:textStyle="bold"
-                android:fontFamily="@font/quicksandsemibold"
-                android:text="Mobile number :"
                 android:layout_marginTop="25dp"
+                android:fontFamily="@font/quicksandsemibold"
+                android:text="Mobile number "
                 android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/mobile"
                 android:layout_width="match_parent"
@@ -120,10 +132,10 @@
                 android:layout_marginRight="20dp"
                 android:background="@drawable/curvebackground"
                 android:backgroundTint="#F5F5F5"
-                android:textColor="@color/black"
-                android:hint="+91 98565 95456"
                 android:fontFamily="@font/quicksandregular"
+                android:hint="+91 98565 95456"
                 android:paddingLeft="20dp"
+                android:textColor="@color/black"
                 app:hintTextColor="@color/black" />
 
 
@@ -131,13 +143,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:layout_marginLeft="25dp"
-                android:textStyle="bold"
-                android:fontFamily="@font/quicksandsemibold"
-                android:text="Date of birth :"
                 android:layout_marginTop="25dp"
+                android:fontFamily="@font/quicksandsemibold"
+                android:text="Date of birth "
                 android:textColor="@color/black"
-                android:textSize="20dp" />
-
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
 
             <LinearLayout
@@ -146,14 +157,14 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="20dp"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:id="@+id/rldate"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/calendar"
-                    />
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/calendar" />
 
                 <RelativeLayout
                     android:layout_width="290dp"
@@ -161,8 +172,8 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
-                    android:backgroundTint="#F5F5F5"
                     android:background="@drawable/sendotp"
+                    android:backgroundTint="#F5F5F5"
                     android:gravity="center">
 
 
@@ -170,8 +181,8 @@
                         android:id="@+id/txtdate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/Select_date"
                         android:fontFamily="@font/quicksandregular"
+                        android:text="@string/Select_date"
                         android:textColor="#AEAEAE"
                         android:textSize="20dp" />
                 </RelativeLayout>
@@ -182,12 +193,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:layout_marginLeft="25dp"
-                android:textStyle="bold"
-                android:fontFamily="@font/quicksandsemibold"
-                android:text="Gender:"
                 android:layout_marginTop="25dp"
+                android:fontFamily="@font/quicksandsemibold"
+                android:text="Gender"
                 android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <RadioGroup
                 android:id="@+id/rdbgrp"
@@ -195,72 +206,72 @@
                 android:layout_height="wrap_content"
                 android:scrollbars="horizontal">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-         <RadioGroup
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:orientation="horizontal"
-             >
-             <RadioButton
-                 android:id="@+id/rdmale"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:text="Male"
-                 android:textColor="@color/black"
-                 android:fontFamily="@font/quicksandregular"
-                 android:textSize="20dp"
-                 android:layout_marginLeft="80dp"
-                 android:layout_marginTop="2dp"/>
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-             <RadioButton
-                 android:id="@+id/rdfemale"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:text="Female"
-                 android:textColor="@color/black"
-                 android:textSize="20dp"
-                 android:fontFamily="@font/quicksandregular"
-                 android:layout_marginLeft="50dp"
-                 android:layout_marginTop="2dp"/>
-         </RadioGroup>
-        </LinearLayout>
+                        <RadioButton
+                            android:id="@+id/rdmale"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="80dp"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/quicksandregular"
+                            android:text="Male"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+
+                        <RadioButton
+                            android:id="@+id/rdfemale"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="50dp"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/quicksandregular"
+                            android:text="Female"
+                            android:textColor="@color/black"
+                            android:textSize="20dp" />
+                    </RadioGroup>
+                </LinearLayout>
             </RadioGroup>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:layout_marginLeft="25dp"
-                android:textStyle="bold"
-                android:fontFamily="@font/quicksandsemibold"
-                android:text="State :"
                 android:layout_marginTop="25dp"
+                android:fontFamily="@font/quicksandsemibold"
+                android:text="State"
                 android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <Spinner
                 android:id="@+id/state"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:backgroundTint="@color/black"
                 android:layout_marginLeft="20dp"
-                android:fontFamily="@font/quicksandregular"
-                android:layout_marginRight="20dp"/>
+                android:layout_marginRight="20dp"
+                android:backgroundTint="@color/black"
+                android:fontFamily="@font/quicksandregular" />
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:layout_marginLeft="25dp"
-                android:textStyle="bold"
-                android:fontFamily="@font/quicksandsemibold"
-                android:text="Address :"
                 android:layout_marginTop="25dp"
+                android:fontFamily="@font/quicksandsemibold"
+                android:text="Address "
                 android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/address"
@@ -270,10 +281,10 @@
                 android:layout_marginRight="20dp"
                 android:background="@drawable/curvebackground"
                 android:backgroundTint="#F5F5F5"
-                android:textColor="@color/black"
+                android:fontFamily="@font/quicksandregular"
                 android:hint="Flat no, society, Landmark, Area, city"
                 android:paddingLeft="20dp"
-                android:fontFamily="@font/quicksandregular"
+                android:textColor="@color/black"
                 app:hintTextColor="@color/black" />
 
             <RelativeLayout
@@ -281,8 +292,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_margin="20dp"
-                android:backgroundTint="#373937"
                 android:background="@drawable/sendotp"
+                android:backgroundTint="#006A4E"
                 android:gravity="center">
 
                 <ProgressBar
@@ -290,12 +301,11 @@
                     style="?android:attr/progressBarStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
                     android:backgroundTint="#176B87"
                     android:foregroundTint="#8BC34A"
                     android:progressTint="#8BC34A"
-                    android:visibility="gone"
-                    android:layout_centerInParent="true"
-                    />
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/txt"

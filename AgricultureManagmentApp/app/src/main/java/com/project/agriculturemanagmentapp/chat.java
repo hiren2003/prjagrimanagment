@@ -65,7 +65,7 @@ public class chat extends AppCompatActivity {
         prgbar=findViewById(R.id.prgbar);
         rvprofile=findViewById(R.id.rvprofile);
         Window window=this.getWindow();
-        window.setStatusBarColor(this.getResources().getColor(R.color.greee));
+        window.setStatusBarColor(this.getResources().getColor(R.color.chat));
         SharedPreferences sharedPreferences = getSharedPreferences("data",MODE_PRIVATE);
         Intent intent = getIntent();
         rmo=intent.getStringExtra("rmo");

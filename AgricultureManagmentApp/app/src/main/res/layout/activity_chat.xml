@@ -5,14 +5,14 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ece5dd"
+    android:background="@drawable/ba3"
     tools:context=".chat">
 
     <LinearLayout
         android:id="@+id/rvprofile"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#128c7e"
+        android:background="#008069"
         android:gravity="center_vertical"
         android:layout_alignParentTop="true"
         android:orientation="horizontal">
@@ -20,7 +20,7 @@
         <ImageView
             android:id="@+id/back"
             android:layout_width="40dp"
-            android:tint="#ffffff"
+            android:backgroundTint="#FFFFFF"
             android:layout_height="40dp"
             android:src="@drawable/down" />
 
@@ -51,6 +51,8 @@
         android:id="@+id/rcchat"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginBottom="80dp"
         android:layout_marginTop="65dp"
         />
@@ -63,7 +65,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="290dp"
             android:layout_height="wrap_content"
-            android:hint="@string/Enter_Prompt"
+
             android:minHeight="60dp"
             style="@style/choose_category"
             app:boxBackgroundColor="#D5D5D5"
@@ -75,10 +77,10 @@
             app:startIconDrawable="@drawable/baseline_power_input_24"
             app:startIconTint="#3E6018"
             app:hintEnabled="true"
+            android:visibility="gone"
             app:hintTextColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtmsg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="60dp"
@@ -87,22 +89,40 @@
                 android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/send"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtmsg"
+            android:layout_width="280dp"
+            android:layout_height="55dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/curvebackground"
+            android:backgroundTint="#F5F5F5"
+            android:fontFamily="@font/quicksandregular"
+            android:hint="@string/Message"
+            android:paddingLeft="20dp"
+            android:textColor="@color/black"
+
+            app:hintTextColor="@color/black" />
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/send"
+            android:layout_marginLeft="5dp"
             android:layout_alignParentEnd="true"
+            android:tint="#000000"
             android:layout_centerVertical="true"
             android:id="@+id/btnsendmsg"/>
+
         <ImageView
+            android:id="@+id/btn2"
             android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/chooseimage"
+            android:layout_height="38dp"
+            android:tint="#000000"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:id="@+id/btn2"/>
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/choooseimage" />
         <ProgressBar
             android:id="@+id/prgbar"
             android:layout_width="40dp"

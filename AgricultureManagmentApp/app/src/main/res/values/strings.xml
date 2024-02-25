@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">AgroCare</string>
     <string name="name">Name</string>
+    <string name="comment_here">comment here....</string>
     <string name="mrmrs">Mr./Mrs.</string>
     <string name="mobile_number">Mobile Number</string>
     <string name="send_otp">Send Otp</string>

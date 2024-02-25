@@ -108,7 +108,7 @@
                 android:layout_marginLeft="15dp"
                 android:textStyle="bold"
                 android:fontFamily="@font/montserrat"
-                android:text="Name :"
+                android:text="Name "
 
                 android:layout_marginTop="40dp"
                 android:textColor="@color/black"
@@ -136,7 +136,7 @@
                 android:layout_marginLeft="15dp"
                 android:textStyle="bold"
                 android:fontFamily="@font/montserrat"
-                android:text="Mobile no. :"
+                android:text="Mobile no. "
                 android:layout_marginTop="20dp"
                 android:textColor="@color/black"
                 android:textSize="20dp" />

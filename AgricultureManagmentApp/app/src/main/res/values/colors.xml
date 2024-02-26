@@ -2,7 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="lan">#FFFFFF</color>
+    <color name="lan">#f5f5f5</color>
+    <color name="otp">#4B9C87</color>
     <color name="greee">#79AC78</color>
     <color name="chat">#008069</color>
     <color name="Dark_red">#ff0000</color>
@@ -10,6 +11,11 @@
     <color name="Light_green">#afeaaf</color>
     <color name="background">#B6D68C</color>
     <color name="your_color">#066006</color>
+    <color name="common">#056A4F</color>
+    <color name="commonw">#E7EAE8</color>
+    <color name="ct">#FF056A4F</color>
+
+
 
     <color name="loginback">#1A374D</color>
     <color name="frame">#e3e7ea</color>

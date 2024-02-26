@@ -6,6 +6,7 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 
 public class admin_resell_category extends AppCompatActivity {
     CardView cdanimal,cdagrprdt,cdta;
@@ -13,6 +14,8 @@ public class admin_resell_category extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_resell_category);
+        Window window = this.getWindow();
+        window.setStatusBarColor(this.getResources().getColor(R.color.white));
         cdanimal=findViewById(R.id.cdanimal);
         cdagrprdt=findViewById(R.id.cdagrprdt);
         cdta=findViewById(R.id.cdta);

@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".Resell_Category">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:backgroundTint="#135983"
+        android:backgroundTint="@color/ct"
         app:cardCornerRadius="20dp"
         android:layout_margin="20dp"
         android:elevation="50dp"
@@ -25,18 +26,20 @@
                 android:layout_width="65dp"
                 android:layout_height="65dp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="30dp"
                 android:src="@drawable/resell"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Resell_Items"
                 android:textStyle="bold"
-                android:textSize="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_horizontal"
+                android:textSize="35dp"
                 android:textColor="@color/white"
-                android:layout_marginTop="10dp"
                 android:fontFamily="@font/quicksandbold"
-                android:layout_marginLeft="20dp"/>
+                />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
     <androidx.core.widget.NestedScrollView

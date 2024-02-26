@@ -39,7 +39,7 @@ public class add_news extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_news);
         Window window=this.getWindow();
-        window.setStatusBarColor(this.getResources().getColor(R.color.lan));
+        window.setStatusBarColor(this.getResources().getColor(R.color.white));
         lang=findViewById(R.id.lang);
         imageView=findViewById(R.id.imgnews);
         btnpnews=findViewById(R.id.btnpublishnews);

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".admin_cultivation">
     <LinearLayout
@@ -17,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Foods"
-        android:textColor="#065A65"
+        android:textColor="@color/ct"
         android:gravity="center"
         android:textSize="45dp"
         android:fontFamily="@font/quicksandbold"

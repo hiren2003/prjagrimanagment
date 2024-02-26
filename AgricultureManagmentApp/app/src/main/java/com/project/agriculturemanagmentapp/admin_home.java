@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.graphics.Shader;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -84,6 +85,8 @@ public class admin_home extends AppCompatActivity {
         SharedPreferences sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
         txtname.setText(sharedPreferences.getString("uname","Anonymous"));
         txtmo.setText(sharedPreferences.getString("mo","Anonymous"));
+        Window window = this.getWindow();
+        window.setStatusBarColor(this.getResources().getColor(R.color.ct));
         rvhome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

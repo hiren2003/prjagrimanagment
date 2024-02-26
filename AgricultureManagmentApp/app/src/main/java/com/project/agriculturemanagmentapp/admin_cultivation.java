@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.os.Bundle;
+import android.view.Window;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
@@ -21,6 +22,8 @@ RcCultivatonPrdtAdpter rcCultivatonPrdtAdpter;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_cultivation);
+        Window window = this.getWindow();
+        window.setStatusBarColor(this.getResources().getColor(R.color.white));
         RecyclerView rccprdt=findViewById(R.id.rccprdt);
         FirebaseDatabase.getInstance().getReference().child("Resell").child("Cultivation Product").addValueEventListener(new ValueEventListener() {
             @Override

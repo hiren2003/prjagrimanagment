@@ -15,7 +15,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.imageview.ShapeableImageView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
@@ -81,6 +84,7 @@ public class RcEcommAdapter extends RecyclerView.Adapter<RcEcommAdapter.ViewHold
                         public void onClick(View v) {
                             dg.dismiss();
                             FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").child(ecommModelArrayList.get(position).getKey()).removeValue();
+                            FirebaseStorage.getInstance().getReference().child("Ecommerce").child(ecommModelArrayList.get(position).getKey()).delete();
                             FirebaseStorage.getInstance().getReference().child("Ecommerce").child(ecommModelArrayList.get(position).getKey()).delete();
                         }
                     });

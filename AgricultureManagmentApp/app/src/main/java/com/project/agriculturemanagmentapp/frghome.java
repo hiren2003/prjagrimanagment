@@ -151,7 +151,7 @@ public class frghome extends Fragment {
     public void setTemprature(Double lat, Double lng) {
         String tempurl = "";
         tempurl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lng + "&appid=" + api;
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, tempurl, new Response.Listener<String>() {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, tempurl, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {

@@ -81,11 +81,12 @@ public class show_ecom_prdt extends AppCompatActivity implements PaymentResultWi
             txtqty2.setVisibility(View.VISIBLE);
         }
         reference = FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").child(key);
+        System.out.println("---------------------------------------"+key);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 model = snapshot.getValue(clsEcommModel.class);
-                Glide.with(show_ecom_prdt.this)
+                Glide.with(getApplicationContext())
                         .load(model.getImg())
                         .into(imageView);
                 txtpname.setText(model.getPname());

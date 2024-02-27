@@ -98,7 +98,8 @@ public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder
         holder.txtdate.setText(feedModelArrayList.get(position).getDate());
 
         if (isMyFeed) {
-            holder.btndelete.setVisibility(View.VISIBLE);
+            holder.
+                    btndelete.setVisibility(View.VISIBLE);
         }
         holder.imgshare.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -382,6 +383,32 @@ public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder
                                 });
                             }
                         });
+                    }
+                });
+                FirebaseDatabase.getInstance().getReference().child("Like").child(feedModelArrayList.get(position).getKey()).removeValue();
+                FirebaseDatabase.getInstance().getReference().child("Feed_Comments").child(feedModelArrayList.get(position).getKey()).removeValue();
+                FirebaseDatabase.getInstance().getReference().child("User").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot datasnapshot:
+                             snapshot.getChildren()) {
+                            for (DataSnapshot dataSnapshotchild:datasnapshot.getChildren()){
+                                if (dataSnapshotchild.getKey().trim().toString().equals("Saved")){
+                                    for (DataSnapshot dataSnapshotsubchild:dataSnapshotchild.getChildren()) {
+                                        for (DataSnapshot dataSnapshotgrandsubchild:dataSnapshotsubchild.getChildren()) {
+                                            if (dataSnapshotgrandsubchild.getKey().trim().toString().equals(feedModelArrayList.get(position).getKey())){
+                                                FirebaseDatabase.getInstance().getReference().child("User").child(datasnapshot.getKey().toString().trim()).child(dataSnapshotchild.getKey().toString().trim()).child(dataSnapshotsubchild.getKey().toString().trim()).child(dataSnapshotgrandsubchild.getKey().toString().trim()).removeValue();
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
                     }
                 });
             }

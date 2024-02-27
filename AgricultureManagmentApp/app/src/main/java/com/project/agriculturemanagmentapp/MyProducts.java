@@ -93,7 +93,11 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
                 if (animalModelArrayList.isEmpty()){
                     txt1.setVisibility(View.GONE);
                 }
-                 rcAnimalAdapter=new RcAnimalAdapter(getContext(),SelfAccount, animalModelArrayList);
+                ArrayList<clsAnimalModel> reversedlist=new ArrayList<>();
+                for (int i = animalModelArrayList.size() - 1; i >= 0; i--) {
+                    reversedlist.add(animalModelArrayList.get(i));
+                }
+                 rcAnimalAdapter=new RcAnimalAdapter(getContext(),SelfAccount, reversedlist);
                 myanimal.setAdapter(rcAnimalAdapter);
             }
 

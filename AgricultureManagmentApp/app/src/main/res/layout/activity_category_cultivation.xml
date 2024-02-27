@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".category_cultivation">
 
@@ -15,8 +16,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/choose_cat"
-                android:textStyle="bold"
-                android:textColor="#066006"
+                android:textColor="@color/ct"
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/quicksandbold"
                 android:textSize="50dp"/>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".animal_category_Activity">
 <androidx.core.widget.NestedScrollView
     android:layout_width="match_parent"
@@ -17,8 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/choose_anm"
-            android:textStyle="bold"
-            android:textColor="#066006"
+            android:textColor="@color/ct"
             android:layout_marginLeft="10dp"
             android:fontFamily="@font/quicksandbold"
             android:textSize="50dp"/>

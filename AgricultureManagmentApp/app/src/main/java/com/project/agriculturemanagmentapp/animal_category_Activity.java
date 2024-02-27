@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -17,6 +18,8 @@ MaterialCardView sheep,cow,buffalo,goat,ox,chicken,hourse,camel,other;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animal_category);
+        Window window = this.getWindow();
+        window.setStatusBarColor(this.getResources().getColor(R.color.white));
         btn=findViewById(R.id.btn);
         sheep=findViewById(R.id.sheep);
         cow=findViewById(R.id.cow);

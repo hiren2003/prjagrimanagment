@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -45,6 +46,8 @@ public class MyProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_profile);
+        Window window = this.getWindow();
+        window.setStatusBarColor(this.getResources().getColor(R.color.white));
          viewPager=findViewById(R.id.vpfeed);
          tabLayout=findViewById(R.id.tbllytfeed);
          txtuname=findViewById(R.id.txtuname);

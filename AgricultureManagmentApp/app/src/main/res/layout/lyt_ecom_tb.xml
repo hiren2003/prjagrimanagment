@@ -5,7 +5,8 @@
     app:cardCornerRadius="15dp"
     android:layout_margin="8dp"
     android:id="@+id/cdlyt"
-    android:backgroundTint="#F6F6F6"
+    android:backgroundTint="#E8E8E8"
+    android:background="@drawable/drb_animal"
     android:layout_height="wrap_content">
 
     <LinearLayout
@@ -13,17 +14,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_margin="8dp">
-        <TextView
-            android:id="@+id/txtpname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/quicksandsemibold"
-            android:text="SugarCane"
-            android:layout_marginBottom="5dp"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,7 +36,16 @@
         </RelativeLayout>
 
 
-
+        <TextView
+            android:id="@+id/txtpname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksandsemibold"
+            android:text="SugarCane"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtprice"

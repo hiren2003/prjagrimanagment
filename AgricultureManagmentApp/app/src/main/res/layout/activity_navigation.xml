@@ -39,7 +39,6 @@
         android:layout_gravity="center_vertical"
         android:fontFamily="@font/quicksandbold"
         android:text="@string/My_Profile"
-        android:layout_marginTop="5dp"
         android:textColor="@color/black"
         android:textSize="25dp"
         android:textStyle="bold" />
@@ -77,7 +76,7 @@
                     android:id="@+id/imgprfpc"
                     android:layout_width="130dp"
                     android:layout_height="130dp"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="5dp"
                     android:layout_marginBottom="5dp"
@@ -203,6 +202,53 @@
                     android:layout_marginLeft="10dp"
                     android:fontFamily="@font/quicksandmedium"
                     android:text="@string/language"
+                    android:textSize="20dp" />
+
+            </LinearLayout>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/baseline_keyboard_arrow_right_24" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/imgorder"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:backgroundTint="#f5f5f5"
+            android:background="@drawable/drawer"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/tracking" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:textColor="#000000"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/quicksandmedium"
+                    android:text="@string/My_Order"
                     android:textSize="20dp" />
 
             </LinearLayout>

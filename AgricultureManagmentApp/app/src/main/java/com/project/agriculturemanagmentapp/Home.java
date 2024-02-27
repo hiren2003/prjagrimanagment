@@ -37,7 +37,7 @@ import java.util.Locale;
 public class Home extends AppCompatActivity {
     FrameLayout frameLayout;
     RelativeLayout toolbar;
-    ImageView prfpc, imgcart, imgorder,imgmessage;
+    ImageView prfpc, imgcart,imgmessage;
     TextView txtname;
     BubbleNavigationLinearView bubbleNavigationLinearView;
     SharedPreferences sharedPreferences;
@@ -60,7 +60,6 @@ TabLayout tb;
         prfpc = findViewById(R.id.prfpc);
         imgcart = findViewById(R.id.imgcart);
         txtname = findViewById(R.id.txtname);
-        imgorder = findViewById(R.id.imgorder);
         imgmessage=findViewById(R.id.imgmessage);
         rotateOpen= AnimationUtils.loadAnimation(this,R.anim.rotate_open_anim);
         rotateClose= AnimationUtils.loadAnimation(this,R.anim.rotate_close_anim);
@@ -158,12 +157,7 @@ TabLayout tb;
                 startActivity(new Intent(Home.this, Navigation.class));
             }
         });
-        imgorder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Home.this, MyOrder.class));
-            }
-        });
+
         imgcart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

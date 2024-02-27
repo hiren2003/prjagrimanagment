@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.os.Bundle;
+import android.view.Window;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,6 +23,8 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_tools);
+        Window window = this.getWindow();
+        window.setStatusBarColor(this.getResources().getColor(R.color.white));
         rctools=findViewById(R.id.rctools);
         arrayList=new ArrayList<>();
         FirebaseDatabase.getInstance().getReference().child("Resell").child("Tools&Accessories").addValueEventListener(new ValueEventListener() {
@@ -40,5 +43,6 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
 
             }
         });
+
     }
 }

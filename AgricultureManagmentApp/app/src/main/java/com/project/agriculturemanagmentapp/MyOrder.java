@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Window;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
@@ -22,6 +23,8 @@ RcorderAdapter rcorderAdapter;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_order);
+    Window window = this.getWindow();
+    window.setStatusBarColor(this.getResources().getColor(R.color.white));
         RecyclerView rcprdt=findViewById(R.id.rccprdt);
         SharedPreferences sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
     FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo","1234567890")).child("Myorder").addValueEventListener(new ValueEventListener() {

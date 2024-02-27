@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".add_ecomm">
@@ -10,7 +11,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:backgroundTint="#135983"
+        android:backgroundTint="#FF056A4F"
         app:cardCornerRadius="20dp"
         android:layout_margin="10dp"
         android:elevation="50dp"
@@ -50,24 +51,24 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Choose Product catagory :"
+                android:text="Choose Product catagory "
                 android:textSize="22dp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/quicksandsemibold"/>
+
             <Spinner
                 android:id="@+id/category"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
-                android:minHeight="45dp"
                 android:layout_margin="10dp"
                 android:layout_marginTop="10dp"
-                android:backgroundTint="#C6DEEC"
-                android:padding="10dp"
-                android:fontFamily="@font/quicksandregular"
                 android:background="@drawable/border_green"
-                />
+                android:backgroundTint="@color/commonw"
+                android:fontFamily="@font/quicksandregular"
+                android:minHeight="45dp"
+                android:padding="10dp" />
         </LinearLayout>
         <TextView
             android:layout_width="wrap_content"
@@ -75,7 +76,7 @@
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
             android:fontFamily="@font/quicksandsemibold"
-            android:text="Product Name :"
+            android:text="Product Name "
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -87,7 +88,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/curvebackground"
-            android:backgroundTint="#C6DEEC"
+            android:backgroundTint="@color/commonw"
             android:fontFamily="@font/quicksandregular"
             android:textColor="@color/black"
             android:hint="@string/Name_of_product"
@@ -100,7 +101,7 @@
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
             android:fontFamily="@font/quicksandsemibold"
-            android:text="Price ( In INR ):"
+            android:text="Price ( In INR )"
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -112,7 +113,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/curvebackground"
-            android:backgroundTint="#C6DEEC"
+            android:backgroundTint="@color/commonw"
             android:fontFamily="@font/quicksandregular"
             android:textColor="@color/black"
             android:hint="Price"
@@ -124,7 +125,7 @@
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
             android:fontFamily="@font/quicksandsemibold"
-            android:text="CGST :"
+            android:text="CGST "
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -136,7 +137,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/curvebackground"
-            android:backgroundTint="#C6DEEC"
+            android:backgroundTint="@color/commonw"
             android:textColor="@color/black"
             android:hint="CGST"
             android:fontFamily="@font/quicksandregular"
@@ -150,7 +151,7 @@
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
             android:fontFamily="@font/quicksandsemibold"
-            android:text="SGST :"
+            android:text="SGST "
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -163,7 +164,7 @@
             android:layout_marginRight="10dp"
             android:fontFamily="@font/quicksandregular"
             android:background="@drawable/curvebackground"
-            android:backgroundTint="#C6DEEC"
+            android:backgroundTint="@color/commonw"
             android:textColor="@color/black"
             android:hint="SGST"
             android:paddingLeft="20dp"
@@ -176,7 +177,7 @@
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
             android:fontFamily="@font/quicksandsemibold"
-            android:text="Discount :"
+            android:text="Discount "
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -188,7 +189,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/curvebackground"
-            android:backgroundTint="#C6DEEC"
+            android:backgroundTint="@color/commonw"
             android:textColor="@color/black"
             android:fontFamily="@font/quicksandregular"
             android:hint="@string/Discount"
@@ -202,7 +203,7 @@
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
             android:fontFamily="@font/quicksandsemibold"
-            android:text="Product Description :"
+            android:text="Product Description "
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -214,7 +215,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/curvebackground"
-            android:backgroundTint="#C6DEEC"
+            android:backgroundTint="@color/commonw"
             android:fontFamily="@font/quicksandregular"
             android:textColor="@color/black"
             android:hint="@string/Product_Description"
@@ -227,7 +228,7 @@
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
             android:fontFamily="@font/quicksandsemibold"
-            android:text="Specification :"
+            android:text="Specification "
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -239,7 +240,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/curvebackground"
-            android:backgroundTint="#C6DEEC"
+            android:backgroundTint="@color/commonw"
             android:textColor="@color/black"
             android:hint="@string/Specification"
             android:fontFamily="@font/quicksandregular"
@@ -256,7 +257,7 @@
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
             android:fontFamily="@font/quicksandsemibold"
-            android:text="Recommandation :"
+            android:text="Recommandation "
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -268,7 +269,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/curvebackground"
-            android:backgroundTint="#C6DEEC"
+            android:backgroundTint="@color/commonw"
             android:textColor="@color/black"
             android:fontFamily="@font/quicksandregular"
             android:hint="@string/Recommandation"
@@ -288,7 +289,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/quicksandregular"
-            android:backgroundTint="#F1FBF9"
+            android:backgroundTint="#F1FBF4"
             android:background="@drawable/sendotp"
             android:text="@string/Choose_Image"
             />
@@ -308,10 +309,11 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:textColor="#FFFFFF"
+            android:textStyle="bold"
             android:background="@drawable/sendotp"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/quicksandregular"
-            android:backgroundTint="#135983"
+            android:backgroundTint="@color/common"
             android:text="@string/add_product"
             />
     </LinearLayout>

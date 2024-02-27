@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.os.Bundle;
+import android.view.Window;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
@@ -23,6 +24,8 @@ public class User_list extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_list);
+        Window window = this.getWindow();
+        window.setStatusBarColor(this.getResources().getColor(R.color.white));
         rcuser = findViewById(R.id.rcuser);
         FirebaseDatabase.getInstance().getReference().child("Users_List").addValueEventListener(new ValueEventListener() {
             @Override
@@ -32,7 +35,7 @@ public class User_list extends AppCompatActivity {
                     userModelArrayList.add(dataSnapshot.getValue(clsUserModel.class));
                 }
                 rcuserAdapter = new RcuserAdapter( getBaseContext(),userModelArrayList,true,false);
-                rcuser.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                rcuser.setLayoutManager(new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL));
                 rcuser.setAdapter(rcuserAdapter);
             }
 

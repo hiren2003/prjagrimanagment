@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/back_admin_2">
+    android:background="@color/ct">
     <RelativeLayout
         android:id="@+id/rvhome"
         android:layout_width="40dp"
@@ -14,11 +14,11 @@
         android:layout_marginTop="20dp"
         android:layout_marginStart="10dp"
         android:background="@drawable/shape_circle"
-        android:backgroundTint="@color/white">
+        android:backgroundTint="#F5F5F5">
     <ImageView
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:tint="#CBE54E"
+        android:tint="@color/ct"
         android:src="@drawable/home2"/>
     </RelativeLayout>
 <LinearLayout
@@ -26,7 +26,7 @@
     android:layout_height="wrap_content"
     android:layout_centerHorizontal="true"
     android:gravity="center"
-    android:layout_marginTop="20dp"
+    android:layout_marginTop="10dp"
     android:orientation="vertical">
     <TextView
         android:id="@+id/txtname"
@@ -35,9 +35,9 @@
         android:layout_height="wrap_content"
         android:text="Hiren Bhalani"
         android:textStyle="bold"
-        android:textSize="20dp"
+        android:textSize="25dp"
         android:layout_gravity="center_horizontal"
-        android:textColor="@color/black"
+        android:textColor="#FFFFFF"
         android:fontFamily="@font/quicksandregular"/>
     <TextView
         android:id="@+id/txtmo"
@@ -46,8 +46,8 @@
         android:layout_height="wrap_content"
         android:text="+91 7229005896"
         android:textStyle="bold"
-        android:textSize="15dp"
-        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textColor="#FFFFFF"
         android:fontFamily="@font/cambay_bold"/>
 </LinearLayout>
 
@@ -55,6 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
+        android:backgroundTint="@color/white"
         android:background="@drawable/back_admin">
 
 
@@ -67,156 +68,328 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:id="@+id/user"
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:gravity="center"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/drb_widget_back"
+                            android:padding="10dp">
 
-                    <RelativeLayout
-                        android:id="@+id/user"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:background="@drawable/drb_widget_back"
-                        android:padding="10dp">
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/user"
+                                app:tint="#09203F" />
 
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/user"
-                            app:tint="#09203F" />
-                    </RelativeLayout>
+                        </RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/User"
+                            android:textColor="#000"
+                            android:layout_gravity="center_horizontal"
+                            android:fontFamily="@font/quicksandsemibold"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:id="@+id/addnews"
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:gravity="center"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/drb_widget_back"
+                            android:padding="10dp">
 
-                    <RelativeLayout
-                        android:id="@+id/addgovscheme"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:background="@drawable/drb_widget_back"
-                        android:padding="10dp">
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/news2"
+                                app:tint="#09203F" />
 
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:foregroundTint="#09203F"
-                            android:src="@drawable/govern2"
-                            app:tint="#09203F" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/addnews"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_margin="10dp"
-                        android:background="@drawable/drb_widget_back"
-                        android:padding="10dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:foregroundTint="#09203F"
-                            android:src="@drawable/news2"
-                            app:tint="#09203F" />
-                    </RelativeLayout>
-                </RelativeLayout>
-
-                <RelativeLayout
+                        </RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/add_news"
+                            android:textColor="#000"
+                            android:layout_gravity="center_horizontal"
+                            android:fontFamily="@font/quicksandsemibold"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+                //scheme - order
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:id="@+id/addgovscheme"
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:gravity="center"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/drb_widget_back"
+                            android:padding="10dp">
 
-                    <RelativeLayout
-                        android:id="@+id/orderlist"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_margin="10dp"
-                        android:background="@drawable/drb_widget_back"
-                        android:padding="10dp">
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/govern2"
+                                app:tint="#09203F" />
 
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/truck"
-                            app:tint="#09203F" />
-                    </RelativeLayout>
+                        </RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/Add_Scheme"
+                            android:textColor="#000"
+                            android:layout_gravity="center_horizontal"
+                            android:fontFamily="@font/quicksandsemibold"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:id="@+id/orderlist"
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:gravity="center"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/drb_widget_back"
+                            android:padding="10dp">
 
-                    <RelativeLayout
-                        android:id="@+id/addprdt"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:background="@drawable/drb_widget_back"
-                        android:padding="10dp">
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/truck"
+                                app:tint="#09203F" />
 
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:foregroundTint="#09203F"
-                            android:src="@drawable/addorder"
-                            app:tint="#09203F" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/ecomprdt"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_margin="10dp"
-                        android:background="@drawable/drb_widget_back"
-                        android:padding="10dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:foregroundTint="#09203F"
-                            android:src="@drawable/store"
-                            app:tint="#09203F" />
-                    </RelativeLayout>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/cdanimal"
+                        </RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/My_Order"
+                            android:textColor="#000"
+                            android:layout_gravity="center_horizontal"
+                            android:fontFamily="@font/quicksandsemibold"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+                //store -add product
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:id="@+id/ecomprdt"
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:gravity="center"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/drb_widget_back"
+                            android:padding="10dp">
 
-                    <RelativeLayout
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_margin="10dp"
-                        android:background="@drawable/drb_widget_back"
-                        android:padding="10dp">
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/store"
+                                app:tint="#09203F" />
 
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:foregroundTint="#09203F"
-                            android:src="@drawable/resell2"
-                            app:tint="#09203F" />
-                    </RelativeLayout>
-                </RelativeLayout>
+                        </RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Store"
+                            android:textColor="#000"
+                            android:layout_gravity="center_horizontal"
+                            android:fontFamily="@font/quicksandsemibold"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:id="@+id/addprdt"
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:gravity="center"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/drb_widget_back"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/addorder"
+                                app:tint="#09203F" />
+
+                        </RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/add_product"
+                            android:textColor="#000"
+                            android:layout_gravity="center_horizontal"
+                            android:fontFamily="@font/quicksandsemibold"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:id="@+id/cdanimal"
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:gravity="center"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/drb_widget_back"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/resell2"
+                                app:tint="#09203F" />
+
+                        </RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/Resell_Items"
+                            android:textColor="#000"
+                            android:layout_gravity="center_horizontal"
+                            android:fontFamily="@font/quicksandsemibold"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:id="@+id/resell"
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:gravity="center"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/drb_widget_back"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/addorder"
+                                app:tint="#09203F" />
+
+                        </RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/My_Order"
+                            android:textColor="#000"
+                            android:layout_gravity="center_horizontal"
+                            android:fontFamily="@font/quicksandsemibold"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:elevation="15dp"
+                    android:backgroundTint="#f5f5f5"
                     app:cardCornerRadius="20dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+
                         android:orientation="vertical"
                         android:padding="5dp">
 
@@ -243,6 +416,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
+                    android:backgroundTint="#f5f5f5"
                     android:elevation="15dp"
                     app:cardCornerRadius="20dp">
 
@@ -357,6 +531,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:elevation="15dp"
+                    android:backgroundTint="#f5f5f5"
                     app:cardCornerRadius="20dp">
 
                     <LinearLayout
@@ -387,6 +562,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
+                    android:backgroundTint="#f5f5f5"
                     android:elevation="15dp"
                     app:cardCornerRadius="20dp">
 
@@ -502,6 +678,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
+                    android:backgroundTint="#f5f5f5"
                     android:elevation="15dp"
                     app:cardCornerRadius="20dp">
 
@@ -533,6 +710,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
+                    android:backgroundTint="#f5f5f5"
                     android:elevation="15dp"
                     app:cardCornerRadius="20dp">
 

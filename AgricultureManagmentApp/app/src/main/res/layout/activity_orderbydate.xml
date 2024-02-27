@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".orderbydate">
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +15,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:backgroundTint="#135983"
+        android:backgroundTint="@color/ct"
         app:cardCornerRadius="20dp"
         android:layout_margin="10dp"
         android:elevation="50dp"

@@ -22,7 +22,7 @@ ImageView imgprfpc,back;
 Button rvloout;
 TextView txtuname,txtumo,close;
 SharedPreferences sharedPreferences;
-RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvtc,rvnews,rvsave,profile;
+RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvtc,rvnews,rvsave,profile,imgorder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +43,7 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvtc,rvnews,rvsave,profile;
         rvtc=findViewById(R.id.rvtc);
         back=findViewById(R.id.back);
         rvsave=findViewById(R.id.rvsave);
+        imgorder=findViewById(R.id.imgorder);
         sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
         String mo=sharedPreferences.getString("mo","1234567890");
         if(mo.equals("7229005896")||mo.equals("9824945298")||mo.equals("9879295483")||mo.equals("9737063396")){
@@ -65,6 +66,13 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvtc,rvnews,rvsave,profile;
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Navigation.this,Language.class));
+                finish();
+            }
+        });
+        imgorder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Navigation.this,MyOrder.class));
                 finish();
             }
         });

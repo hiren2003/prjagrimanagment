@@ -25,5 +25,8 @@
         <item>@font/montserrat_bold</item>
         <item>@font/montserrat_medium</item>
         <item>@font/montserrat_subrayada_bold</item>
+        <item>@font/roboto</item>
+        <item>@font/roboto_bold</item>
+        <item>@font/roboto_medium</item>
     </array>
 </resources>

@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".news">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:backgroundTint="#135983"
+        android:backgroundTint="#FF056A4F"
         app:cardCornerRadius="20dp"
         android:layout_margin="10dp"
         android:elevation="50dp"
@@ -50,7 +51,7 @@
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/fltaddnews"
             android:layout_width="wrap_content"
-            android:backgroundTint="#135982"
+            android:backgroundTint="@color/common"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:textColor="@color/white"

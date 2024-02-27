@@ -10,7 +10,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:backgroundTint="#135983"
+        android:backgroundTint="#FF056A4F"
         app:cardCornerRadius="20dp"
         android:layout_margin="10dp"
         android:elevation="50dp"
@@ -19,7 +19,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_gravity="center_horizontal"
             android:orientation="horizontal">
             <ImageView
                 android:layout_width="60dp"
@@ -57,7 +57,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="50dp"
         android:src="@android:drawable/ic_input_add"
-        android:backgroundTint="#135982"
+        android:backgroundTint="@color/common"
         android:textSize="20dp"
         android:textColor="@color/white"
         android:text="@string/Add_Scheme" />

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.DatePicker;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -37,6 +38,8 @@ TextView txtdate,txtallorder,txtavgorder,txtallpayment,txtavgpayment;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orderbydate);
+        Window window = this.getWindow();
+        window.setStatusBarColor(this.getResources().getColor(R.color.white));
         recyclerView=findViewById(R.id.rccprdt);
         Calendar calendar = Calendar.getInstance();
         int month = calendar.get(Calendar.MONTH);

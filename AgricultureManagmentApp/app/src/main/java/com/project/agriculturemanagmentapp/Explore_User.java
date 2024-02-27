@@ -36,7 +36,7 @@ public class Explore_User extends AppCompatActivity {
                     userModelArrayList.add(dataSnapshot.getValue(clsUserModel.class));
                 }
                 rcuserAdapter = new RcuserAdapter( getBaseContext(),userModelArrayList,false,false);
-                rcuser.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                rcuser.setLayoutManager(new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL));
                 rcuser.setAdapter(rcuserAdapter);
             }
 

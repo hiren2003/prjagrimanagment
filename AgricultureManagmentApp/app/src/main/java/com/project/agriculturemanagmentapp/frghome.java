@@ -185,7 +185,7 @@ public class frghome extends Fragment {
                     txttempcity.setText(city);
                     txtdes.setText(des);
                     String img = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
-                    Glide.with(context)
+                    Glide.with(getContext())
                             .load(img)
                             .into(imageview);
 

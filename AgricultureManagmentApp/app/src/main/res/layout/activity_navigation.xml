@@ -237,7 +237,7 @@
                     android:gravity="center_vertical"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="15dp"
-                    android:src="@drawable/tracking" />
+                    android:src="@drawable/order" />
 
                 <TextView
                     android:layout_width="wrap_content"

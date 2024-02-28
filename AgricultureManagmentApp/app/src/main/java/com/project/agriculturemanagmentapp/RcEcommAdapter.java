@@ -66,29 +66,66 @@ public class RcEcommAdapter extends RecyclerView.Adapter<RcEcommAdapter.ViewHold
         holder.cd.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                if(btn==4){
-                    Dialog dg=new Dialog(context);
-                    dg.setContentView(R.layout.lyt_delete_dg);
-                    dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
-                    AppCompatButton yes = dg.findViewById(R.id.yes);
-                    ImageView no = dg.findViewById(R.id.no);
-                    dg.show();
-                    no.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dg.dismiss();
-                        }
-                    });
-                    yes.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dg.dismiss();
-                            FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").child(ecommModelArrayList.get(position).getKey()).removeValue();
-                            FirebaseStorage.getInstance().getReference().child("Ecommerce").child(ecommModelArrayList.get(position).getKey()).delete();
-                            FirebaseStorage.getInstance().getReference().child("Ecommerce").child(ecommModelArrayList.get(position).getKey()).delete();
-                        }
-                    });
+                Dialog dgop = new Dialog(context);
+                dgop.setContentView(R.layout.lyt_edit_option_sheet);
+                dgop.getWindow().setBackgroundDrawableResource(R.drawable.drb_round_edges);
+                LinearLayout btnupdate = dgop.findViewById(R.id.lnupdate);
+                LinearLayout btndelete = dgop.findViewById(R.id.lndelete);
+                if (btn==4) {
+                    dgop.show();
                 }
+               btndelete.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       Dialog dg=new Dialog(context);
+                       dg.setContentView(R.layout.lyt_delete_dg);
+                       dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
+                       AppCompatButton yes = dg.findViewById(R.id.yes);
+                       ImageView no = dg.findViewById(R.id.no);
+                       dg.show();
+                       no.setOnClickListener(new View.OnClickListener() {
+                           @Override
+                           public void onClick(View v) {
+                               dg.dismiss();
+                           }
+                       });
+                       yes.setOnClickListener(new View.OnClickListener() {
+                           @Override
+                           public void onClick(View v) {
+                               dg.dismiss();
+                               dgop.dismiss();
+                               FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").child(ecommModelArrayList.get(position).getKey()).removeValue();
+                               FirebaseStorage.getInstance().getReference().child("Ecommerce").child(ecommModelArrayList.get(position).getKey()).delete();
+                               FirebaseDatabase.getInstance().getReference("/User/"+context.getSharedPreferences("data",Context.MODE_PRIVATE).getString("mo","").toString()+"/Cart").addValueEventListener(new ValueEventListener() {
+                                   @Override
+                                   public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                       for (DataSnapshot datasnapshot:
+                                               snapshot.getChildren()) {
+                                           if (datasnapshot.getKey().toString().trim().equals(ecommModelArrayList.get(position).getKey().toString())){
+                                               FirebaseDatabase.getInstance().getReference("/User/"+context.getSharedPreferences("data",Context.MODE_PRIVATE).getString("mo","").toString()+"/Cart/"+datasnapshot.getKey().toString().trim()).removeValue();                                        }
+                                       }
+                                   }
+
+                                   @Override
+                                   public void onCancelled(@NonNull DatabaseError error) {
+
+                                   }
+                               });
+                           }
+                       });
+                   }
+               });
+                btnupdate.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dgop.dismiss();
+                        Intent intent=new Intent(context, add_ecomm.class);
+                        intent.putExtra("IsEdit",true);
+                        intent.putExtra("key",ecommModelArrayList.get(position).getKey());
+                        context.startActivity(intent);
+                    }
+                });
+
                 return false;
             }
         });

@@ -49,7 +49,7 @@ public class RcuserAdapter extends RecyclerView.Adapter<RcuserAdapter.ViewHolder
                 .load(userModelArrayList.get(position).getUrl())
                 .circleCrop()
                 .into(holder.imgprdt);
-        holder.imgprdt.setOnClickListener(new View.OnClickListener() {
+        holder.cd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (gotoChat){
@@ -100,7 +100,7 @@ public class RcuserAdapter extends RecyclerView.Adapter<RcuserAdapter.ViewHolder
             txtpname = itemView.findViewById(R.id.txtname);
            // txtprice = itemView.findViewById(R.id.txtprice);
             imgprdt = itemView.findViewById(R.id.imgprfpc);
-            //cd = itemView.findViewById(R.id.cdlyt);
+            cd = itemView.findViewById(R.id.cdlyt);
         }
     }
 }

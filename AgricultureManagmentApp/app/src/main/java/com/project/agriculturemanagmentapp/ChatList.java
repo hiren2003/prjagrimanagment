@@ -51,7 +51,7 @@ public class ChatList extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             userModelArrayList.add(snapshot.getValue(clsUserModel.class));
                             rcuserAdapter = new RcuserAdapter( getBaseContext(),userModelArrayList,false,true);
-                            rcchatlist.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                            rcchatlist.setLayoutManager(new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL));
                             rcchatlist.setAdapter(rcuserAdapter);
                         }
 
@@ -89,7 +89,7 @@ public class ChatList extends AppCompatActivity {
                 }
                 else{
                     rcuserAdapter = new RcuserAdapter( getBaseContext(),filteredlist,false,true);
-                    rcchatlist.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                    rcchatlist.setLayoutManager(new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL));
                     rcchatlist.setAdapter(rcuserAdapter);                }
                 return false;
             }

@@ -67,7 +67,7 @@ public class Explore_User extends AppCompatActivity {
                 }
                 else{
                     rcuserAdapter = new RcuserAdapter( getBaseContext(),filteredlist,false,false);
-                    rcuser.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                    rcuser.setLayoutManager(new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL));
                     rcuser.setAdapter(rcuserAdapter);                }
                 return false;
             }

@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +45,7 @@ public class show_ecom_prdt extends AppCompatActivity implements PaymentResultWi
     TextInputEditText edtqty;
     int btn = 0;
     DatabaseReference reference;
+    LinearLayout ll,ll2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,28 +69,34 @@ public class show_ecom_prdt extends AppCompatActivity implements PaymentResultWi
         txtsgst=findViewById(R.id.txtsgst);
         txtdiscount=findViewById(R.id.txtdiscount);
         btncancelorder = findViewById(R.id.btncancelorder);
+        ll=findViewById(R.id.ll);
+        ll2=findViewById(R.id.ll2);
         Intent intent = getIntent();
         key = intent.getStringExtra("key");
         btn = intent.getIntExtra("btn", 0);
         if (btn == 1) {
             btncart.setVisibility(View.VISIBLE);
+            ll.setVisibility(View.VISIBLE);
         } else if (btn == 2) {
             btnorder.setVisibility(View.VISIBLE);
             edtqty.setVisibility(View.VISIBLE);
             txtqty2.setVisibility(View.VISIBLE);
             btnrmcart.setVisibility(View.VISIBLE);
+            ll2.setVisibility(View.VISIBLE);
         } else if (btn == 3) {
             btncancelorder.setVisibility(View.VISIBLE);
             edtqty.setInputType(InputType.TYPE_NULL);
             edtqty.setVisibility(View.VISIBLE);
+            ll2.setVisibility(View.VISIBLE);
             txtqty2.setVisibility(View.VISIBLE);
         }
+        System.out.println("----------------------------"+key);
         reference = FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").child(key);
-        System.out.println("---------------------------------------"+key);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 model = snapshot.getValue(clsEcommModel.class);
+                System.out.println("----------------------------"+key);
                 Glide.with(getApplicationContext())
                         .load(model.getImg())
                         .into(imageView);
@@ -115,7 +123,7 @@ public class show_ecom_prdt extends AppCompatActivity implements PaymentResultWi
             public void onClick(View v) {
                 model.qty = edtqty.getText().toString();
                 SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
-                FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Cart").child(model.getKey()).setValue(model);
+                FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Cart").child(model.getKey()).setValue(model.getKey());
                 show_toast(getResources().getString(R.string.Added_cart),true);
                 finish();
             }

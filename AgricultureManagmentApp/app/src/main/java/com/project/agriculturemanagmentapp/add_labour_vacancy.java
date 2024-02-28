@@ -32,6 +32,7 @@ public class add_labour_vacancy extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_labour_vacancy);
+
         btnsavedetail = findViewById(R.id.btnsavevdetail);
         edtoname = findViewById(R.id.edtoname);
         edtmo = findViewById(R.id.edtmo);
@@ -46,7 +47,7 @@ public class add_labour_vacancy extends AppCompatActivity {
         rdbfixwages = findViewById(R.id.rdbfixwages);
         rdbprtsp = findViewById(R.id.rdbprtsp);
         Window window = this.getWindow();
-        window.setStatusBarColor(this.getResources().getColor(R.color.loginback));
+        window.setStatusBarColor(this.getResources().getColor(R.color.white));
         SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
         btnsavedetail.setOnClickListener(new View.OnClickListener() {
             @Override

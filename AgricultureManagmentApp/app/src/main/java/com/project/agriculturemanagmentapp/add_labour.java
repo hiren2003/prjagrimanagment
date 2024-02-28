@@ -11,6 +11,7 @@ import android.telephony.SmsManager;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -42,6 +43,8 @@ public class add_labour extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_labour);
+        Window window = this.getWindow();
+        window.setStatusBarColor(this.getResources().getColor(R.color.white));
         setLanguage();
         edtlname = findViewById(R.id.edtlname);
         edtlmo = findViewById(R.id.edtlmo);

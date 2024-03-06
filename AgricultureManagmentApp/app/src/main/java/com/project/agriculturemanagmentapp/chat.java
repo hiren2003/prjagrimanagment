@@ -36,6 +36,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -170,8 +171,8 @@ public class chat extends AppCompatActivity {
                                     prgbar.setVisibility(View.GONE);
                                     send.setVisibility(View.VISIBLE);
                                     edtmsg.setText("");
-                                    FirebaseDatabase.getInstance().getReference().child("User").child(rmo.toString()).child("RecentChats").child(key).setValue(smo.toString());
-                                    FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("RecentChats").child(key).setValue(rmo.toString());
+                                    FirebaseDatabase.getInstance().getReference().child("User").child(rmo.toString()).child("RecentChats").child(Instant.now().getEpochSecond()+"").setValue(smo.toString());
+                                    FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("RecentChats").child(Instant.now().getEpochSecond()+"").setValue(rmo.toString());
                                 }
                             });
                         }
@@ -197,8 +198,8 @@ public class chat extends AppCompatActivity {
                                                     send.setVisibility(View.VISIBLE);
                                                     edtmsg.setText("");
                                                     uri=null;
-                                                    FirebaseDatabase.getInstance().getReference().child("User").child(rmo.toString()).child("RecentChats").child(key).setValue(smo.toString());
-                                                    FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("RecentChats").child(key).setValue(rmo.toString());
+                                                    FirebaseDatabase.getInstance().getReference().child("User").child(rmo.toString()).child("RecentChats").child(Instant.now().getEpochSecond()+"").setValue(smo.toString());
+                                                    FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("RecentChats").child(Instant.now().getEpochSecond()+"").setValue(rmo.toString());
                                                 }
                                             });
                                         }

@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".E_commrce">
-
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchvacancy"
+        android:layout_width="match_parent"
+        android:minHeight="50dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/searchviewback"
+        android:layout_margin="10dp"
+        android:visibility="gone"
+        android:fontFamily="@font/quicksandregular"
+        />
     <Spinner
         android:id="@+id/category"
         android:layout_width="match_parent"
@@ -13,6 +23,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
+        android:visibility="gone"
         android:background="@drawable/border_green"
         android:fontFamily="@font/quicksandregular"
         android:minHeight="30dp"
@@ -29,17 +40,17 @@
         android:layout_below="@id/category"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp" />
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addecomm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:visibility="gone"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="120dp"
         android:src="@android:drawable/ic_input_add"
-        android:text="@string/Add_Scheme" />
-</RelativeLayout>
+       />
+</LinearLayout>

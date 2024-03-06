@@ -266,7 +266,7 @@ public class add_animal extends AppCompatActivity {
         TextView txtmessage = view.findViewById(R.id.txtmsg);
         txtmessage.setText(msg);
         ts.setView(view);
-        ts.setGravity(Gravity.TOP, 0, 30);
+        ts.setGravity(Gravity.BOTTOM,0,0);
         ts.setDuration(Toast.LENGTH_SHORT);
         ts.show();
     }

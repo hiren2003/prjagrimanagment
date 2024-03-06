@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/layfeedback"
+    android:backgroundTint="#F5F5F5">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#F5F5F5"
+        android:src="@drawable/baseline_horizontal_rule_24" />
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchvacancy"
+        android:layout_width="match_parent"
+        android:minHeight="50dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/searchviewback"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/quicksandregular"
+        />
+    <Spinner
+        android:id="@+id/category"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/border_green"
+        android:fontFamily="@font/quicksandregular"
+        android:minHeight="30dp"
+        android:padding="5dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/quicksandsemibold"
+        android:text="@string/Price_range"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/from"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/curvebackground"
+        android:backgroundTint="@color/commonw"
+        android:fontFamily="@font/quicksandregular"
+        android:textColor="@color/black"
+        android:hint="@string/From"
+        android:paddingLeft="20dp"
+        android:layout_weight="1"
+        />
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/to"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/curvebackground"
+        android:backgroundTint="@color/commonw"
+        android:fontFamily="@font/quicksandregular"
+        android:textColor="@color/black"
+        android:hint="@string/To"
+        android:paddingLeft="20dp"
+        android:layout_weight="1"
+       />
+
+</LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnapply"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:text="@string/Apply"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:fontFamily="@font/quicksandsemibold"
+        android:background="@drawable/curvebackground"
+        android:textColor="#ffffff"
+        android:backgroundTint="@color/Dark_green"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnclear"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:text="@string/Clear_All"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:fontFamily="@font/quicksandsemibold"
+        android:background="@drawable/curvebackground"
+        android:textColor="#ffffff"
+        android:backgroundTint="@color/Dark_green"
+        />
+</LinearLayout>
+</RelativeLayout>

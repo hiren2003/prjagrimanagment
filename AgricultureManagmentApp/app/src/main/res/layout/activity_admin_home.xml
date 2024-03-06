@@ -306,7 +306,7 @@
                     android:orientation="horizontal">
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical">
                         <RelativeLayout
@@ -333,6 +333,41 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/Resell_Items"
+                            android:textColor="#000"
+                            android:layout_gravity="center_horizontal"
+                            android:fontFamily="@font/quicksandsemibold"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:id="@+id/cdadmin"
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:gravity="center"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/drb_widget_back"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/administrator"
+                                app:tint="#09203F" />
+
+                        </RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/admin"
                             android:textColor="#000"
                             android:layout_gravity="center_horizontal"
                             android:fontFamily="@font/quicksandsemibold"

@@ -14,8 +14,11 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".add_admin"
+            android:exported="false" />
+        <activity
             android:name=".Payment"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".Statistic_Order"
             android:exported="false" />
@@ -243,6 +246,8 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <uses-permission android:name="android.permission.SEND_SMS" />
 

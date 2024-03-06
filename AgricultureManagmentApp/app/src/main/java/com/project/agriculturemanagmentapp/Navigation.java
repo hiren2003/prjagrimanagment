@@ -1,5 +1,6 @@
 package com.project.agriculturemanagmentapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,6 +17,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Navigation extends AppCompatActivity {
 ImageView imgprfpc,back;
@@ -46,9 +54,24 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvtc,rvnews,rvsave,profile,img
         imgorder=findViewById(R.id.imgorder);
         sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
         String mo=sharedPreferences.getString("mo","1234567890");
-        if(mo.equals("7229005896")||mo.equals("9824945298")||mo.equals("9879295483")||mo.equals("9737063396")){
-            rvnews.setVisibility(View.VISIBLE);
-        }
+        FirebaseDatabase.getInstance().getReference("/Admin").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Map<String,String> map=new HashMap<>();
+                for (DataSnapshot datasnapshot:
+                        snapshot.getChildren()) {
+                    map.put(datasnapshot.getKey().toString(),datasnapshot.getValue().toString());
+                    if (datasnapshot.getKey().toString().equals(sharedPreferences.getString("mo",""))){
+                        rvnews.setVisibility(View.VISIBLE);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         Glide.with(this)
                 .load(sharedPreferences.getString("url","null"))
                 .circleCrop()

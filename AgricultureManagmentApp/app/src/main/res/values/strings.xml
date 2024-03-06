@@ -232,6 +232,11 @@
     <string name="My_Network">My Network</string>
     <string name="Explore_Network">Explore Network</string>
     <string name="Search_here">Search Here</string>
+    <string name="Price_range">Price range</string>
+    <string name="From">From</string>
+    <string name="To">To</string>
+    <string name="Apply">Apply</string>
+    <string name="Clear_All">Clear All</string>
     <string-array name="toolstype">
         <item>Tools</item>
         <item>Accessories</item>

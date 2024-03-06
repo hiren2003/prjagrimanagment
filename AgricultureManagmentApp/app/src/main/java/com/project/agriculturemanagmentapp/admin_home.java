@@ -42,7 +42,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class admin_home extends AppCompatActivity {
-    RelativeLayout cduser, cdnews, cdgov, cdorder, cdaddprdt,eshop,cdanimal,rvhome;
+    RelativeLayout cduser, cdnews, cdgov, cdorder, cdaddprdt,eshop,cdanimal,rvhome,cdadmin;
     int TotalOrder=0,TotalDays,ModeCode=0,ModeOnline=0;
     float TotalAmount=0;
     PieChart pie_paymentmode,pie_feedtype,pie_statewise,pie_resellsplit;
@@ -65,6 +65,7 @@ public class admin_home extends AppCompatActivity {
         cdaddprdt = findViewById(R.id.addprdt);
         eshop = findViewById(R.id.ecomprdt);
         rvhome=findViewById(R.id.rvhome);
+        cdadmin=findViewById(R.id.cdadmin);
         pie_statewise=findViewById(R.id.pie_statewise);
         bar_monthwisefeed=findViewById(R.id.bar_monthwisefeed);
         pie_paymentmode=findViewById(R.id.pie_paymentmode);
@@ -77,6 +78,7 @@ public class admin_home extends AppCompatActivity {
         txtttlfeed=findViewById(R.id.txtttlfeed);
         txtavgposts=findViewById(R.id.txtavdpost);
         txtttlcmt=findViewById(R.id.txtttlcmt);
+        cdadmin=findViewById(R.id.cdadmin);
         txtttllike=findViewById(R.id.txtttllikes);
         Bar_monthlyorder=findViewById(R.id.Bar_monthlyorder);
         pie_feedtype=findViewById(R.id.pie_feedtype);
@@ -115,6 +117,12 @@ public class admin_home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(admin_home.this, admin_resell_category.class));
+            }
+        });
+        cdadmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(admin_home.this, add_admin.class));
             }
         });
         eshop.setOnClickListener(new View.OnClickListener() {

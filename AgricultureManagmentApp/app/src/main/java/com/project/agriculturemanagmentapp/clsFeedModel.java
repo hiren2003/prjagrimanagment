@@ -1,7 +1,7 @@
 package com.project.agriculturemanagmentapp;
 
 public class clsFeedModel {
-    String date, post, des, key, key2, mediatype,umo;
+    String date, post, des, key, key2, mediatype,umo,uri2,uri3;
 
     public String getMediatype() {
         return mediatype;
@@ -19,6 +19,18 @@ public class clsFeedModel {
         this.key2 = key2;
         this.mediatype = mediatype;
         this.umo = umo;
+    }
+
+    public clsFeedModel(String date, String post, String des, String key, String key2, String mediatype, String umo, String uri2, String uri3) {
+        this.date = date;
+        this.post = post;
+        this.des = des;
+        this.key = key;
+        this.key2 = key2;
+        this.mediatype = mediatype;
+        this.umo = umo;
+        this.uri2 = uri2;
+        this.uri3 = uri3;
     }
 
     public String getKey() {

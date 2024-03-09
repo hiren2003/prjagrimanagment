@@ -87,7 +87,7 @@ public class animals extends Fragment {
                     reversedlist.add(arrayList.get(i));
                 }
                 rcanimal.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-                rcAnimalAdapter=new RcAnimalAdapter(getContext(),false,reversedlist);
+                rcAnimalAdapter=new RcAnimalAdapter(getContext(),false,false,reversedlist);
                 rcanimal.setAdapter(rcAnimalAdapter);
             }
 

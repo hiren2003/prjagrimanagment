@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.telephony.SmsManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,14 +41,16 @@ import androidx.recyclerview.widget.RecyclerView;
 public class RcAnimalAdapter extends RecyclerView.Adapter<RcAnimalAdapter.ViewHolder> {
 
     Context context;
-    boolean isMyproduct;
+    boolean isMyproduct,isAdmin;
     ArrayList<clsAnimalModel> clsAnimalModels;
 
-    public RcAnimalAdapter(Context context, boolean isMyproduct, ArrayList<clsAnimalModel> clsAnimalModels) {
+    public RcAnimalAdapter(Context context, boolean isMyproduct, boolean isAdmin, ArrayList<clsAnimalModel> clsAnimalModels) {
         this.context = context;
         this.isMyproduct = isMyproduct;
+        this.isAdmin = isAdmin;
         this.clsAnimalModels = clsAnimalModels;
     }
+
     @NonNull
     @Override
     public RcAnimalAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -73,6 +76,30 @@ public class RcAnimalAdapter extends RecyclerView.Adapter<RcAnimalAdapter.ViewHo
                 if (isMyproduct) {
                     dgop.show();
                 }
+                if (isAdmin){
+                    Dialog dg = new Dialog(context);
+                    dg.setContentView(R.layout.lyt_delete_dg);
+                    dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
+                    AppCompatButton yes = dg.findViewById(R.id.yes);
+                    ImageView no = dg.findViewById(R.id.no);
+                    dg.show();
+                    no.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dg.dismiss();
+                        }
+                    });
+                    yes.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            FirebaseDatabase.getInstance().getReference().child("Resell").child("animals").child(model.getKey()).removeValue();
+                            FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("animal").child(model.getKey()).removeValue();
+                            SmsManager smsManager=SmsManager.getDefault();
+                            smsManager.sendTextMessage("+91" +clsAnimalModels.get(position).getMo(),null,"Your Animal "+clsAnimalModels.get(position).getType()+" ("+clsAnimalModels.get(position).getKey()+") is Deleted By Admin.",null,null);                            dg.dismiss();
+
+                        }
+                    });
+                }
                 btndelete.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -94,9 +121,7 @@ public class RcAnimalAdapter extends RecyclerView.Adapter<RcAnimalAdapter.ViewHo
                             public void onClick(View v) {
                                 FirebaseDatabase.getInstance().getReference().child("Resell").child("animals").child(model.getKey()).removeValue();
                                 FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("animal").child(model.getKey()).removeValue();
-                                FirebaseStorage.getInstance().getReference().child("animals").child(model.getKey()).delete();
                                 dg.dismiss();
-
                             }
                         });
                     }

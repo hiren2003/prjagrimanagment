@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.telephony.SmsManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,12 +41,13 @@ import static androidx.activity.result.ActivityResultCallerKt.registerForActivit
 
 public class RcCultivatonPrdtAdpter extends RecyclerView.Adapter<RcCultivatonPrdtAdpter.ViewHolder> {
     Context context;
-    boolean isMyproduct;
+    boolean isMyproduct,isAdmin;
     ArrayList<ClsCultivationProductModel> clsCultivationProductModelArrayList;
 
-    public RcCultivatonPrdtAdpter(Context context, boolean isMyproduct, ArrayList<ClsCultivationProductModel> clsCultivationProductModelArrayList) {
+    public RcCultivatonPrdtAdpter(Context context, boolean isMyproduct, boolean isAdmin, ArrayList<ClsCultivationProductModel> clsCultivationProductModelArrayList) {
         this.context = context;
         this.isMyproduct = isMyproduct;
+        this.isAdmin = isAdmin;
         this.clsCultivationProductModelArrayList = clsCultivationProductModelArrayList;
     }
 
@@ -66,6 +68,34 @@ public class RcCultivatonPrdtAdpter extends RecyclerView.Adapter<RcCultivatonPrd
                 LinearLayout btndelete = dgop.findViewById(R.id.lndelete);
                 if (isMyproduct){
                     dgop.show();
+                }
+                if (isAdmin){
+                    Dialog dg=new Dialog(context);
+                    dg.setContentView(R.layout.lyt_delete_dg);
+                    dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
+                    AppCompatButton yes = dg.findViewById(R.id.yes);
+                    ImageView no = dg.findViewById(R.id.no);
+                    dg.show();
+                    // Do Not Delete
+                    no.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dg.dismiss();
+                        }
+                    });
+                    //Delete the Post
+                    yes.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            SmsManager smsManager=SmsManager.getDefault();
+                            smsManager.sendTextMessage("+91" +clsCultivationProductModelArrayList.get(position).getMo(),null,"Your Product "+clsCultivationProductModelArrayList.get(position).getCategory()+" ("+clsCultivationProductModelArrayList.get(position).getKey()+") is Deleted By Admin.",null,null);
+                            dg.dismiss();
+                            FirebaseDatabase.getInstance().getReference().child("Resell").child("Cultivation Product").child(clsCultivationProductModelArrayList.get(position).getKey()).removeValue();
+                            FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("Cultivatio_Product").child(clsCultivationProductModelArrayList.get(position).getKey()).removeValue();
+                            dg.dismiss();
+
+                        }
+                    });
                 }
                 // Show Dialog for delete
                 btndelete.setOnClickListener(new View.OnClickListener() {
@@ -91,7 +121,6 @@ public class RcCultivatonPrdtAdpter extends RecyclerView.Adapter<RcCultivatonPrd
                             public void onClick(View v) {
                                 FirebaseDatabase.getInstance().getReference().child("Resell").child("Cultivation Product").child(clsCultivationProductModelArrayList.get(position).getKey()).removeValue();
                                 FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("Cultivatio_Product").child(clsCultivationProductModelArrayList.get(position).getKey()).removeValue();
-                                FirebaseStorage.getInstance().getReference().child("cultivationprd").child(clsCultivationProductModelArrayList.get(position).getKey()).delete();
                                 dg.dismiss();
 
                             }

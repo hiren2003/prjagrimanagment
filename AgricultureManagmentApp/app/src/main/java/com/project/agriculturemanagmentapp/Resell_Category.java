@@ -37,7 +37,6 @@ CardView cdanimal,cdagrprdt,cdta;
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Resell_Category.this,add_tools_accesories.class));
-                finish();
             }
         });
     }

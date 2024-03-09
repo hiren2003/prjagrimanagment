@@ -33,7 +33,7 @@ RcCultivatonPrdtAdpter rcCultivatonPrdtAdpter;
                      snapshot.getChildren()) {
                     clsCultivationProductModelArrayList.add(datasnapshot.getValue(ClsCultivationProductModel.class));
                 }
-                rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(admin_cultivation.this,true,clsCultivationProductModelArrayList);
+                rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(admin_cultivation.this,false,true,clsCultivationProductModelArrayList);
                 rccprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
                 rccprdt.setAdapter(rcCultivatonPrdtAdpter);
             }

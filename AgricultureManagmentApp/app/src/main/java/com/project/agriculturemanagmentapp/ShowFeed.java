@@ -168,9 +168,9 @@ public class ShowFeed extends Fragment {
                          loty1.setVisibility(View.GONE);
                             loty3.setVisibility(View.GONE);
                         }
-                        rcFeedAdapter =new RcFeedAdapter(getContext(),false,FollowingfeedModelArrayList);
+                        rcFeedAdapter =new RcFeedAdapter(getContext(),false,false,FollowingfeedModelArrayList);
                         recyclerView.setAdapter(rcFeedAdapter);
-                        rcFeedAdapter2 =new RcFeedAdapter(getContext(),false,OtherfeedModelArrayList);
+                        rcFeedAdapter2 =new RcFeedAdapter(getContext(),false,false,OtherfeedModelArrayList);
                         rcviewotherfeed.setAdapter(rcFeedAdapter2);
                     }
                     @Override

@@ -35,7 +35,7 @@ ArrayList<clsAnimalModel> arrayList;
                     arrayList.add(dataSnapshot.getValue(clsAnimalModel.class));
                 }
                 rcanimal.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-                rcAnimalAdapter=new RcAnimalAdapter(admin_animal.this,true,arrayList);
+                rcAnimalAdapter=new RcAnimalAdapter(admin_animal.this,false,true,arrayList);
                 rcanimal.setAdapter(rcAnimalAdapter);
             }
 

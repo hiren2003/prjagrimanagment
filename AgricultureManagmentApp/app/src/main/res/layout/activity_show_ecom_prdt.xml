@@ -38,7 +38,7 @@
         android:background="@color/white">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
 
             android:orientation="vertical">
 
@@ -301,9 +301,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/choose_category"
-                app:boxBackgroundColor="#D5D5D5"
+                app:boxBackgroundColor="#F6F6F6"
                 app:boxCornerRadiusBottomEnd="10sp"
-                android:layout_margin="10dp"
+                android:layout_margin="20dp"
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"

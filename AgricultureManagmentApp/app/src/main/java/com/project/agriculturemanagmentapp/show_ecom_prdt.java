@@ -11,6 +11,7 @@ import android.text.InputType;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -36,7 +37,7 @@ import java.util.Calendar;
 
 public class show_ecom_prdt extends AppCompatActivity implements PaymentResultWithDataListener {
     String key;
-    ImageView imageView;
+    ImageView imageView,down;
     TextView txtpname, txtprice, txtspec, txtdes, txtrecom,txtkey,txtsgst,txtcgst,txtdiscount;
     ImageButton  btncancelorder,rmprdt;
     Button btncart,gocart ,btnrmcart, btnorder ;
@@ -51,12 +52,15 @@ public class show_ecom_prdt extends AppCompatActivity implements PaymentResultWi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_ecom_prdt);
+        Window window = this.getWindow();
+        window.setStatusBarColor(this.getResources().getColor(R.color.white));
         imageView = findViewById(R.id.imgprdt);
         txtpname = findViewById(R.id.txtpname);
         txtprice = findViewById(R.id.txtprice);
         txtspec = findViewById(R.id.txtspec);
         txtdes = findViewById(R.id.txtdec);
         btncart = findViewById(R.id.btncart);
+        down = findViewById(R.id.back);
         gocart = findViewById(R.id.gocart);
         edtqty = findViewById(R.id.edtqty2);
         txtrecom = findViewById(R.id.txtrecom);
@@ -132,6 +136,12 @@ public class show_ecom_prdt extends AppCompatActivity implements PaymentResultWi
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(show_ecom_prdt.this,Cart.class));
+                finish();
+            }
+        });
+        down.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 finish();
             }
         });

@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".Other_vacancy">
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchvacancy"
@@ -24,6 +25,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcothervacancy"
         android:layout_width="match_parent"
+        android:layout_margin="10dp"
         android:layout_height="match_parent"
         />
     <com.airbnb.lottie.LottieAnimationView

@@ -21,6 +21,7 @@ import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
+import android.view.Window;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -49,7 +50,7 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class ConfirmOrder extends AppCompatActivity implements PaymentResultWithDataListener {
 TextView txtpname,txtprc,txtqty,txtdes,txtcname,txtcmo,txtcadd,txtamount,txtcgst,txtsgst,txtshpgcharges,txtdis,txtpayableamt,txtoid,txtpmod,txtpstatus,txtpid;
-ImageView imgprdt,imgedit;
+ImageView imgprdt,imgedit,down;
 RadioButton rbcod,rbonline;
 AppCompatButton btnconfirm;
 SharedPreferences sharedPreferences;
@@ -66,11 +67,14 @@ String date;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_order);
+        Window window = this.getWindow();
+        window.setStatusBarColor(this.getResources().getColor(R.color.white));
         txtpname=findViewById(R.id.txtpname);
         txtprc=findViewById(R.id.txtprc);
         txtqty=findViewById(R.id.txtqty);
         txtdes=findViewById(R.id.txtdes);
         txtcname=findViewById(R.id.txtcname);
+        down= findViewById(R.id.back);
         txtcmo=findViewById(R.id.txtcmo);
         txtcadd=findViewById(R.id.txtcadd);
         txtamount=findViewById(R.id.txtamount);
@@ -187,6 +191,12 @@ String date;
             });
 
         }
+        down.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         cdprdt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

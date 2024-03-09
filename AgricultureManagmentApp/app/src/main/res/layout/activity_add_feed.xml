@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#f4f4f4"
+    android:background="#FFFFFF"
     android:padding="20dp">
 
    <androidx.core.widget.NestedScrollView
@@ -24,7 +24,7 @@
                android:fontFamily="@font/quicksandbold"
                android:text="@string/Add_Post"
                android:textAlignment="textStart"
-               android:textColor="#066006"
+               android:textColor="#056A4F"
                android:textSize="30dp"
                android:textStyle="bold" />
            <FrameLayout
@@ -46,31 +46,31 @@
                android:outlineSpotShadowColor="#5F8E18"
                android:src="@drawable/add" />
 
-           <com.google.android.material.textfield.TextInputLayout
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="35dp"
+               android:layout_marginLeft="20dp"
+               android:textStyle="bold"
+               android:fontFamily="@font/quicksandsemibold"
+               android:text="@string/Description"
+               android:layout_marginTop="5dp"
+               android:textColor="@color/black"
+               android:textSize="20dp" />
+           <com.google.android.material.textfield.TextInputEditText
+               android:id="@+id/edtdes"
                android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:hint="@string/Description"
-               app:startIconDrawable="@drawable/baseline_description_24"
-               app:startIconTint="#066006"
-               android:layout_margin="10dp"
-               style="@style/choose_category"
+               android:layout_height="55dp"
+               android:layout_marginLeft="15dp"
+               android:layout_marginRight="15dp"
+               android:background="@drawable/curvebackground"
+               android:backgroundTint="#F5F5F5"
                android:layout_marginTop="10dp"
-               android:layout_marginBottom="10dp"
-               app:boxBackgroundColor="#D5D5D5"
-               app:boxCornerRadiusBottomEnd="10sp"
-               app:boxCornerRadiusBottomStart="10dp"
-               app:boxCornerRadiusTopEnd="10dp"
-               app:boxCornerRadiusTopStart="10dp"
-               android:layout_marginLeft="10dp"
-               android:layout_marginRight="10dp"
-               app:hintTextColor="@color/black">
-               <com.google.android.material.textfield.TextInputEditText
-                   android:id="@+id/edtdes"
-                   android:layout_width="match_parent"
-                   android:layout_height="60dp"
-                   android:fontFamily="@font/quicksandregular"
-                   android:textColorHint="@color/black" />
-           </com.google.android.material.textfield.TextInputLayout>
+               android:fontFamily="@font/quicksandregular"
+               android:hint="@string/Description"
+               android:paddingLeft="20dp"
+               android:textColor="@color/black"
+               app:hintTextColor="@color/black" />
+
 
            <RelativeLayout
                android:id="@+id/btnupload"

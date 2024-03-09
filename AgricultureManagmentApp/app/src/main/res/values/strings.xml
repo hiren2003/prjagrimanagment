@@ -49,6 +49,7 @@
     <string name="Interested_Labour">Interested Labour will Contact through this number</string>
     <string name="Select_Image">Select Image</string>
     <string name="State">State</string>
+    <string name="Price_Details">Price Details</string>
     <string name="District">District</string>
     <string name="Tehsil">Tehsil</string>
     <string name="city_town_village">city/town/village</string>
@@ -188,6 +189,7 @@
     <string name="Experience">Experience</string>
     <string name="Discount">Discount</string>
     <string name="Customer_Information">Customer Information</string>
+    <string name="Deliver">Deliver to :</string>
     <string name="Payment_Mode">Payment Mode</string>
     <string name="Cash_On_Delivery">Cash On Delivery</string>
     <string name="digital_payment">digital payment</string>
@@ -205,6 +207,7 @@
     <string name="Following">Following</string>
     <string name="Followers">Followers</string>
     <string name="Message">Message</string>
+    <string name="Messanger">Messanger</string>
     <string name="del">Delete</string>
     <string name="Delete_Message">Delete message ?</string>
     <string name="less">Less</string>
@@ -217,6 +220,7 @@
     <string name="Total_Payments">Total Payment</string>
     <string name="Avg_Payment">Avg. Payment</string>
     <string name="OrderDetail">Order Detail</string>
+    <string name="Order_summmary">Order Summmary</string>
     <string name="Feed_Detail">Feed Detail</string>
     <string name="Total_feed">Total feed</string>
     <string name="Total_comments">Total comments</string>
@@ -232,6 +236,9 @@
     <string name="My_Network">My Network</string>
     <string name="Explore_Network">Explore Network</string>
     <string name="Search_here">Search Here</string>
+    <string name="Posts">Posts</string>
+    <string name="Marketplace">Marketplace</string>
+    <string name="Search_user">Search user</string>
     <string name="Price_range">Price range</string>
     <string name="From">From</string>
     <string name="To">To</string>

@@ -36,7 +36,7 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvtc,rvnews,rvsave,profile,img
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
         Window window = this.getWindow();
-        window.setStatusBarColor(this.getResources().getColor(R.color.lan));
+        window.setStatusBarColor(this.getResources().getColor(R.color.white));
         txtumo=findViewById(R.id.txtumo);
         txtuname=findViewById(R.id.txtuname);
         profile=findViewById(R.id.profile);

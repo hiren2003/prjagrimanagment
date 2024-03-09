@@ -34,7 +34,7 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
                     arrayList.add(dataSnapshot.getValue(clsToolsAccessoriesModel.class));
                 }
                 rctools.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-                rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(admin_tools.this,true,arrayList);
+                rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(admin_tools.this,false,true,arrayList);
                 rctools.setAdapter(rcToolsAccesoriesAdapter);
             }
 

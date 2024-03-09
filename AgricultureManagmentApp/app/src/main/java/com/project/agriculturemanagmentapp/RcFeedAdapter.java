@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Handler;
+import android.telephony.SmsManager;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.Gravity;
@@ -58,12 +59,13 @@ import static java.security.AccessController.getContext;
 
 public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder> {
     Context context;
-    boolean isMyFeed;
+    boolean isMyFeed,isAdmin;
     ArrayList<clsFeedModel> feedModelArrayList;
 
-    public RcFeedAdapter(Context context, boolean isMyFeed, ArrayList<clsFeedModel> feedModelArrayList) {
+    public RcFeedAdapter(Context context, boolean isMyFeed, boolean isAdmin, ArrayList<clsFeedModel> feedModelArrayList) {
         this.context = context;
         this.isMyFeed = isMyFeed;
+        this.isAdmin = isAdmin;
         this.feedModelArrayList = feedModelArrayList;
     }
 
@@ -365,6 +367,10 @@ public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder
         ImageView no = dg.findViewById(R.id.no);
         dg.setCancelable(false);
         dg.show();
+        if (isAdmin){
+            SmsManager smsManager=SmsManager.getDefault();
+            smsManager.sendTextMessage("+91" +feedModelArrayList.get(position).getUmo(),null,"Your Feed "+feedModelArrayList.get(position).getKey()+" ("+feedModelArrayList.get(position).getKey()+") is Deleted By Admin.",null,null);
+        }
         yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

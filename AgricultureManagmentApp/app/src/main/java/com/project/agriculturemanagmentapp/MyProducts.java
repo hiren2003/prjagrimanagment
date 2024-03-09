@@ -97,7 +97,7 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
                 for (int i = animalModelArrayList.size() - 1; i >= 0; i--) {
                     reversedlist.add(animalModelArrayList.get(i));
                 }
-                 rcAnimalAdapter=new RcAnimalAdapter(getContext(),SelfAccount, reversedlist);
+                 rcAnimalAdapter=new RcAnimalAdapter(getContext(),SelfAccount,false, reversedlist);
                 myanimal.setAdapter(rcAnimalAdapter);
             }
 
@@ -121,7 +121,7 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
                 for (int i = cultivationProductModelArrayList.size() - 1; i >= 0; i--) {
                     reversedlist.add(cultivationProductModelArrayList.get(i));
                 }
-                rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(getContext(),SelfAccount,reversedlist);
+                rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(getContext(),SelfAccount,false,reversedlist);
                 myproduct.setAdapter(rcCultivatonPrdtAdpter);
             }
 
@@ -145,7 +145,7 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
                 for (int i = toolsAccessoriesModelArrayList.size() - 1; i >= 0; i--) {
                     reversedlist.add(toolsAccessoriesModelArrayList.get(i));
                 }
-                rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(getContext(),SelfAccount,reversedlist);
+                rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(getContext(),SelfAccount,false,reversedlist);
                 mytools.setAdapter(rcToolsAccesoriesAdapter);
             }
 

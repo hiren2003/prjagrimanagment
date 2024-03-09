@@ -66,7 +66,7 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
                 for (int i = toolsAccessoriesModelArrayList.size() - 1; i >= 0; i--) {
                     reversedlist.add(toolsAccessoriesModelArrayList.get(i));
                 }
-                rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(getContext(),false,reversedlist);
+                rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(getContext(),false,false,reversedlist);
                 recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
                 recyclerView.setAdapter(rcToolsAccesoriesAdapter);
             }

@@ -35,7 +35,7 @@ RecyclerView rcsv;
                 linearLayoutManager.setReverseLayout(true);
                 linearLayoutManager.setStackFromEnd(true);
                 rcsv.setLayoutManager(linearLayoutManager);
-                RcFeedAdapter rcFeedAdapter =new RcFeedAdapter(Saved.this,false,feedModelArrayList);
+                RcFeedAdapter rcFeedAdapter =new RcFeedAdapter(Saved.this,false,false,feedModelArrayList);
                 rcsv.setAdapter(rcFeedAdapter);
             }
 

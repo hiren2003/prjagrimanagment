@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.telephony.SmsManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,12 +39,13 @@ import androidx.recyclerview.widget.RecyclerView;
 public class RcToolsAccesoriesAdapter extends RecyclerView.Adapter<RcToolsAccesoriesAdapter.ViewHolder> {
 
     Context context;
-    boolean isMyproduct;
+    boolean isMyproduct,isAdmin;
     ArrayList<clsToolsAccessoriesModel> clsToolsAccessoriesModelArrayList ;
 
-    public RcToolsAccesoriesAdapter(Context context, boolean isMyproduct, ArrayList<clsToolsAccessoriesModel> clsToolsAccessoriesModelArrayList) {
+    public RcToolsAccesoriesAdapter(Context context, boolean isMyproduct, boolean isAdmin, ArrayList<clsToolsAccessoriesModel> clsToolsAccessoriesModelArrayList) {
         this.context = context;
         this.isMyproduct = isMyproduct;
+        this.isAdmin = isAdmin;
         this.clsToolsAccessoriesModelArrayList = clsToolsAccessoriesModelArrayList;
     }
 
@@ -60,6 +62,32 @@ public class RcToolsAccesoriesAdapter extends RecyclerView.Adapter<RcToolsAcceso
                 LinearLayout btndelete = dgop.findViewById(R.id.lndelete);
                 if (isMyproduct){
                     dgop.show();
+                }
+                if (isAdmin){
+                    Dialog dg=new Dialog(context);
+                    dg.setContentView(R.layout.lyt_delete_dg);
+                    dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
+                    AppCompatButton yes = dg.findViewById(R.id.yes);
+                    ImageView no = dg.findViewById(R.id.no);
+                    dg.show();
+                    no.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dg.dismiss();
+                        }
+                    });
+                    yes.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            FirebaseDatabase.getInstance().getReference().child("Resell").child("Tools&Accessories").child(clsToolsAccessoriesModelArrayList.get(position).getKey()).removeValue();
+                            FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("Tools&Accessories").child(clsToolsAccessoriesModelArrayList.get(position).getKey()).removeValue();
+                            dg.dismiss();
+                            SmsManager smsManager=SmsManager.getDefault();
+                            smsManager.sendTextMessage("+91" +clsToolsAccessoriesModelArrayList.get(position).getMo(),null,"Your Tool "+clsToolsAccessoriesModelArrayList.get(position).getPname()+" ("+clsToolsAccessoriesModelArrayList.get(position).getKey()+") is Deleted By Admin.",null,null);
+                            dg.dismiss();
+
+                        }
+                    });
                 }
 
                 btndelete.setOnClickListener(new View.OnClickListener() {
@@ -83,7 +111,6 @@ public class RcToolsAccesoriesAdapter extends RecyclerView.Adapter<RcToolsAcceso
                             public void onClick(View v) {
                                 FirebaseDatabase.getInstance().getReference().child("Resell").child("Tools&Accessories").child(clsToolsAccessoriesModelArrayList.get(position).getKey()).removeValue();
                                 FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("Tools&Accessories").child(clsToolsAccessoriesModelArrayList.get(position).getKey()).removeValue();
-                                FirebaseStorage.getInstance().getReference().child("Tools&Accessories").child(clsToolsAccessoriesModelArrayList.get(position).getKey()).delete();
                                 dg.dismiss();
 
                             }

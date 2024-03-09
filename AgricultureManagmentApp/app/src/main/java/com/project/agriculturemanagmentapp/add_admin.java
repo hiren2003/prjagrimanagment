@@ -74,7 +74,10 @@ TextInputEditText mo,name,password;
                     SmsManager smsManager = SmsManager.getDefault();
                     smsManager.sendTextMessage("+91" + mo.getText().toString(), null, "Hello,\n"+name.getText().toString()+" you are the admin of Agrocare.\nUsername : "+mo.getText().toString().trim()+"\nPassword : "+Finalpass, null, null);
                     FirebaseDatabase.getInstance().getReference("/Admin").child(mo.getText().toString().trim()).setValue(Finalpass);
-
+                    for (String str:
+                         adminlist) {
+                        smsManager.sendTextMessage("+91" +str, null, "New admin "+mo.getText().toString().trim()+" have added by "+currentmo, null, null);
+                    }
                 }
             }
         });

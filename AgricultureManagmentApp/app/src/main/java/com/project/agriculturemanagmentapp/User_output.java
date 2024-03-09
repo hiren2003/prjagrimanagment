@@ -58,7 +58,7 @@ RcEcommAdapter rcEcommAdapter;
                     LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getBaseContext());
                     linearLayoutManager.setReverseLayout(true);
                     linearLayoutManager.setStackFromEnd(true);
-                    rcFeedAdapter=new RcFeedAdapter(getApplicationContext(),true,feedModelArrayList);
+                    rcFeedAdapter=new RcFeedAdapter(User_output.this,true,true,feedModelArrayList);
                     recyclerView.setLayoutManager(linearLayoutManager);
                     recyclerView.setAdapter(rcFeedAdapter);
                 }
@@ -80,7 +80,7 @@ RcEcommAdapter rcEcommAdapter;
                     LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getBaseContext());
                     linearLayoutManager.setReverseLayout(true);
                     linearLayoutManager.setStackFromEnd(true);
-                    rcVacancyAdapter=new RcVacancyAdapter(getApplicationContext(),true,vacancyModelArrayList);
+                    rcVacancyAdapter=new RcVacancyAdapter(User_output.this,true,vacancyModelArrayList);
                     recyclerView.setLayoutManager(linearLayoutManager);
                     recyclerView.setAdapter(rcVacancyAdapter);
                 }
@@ -92,7 +92,7 @@ RcEcommAdapter rcEcommAdapter;
             });
         }
         else if (type==4) {
-            FirebaseDatabase.getInstance().getReference().child("Labor_data").child(sharedPreferences.getString("mo","1234567890")).addValueEventListener(new ValueEventListener() {
+            FirebaseDatabase.getInstance().getReference().child("Labor_data").child(mo.toString()).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     ArrayList<clsLaborModel> laborModelArrayList=new ArrayList<>();
@@ -100,7 +100,7 @@ RcEcommAdapter rcEcommAdapter;
                             snapshot.getChildren()) {
                         laborModelArrayList.add(datasnapshot.getValue(clsLaborModel.class));
                     }
-                   rcLabourAdapter=new RcLabourAdapter(getApplicationContext(),laborModelArrayList);
+                   rcLabourAdapter=new RcLabourAdapter(User_output.this,laborModelArrayList);
                     LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getBaseContext());
                     linearLayoutManager.setReverseLayout(true);
                     linearLayoutManager.setStackFromEnd(true);
@@ -119,9 +119,9 @@ RcEcommAdapter rcEcommAdapter;
             RecyclerView myanimal=findViewById(R.id.rcmyanimal);
             RecyclerView myproduct=findViewById(R.id.rcmyproduct);
             RecyclerView mytools=findViewById(R.id.rcmytools);
-            myanimal.setLayoutManager(new LinearLayoutManager(getBaseContext(),LinearLayoutManager.HORIZONTAL,false));
-            myproduct.setLayoutManager(new LinearLayoutManager(getBaseContext(),LinearLayoutManager.HORIZONTAL,false));
-            mytools.setLayoutManager(new LinearLayoutManager(getBaseContext(),LinearLayoutManager.HORIZONTAL,false));
+            myanimal.setLayoutManager(new LinearLayoutManager(User_output.this,LinearLayoutManager.HORIZONTAL,false));
+            myproduct.setLayoutManager(new LinearLayoutManager(User_output.this,LinearLayoutManager.HORIZONTAL,false));
+            mytools.setLayoutManager(new LinearLayoutManager(User_output.this,LinearLayoutManager.HORIZONTAL,false));
             FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Resell").child("animal").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -130,7 +130,7 @@ RcEcommAdapter rcEcommAdapter;
                          snapshot.getChildren()) {
                         animalModelArrayList.add(datasnapshot.getValue(clsAnimalModel.class));
                     }
-                    rcAnimalAdapter=new RcAnimalAdapter(getApplicationContext(),true,animalModelArrayList);
+                    rcAnimalAdapter=new RcAnimalAdapter(User_output.this,false,true,animalModelArrayList);
                     myanimal.setAdapter(rcAnimalAdapter);
                 }
 
@@ -147,7 +147,7 @@ RcEcommAdapter rcEcommAdapter;
                             snapshot.getChildren()) {
                         cultivationProductModelArrayList.add(datasnapshot.getValue(ClsCultivationProductModel.class));
                     }
-                    rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(getApplicationContext(),true,cultivationProductModelArrayList);
+                    rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(User_output.this,false,true,cultivationProductModelArrayList);
                     myproduct.setAdapter(rcCultivatonPrdtAdpter);
                 }
 
@@ -164,7 +164,7 @@ RcEcommAdapter rcEcommAdapter;
                             snapshot.getChildren()) {
                         toolsAccessoriesModelArrayList.add(datasnapshot.getValue(clsToolsAccessoriesModel.class));
                     }
-                    rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(getApplicationContext(),true,toolsAccessoriesModelArrayList);
+                    rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(User_output.this,false,true,toolsAccessoriesModelArrayList);
                     mytools.setAdapter(rcToolsAccesoriesAdapter);
                 }
 
@@ -180,9 +180,10 @@ RcEcommAdapter rcEcommAdapter;
                     ArrayList<clsEcommModel> ecommModelArrayList=new ArrayList<>();
                     for (DataSnapshot datasnapshot:
                             snapshot.getChildren()) {
-                        ecommModelArrayList.add(datasnapshot.getValue(clsEcommModel.class));
+                        clsEcommModel model=datasnapshot.getValue(clsEcommModel.class);
+                        ecommModelArrayList.add(model);
                     }
-                    rcEcommAdapter=new RcEcommAdapter(getBaseContext(),2,ecommModelArrayList);
+                    rcEcommAdapter=new RcEcommAdapter(User_output.this,2,ecommModelArrayList);
                     recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
                     recyclerView.setAdapter(rcEcommAdapter);
                 }
@@ -214,14 +215,6 @@ RcEcommAdapter rcEcommAdapter;
                 }
             });
 
-        }
-        else if (type==8) {
-           // FirebaseRecyclerOptions<clsEcommModel> options=new FirebaseRecyclerOptions.Builder<clsEcommModel>()
-             //       .setQuery(FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Cancelled"), clsEcommModel.class)
-               //     .build();
-            //rcEcommAdapter=new RcEcommAdapter(options,getBaseContext(),3);
-            //recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-           // recyclerView.setAdapter(rcEcommAdapter);
         }
         else {
             finish();

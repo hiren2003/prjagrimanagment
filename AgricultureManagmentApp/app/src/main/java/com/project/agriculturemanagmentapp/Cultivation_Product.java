@@ -69,7 +69,7 @@ public class Cultivation_Product extends Fragment {
                 for (int i = clsCultivationProductModelArrayList.size() - 1; i >= 0; i--) {
                     reversedlist.add(clsCultivationProductModelArrayList.get(i));
                 }
-                rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(getContext(),false,reversedlist);
+                rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(getContext(),false,false,reversedlist);
                 rccprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
                 rccprdt.setAdapter(rcCultivatonPrdtAdpter);
             }

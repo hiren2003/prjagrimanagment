@@ -45,7 +45,7 @@ boolean SelfAccount;
                 LinearLayoutManager linearLayoutManager=new LinearLayoutManager(Posts.this);
                 linearLayoutManager.setReverseLayout(true);
                 linearLayoutManager.setStackFromEnd(true);
-                RcFeedAdapter rcFeedAdapter=new RcFeedAdapter(Posts.this,SelfAccount,feedModelArrayList);
+                RcFeedAdapter rcFeedAdapter=new RcFeedAdapter(Posts.this,SelfAccount,false,feedModelArrayList);
                 rcposts.setLayoutManager(linearLayoutManager);
                 rcposts.setAdapter(rcFeedAdapter);
                 rcposts.getLayoutManager().scrollToPosition(position);

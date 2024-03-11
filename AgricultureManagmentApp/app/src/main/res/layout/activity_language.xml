@@ -20,7 +20,7 @@
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/quicksandbold"
         android:text="@string/Select_Language"
-        android:textColor="#000000"
+        android:textColor="@color/ct"
         android:textSize="30dp"
         android:textStyle="bold"/>
 
@@ -525,7 +525,6 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginTop="20sp"
-            android:backgroundTint="#070707"
             android:background="@drawable/sendotp"
             app:srcCompat="@drawable/baseline_arrow_forward_24"
             app:tint="#FFFFFF"

@@ -6,15 +6,20 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.widget.ImageView;
 
 public class User_option extends AppCompatActivity {
 String mo;
 int type;
+ImageView back;
 CardView cdprofile,cdfeed,cdvacancy,cdworker,cdresell,cdcart,cdorder,cdcancelorder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_option);
+        Window window = this.getWindow();
+        window.setStatusBarColor(this.getResources().getColor(R.color.white));
         Intent intent=getIntent();
         mo=intent.getStringExtra("mo");
         cdprofile=findViewById(R.id.cdprofile);
@@ -22,6 +27,7 @@ CardView cdprofile,cdfeed,cdvacancy,cdworker,cdresell,cdcart,cdorder,cdcancelord
         cdvacancy=findViewById(R.id.cdvacancy);
         cdworker=findViewById(R.id.cdworker);
         cdresell=findViewById(R.id.resell);
+        back=findViewById(R.id.back);
         cdcart=findViewById(R.id.cdcart);
         cdorder=findViewById(R.id.cdorder);
         cdcancelorder=findViewById(R.id.cdcancelled);
@@ -32,6 +38,12 @@ CardView cdprofile,cdfeed,cdvacancy,cdworker,cdresell,cdcart,cdorder,cdcancelord
                 intent.putExtra("mo",mo);
                 intent.putExtra("type",1);
                 startActivity(intent);
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
         cdfeed.setOnClickListener(new View.OnClickListener() {

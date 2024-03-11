@@ -262,7 +262,8 @@ public class EditprofileActivity extends AppCompatActivity {
     back.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            dialog.show();
+
+            finish();
         }
     });
     }

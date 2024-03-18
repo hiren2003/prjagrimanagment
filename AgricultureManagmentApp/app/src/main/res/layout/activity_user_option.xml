@@ -30,14 +30,14 @@
                 android:paddingLeft="8dp"
                 android:foregroundGravity="center"
                 android:layout_height="40dp"
-                android:src="@drawable/baseline_close_24" />
+                android:src="@drawable/down" />
         </LinearLayout>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="60dp"
             android:layout_gravity="center_vertical"
-            android:text="User name"
+            android:text="Username"
             android:layout_marginTop="5dp"
             android:textColor="@color/black"
             android:fontFamily="@font/quicksandsemibold"
@@ -63,8 +63,9 @@
             android:layout_height="wrap_content"
             app:cardCornerRadius="20dp"
             android:layout_margin="10dp"
-            android:backgroundTint="#926c15"
+            android:backgroundTint="#1c3e35"
             app:cardElevation="15dp">
+            //056A4F
             <LinearLayout
                 android:layout_width="match_parent"
                 android:gravity="center"
@@ -73,13 +74,14 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+
                     android:src="@drawable/baseline_account_circle_24"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Profile"
                     android:textSize="30dp"
-                    android:textColor="#0B0B0B"
+                    android:textColor="#000000"
                     android:fontFamily="@font/quicksandsemibold"
                     android:textStyle="bold"
                     android:layout_marginLeft="30dp"/>
@@ -91,7 +93,7 @@
             android:layout_height="wrap_content"
             app:cardCornerRadius="20dp"
             android:layout_margin="10dp"
-            android:backgroundTint="#a47e1b"
+            android:backgroundTint="#315c4f"
             app:cardElevation="15dp">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -119,7 +121,7 @@
             android:layout_height="wrap_content"
             app:cardCornerRadius="20dp"
             android:layout_margin="10dp"
-            android:backgroundTint="#b69121"
+            android:backgroundTint="#467a69"
             app:cardElevation="15dp">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -147,7 +149,7 @@
             android:layout_height="wrap_content"
             app:cardCornerRadius="20dp"
             android:layout_margin="10dp"
-            android:backgroundTint="#dbb42c"
+            android:backgroundTint="#5b9883"
             app:cardElevation="15dp">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -175,7 +177,7 @@
             android:layout_height="wrap_content"
             app:cardCornerRadius="20dp"
             android:layout_margin="10dp"
-            android:backgroundTint="#edc531"
+            android:backgroundTint="#6fb69d"
             app:cardElevation="15dp">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -203,7 +205,7 @@
             android:layout_height="wrap_content"
             app:cardCornerRadius="20dp"
             android:layout_margin="10dp"
-            android:backgroundTint="#fad643"
+            android:backgroundTint="#84d4b7"
             app:cardElevation="15dp">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -231,7 +233,7 @@
             android:layout_height="wrap_content"
             app:cardCornerRadius="20dp"
             android:layout_margin="10dp"
-            android:backgroundTint="#ffe169"
+            android:backgroundTint="#99f2d1"
             app:cardElevation="15dp">
             <LinearLayout
                 android:layout_width="match_parent"

@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar2);
         mAuth = FirebaseAuth.getInstance();
         Window window = this.getWindow();
-        window.setStatusBarColor(this.getResources().getColor(R.color.lan));
+        window.setStatusBarColor(this.getResources().getColor(R.color.white));
         edtmo.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

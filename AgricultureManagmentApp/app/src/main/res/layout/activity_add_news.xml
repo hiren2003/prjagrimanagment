@@ -78,19 +78,21 @@
                android:layout_marginTop="25dp"
                android:textColor="@color/black"
                android:textSize="20dp" />
+
            <com.google.android.material.textfield.TextInputEditText
                android:id="@+id/edtheadline"
                android:layout_width="match_parent"
                android:layout_height="55dp"
                android:layout_marginLeft="15dp"
                android:layout_marginRight="15dp"
-               android:fontFamily="@font/quicksandregular"
                android:background="@drawable/curvebackground"
                android:backgroundTint="#F5F5F5"
-               android:textColor="@color/black"
+               android:fontFamily="@font/quicksandregular"
                android:hint="Enter Headline"
                android:paddingLeft="20dp"
+               android:textColor="@color/black"
                app:hintTextColor="@color/black" />
+
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="35dp"

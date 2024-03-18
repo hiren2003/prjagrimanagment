@@ -62,7 +62,7 @@ public class EditprofileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editprofile);
         Window window = this.getWindow();
-        window.setStatusBarColor(this.getResources().getColor(R.color.lan));
+        window.setStatusBarColor(this.getResources().getColor(R.color.white));
         edtname = findViewById(R.id.name);
         edtemail = findViewById(R.id.email);
         edtmo = findViewById(R.id.mobile);
@@ -264,7 +264,8 @@ public class EditprofileActivity extends AppCompatActivity {
     back.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            dialog.show();
+
+            finish();
         }
     });
     }

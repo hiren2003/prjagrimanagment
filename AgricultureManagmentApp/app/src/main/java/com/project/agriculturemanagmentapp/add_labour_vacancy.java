@@ -110,23 +110,12 @@ public class add_labour_vacancy extends AppCompatActivity {
                             Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + mon + "/" + Calendar.getInstance().get(Calendar.YEAR),
                             sharedPreferences.getString("mo", "1234567890")
                     );
-                    FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("MyVacancy").child(key).setValue(obj).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    FirebaseDatabase.getInstance().getReference().child("Labour_Vacancy").child(key).setValue(obj).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            FirebaseDatabase.getInstance().getReference().child("Labour_Vacancy").child(key).setValue(obj).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-                                    show_toast(getResources().getString(R.string.successfullyuploaded),true);
-                                    dg.dismiss();
-                                    finish();
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    show_toast(getResources().getString(R.string.unsuccessfullyuploaded),false);
-                                    dg.dismiss();
-                                }
-                            });
+                            show_toast(getResources().getString(R.string.successfullyuploaded),true);
+                            dg.dismiss();
+                            finish();
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
@@ -135,6 +124,7 @@ public class add_labour_vacancy extends AppCompatActivity {
                             dg.dismiss();
                         }
                     });
+
                 }
 
             }

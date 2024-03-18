@@ -109,7 +109,7 @@ String date;
             imgedit.setVisibility(View.GONE);
             cdpmod.setVisibility(View.GONE);
             btnconfirm.setVisibility(View.GONE);
-            FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Myorder").child(key).addValueEventListener(new ValueEventListener() {
+            FirebaseDatabase.getInstance().getReference("/Orders").child(key).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                      clsOrderModel=snapshot.getValue(com.project.agriculturemanagmentapp.clsOrderModel.class);
@@ -377,10 +377,9 @@ String date;
         int hour=Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
         hour++;
         String time=hour+":"+Calendar.getInstance().get(Calendar.MINUTE);
-        String key = FirebaseDatabase.getInstance().getReference().child("orders").child(date.toString()).push().getKey();
+        String key = FirebaseDatabase.getInstance().getReference().child("orders").push().getKey();
         clsOrderModel clsOrderModel = new clsOrderModel(clsEcommModel,key,sharedPreferences.getString("uname", "unknown"),sharedPreferences.getString("mo", "1234567890"), sharedPreferences.getString("add", "null"), qty+"", date,time,"COD","","");
-        FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Myorder").child(key).setValue(clsOrderModel);
-        FirebaseDatabase.getInstance().getReference().child("Orders").child(date).child(key).setValue(clsOrderModel);
+        FirebaseDatabase.getInstance().getReference().child("Orders").child(key).setValue(clsOrderModel);
         FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Cart").child(clsEcommModel.getKey()).removeValue();
         finish();
     }
@@ -400,10 +399,9 @@ String date;
         int hour=Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
         hour++;
         String time=hour+":"+Calendar.getInstance().get(Calendar.MINUTE);
-        String key = FirebaseDatabase.getInstance().getReference().child("orders").child(date.toString()).push().getKey();
+        String key = FirebaseDatabase.getInstance().getReference().child("orders").push().getKey();
         clsOrderModel clsOrderModel = new clsOrderModel(clsEcommModel,key,sharedPreferences.getString("uname", "unknown"),sharedPreferences.getString("mo", "1234567890"), sharedPreferences.getString("add", "null"), qty+"", date,time,"Online",paymentData.getPaymentId().toString(),"Sucess");
-        FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Myorder").child(key).setValue(clsOrderModel);
-        FirebaseDatabase.getInstance().getReference().child("Orders").child(date).child(key).setValue(clsOrderModel);
+        FirebaseDatabase.getInstance().getReference().child("Orders").child(key).setValue(clsOrderModel);
         FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Cart").child(clsEcommModel.getKey()).removeValue();
         finish();
         Intent intent=new Intent(ConfirmOrder.this,ConfirmOrder.class);

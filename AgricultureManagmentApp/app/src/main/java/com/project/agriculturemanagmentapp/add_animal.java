@@ -23,10 +23,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -37,9 +41,10 @@ public class add_animal extends AppCompatActivity {
     String[] arranimal;
     Spinner spntype;
     String category = "";
-
+String oldurl="";
+clsAnimalModel updatedmodel;
     String key = "";
-    Uri selectedimg;
+    Uri selectedimg=null;
     TextView txtname;
     Button btnchooseimg;
     ImageView imgprdt, imgcat;
@@ -47,6 +52,8 @@ public class add_animal extends AppCompatActivity {
     Intent intent;
     SharedPreferences sharedPreferences;
     TextInputEditText edtsname;
+    ActivityResultLauncher<String> launcher;
+    Boolean Forupdate=false;
     TextInputEditText edtspeice, edtprc, edtstate, edtdistrict, edttehsil, edtvillage, edtdescription, edtmo, edtyear, edtmonth, edtmilk, edtweight;
 
     @Override
@@ -75,6 +82,54 @@ public class add_animal extends AppCompatActivity {
         edtmilk = findViewById(R.id.edtMilk);
         txtname = findViewById(R.id.txtname);
         imgcat = findViewById(R.id.imgcat);
+        Intent intent1=getIntent();
+        Forupdate=intent1.getBooleanExtra("Forupdate",false);
+        if (Forupdate){
+            key=intent1.getStringExtra("key");
+            spntype.setVisibility(View.GONE);
+            btnchooseimg.setVisibility(View.GONE);
+            imgprdt.setVisibility(View.VISIBLE);
+            imgcat.setVisibility(View.GONE);
+            txtname.setVisibility(View.GONE);
+            FirebaseDatabase.getInstance().getReference().child("Resell").child("animals").child(key).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    clsAnimalModel model=snapshot.getValue(clsAnimalModel.class);
+                    updatedmodel=model;
+                    Glide.with(add_animal.this)
+                            .load(model.getImg())
+                            .into(imgprdt);
+                    oldurl=model.getImg();
+                    edtspeice.setText(model.getSpiece());
+                    edtprc.setText(model.getPrice());
+                    edtstate.setText(model.getState());
+                    edttehsil.setText(model.getTehsil());
+                    edtdistrict.setText(model.getDistrict());
+                    edtvillage.setText(model.getVillage());
+                    edtdescription.setText(model.getDes());
+                    edtmo.setText(model.getMo());
+                    edtyear.setText(model.getAgeyear());
+                    edtmonth.setText(model.getAgemonth());
+                    edtmilk.setText(model.getMproduction());
+                    edtweight.setText(model.getWeight());
+                    edtsname.setText(model.getSname());
+                    btnsavedata.setText(getResources().getString(R.string.Update));
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+        }
+        imgprdt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launcher.launch("image/*");
+            }
+        });
+
         spntype.setAdapter(new ArrayAdapter<String>(this, com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item, arranimal));
         sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
         intent = getIntent();
@@ -112,7 +167,7 @@ public class add_animal extends AppCompatActivity {
             category = arranimal[5];
             txtname.setText(arranimal[5]);
         }
-        ActivityResultLauncher<String> launcher = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
+       launcher = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
             public void onActivityResult(Uri result) {
                 imgprdt.setImageURI(result);
@@ -168,7 +223,7 @@ public class add_animal extends AppCompatActivity {
                 } else if (edtvillage.getText().toString().trim().isEmpty()) {
                     show_toast(getResources().getString(R.string.Please_Enter_Village), false);
                     edtvillage.requestFocus();
-                } else if (selectedimg == null) {
+                } else if (selectedimg == null&&Forupdate==false) {
                     show_toast(getResources().getString(R.string.Please_Enter_Image), false);
                     launcher.launch("image/*");
                 } else {
@@ -177,78 +232,136 @@ public class add_animal extends AppCompatActivity {
                     dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
                     dg.setCancelable(false);
                     dg.show();
-                    String key = FirebaseDatabase.getInstance().getReference().child("animals").push().getKey();
+                    if (!Forupdate){
+                         key = FirebaseDatabase.getInstance().getReference().child("animals").push().getKey();
+                    }
                     StorageReference firebaseStorage = FirebaseStorage.getInstance().getReference().child("animals").child(key);
-                    firebaseStorage.putFile(selectedimg).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            firebaseStorage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                @Override
-                                public void onSuccess(Uri uri) {
-                                    int mon=Calendar.getInstance().get(Calendar.MONTH);
-                                    mon++;
-                                    SharedPreferences sharedPreferences1 = getSharedPreferences("data", MODE_PRIVATE);
-                                    clsAnimalModel clsAnimalModel = new clsAnimalModel(
-                                            key,
-                                            category,
-                                            edtspeice.getText().toString().toString(),
-                                            edtyear.getText().toString(),
-                                            edtmonth.getText().toString(),
-                                            edtmilk.getText().toString(),
-                                            edtweight.getText().toString(),
-                                            edtmo.getText().toString(),
-                                            edtprc.getText().toString(),
-                                            edtstate.getText().toString(),
-                                            edtdistrict.getText().toString(),
-                                            edttehsil.getText().toString(),
-                                            edtvillage.getText().toString(),
-                                            edtdescription.getText().toString(),
-                                            uri.toString(),
-                                            Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + mon + "/" + Calendar.getInstance().get(Calendar.YEAR)
-                                            , edtsname.getText().toString(),
-                                            sharedPreferences1.getString("mo", "1234567890")
-                                    );
-                                    FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences1.getString("mo", "1234567890")).child("Resell").child("animal").child(key).setValue(clsAnimalModel).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                        @Override
-                                        public void onSuccess(Void unused) {
-                                            FirebaseDatabase.getInstance().getReference().child("Resell").child("animals").child(key).setValue(clsAnimalModel).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                @Override
-                                                public void onSuccess(Void unused) {
-                                                    show_toast(getResources().getString(R.string.successfullyuploaded), true);
-                                                    dg.dismiss();
-                                                    finish();
-                                                }
-                                            }).addOnFailureListener(new OnFailureListener() {
-                                                @Override
-                                                public void onFailure(@NonNull Exception e) {
-                                                    show_toast(getResources().getString(R.string.unsuccessfullyuploaded), false);
-                                                    dg.dismiss();
-                                                }
-                                            });
+                    if (selectedimg!=null&&Forupdate==true||Forupdate==false){
+                        firebaseStorage.putFile(selectedimg).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                firebaseStorage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri) {
+                                        int mon=Calendar.getInstance().get(Calendar.MONTH);
+                                        mon++;
+                                        clsAnimalModel clsAnimalModel;
+                                        SharedPreferences sharedPreferences1 = getSharedPreferences("data", MODE_PRIVATE);
+                                        if(Forupdate){
+                                             clsAnimalModel = new clsAnimalModel(
+                                                    updatedmodel.key,
+                                                    updatedmodel.getType(),
+                                                    edtspeice.getText().toString().toString(),
+                                                    edtyear.getText().toString(),
+                                                    edtmonth.getText().toString(),
+                                                    edtmilk.getText().toString(),
+                                                    edtweight.getText().toString(),
+                                                    edtmo.getText().toString(),
+                                                    edtprc.getText().toString(),
+                                                    edtstate.getText().toString(),
+                                                    edtdistrict.getText().toString(),
+                                                    edttehsil.getText().toString(),
+                                                    edtvillage.getText().toString(),
+                                                    edtdescription.getText().toString(),
+                                                    uri.toString(),
+                                                    Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + mon + "/" + Calendar.getInstance().get(Calendar.YEAR)
+                                                    , edtsname.getText().toString(),
+                                                    sharedPreferences1.getString("mo", "1234567890")
+                                            );
                                         }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            show_toast(getResources().getString(R.string.unsuccessfullyuploaded), false);
-                                            dg.dismiss();
+                                        else{
+                                             clsAnimalModel = new clsAnimalModel(
+                                                    key,
+                                                    category,
+                                                    edtspeice.getText().toString().toString(),
+                                                    edtyear.getText().toString(),
+                                                    edtmonth.getText().toString(),
+                                                    edtmilk.getText().toString(),
+                                                    edtweight.getText().toString(),
+                                                    edtmo.getText().toString(),
+                                                    edtprc.getText().toString(),
+                                                    edtstate.getText().toString(),
+                                                    edtdistrict.getText().toString(),
+                                                    edttehsil.getText().toString(),
+                                                    edtvillage.getText().toString(),
+                                                    edtdescription.getText().toString(),
+                                                    uri.toString(),
+                                                    Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + mon + "/" + Calendar.getInstance().get(Calendar.YEAR)
+                                                    , edtsname.getText().toString(),
+                                                    sharedPreferences1.getString("mo", "1234567890")
+                                            );
                                         }
-                                    });
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    show_toast(getResources().getString(R.string.unsuccessfullyuploaded), false);
-                                    dg.dismiss();
-                                }
-                            });
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            show_toast(getResources().getString(R.string.unsuccessfullyuploaded), false);
-                            dg.dismiss();
-                        }
-                    });
+                                        FirebaseDatabase.getInstance().getReference().child("Resell").child("animals").child(key).setValue(clsAnimalModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void unused) {
+                                                show_toast(getResources().getString(R.string.successfullyuploaded), true);
+                                                dg.dismiss();
+                                                finish();
+                                            }
+                                        }).addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                show_toast(getResources().getString(R.string.unsuccessfullyuploaded), false);
+                                                dg.dismiss();
+                                            }
+                                        });
+
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        show_toast(getResources().getString(R.string.unsuccessfullyuploaded), false);
+                                        dg.dismiss();
+                                    }
+                                });
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                show_toast(getResources().getString(R.string.unsuccessfullyuploaded), false);
+                                dg.dismiss();
+                            }
+                        });
+                    }else if (selectedimg==null&&Forupdate==true){
+                        int mon=Calendar.getInstance().get(Calendar.MONTH);
+                        mon++;
+                        SharedPreferences sharedPreferences1 = getSharedPreferences("data", MODE_PRIVATE);
+                        clsAnimalModel clsAnimalModel = new clsAnimalModel(
+                                updatedmodel.key,
+                                updatedmodel.getType(),
+                                edtspeice.getText().toString().toString(),
+                                edtyear.getText().toString(),
+                                edtmonth.getText().toString(),
+                                edtmilk.getText().toString(),
+                                edtweight.getText().toString(),
+                                edtmo.getText().toString(),
+                                edtprc.getText().toString(),
+                                edtstate.getText().toString(),
+                                edtdistrict.getText().toString(),
+                                edttehsil.getText().toString(),
+                                edtvillage.getText().toString(),
+                                edtdescription.getText().toString(),
+                                oldurl,
+                                Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" + mon + "/" + Calendar.getInstance().get(Calendar.YEAR)
+                                , edtsname.getText().toString(),
+                                sharedPreferences1.getString("mo", "1234567890")
+                        );
+                        FirebaseDatabase.getInstance().getReference().child("Resell").child("animals").child(key).setValue(clsAnimalModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                show_toast(getResources().getString(R.string.successfullyuploaded), true);
+                                dg.dismiss();
+                                finish();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                show_toast(getResources().getString(R.string.unsuccessfullyuploaded), false);
+                                dg.dismiss();
+                            }
+                        });
+
+                    }
                 }
 
             }

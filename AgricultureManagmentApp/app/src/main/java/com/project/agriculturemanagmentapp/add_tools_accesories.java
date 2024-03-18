@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
@@ -21,10 +22,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -36,8 +41,11 @@ public class add_tools_accesories extends AppCompatActivity {
     Uri selectedimg;
     Button btnchooseimg,btnsavedata;
     String key="";
+    boolean Forupdate=false;
     SharedPreferences sharedPreferences;
     Spinner spncat;
+    clsToolsAccessoriesModel updatedmodel;
+    int mon;
     TextInputEditText edtpname,edtprc,edtmonth,edtstate, edtdistrict, edttehsil, edtvillage, edtdescription, edtmo, edtsellername;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +69,39 @@ public class add_tools_accesories extends AppCompatActivity {
         spncat.setAdapter(new ArrayAdapter<String>(this, com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item,getResources().getStringArray(R.array.toolstype)));
         edtpname=findViewById(R.id.edtpname);
         sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+        Intent intent1=getIntent();
+        Forupdate=intent1.getBooleanExtra("Forupdate",false);
+        if (Forupdate){
+            key=intent1.getStringExtra("key");
+            FirebaseDatabase.getInstance().getReference().child("Resell").child("Tools&Accessories").child(key).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    updatedmodel=snapshot.getValue(clsToolsAccessoriesModel.class);
+                    btnchooseimg.setVisibility(View.GONE);
+                    spncat.setVisibility(View.GONE);
+                    imgprdt.setVisibility(View.VISIBLE);
+                    Glide.with(add_tools_accesories.this)
+                            .load(updatedmodel.getImg())
+                            .into(imgprdt);
+                    edtprc.setText(updatedmodel.getPrice());
+                    edtstate.setText(updatedmodel.getState());
+                    edttehsil.setText(updatedmodel.getTehsil());
+                    edtdistrict.setText(updatedmodel.getDistrict());
+                    edtsellername.setText(updatedmodel.getSname());
+                    edtvillage.setText(updatedmodel.getVillage());
+                    edtdescription.setText(updatedmodel.getDesc());
+                    edtmo.setText(updatedmodel.getMo());
+                    edtmonth.setText(updatedmodel.getMonth());
+                    edtpname.setText(updatedmodel.getPname());
+                    btnsavedata.setText(getResources().getString(R.string.Update));
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
         ActivityResultLauncher<String> launcher=registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
             public void onActivityResult(Uri result) {
@@ -75,6 +116,14 @@ public class add_tools_accesories extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 launcher.launch("image/*");
+            }
+        });
+        imgprdt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Forupdate){
+                    launcher.launch("image/*");
+                }
             }
         });
         btnsavedata.setOnClickListener(new View.OnClickListener() {
@@ -112,7 +161,7 @@ public class add_tools_accesories extends AppCompatActivity {
                 } else if (edtvillage.getText().toString().trim().isEmpty()) {
                     show_toast(getResources().getString(R.string.Please_Enter_Village), false);
                     edtvillage.requestFocus();
-                } else if (selectedimg == null) {
+                } else if (selectedimg == null&&!Forupdate) {
                     show_toast(getResources().getString(R.string.Please_Enter_Image), false);
                     launcher.launch("image/*");
                 }
@@ -122,40 +171,87 @@ public class add_tools_accesories extends AppCompatActivity {
                     dg.getWindow().setBackgroundDrawableResource(R.drawable.curvebackground);
                     dg.setCancelable(false);
                     dg.show();
-                     key = FirebaseDatabase.getInstance().getReference().child("Tools&Accessories").push().getKey();
-                    StorageReference firebaseStorage = FirebaseStorage.getInstance().getReference().child("Tools&Accessories").child(key);
-                    firebaseStorage.putFile(selectedimg).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            firebaseStorage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    if (!Forupdate){
+                        key = FirebaseDatabase.getInstance().getReference().child("Tools&Accessories").push().getKey();
+                    }
+                     mon=Calendar.getInstance().get(Calendar.MONTH);
+                    mon++;
+                    if (Forupdate){
+                        if (selectedimg==null){
+
+                            clsToolsAccessoriesModel clsToolsAccessoriesModel=new clsToolsAccessoriesModel(
+                                    updatedmodel.key,
+                                    edtpname.getText().toString(),
+                                    edtsellername.getText().toString(),
+                                    edtmo.getText().toString(),
+                                    edtprc.getText().toString(),
+                                    edtstate.getText().toString(),
+                                    edtdistrict.getText().toString(),
+                                    edttehsil.getText().toString(),
+                                    edtvillage.getText().toString(),
+                                    edtdescription.getText().toString(),
+                                    updatedmodel.getImg().toString(),
+                                    Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" +mon + "/" + Calendar.getInstance().get(Calendar.YEAR),
+                                    edtmonth.getText().toString(),
+                                    updatedmodel.category,
+                                    sharedPreferences.getString("mo", "1234567890")
+                            );
+                            FirebaseDatabase.getInstance().getReference().child("Resell").child("Tools&Accessories").child(key).setValue(clsToolsAccessoriesModel).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
-                                public void onSuccess(Uri uri) {
-                                    int mon=Calendar.getInstance().get(Calendar.MONTH);
-                                    mon++;
-                                    clsToolsAccessoriesModel clsToolsAccessoriesModel=new clsToolsAccessoriesModel(
-                                            key,
-                                            edtpname.getText().toString(),
-                                            edtsellername.getText().toString(),
-                                            edtmo.getText().toString(),
-                                            edtprc.getText().toString(),
-                                            edtstate.getText().toString(),
-                                            edtdistrict.getText().toString(),
-                                            edttehsil.getText().toString(),
-                                            edtvillage.getText().toString(),
-                                            edtdescription.getText().toString(),
-                                            uri.toString(),
-                                            Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" +mon + "/" + Calendar.getInstance().get(Calendar.YEAR),
-                                            edtmonth.getText().toString(),
-                                            spncat.getSelectedItem().toString(),
-                                            sharedPreferences.getString("mo", "1234567890")
-                                    );
-                                    FirebaseDatabase.getInstance().getReference().child("Resell").child("Tools&Accessories").child(key).setValue(clsToolsAccessoriesModel);
-                                    FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Resell").child("Tools&Accessories").child(key).setValue(clsToolsAccessoriesModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                public void onSuccess(Void unused) {
+                                    show_toast(getResources().getString(R.string.Upload_Successfully),true);
+                                    dg.dismiss();
+                                    finish();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    show_toast(getResources().getString(R.string.Upload_Cancelled),true);
+                                    dg.dismiss();
+                                    finish();
+                                }
+                            });
+                        }
+                        else{
+                            StorageReference firebaseStorage = FirebaseStorage.getInstance().getReference().child("Tools&Accessories").child(key);
+                            firebaseStorage.putFile(selectedimg).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                @Override
+                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                    firebaseStorage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                         @Override
-                                        public void onSuccess(Void unused) {
-                                            show_toast(getResources().getString(R.string.Upload_Successfully),true);
-                                            dg.dismiss();
-                                            finish();
+                                        public void onSuccess(Uri uri) {
+
+                                            clsToolsAccessoriesModel clsToolsAccessoriesModel=new clsToolsAccessoriesModel(
+                                                    updatedmodel.key,
+                                                    edtpname.getText().toString(),
+                                                    edtsellername.getText().toString(),
+                                                    edtmo.getText().toString(),
+                                                    edtprc.getText().toString(),
+                                                    edtstate.getText().toString(),
+                                                    edtdistrict.getText().toString(),
+                                                    edttehsil.getText().toString(),
+                                                    edtvillage.getText().toString(),
+                                                    edtdescription.getText().toString(),
+                                                    uri.toString(),
+                                                    Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" +mon + "/" + Calendar.getInstance().get(Calendar.YEAR),
+                                                    edtmonth.getText().toString(),
+                                                    updatedmodel.category,
+                                                    sharedPreferences.getString("mo", "1234567890")
+                                            );
+                                            FirebaseDatabase.getInstance().getReference().child("Resell").child("Tools&Accessories").child(key).setValue(clsToolsAccessoriesModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void unused) {
+                                                    show_toast(getResources().getString(R.string.Upload_Successfully),true);
+                                                    dg.dismiss();
+                                                    finish();
+                                                }
+                                            }).addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    show_toast(getResources().getString(R.string.Upload_Cancelled),false);
+                                                    dg.dismiss();
+                                                }
+                                            });
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {
                                         @Override
@@ -173,13 +269,65 @@ public class add_tools_accesories extends AppCompatActivity {
                                 }
                             });
                         }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            show_toast(getResources().getString(R.string.Upload_Cancelled),false);
-                            dg.dismiss();
-                        }
-                    });
+
+                    }else{
+                        StorageReference firebaseStorage = FirebaseStorage.getInstance().getReference().child("Tools&Accessories").child(key);
+                        firebaseStorage.putFile(selectedimg).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                firebaseStorage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri) {
+
+                                        clsToolsAccessoriesModel clsToolsAccessoriesModel=new clsToolsAccessoriesModel(
+                                                key,
+                                                edtpname.getText().toString(),
+                                                edtsellername.getText().toString(),
+                                                edtmo.getText().toString(),
+                                                edtprc.getText().toString(),
+                                                edtstate.getText().toString(),
+                                                edtdistrict.getText().toString(),
+                                                edttehsil.getText().toString(),
+                                                edtvillage.getText().toString(),
+                                                edtdescription.getText().toString(),
+                                                uri.toString(),
+                                                Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" +mon + "/" + Calendar.getInstance().get(Calendar.YEAR),
+                                                edtmonth.getText().toString(),
+                                                spncat.getSelectedItem().toString(),
+                                                sharedPreferences.getString("mo", "1234567890")
+                                        );
+                                        FirebaseDatabase.getInstance().getReference().child("Resell").child("Tools&Accessories").child(key).setValue(clsToolsAccessoriesModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void unused) {
+                                                show_toast(getResources().getString(R.string.Upload_Successfully),true);
+                                                dg.dismiss();
+                                                finish();
+                                            }
+                                        }).addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                show_toast(getResources().getString(R.string.Upload_Cancelled),false);
+                                                dg.dismiss();
+                                            }
+                                        });
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        show_toast(getResources().getString(R.string.Upload_Cancelled),false);
+                                        dg.dismiss();
+                                    }
+                                });
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                show_toast(getResources().getString(R.string.Upload_Cancelled),false);
+                                dg.dismiss();
+                            }
+                        });
+                    }
+
                 }
 
             }

@@ -131,7 +131,11 @@ public class RcCultivatonPrdtAdpter extends RecyclerView.Adapter<RcCultivatonPrd
                     @Override
                     public void onClick(View v) {
                         // Show Dialog for Update and Fetch and Set Existing Value
-                        dgop.cancel();
+                        dgop.dismiss();
+                        Intent intent=new Intent(context,add_cultivation_product.class);
+                        intent.putExtra("Forupdate",true);
+                        intent.putExtra("key",clsCultivationProductModelArrayList.get(position).getKey());
+                        context.startActivity(intent);
                         BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(context);
                         View view2=LayoutInflater.from(context).inflate(R.layout.activity_add_cultivation_product,null,false);
                         TextInputEditText edtpname, edtspeice, edtqty, edtprc, edtstate, edtdistrict, edttehsil, edtvillage, edtdescription, edtmo, edtsellername;
@@ -217,7 +221,7 @@ public class RcCultivatonPrdtAdpter extends RecyclerView.Adapter<RcCultivatonPrd
                             }
                         });
                         bottomSheetDialog.setContentView(view2);
-                        bottomSheetDialog.show();
+                       // bottomSheetDialog.show();
                     }
                 });
                 return false;

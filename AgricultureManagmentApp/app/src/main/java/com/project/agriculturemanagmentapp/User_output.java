@@ -70,12 +70,15 @@ RcEcommAdapter rcEcommAdapter;
             });
 
         } else if (type==3) {
-            FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("MyVacancy").addValueEventListener(new ValueEventListener() {
+            FirebaseDatabase.getInstance().getReference("/Labour_Vacancy").addValueEventListener(new ValueEventListener() {
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     ArrayList<clsVacancyModel> vacancyModelArrayList =new ArrayList<>();
                     for (DataSnapshot datasnapshot:
                             snapshot.getChildren()) {
-                        vacancyModelArrayList.add(datasnapshot.getValue(clsVacancyModel.class));
+                        clsVacancyModel model=datasnapshot.getValue(clsVacancyModel.class);
+                        if (model.umo.equals(mo)){
+                            vacancyModelArrayList.add(model);
+                        }
                     }
                     LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getBaseContext());
                     linearLayoutManager.setReverseLayout(true);
@@ -122,15 +125,21 @@ RcEcommAdapter rcEcommAdapter;
             myanimal.setLayoutManager(new LinearLayoutManager(User_output.this,LinearLayoutManager.HORIZONTAL,false));
             myproduct.setLayoutManager(new LinearLayoutManager(User_output.this,LinearLayoutManager.HORIZONTAL,false));
             mytools.setLayoutManager(new LinearLayoutManager(User_output.this,LinearLayoutManager.HORIZONTAL,false));
-            FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Resell").child("animal").addValueEventListener(new ValueEventListener() {
+            FirebaseDatabase.getInstance().getReference("/Resell/animals").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     ArrayList<clsAnimalModel> animalModelArrayList=new ArrayList<>();
                     for (DataSnapshot datasnapshot:
                          snapshot.getChildren()) {
-                        animalModelArrayList.add(datasnapshot.getValue(clsAnimalModel.class));
+                        clsAnimalModel model=datasnapshot.getValue(clsAnimalModel.class);
+                        if (model.getMo().toString().trim().equals(mo)){
+                            animalModelArrayList.add(model);
+                        }                    }
+                    ArrayList<clsAnimalModel> reversedlist=new ArrayList<>();
+                    for (int i = animalModelArrayList.size() - 1; i >= 0; i--) {
+                        reversedlist.add(animalModelArrayList.get(i));
                     }
-                    rcAnimalAdapter=new RcAnimalAdapter(User_output.this,false,true,animalModelArrayList);
+                    rcAnimalAdapter=new RcAnimalAdapter(User_output.this,false,true,reversedlist);
                     myanimal.setAdapter(rcAnimalAdapter);
                 }
 
@@ -139,15 +148,23 @@ RcEcommAdapter rcEcommAdapter;
 
                 }
             });
-            FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Resell").child("Cultivatio_Product").addValueEventListener(new ValueEventListener() {
+            FirebaseDatabase.getInstance().getReference("/Resell/Cultivation Product").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     ArrayList<ClsCultivationProductModel> cultivationProductModelArrayList=new ArrayList<>();
                     for (DataSnapshot datasnapshot:
                             snapshot.getChildren()) {
-                        cultivationProductModelArrayList.add(datasnapshot.getValue(ClsCultivationProductModel.class));
+                        ClsCultivationProductModel model=datasnapshot.getValue(ClsCultivationProductModel.class);
+                        if (model.getMo().trim().equals(mo)){
+                            cultivationProductModelArrayList.add(model);
+
+                        }
                     }
-                    rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(User_output.this,false,true,cultivationProductModelArrayList);
+                    ArrayList<ClsCultivationProductModel> reversedlist=new ArrayList<>();
+                    for (int i = cultivationProductModelArrayList.size() - 1; i >= 0; i--) {
+                        reversedlist.add(cultivationProductModelArrayList.get(i));
+                    }
+                    rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(User_output.this,false,true,reversedlist);
                     myproduct.setAdapter(rcCultivatonPrdtAdpter);
                 }
 
@@ -156,15 +173,21 @@ RcEcommAdapter rcEcommAdapter;
 
                 }
             });
-            FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Resell").child("Tools&Accessories").addValueEventListener(new ValueEventListener() {
+            FirebaseDatabase.getInstance().getReference("/Resell/Tools&Accessories").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     ArrayList<clsToolsAccessoriesModel> toolsAccessoriesModelArrayList=new ArrayList<>();
                     for (DataSnapshot datasnapshot:
                             snapshot.getChildren()) {
-                        toolsAccessoriesModelArrayList.add(datasnapshot.getValue(clsToolsAccessoriesModel.class));
+                        clsToolsAccessoriesModel model=datasnapshot.getValue(clsToolsAccessoriesModel.class);
+                        if (model.getMo().equals(mo)){
+                            toolsAccessoriesModelArrayList.add(model);
+                        }                    }
+                    ArrayList<clsToolsAccessoriesModel> reversedlist=new ArrayList<>();
+                    for (int i = toolsAccessoriesModelArrayList.size() - 1; i >= 0; i--) {
+                        reversedlist.add(toolsAccessoriesModelArrayList.get(i));
                     }
-                    rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(User_output.this,false,true,toolsAccessoriesModelArrayList);
+                    rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(User_output.this,false,true,reversedlist);
                     mytools.setAdapter(rcToolsAccesoriesAdapter);
                 }
 
@@ -196,13 +219,16 @@ RcEcommAdapter rcEcommAdapter;
 
         }
         else if (type==7) {
-            FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Myorder").addValueEventListener(new ValueEventListener() {
+            FirebaseDatabase.getInstance().getReference("/Orders").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     ArrayList<clsOrderModel> orderModelArrayList = new ArrayList<>();
                     for (DataSnapshot datasnapshot:
                             snapshot.getChildren()) {
-                        orderModelArrayList.add(datasnapshot.getValue(clsOrderModel.class));
+                        clsOrderModel model=datasnapshot.getValue(clsOrderModel.class);
+                        if (model.getMo().trim().equals(sharedPreferences.getString("mo",""))){
+                            orderModelArrayList.add(model);
+                        }
                     }
                     rcorderAdapter=new RcorderAdapter(User_output.this,orderModelArrayList);
                     recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));

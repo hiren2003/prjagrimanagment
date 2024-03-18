@@ -121,6 +121,11 @@ public class RcToolsAccesoriesAdapter extends RecyclerView.Adapter<RcToolsAcceso
                     @Override
                     public void onClick(View v) {
                         dgop.dismiss();
+                        dgop.dismiss();
+                        Intent intent=new Intent(context,add_tools_accesories.class);
+                        intent.putExtra("Forupdate",true);
+                        intent.putExtra("key",clsToolsAccessoriesModelArrayList.get(position).getKey());
+                        context.startActivity(intent);
                         BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(context);
                         View view2=LayoutInflater.from(context).inflate(R.layout.activity_add_tools_accesories,null,false);
                         bottomSheetDialog.setContentView(view2);
@@ -184,7 +189,7 @@ public class RcToolsAccesoriesAdapter extends RecyclerView.Adapter<RcToolsAcceso
                                 bottomSheetDialog.cancel();
                             }
                         });
-                        bottomSheetDialog.show();
+                       // bottomSheetDialog.show();
                     }
                 });
 

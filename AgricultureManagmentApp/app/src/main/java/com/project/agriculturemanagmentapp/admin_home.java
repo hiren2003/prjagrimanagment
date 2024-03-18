@@ -153,9 +153,9 @@ public class admin_home extends AppCompatActivity {
                     mon[i]=0;
                 }
                 int i=0;
-                for (DataSnapshot dataSnapshot:snapshot.getChildren()){
+                for (DataSnapshot childdataSnapshot:snapshot.getChildren()){
 
-                    for (DataSnapshot childdataSnapshot:dataSnapshot.getChildren()){
+
                         TotalOrder++;
                         clsOrderModel orderModel=childdataSnapshot.getValue(clsOrderModel.class);
                         TotalAmount+=(Float.parseFloat(orderModel.getQty())*Float.parseFloat(orderModel.getClsEcommModel().getPrice()));
@@ -169,7 +169,7 @@ public class admin_home extends AppCompatActivity {
                         else{
                             ModeOnline++;
                         }
-                    }
+
                 }
                 txtallpayment.setText("₹"+TotalAmount);
                 txtavgpayment.setText("₹"+(TotalAmount/TotalOrder));

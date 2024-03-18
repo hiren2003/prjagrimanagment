@@ -71,13 +71,16 @@ public class MyVacancy extends Fragment {
         ExtendedFloatingActionButton fltaddvacancy=view.findViewById(R.id.fltaddvacancy);
         SharedPreferences sharedPreferences = getContext().getSharedPreferences("data", Context.MODE_PRIVATE);
         String mo = sharedPreferences.getString("mo", "1234567890");
-        FirebaseDatabase.getInstance().getReference().child("User").child(Mo).child("MyVacancy").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("/Labour_Vacancy").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ArrayList<clsVacancyModel> vacancyModelArrayList =new ArrayList<>();
                 for (DataSnapshot datasnapshot:
                      snapshot.getChildren()) {
-                    vacancyModelArrayList.add(datasnapshot.getValue(clsVacancyModel.class));
+                    clsVacancyModel model=datasnapshot.getValue(clsVacancyModel.class);
+                    if (model.umo.equals(mo)){
+                        vacancyModelArrayList.add(model);
+                    }
                 }
                 LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
                 linearLayoutManager.setReverseLayout(true);

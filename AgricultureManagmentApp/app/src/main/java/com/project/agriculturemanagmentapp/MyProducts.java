@@ -30,7 +30,7 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
     ArrayList<clsAnimalModel> animalModelArrayList;
     ArrayList<clsToolsAccessoriesModel> toolsAccessoriesModelArrayList;
     ArrayList<ClsCultivationProductModel> cultivationProductModelArrayList;
-    String Mo;
+    String Mo="";
     Boolean SelfAccount;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -49,12 +49,14 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
     }
 
     public MyProducts(String Mo,Boolean SelfAccount) {
-        // Required empty public constructor
-        this.Mo=Mo;
+        if (Mo.isEmpty()){
+            this.Mo=getContext().getSharedPreferences("data",Context.MODE_PRIVATE).getString("mo","");
+        }else{
+            this.Mo=Mo;
+        }
         this.SelfAccount=SelfAccount;
     }
     public MyProducts() {
-        // Required empty public constructor
     }
 
     @Override
@@ -77,18 +79,23 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
         TextView txt1=view.findViewById(R.id.txt1);
         TextView txt2=view.findViewById(R.id.txt2);
         TextView txt3=view.findViewById(R.id.txt3);
+        Mo=getContext().getSharedPreferences("data",Context.MODE_PRIVATE).getString("mo","");
+
         SharedPreferences sharedPreferences=getContext().getSharedPreferences("data", Context.MODE_PRIVATE);
         myproduct.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
         mytools.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
         myanimal.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
 
-        FirebaseDatabase.getInstance().getReference().child("User").child(Mo).child("Resell").child("animal").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference().child("/Resell/animals").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 animalModelArrayList=new ArrayList<>();
                 for (DataSnapshot dataSnapshot:
                      snapshot.getChildren()) {
-                    animalModelArrayList.add(dataSnapshot.getValue(clsAnimalModel.class));
+                    clsAnimalModel model=dataSnapshot.getValue(clsAnimalModel.class);
+                    if (model.getMo().toString().trim().equals(Mo)){
+                        animalModelArrayList.add(model);
+                    }
                 }
                 if (animalModelArrayList.isEmpty()){
                     txt1.setVisibility(View.GONE);
@@ -106,13 +113,17 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
 
             }
         });
-        FirebaseDatabase.getInstance().getReference().child("User").child(Mo).child("Resell").child("Cultivatio_Product").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("/Resell/Cultivation Product").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
            cultivationProductModelArrayList = new ArrayList<>();
                 for (DataSnapshot dataSnapshot:
                         snapshot.getChildren()) {
-                    cultivationProductModelArrayList.add(dataSnapshot.getValue(ClsCultivationProductModel.class));
+                    ClsCultivationProductModel model=dataSnapshot.getValue(ClsCultivationProductModel.class);
+                    if (model.getMo().trim().equals(Mo)){
+                        cultivationProductModelArrayList.add(model);
+
+                    }
                 }
                 if (cultivationProductModelArrayList.isEmpty()){
                     txt2.setVisibility(View.GONE);
@@ -130,13 +141,16 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
 
             }
         });
-        FirebaseDatabase.getInstance().getReference().child("User").child(Mo).child("Resell").child("Tools&Accessories").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("/Resell/Tools&Accessories").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                  toolsAccessoriesModelArrayList = new ArrayList<>();
                 for (DataSnapshot dataSnapshot:
                         snapshot.getChildren()) {
-                    toolsAccessoriesModelArrayList.add(dataSnapshot.getValue(clsToolsAccessoriesModel.class));
+                    clsToolsAccessoriesModel model=dataSnapshot.getValue(clsToolsAccessoriesModel.class);
+                    if (model.getMo().equals(Mo)){
+                        toolsAccessoriesModelArrayList.add(model);
+                    }
                 }
                 if (toolsAccessoriesModelArrayList.isEmpty()){
                     txt3.setVisibility(View.GONE);

@@ -27,13 +27,16 @@ RcorderAdapter rcorderAdapter;
     window.setStatusBarColor(this.getResources().getColor(R.color.white));
         RecyclerView rcprdt=findViewById(R.id.rccprdt);
         SharedPreferences sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
-    FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo","1234567890")).child("Myorder").addValueEventListener(new ValueEventListener() {
+    FirebaseDatabase.getInstance().getReference("/Orders").addValueEventListener(new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {
             ArrayList<clsOrderModel> orderModelArrayList = new ArrayList<>();
             for (DataSnapshot datasnapshot:
                  snapshot.getChildren()) {
-                orderModelArrayList.add(datasnapshot.getValue(clsOrderModel.class));
+                clsOrderModel model=datasnapshot.getValue(clsOrderModel.class);
+                if (model.getMo().trim().equals(sharedPreferences.getString("mo",""))){
+                    orderModelArrayList.add(model);
+                }
             }
             ArrayList<clsOrderModel> reversedlist=new ArrayList<>();
             for (int i = orderModelArrayList.size() - 1; i >= 0; i--) {

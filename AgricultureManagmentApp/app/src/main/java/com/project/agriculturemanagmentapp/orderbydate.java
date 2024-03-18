@@ -49,13 +49,16 @@ TextView txtdate,txtallorder,txtavgorder,txtallpayment,txtavgpayment;
         txtdate=findViewById(R.id.txtdate);
 
         date = day + "-" + (++month) + "-" + year;
-        FirebaseDatabase.getInstance().getReference().child("Orders").child(date).addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference().child("Orders").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ArrayList<clsOrderModel> orderModelArrayList = new ArrayList<>();
                 for (DataSnapshot datasnapshot:
                         snapshot.getChildren()) {
-                    orderModelArrayList.add(datasnapshot.getValue(clsOrderModel.class));
+                    clsOrderModel model=datasnapshot.getValue(clsOrderModel.class);
+                    if (model.getDate().equals(date)){
+                        orderModelArrayList.add(model);
+                    }
                 }
                     rcorderAdapter=new RcorderAdapter(orderbydate.this,orderModelArrayList);
                     recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
@@ -77,13 +80,16 @@ TextView txtdate,txtallorder,txtavgorder,txtallpayment,txtavgpayment;
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         String date=dayOfMonth + "-" + (++month) + "-" + year;
                         txtdate.setText(dayOfMonth + "/" + (++month) + "/" + year);
-                        FirebaseDatabase.getInstance().getReference().child("Orders").child(date).addValueEventListener(new ValueEventListener() {
+                        FirebaseDatabase.getInstance().getReference().child("Orders").addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 ArrayList<clsOrderModel> orderModelArrayList = new ArrayList<>();
                                 for (DataSnapshot datasnapshot:
                                         snapshot.getChildren()) {
-                                    orderModelArrayList.add(datasnapshot.getValue(clsOrderModel.class));
+                                    clsOrderModel model=datasnapshot.getValue(clsOrderModel.class);
+                                    if (model.getDate().equals(date)){
+                                        orderModelArrayList.add(model);
+                                    }
                                 }
                                 rcorderAdapter=new RcorderAdapter(orderbydate.this,orderModelArrayList);
                                 recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));

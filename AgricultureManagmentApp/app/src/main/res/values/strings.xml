@@ -116,7 +116,6 @@
     <string name="My_Order">My Order</string>
     <string name="Agro_Farm">AgroCare</string>
     <string name="Select_Language">Select Language</string>
-
     <string name="Seller_name">Seller name</string>
     <string name="Usage">Usage</string>
     <string name="Cuti_prd">Cultivation Product</string>
@@ -179,7 +178,7 @@
     <string name="FarmerFriend">Farmer Friend</string>
     <string name="Enter_Prompt">Enter Prompt</string>
     <string name="Warning">Warning</string>
-    <string name="dbwarningmsg">Are You Sure? \n This can not be undone.</string>
+    <string name="dbwarningmsg">Are You Sure?</string>
     <string name="Countinue">Countinue</string>
     <string name="Explore_User">Explore User</string>
     <string name="Resell">Resell</string>

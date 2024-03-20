@@ -61,7 +61,7 @@
             android:id="@+id/txtdes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/allerta"
+            android:fontFamily="@font/quicksandsemibold"
             android:layout_marginStart="10dp"
             android:text="My First Post"
             android:visibility="gone"
@@ -93,7 +93,7 @@
                         android:layout_width="200dp"
                         android:layout_height="20dp"
                         android:backgroundTint="#CDCDCD"
-                        android:fontFamily="@font/cambay"
+                        android:fontFamily="@font/quicksandmedium"
                         android:background="@drawable/curvebackground"
                         android:textSize="15dp"
                         />
@@ -102,7 +102,7 @@
                         android:layout_width="100dp"
                         android:layout_height="20dp"
                         android:backgroundTint="#CDCDCD"
-                        android:fontFamily="@font/cambay"
+                        android:fontFamily="@font/quicksandmedium"
                         android:layout_marginTop="2dp"
                         android:background="@drawable/curvebackground"
                         />
@@ -147,7 +147,7 @@
                             android:id="@+id/likecount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_medium"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:text="0"
                             android:layout_marginStart="7dp"
                             android:textSize="12dp" />
@@ -175,7 +175,7 @@
                             android:id="@+id/commentcount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_medium"
+                            android:fontFamily="@font/quicksandsemibold"
                             android:text="0"
                             android:layout_marginStart="7dp"
                             android:textSize="12dp" />

@@ -23,7 +23,7 @@
             android:id="@+id/txttweet"
             android:layout_width="130dp"
             android:layout_height="140dp"
-            android:fontFamily="@font/allerta"
+            android:fontFamily="@font/quicksandmedium"
             android:textColor="#121212"
             android:gravity="center"
             android:padding="5dp"

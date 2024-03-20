@@ -42,7 +42,8 @@ import java.util.Calendar;
 
 public class EditprofileActivity extends AppCompatActivity {
     Spinner states;
-    EditText edtname, edtemail, edtmo, edtaddress;
+    EditText edtname, edtemail, edtaddress;
+    TextView edtmo;
     RadioButton rdmale, rdfemale;
     ImageView prfpc,rldate,back;
     Dialog dialog;
@@ -97,7 +98,7 @@ public class EditprofileActivity extends AppCompatActivity {
                             .load(model.getUrl())
                             .into(prfpc);
                     edtname.setText(model.getUname());
-                    edtmo.setText(model.getMo());
+                    edtmo.setText("+91 "+model.getMo());
                     edtaddress.setText(model.getAddress());
                     edtemail.setText(model.getEmail());
                     txtdate.setText(model.getDob());
@@ -258,13 +259,10 @@ public class EditprofileActivity extends AppCompatActivity {
             }
         });
 
-        dialog = new Dialog(EditprofileActivity.this);
-      dialog.setContentView(R.layout.custome_dialogbox);
 
     back.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-
             finish();
         }
     });

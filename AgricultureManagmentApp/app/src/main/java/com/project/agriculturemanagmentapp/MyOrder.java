@@ -26,7 +26,8 @@ RcorderAdapter rcorderAdapter;
     Window window = this.getWindow();
     window.setStatusBarColor(this.getResources().getColor(R.color.white));
         RecyclerView rcprdt=findViewById(R.id.rccprdt);
-        SharedPreferences sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
+    RecyclerView rcCancel=findViewById(R.id.rccancel);
+    SharedPreferences sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
     FirebaseDatabase.getInstance().getReference("/Orders").addValueEventListener(new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -42,9 +43,34 @@ RcorderAdapter rcorderAdapter;
             for (int i = orderModelArrayList.size() - 1; i >= 0; i--) {
                 reversedlist.add(orderModelArrayList.get(i));
             }
-            rcorderAdapter=new RcorderAdapter(MyOrder.this,reversedlist);
+            rcorderAdapter=new RcorderAdapter(MyOrder.this,reversedlist,false,false);
             rcprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
             rcprdt.setAdapter(rcorderAdapter);
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError error) {
+
+        }
+    });
+    FirebaseDatabase.getInstance().getReference("/Cancelled_order").addValueEventListener(new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot snapshot) {
+            ArrayList<clsOrderModel> orderModelArrayList = new ArrayList<>();
+            for (DataSnapshot datasnapshot:
+                    snapshot.getChildren()) {
+                clsOrderModel model=datasnapshot.getValue(clsOrderModel.class);
+                if (model.getMo().trim().equals(sharedPreferences.getString("mo",""))){
+                    orderModelArrayList.add(model);
+                }
+            }
+            ArrayList<clsOrderModel> reversedlist=new ArrayList<>();
+            for (int i = orderModelArrayList.size() - 1; i >= 0; i--) {
+                reversedlist.add(orderModelArrayList.get(i));
+            }
+            rcorderAdapter=new RcorderAdapter(MyOrder.this,reversedlist,true,true);
+            rcCancel.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+            rcCancel.setAdapter(rcorderAdapter);
         }
 
         @Override

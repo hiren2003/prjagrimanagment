@@ -2,6 +2,7 @@ package com.project.agriculturemanagmentapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.telephony.SmsManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,20 +12,26 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.time.Instant;
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class RcorderAdapter extends RecyclerView.Adapter<RcorderAdapter.ViewHolder> {
     Context context;
     ArrayList<clsOrderModel> orderModelArrayList;
-
-    public RcorderAdapter(Context context, ArrayList<clsOrderModel> orderModelArrayList) {
+    boolean isAdmin;
+    Boolean isCancelled;
+    public RcorderAdapter(Context context, ArrayList<clsOrderModel> orderModelArrayList, boolean isAdmin,Boolean isCancelled) {
         this.context = context;
         this.orderModelArrayList = orderModelArrayList;
+        this.isAdmin = isAdmin;
+        this.isCancelled=isCancelled;
     }
 
     @Override
@@ -41,11 +48,14 @@ public class RcorderAdapter extends RecyclerView.Adapter<RcorderAdapter.ViewHold
                 Intent intent=new Intent(context,ConfirmOrder.class);
                 intent.putExtra("key",orderModelArrayList.get(position).getKey());
                 intent.putExtra("IsOrder",true);
+                intent.putExtra("IsAdmin",isAdmin);
+                intent.putExtra("isCancelled",isCancelled);
                 context.startActivity(intent);
                 BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(context,R.style.SheetDialog);
                 View view=LayoutInflater.from(context).inflate(R.layout.lyt_view_order_sheet,null,false);
                 TextView txtpname,txtqty,txtprice,txttpayment,txtrec,txtspe,txtdes,txtmo,txtadd;
                 ImageView imgprgt;
+                AppCompatButton btncancelorder;
                 imgprgt=view.findViewById(R.id.imgprdt);
                 txtpname=view.findViewById(R.id.txtpname);
                 txtqty=view.findViewById(R.id.txtqty);
@@ -56,6 +66,7 @@ public class RcorderAdapter extends RecyclerView.Adapter<RcorderAdapter.ViewHold
                 txtdes=view.findViewById(R.id.txtdesc);
                 txtmo=view.findViewById(R.id.txtmo);
                 txtadd=view.findViewById(R.id.txtadd);
+
                 Glide.with(context)
                         .load(orderModelArrayList.get(position).getClsEcommModel().getImg())
                         .into(imgprgt);

@@ -73,16 +73,7 @@
                    android:layout_width="50dp"
                    android:layout_height="50dp"
                    android:src="@drawable/youtube"/>
-               <TextView
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="@string/add_Video"
-                   android:layout_gravity="center_vertical"
-                   android:textSize="20dp"
-                   android:layout_marginStart="30dp"
-                   android:textStyle="bold"
-                   android:fontFamily="@font/allerta"
-                   />
+
            </LinearLayout>
        </androidx.cardview.widget.CardView>
        <androidx.cardview.widget.CardView

@@ -85,10 +85,7 @@ ProgressBar prgbar;
                 GenerativeModel gm;
                 GenerativeModelFutures generativeModelFutures;
                 Content content;
-               if(img==null&&edtquery.getText().toString().trim().isEmpty()){
-                   Toast.makeText(AI.this, getString(R.string.Invalid_query), Toast.LENGTH_SHORT).show();
-               }
-                else if (img==null){
+            if (img==null){
                     gm = new GenerativeModel("gemini-pro",apikey);
                     generativeModelFutures=GenerativeModelFutures.from(gm);
                     content  = new Content.Builder()

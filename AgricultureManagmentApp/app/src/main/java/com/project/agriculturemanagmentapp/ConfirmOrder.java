@@ -43,6 +43,7 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.Instant;
 import java.util.Calendar;
 
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
@@ -61,6 +62,8 @@ clsEcommModel clsEcommModel;
 CardView cdprdt,cdpmod,cdpdetail;
 LinearLayout lnpoption;
 boolean IsOrder=false;
+boolean isAdmin=false;
+    boolean isCancelled=false;
 clsOrderModel clsOrderModel;
 String date;
     @Override
@@ -104,6 +107,8 @@ String date;
         sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
         key=intent.getStringExtra("key");
         IsOrder=intent.getBooleanExtra("IsOrder",false);
+        isAdmin=intent.getBooleanExtra("IsAdmin",false);
+        isCancelled=intent.getBooleanExtra("isCancelled",false);
         if(!IsOrder){
             txtcname.setText(sharedPreferences.getString("uname","unkown"));
             txtcmo.setText(sharedPreferences.getString("mo","unkown"));
@@ -113,7 +118,15 @@ String date;
             imgedit.setVisibility(View.GONE);
             cdpmod.setVisibility(View.GONE);
             btnconfirm.setVisibility(View.GONE);
-            FirebaseDatabase.getInstance().getReference("/Orders").child(key).addValueEventListener(new ValueEventListener() {
+            String path="";
+            if (isCancelled)
+            {
+                 path="/Cancelled_order";
+            }
+            else{
+                 path="/Orders";
+            }
+            FirebaseDatabase.getInstance().getReference(path).child(key).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                      clsOrderModel=snapshot.getValue(com.project.agriculturemanagmentapp.clsOrderModel.class);
@@ -148,6 +161,22 @@ String date;
                     float amt=price*qty;
                     float payable=((price*qty)+((sgst/100)*amt)+((cgst/100)*amt)+120)-((Discount/100)*amt);
                     txtpayableamt.setText(payable+"");
+                  AppCompatButton  btncancelorder=findViewById(R.id.btnremoveorder);
+                    long time=86400+clsOrderModel.getTime();
+                    if (Instant.now().getEpochSecond()<time&&isAdmin==false){
+                        btncancelorder.setVisibility(View.VISIBLE);
+                    }
+                    else {
+                        btncancelorder.setVisibility(View.GONE);
+                    }
+                    btncancelorder.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            FirebaseDatabase.getInstance().getReference().child("Cancelled_order").child(clsOrderModel.getKey()).setValue(clsOrderModel);
+                            FirebaseDatabase.getInstance().getReference().child("Orders").child(clsOrderModel.getKey()).removeValue();
+                            finish();
+                        }
+                    });
                 }
 
                 @Override
@@ -386,7 +415,7 @@ String date;
     public void AddOrder(){
         int hour=Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
         hour++;
-        String time=hour+":"+Calendar.getInstance().get(Calendar.MINUTE);
+        long time= Instant.now().getEpochSecond();
         String key = FirebaseDatabase.getInstance().getReference().child("orders").push().getKey();
         clsOrderModel clsOrderModel = new clsOrderModel(clsEcommModel,key,sharedPreferences.getString("uname", "unknown"),sharedPreferences.getString("mo", "1234567890"), sharedPreferences.getString("add", "null"), qty+"", date,time,"COD","","");
         FirebaseDatabase.getInstance().getReference().child("Orders").child(key).setValue(clsOrderModel);
@@ -408,7 +437,7 @@ String date;
     public void onPaymentSuccess(String s, PaymentData paymentData) {
         int hour=Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
         hour++;
-        String time=hour+":"+Calendar.getInstance().get(Calendar.MINUTE);
+        long time= Instant.now().getEpochSecond();
         String key = FirebaseDatabase.getInstance().getReference().child("orders").push().getKey();
         clsOrderModel clsOrderModel = new clsOrderModel(clsEcommModel,key,sharedPreferences.getString("uname", "unknown"),sharedPreferences.getString("mo", "1234567890"), sharedPreferences.getString("add", "null"), qty+"", date,time,"Online",paymentData.getPaymentId().toString(),"Sucess");
         FirebaseDatabase.getInstance().getReference().child("Orders").child(key).setValue(clsOrderModel);

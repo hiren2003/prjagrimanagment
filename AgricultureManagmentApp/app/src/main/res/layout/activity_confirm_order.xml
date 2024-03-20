@@ -528,6 +528,20 @@
           android:textColor="#ffffff"
           android:backgroundTint="#FFB302"
           />
+      <androidx.appcompat.widget.AppCompatButton
+          android:id="@+id/btnremoveorder"
+          android:layout_width="match_parent"
+          android:layout_height="60dp"
+          android:text="@string/Cancel_order"
+          android:fontFamily="@font/quicksandregular"
+          android:backgroundTint="#CF1010"
+          android:background="@drawable/addcart"
+          android:textStyle="bold"
+          android:layout_margin="20dp"
+          android:visibility="gone"
+          android:padding="10dp"
+          android:textColor="#FFFFFF"
+          android:textSize="20dp"/>
   </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>

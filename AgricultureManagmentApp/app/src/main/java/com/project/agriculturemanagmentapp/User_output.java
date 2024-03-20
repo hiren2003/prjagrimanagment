@@ -230,7 +230,7 @@ RcEcommAdapter rcEcommAdapter;
                             orderModelArrayList.add(model);
                         }
                     }
-                    rcorderAdapter=new RcorderAdapter(User_output.this,orderModelArrayList);
+                    rcorderAdapter=new RcorderAdapter(User_output.this,orderModelArrayList,false,false);
                     recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
                     recyclerView.setAdapter(rcorderAdapter);
                 }

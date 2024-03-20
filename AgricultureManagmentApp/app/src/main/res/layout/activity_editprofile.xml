@@ -54,13 +54,6 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:src="@drawable/editprocama" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Update_Profile_picture"
-                android:textSize="15dp"
-                android:textColor="#006A4E"
-                android:layout_gravity="center_horizontal"/>
 
 
             <TextView
@@ -124,7 +117,7 @@
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
-            <com.google.android.material.textfield.TextInputEditText
+            <TextView
                 android:id="@+id/mobile"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
@@ -132,11 +125,12 @@
                 android:layout_marginRight="20dp"
                 android:background="@drawable/curvebackground"
                 android:backgroundTint="#F5F5F5"
+                android:textSize="20dp"
                 android:fontFamily="@font/quicksandregular"
-                android:hint="+91 98565 95456"
+                android:gravity="center_vertical"
                 android:paddingLeft="20dp"
                 android:textColor="@color/black"
-                app:hintTextColor="@color/black" />
+              />
 
 
             <TextView

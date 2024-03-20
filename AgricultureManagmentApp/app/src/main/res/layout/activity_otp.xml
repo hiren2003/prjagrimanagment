@@ -36,7 +36,7 @@
              android:layout_gravity="start"
              android:layout_marginTop="140dp"
              android:layout_marginLeft="30dp"
-             android:fontFamily="@font/montserrat"
+             android:fontFamily="@font/quicksandmedium"
              android:text="@string/Otp_Sent_to"
              android:textColor="#000000"
              android:textSize="25dp" />
@@ -149,7 +149,7 @@
                  android:id="@+id/txt"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
-                 android:fontFamily="@font/montserrat"
+                 android:fontFamily="@font/quicksandsemibold"
                  android:text="@string/Verify_Otp"
                  android:textColor="#FFFFFF"
                  android:textSize="20dp" />

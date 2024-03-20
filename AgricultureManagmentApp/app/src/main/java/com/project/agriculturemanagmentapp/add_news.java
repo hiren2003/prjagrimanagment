@@ -40,14 +40,11 @@ public class add_news extends AppCompatActivity {
         setContentView(R.layout.activity_add_news);
         Window window=this.getWindow();
         window.setStatusBarColor(this.getResources().getColor(R.color.white));
-        lang=findViewById(R.id.lang);
         imageView=findViewById(R.id.imgnews);
         btnpnews=findViewById(R.id.btnpublishnews);
         edtheadline=findViewById(R.id.edtheadline);
         edtlnk=findViewById(R.id.edtlnk);
         edtdes=findViewById(R.id.edtdes);
-        String[] arr=getResources().getStringArray(R.array.language);
-        lang.setAdapter(new ArrayAdapter<String>(this, com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item,arr));
         ActivityResultLauncher<String> launcher=registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
             public void onActivityResult(Uri result) {

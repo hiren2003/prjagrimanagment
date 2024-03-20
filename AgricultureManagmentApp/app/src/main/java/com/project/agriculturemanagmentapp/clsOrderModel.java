@@ -2,10 +2,12 @@ package com.project.agriculturemanagmentapp;
 
 public class clsOrderModel {
     clsEcommModel clsEcommModel;
-    String key,name,mo,address,qty,date,time,PaymentMode,PaymentId,PaymentStatus;
+    String key,name,mo,address,qty,date;
+    long time;
+    String PaymentMode,PaymentId,PaymentStatus;
 
 
-    public clsOrderModel(com.project.agriculturemanagmentapp.clsEcommModel clsEcommModel, String key, String name, String mo, String address, String qty, String date, String time, String paymentMode, String paymentId, String paymentStatus) {
+    public clsOrderModel(com.project.agriculturemanagmentapp.clsEcommModel clsEcommModel, String key, String name, String mo, String address, String qty, String date, long time, String paymentMode, String paymentId, String paymentStatus) {
             this.clsEcommModel = clsEcommModel;
             this.key = key;
             this.name = name;
@@ -78,11 +80,11 @@ public class clsOrderModel {
         this.date = date;
     }
 
-    public String getTime() {
+    public long getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(long time) {
         this.time = time;
     }
 

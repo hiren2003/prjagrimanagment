@@ -44,6 +44,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.squareup.picasso.Picasso;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
@@ -237,6 +239,10 @@ public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder
                 TextView addcomment = view.findViewById(R.id.postcomment);
                 TextInputEditText edtcomment = view.findViewById(R.id.edtcomment);
                 RecyclerView rccomment = view.findViewById(R.id.rccomment);
+                TextView txtlike=view.findViewById(R.id.txtlike);
+                txtlike.setText("Like");
+                addcomment.setVisibility(View.GONE);
+                edtcomment.setVisibility(View.GONE);
                 FirebaseDatabase.getInstance().getReference("/Like/"+feedModelArrayList.get(position).getKey()).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -270,6 +276,8 @@ public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder
 
                     }
                 });
+                bottomSheetDialog.setContentView(view);
+                bottomSheetDialog.show();
                 return false;
             }
         });

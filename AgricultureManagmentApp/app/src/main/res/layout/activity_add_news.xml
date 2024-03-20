@@ -23,7 +23,7 @@
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:text="Add News"
+               android:text="@string/add_news"
                android:textSize="30dp"
                android:layout_gravity="center_horizontal"
                android:textStyle="bold"
@@ -47,27 +47,6 @@
                    android:src="@drawable/adddd1"
                    />
            </androidx.cardview.widget.CardView>
-
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="Select language"
-               android:textSize="20dp"
-               android:textStyle="bold"
-               android:layout_marginTop="20dp"
-               android:fontFamily="@font/quicksandsemibold"
-               android:textColor="#000000"
-               android:layout_marginLeft="25dp"
-               android:layout_marginBottom="25dp"
-               />
-           <Spinner
-               android:id="@+id/lang"
-               android:layout_width="match_parent"
-               android:layout_marginLeft="25dp"
-               android:layout_marginBottom="25dp"
-               android:fontFamily="@font/quicksandregular"
-               android:layout_marginRight="10dp"
-               android:layout_height="40dp"/>
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="35dp"
@@ -82,7 +61,8 @@
            <com.google.android.material.textfield.TextInputEditText
                android:id="@+id/edtheadline"
                android:layout_width="match_parent"
-               android:layout_height="55dp"
+               android:layout_height="wrap_content"
+               android:minHeight="55dp"
                android:layout_marginLeft="15dp"
                android:layout_marginRight="15dp"
                android:background="@drawable/curvebackground"
@@ -106,7 +86,8 @@
            <com.google.android.material.textfield.TextInputEditText
                android:id="@+id/edtlnk"
                android:layout_width="match_parent"
-               android:layout_height="55dp"
+               android:layout_height="wrap_content"
+               android:minHeight="55dp"
                android:layout_marginLeft="15dp"
                android:layout_marginRight="15dp"
                android:background="@drawable/curvebackground"
@@ -119,7 +100,7 @@
 
            <TextView
                android:layout_width="wrap_content"
-               android:layout_height="35dp"
+               android:layout_height="wrap_content"
                android:layout_marginLeft="25dp"
                android:textStyle="bold"
                android:fontFamily="@font/quicksandsemibold"
@@ -130,7 +111,8 @@
            <com.google.android.material.textfield.TextInputEditText
                android:id="@+id/edtdes"
                android:layout_width="match_parent"
-               android:layout_height="55dp"
+               android:layout_height="wrap_content"
+               android:minHeight="55dp"
                android:layout_marginLeft="15dp"
                android:layout_marginRight="15dp"
                android:fontFamily="@font/quicksandregular"

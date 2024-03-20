@@ -52,6 +52,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import static androidx.core.content.ContextCompat.getDrawable;
 import static androidx.core.content.ContextCompat.startActivity;
@@ -227,6 +228,50 @@ public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder
             }
 
 
+        });
+        holder.rllike.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(context, R.style.SheetDialog);
+                View view = LayoutInflater.from(context).inflate(R.layout.lyt_comment_sheet, null, false);
+                TextView addcomment = view.findViewById(R.id.postcomment);
+                TextInputEditText edtcomment = view.findViewById(R.id.edtcomment);
+                RecyclerView rccomment = view.findViewById(R.id.rccomment);
+                FirebaseDatabase.getInstance().getReference("/Like/"+feedModelArrayList.get(position).getKey()).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        ArrayList<String> arrayList=new ArrayList<>();
+                        for (DataSnapshot dataSnapshot:snapshot.getChildren()){
+                            arrayList.add(dataSnapshot.getKey());
+                        }
+                        FirebaseDatabase.getInstance().getReference().child("Users_List").addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                ArrayList<clsUserModel> userModelArrayList=new ArrayList<>();
+                                for(DataSnapshot dataSnapshot:snapshot.getChildren()){
+                                    clsUserModel model=dataSnapshot.getValue(clsUserModel.class);
+                                    if (arrayList.contains(model.getMo())){
+                                        userModelArrayList.add(dataSnapshot.getValue(clsUserModel.class));
+                                    }
+                                }
+                                RcuserAdapter rcuserAdapter = new RcuserAdapter( context,userModelArrayList,true,false);
+                                rccomment.setLayoutManager(new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL));
+                                rccomment.setAdapter(rcuserAdapter);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                return false;
+            }
         });
 
 

@@ -244,6 +244,9 @@
     <string name="To">To</string>
     <string name="Apply">Apply</string>
     <string name="Clear_All">Clear All</string>
+    <string name="paste">Paste Link Here</string>
+    <string name="Invalid_query">Invalid query</string>
+    <string name="Invalid_msg">Write Some Message</string>
     <string-array name="toolstype">
         <item>Tools</item>
         <item>Accessories</item>

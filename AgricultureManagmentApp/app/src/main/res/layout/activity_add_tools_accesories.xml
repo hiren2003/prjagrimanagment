@@ -162,16 +162,15 @@
           android:paddingLeft="20dp"
           app:hintTextColor="@color/black" />
 
-
       <LinearLayout
           android:layout_width="wrap_content"
-          android:layout_height="110dp"
+          android:layout_height="wrap_content"
           android:layout_gravity="center_horizontal"
           android:orientation="horizontal">
 
           <LinearLayout
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
+              android:layout_height="wrap_content"
               android:orientation="vertical">
 
               <TextView
@@ -180,7 +179,7 @@
                   android:layout_marginLeft="10dp"
                   android:textStyle="bold"
                   android:fontFamily="@font/quicksandsemibold"
-                  android:text="State "
+                  android:text="@string/State"
                   android:layout_marginTop="10dp"
                   android:textColor="@color/black"
                   android:textSize="20dp" />
@@ -188,7 +187,8 @@
               <com.google.android.material.textfield.TextInputEditText
                   android:id="@+id/edtstate"
                   android:layout_width="170dp"
-                  android:layout_height="55dp"
+                  android:layout_height="wrap_content"
+                  android:minHeight="55dp"
                   android:layout_marginLeft="10dp"
                   android:layout_marginRight="10dp"
                   android:background="@drawable/curvebackground"
@@ -210,7 +210,7 @@
                   android:layout_marginLeft="10dp"
                   android:textStyle="bold"
                   android:fontFamily="@font/quicksandsemibold"
-                  android:text="District "
+                  android:text="@string/District"
                   android:layout_marginTop="10dp"
                   android:textColor="@color/black"
                   android:textSize="20dp" />
@@ -218,7 +218,8 @@
               <com.google.android.material.textfield.TextInputEditText
                   android:id="@+id/edtdist"
                   android:layout_width="170dp"
-                  android:layout_height="55dp"
+                  android:layout_height="wrap_content"
+                  android:minHeight="55dp"
                   android:layout_marginLeft="10dp"
                   android:layout_marginRight="10dp"
                   android:background="@drawable/curvebackground"
@@ -249,7 +250,7 @@
                   android:layout_marginLeft="10dp"
                   android:textStyle="bold"
                   android:fontFamily="@font/quicksandsemibold"
-                  android:text="Tehsil "
+                  android:text="@string/Tehsil"
                   android:layout_marginTop="10dp"
                   android:textColor="@color/black"
                   android:textSize="20dp" />
@@ -257,7 +258,8 @@
               <com.google.android.material.textfield.TextInputEditText
                   android:id="@+id/edttehsil"
                   android:layout_width="170dp"
-                  android:layout_height="55dp"
+                  android:layout_height="wrap_content"
+                  android:minHeight="55dp"
                   android:layout_marginLeft="10dp"
                   android:layout_marginRight="10dp"
                   android:background="@drawable/curvebackground"
@@ -279,7 +281,7 @@
                   android:layout_marginLeft="10dp"
                   android:textStyle="bold"
                   android:fontFamily="@font/quicksandsemibold"
-                  android:text="City  "
+                  android:text="@string/city_town_village"
                   android:layout_marginTop="10dp"
                   android:textColor="@color/black"
                   android:textSize="20dp" />
@@ -287,8 +289,9 @@
               <com.google.android.material.textfield.TextInputEditText
                   android:id="@+id/edtvlg"
                   android:layout_width="170dp"
-                  android:layout_height="55dp"
+                  android:layout_height="wrap_content"
                   android:layout_marginLeft="10dp"
+                  android:minHeight="55dp"
                   android:layout_marginRight="10dp"
                   android:background="@drawable/curvebackground"
                   android:backgroundTint="@color/commonw"
@@ -302,46 +305,53 @@
 
       </LinearLayout>
 
-      <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="35dp"
-          android:layout_marginLeft="10dp"
-          android:textStyle="bold"
-          android:fontFamily="@font/quicksandsemibold"
-          android:text="Description "
-          android:layout_marginTop="10dp"
-          android:textColor="@color/black"
-          android:textSize="20dp" />
-
-      <com.google.android.material.textfield.TextInputEditText
-          android:id="@+id/edtdes"
+      <LinearLayout
           android:layout_width="match_parent"
-          android:layout_height="55dp"
-          android:layout_marginLeft="10dp"
-          android:layout_marginRight="10dp"
-          android:background="@drawable/curvebackground"
-          android:backgroundTint="@color/commonw"
-          android:fontFamily="@font/quicksandregular"
-          android:textColor="@color/black"
-          android:hint="@string/Description"
-          android:paddingLeft="20dp"
-          app:hintTextColor="@color/black" />
+          android:layout_height="match_parent"
+          android:orientation="vertical">
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="35dp"
+              android:layout_marginLeft="10dp"
+              android:textStyle="bold"
+              android:fontFamily="@font/quicksandsemibold"
+              android:text="@string/Description"
+              android:layout_marginTop="10dp"
+              android:textColor="@color/black"
+              android:textSize="20dp" />
+
+          <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/edtdes"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:minHeight="55dp"
+              android:layout_marginLeft="10dp"
+              android:layout_marginRight="10dp"
+              android:background="@drawable/curvebackground"
+              android:backgroundTint="@color/commonw"
+              android:fontFamily="@font/quicksandregular"
+              android:textColor="@color/black"
+              android:hint="@string/Description"
+              android:paddingLeft="20dp"
+              app:hintTextColor="@color/black" />
+      </LinearLayout>
 
 
       <androidx.appcompat.widget.AppCompatButton
           android:id="@+id/btnchooseimage"
           android:layout_width="match_parent"
-          android:layout_height="55dp"
-          android:textSize="20dp"
+          android:layout_height="50dp"
           android:layout_marginTop="20dp"
+          android:background="@drawable/sendotp"
+          android:backgroundTint="#BCECDF"
           android:textColor="#056A4F"
-          android:backgroundTint="#C8E6DE"
           android:layout_marginLeft="10dp"
           android:layout_marginRight="10dp"
-          android:fontFamily="@font/quicksandsemibold"
-          android:background="@drawable/sendotp"
+          android:fontFamily="@font/quicksandregular"
           android:text="@string/Choose_Image"
-          />
+          android:textSize="20dp" />
+
       <ImageView
           android:id="@+id/imgprdt"
           android:layout_width="match_parent"
@@ -358,9 +368,8 @@
           android:background="@drawable/sendotp"
           android:layout_marginTop="20dp"
           android:textColor="@color/white"
-          android:fontFamily="@font/quicksandsemibold"
+          android:fontFamily="@font/quicksandregular"
           android:text="@string/Save_Detail"
           />
-
   </LinearLayout>
 </androidx.core.widget.NestedScrollView>

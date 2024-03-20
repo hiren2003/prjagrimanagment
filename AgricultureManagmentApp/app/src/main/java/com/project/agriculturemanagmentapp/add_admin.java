@@ -62,8 +62,9 @@ TextInputEditText mo,name,password;
                 }
                 else if (password.getText().toString().trim().isEmpty()) {
                     Toast.makeText(add_admin.this, "Enter Password", Toast.LENGTH_SHORT).show();
-                }
-                else if (!map.get(currentmo).equals(password.getText().toString().trim())){
+                } else if (mo.getText().toString().length()<10) {
+                    Toast.makeText(add_admin.this, "Invalid Mobile No.", Toast.LENGTH_SHORT).show();
+                } else if (!map.get(currentmo).equals(password.getText().toString().trim())){
                     Toast.makeText(add_admin.this, "Wrong Password", Toast.LENGTH_SHORT).show();
                 } else if (adminlist.contains(mo.getText().toString())) {
                     Toast.makeText(add_admin.this, mo.getText().toString()+" is Already admin", Toast.LENGTH_SHORT).show();

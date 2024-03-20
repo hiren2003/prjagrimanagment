@@ -142,73 +142,79 @@ public class chat extends AppCompatActivity {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                prgbar.setVisibility(View.VISIBLE);
-                send.setVisibility(View.GONE);
-                String hour=calendar.get(Calendar.HOUR_OF_DAY)+"";
-                String minute=calendar.get(Calendar.MINUTE)+"";
-                if(minute.length()<2){
-                    minute+="0";
-                    if(hour.length()<2) {
-                        hour+="0";
-                    }
-                }
-                if(hour.length()<2){
-                    hour+="0";
-                    if(minute.length()<2) {
-                        minute+="0";
-                    }
-                }
-                time=hour+":"+minute;
-                String key=FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("Chats").child(rmo.toString()).push().getKey().toString();
-                if(uri==null){
-                    clsChatModel model = new clsChatModel(edtmsg.getText().toString(),smo,rmo,date,time,key,"");
-                    FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("Chats").child(rmo.toString()).child(key).setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void unused) {
-                            FirebaseDatabase.getInstance().getReference().child("User").child(rmo.toString()).child("Chats").child(smo.toString()).child(key).setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-                                    prgbar.setVisibility(View.GONE);
-                                    send.setVisibility(View.VISIBLE);
-                                    edtmsg.setText("");
-                                    FirebaseDatabase.getInstance().getReference().child("User").child(rmo.toString()).child("RecentChats").child(Instant.now().getEpochSecond()+"").setValue(smo.toString());
-                                    FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("RecentChats").child(Instant.now().getEpochSecond()+"").setValue(rmo.toString());
-                                }
-                            });
-                        }
-                    });
-
+                if (edtmsg.getText().toString().trim().isEmpty()&&uri==null){
+                    Toast.makeText(chat.this, getString(R.string.Invalid_msg), Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Chats").child(smo.toString()).child(key);
-                    storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                @Override
-                                public void onSuccess(Uri uri2) {
-                                    clsChatModel model = new clsChatModel(edtmsg.getText().toString(),smo,rmo,date,time,key,uri2.toString());
-                                    FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("Chats").child(rmo.toString()).child(key).setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                        @Override
-                                        public void onSuccess(Void unused) {
-                                            FirebaseDatabase.getInstance().getReference().child("User").child(rmo.toString()).child("Chats").child(smo.toString()).child(key).setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                @Override
-                                                public void onSuccess(Void unused) {
-                                                    prgbar.setVisibility(View.GONE);
-                                                    send.setVisibility(View.VISIBLE);
-                                                    edtmsg.setText("");
-                                                    uri=null;
-                                                    FirebaseDatabase.getInstance().getReference().child("User").child(rmo.toString()).child("RecentChats").child(Instant.now().getEpochSecond()+"").setValue(smo.toString());
-                                                    FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("RecentChats").child(Instant.now().getEpochSecond()+"").setValue(rmo.toString());
-                                                }
-                                            });
-                                        }
-                                    });
-                                }
-                            });
+                    prgbar.setVisibility(View.VISIBLE);
+                    send.setVisibility(View.GONE);
+                    String hour=calendar.get(Calendar.HOUR_OF_DAY)+"";
+                    String minute=calendar.get(Calendar.MINUTE)+"";
+                    if(minute.length()<2){
+                        minute+="0";
+                        if(hour.length()<2) {
+                            hour+="0";
                         }
-                    });
+                    }
+                    if(hour.length()<2){
+                        hour+="0";
+                        if(minute.length()<2) {
+                            minute+="0";
+                        }
+                    }
+                    time=hour+":"+minute;
+                    String key=FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("Chats").child(rmo.toString()).push().getKey().toString();
+                    if(uri==null){
+                        clsChatModel model = new clsChatModel(edtmsg.getText().toString(),smo,rmo,date,time,key,"");
+                        FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("Chats").child(rmo.toString()).child(key).setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                FirebaseDatabase.getInstance().getReference().child("User").child(rmo.toString()).child("Chats").child(smo.toString()).child(key).setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        prgbar.setVisibility(View.GONE);
+                                        send.setVisibility(View.VISIBLE);
+                                        edtmsg.setText("");
+                                        FirebaseDatabase.getInstance().getReference().child("User").child(rmo.toString()).child("RecentChats").child(Instant.now().getEpochSecond()+"").setValue(smo.toString());
+                                        FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("RecentChats").child(Instant.now().getEpochSecond()+"").setValue(rmo.toString());
+                                    }
+                                });
+                            }
+                        });
+
+                    }
+                    else{
+                        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Chats").child(smo.toString()).child(key);
+                        storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri2) {
+                                        clsChatModel model = new clsChatModel(edtmsg.getText().toString(),smo,rmo,date,time,key,uri2.toString());
+                                        FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("Chats").child(rmo.toString()).child(key).setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void unused) {
+                                                FirebaseDatabase.getInstance().getReference().child("User").child(rmo.toString()).child("Chats").child(smo.toString()).child(key).setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void unused) {
+                                                        prgbar.setVisibility(View.GONE);
+                                                        send.setVisibility(View.VISIBLE);
+                                                        edtmsg.setText("");
+                                                        uri=null;
+                                                        FirebaseDatabase.getInstance().getReference().child("User").child(rmo.toString()).child("RecentChats").child(Instant.now().getEpochSecond()+"").setValue(smo.toString());
+                                                        FirebaseDatabase.getInstance().getReference().child("User").child(smo.toString()).child("RecentChats").child(Instant.now().getEpochSecond()+"").setValue(rmo.toString());
+                                                    }
+                                                });
+                                            }
+                                        });
+                                    }
+                                });
+                            }
+                        });
+                    }
                 }
+
             }
         });
 

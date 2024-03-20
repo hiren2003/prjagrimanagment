@@ -90,7 +90,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtspecie"
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="55dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/curvebackground"
@@ -121,7 +122,7 @@
                         android:layout_marginLeft="10dp"
                         android:textStyle="bold"
                         android:fontFamily="@font/quicksandsemibold"
-                        android:text="Year "
+                        android:text="@string/year"
                         android:layout_marginTop="10dp"
                         android:textColor="@color/black"
                         android:textSize="20dp" />
@@ -129,7 +130,8 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtyear"
                         android:layout_width="170dp"
-                        android:layout_height="55dp"
+                        android:layout_height="wrap_content"
+                        android:minHeight="55dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:background="@drawable/curvebackground"
@@ -137,6 +139,8 @@
                         android:fontFamily="@font/quicksandregular"
                         android:textColor="@color/black"
                         android:hint="@string/year"
+                        android:maxLength="2"
+                        android:inputType="numberSigned"
                         android:paddingLeft="20dp"
                         app:hintTextColor="@color/black" />
                 </LinearLayout>
@@ -151,7 +155,7 @@
                         android:layout_marginLeft="10dp"
                         android:textStyle="bold"
                         android:fontFamily="@font/quicksandsemibold"
-                        android:text="Month "
+                        android:text="@string/Month"
                         android:layout_marginTop="10dp"
                         android:textColor="@color/black"
                         android:textSize="20dp" />
@@ -159,7 +163,8 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtMonth"
                         android:layout_width="170dp"
-                        android:layout_height="55dp"
+                        android:layout_height="wrap_content"
+                        android:minHeight="55dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:background="@drawable/curvebackground"
@@ -167,6 +172,8 @@
                         android:fontFamily="@font/quicksandregular"
                         android:textColor="@color/black"
                         android:hint="@string/month"
+                        android:inputType="numberSigned"
+                        android:maxLength="2"
                         android:paddingLeft="20dp"
                         app:hintTextColor="@color/black" />
                 </LinearLayout>
@@ -192,7 +199,7 @@
                         android:layout_marginLeft="10dp"
                         android:textStyle="bold"
                         android:fontFamily="@font/quicksandsemibold"
-                        android:text="Milk "
+                        android:text="Milk"
                         android:layout_marginTop="10dp"
                         android:textColor="@color/black"
                         android:textSize="20dp" />
@@ -200,7 +207,8 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtMilk"
                         android:layout_width="170dp"
-                        android:layout_height="60dp"
+                        android:layout_height="wrap_content"
+                        android:minHeight="55dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:background="@drawable/curvebackground"
@@ -209,6 +217,7 @@
                         android:textColor="@color/black"
                         android:hint="@string/Milk_Production"
                         android:paddingLeft="20dp"
+                        android:inputType="numberDecimal"
                         app:hintTextColor="@color/black" />
                 </LinearLayout>
                 <LinearLayout
@@ -222,7 +231,7 @@
                         android:layout_marginLeft="10dp"
                         android:textStyle="bold"
                         android:fontFamily="@font/quicksandsemibold"
-                        android:text="Weight  "
+                        android:text="@string/Weight"
                         android:layout_marginTop="10dp"
                         android:textColor="@color/black"
                         android:textSize="20dp" />
@@ -230,7 +239,8 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtWeight"
                         android:layout_width="170dp"
-                        android:layout_height="55dp"
+                        android:layout_height="wrap_content"
+                        android:minHeight="55dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:background="@drawable/curvebackground"
@@ -239,6 +249,7 @@
                         android:textColor="@color/black"
                         android:hint="@string/Weight"
                         android:paddingLeft="20dp"
+                        android:inputType="numberSigned"
                         app:hintTextColor="@color/black" />
                 </LinearLayout>
 
@@ -257,7 +268,7 @@
                     android:layout_marginLeft="10dp"
                     android:textStyle="bold"
                     android:fontFamily="@font/quicksandsemibold"
-                    android:text="Seller name"
+                    android:text="@string/Seller_name"
                     android:layout_marginTop="10dp"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
@@ -265,7 +276,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtsellername"
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="55dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/curvebackground"
@@ -274,6 +286,7 @@
                     android:textColor="@color/black"
                     android:hint="@string/Seller_name"
                     android:paddingLeft="20dp"
+                    android:inputType="textPersonName"
                     app:hintTextColor="@color/black" />
             </LinearLayout>
 
@@ -289,7 +302,7 @@
                     android:layout_marginLeft="10dp"
                     android:textStyle="bold"
                     android:fontFamily="@font/quicksandsemibold"
-                    android:text="Mobile no."
+                    android:text="@string/mobile_no"
                     android:layout_marginTop="10dp"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
@@ -297,15 +310,18 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtmo"
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="55dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
+                    android:maxLength="10"
                     android:background="@drawable/curvebackground"
                     android:backgroundTint="@color/commonw"
                     android:fontFamily="@font/quicksandregular"
                     android:textColor="@color/black"
                     android:hint="@string/mobile_number"
                     android:paddingLeft="20dp"
+                    android:inputType="phone"
                     app:hintTextColor="@color/black" />
             </LinearLayout>
 
@@ -321,7 +337,7 @@
                     android:layout_marginLeft="10dp"
                     android:textStyle="bold"
                     android:fontFamily="@font/quicksandsemibold"
-                    android:text="Price"
+                    android:text="@string/Price2"
                     android:layout_marginTop="10dp"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
@@ -329,7 +345,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtprc"
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="55dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:inputType="number"
@@ -361,7 +378,7 @@
                         android:layout_marginLeft="10dp"
                         android:textStyle="bold"
                         android:fontFamily="@font/quicksandsemibold"
-                        android:text="State "
+                        android:text="@string/State"
                         android:layout_marginTop="10dp"
                         android:textColor="@color/black"
                         android:textSize="20dp" />
@@ -369,7 +386,8 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtstate"
                         android:layout_width="170dp"
-                        android:layout_height="55dp"
+                        android:layout_height="wrap_content"
+                        android:minHeight="55dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:background="@drawable/curvebackground"
@@ -391,7 +409,7 @@
                         android:layout_marginLeft="10dp"
                         android:textStyle="bold"
                         android:fontFamily="@font/quicksandsemibold"
-                        android:text="District "
+                        android:text="@string/District"
                         android:layout_marginTop="10dp"
                         android:textColor="@color/black"
                         android:textSize="20dp" />
@@ -399,7 +417,8 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtdist"
                         android:layout_width="170dp"
-                        android:layout_height="55dp"
+                        android:layout_height="wrap_content"
+                        android:minHeight="55dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:background="@drawable/curvebackground"
@@ -430,7 +449,7 @@
                         android:layout_marginLeft="10dp"
                         android:textStyle="bold"
                         android:fontFamily="@font/quicksandsemibold"
-                        android:text="Tehsil "
+                        android:text="@string/Tehsil"
                         android:layout_marginTop="10dp"
                         android:textColor="@color/black"
                         android:textSize="20dp" />
@@ -438,7 +457,8 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edttehsil"
                         android:layout_width="170dp"
-                        android:layout_height="55dp"
+                        android:layout_height="wrap_content"
+                        android:minHeight="55dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:background="@drawable/curvebackground"
@@ -460,7 +480,7 @@
                         android:layout_marginLeft="10dp"
                         android:textStyle="bold"
                         android:fontFamily="@font/quicksandsemibold"
-                        android:text="City  "
+                        android:text="@string/city_town_village"
                         android:layout_marginTop="10dp"
                         android:textColor="@color/black"
                         android:textSize="20dp" />
@@ -468,7 +488,8 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtvlg"
                         android:layout_width="170dp"
-                        android:layout_height="55dp"
+                        android:layout_height="wrap_content"
+                        android:minHeight="55dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:background="@drawable/curvebackground"
@@ -501,7 +522,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtdes"
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="55dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/curvebackground"
@@ -525,7 +547,6 @@
                 android:layout_marginRight="10dp"
                 android:textColor="#056A4F"
                 android:backgroundTint="#BAE6DA"
-
                 android:background="@drawable/sendotp"
                 android:text="@string/Choose_Image"
                 />

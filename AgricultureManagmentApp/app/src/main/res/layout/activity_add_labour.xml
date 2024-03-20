@@ -46,21 +46,21 @@
                 android:layout_marginLeft="10dp"
                 android:textStyle="bold"
                 android:fontFamily="@font/quicksandsemibold"
-                android:text="Name "
+                android:text="@string/name"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtlname"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
+                android:minHeight="55dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/curvebackground"
                 android:backgroundTint="@color/commonw"
                 android:fontFamily="@font/quicksandregular"
                 android:textColor="@color/black"
-
                 android:hint="@string/Labour_name"
                 android:paddingLeft="20dp"
                 app:hintTextColor="@color/black" />
@@ -71,20 +71,22 @@
                 android:layout_marginLeft="10dp"
                 android:textStyle="bold"
                 android:fontFamily="@font/quicksandsemibold"
-                android:text="Mobile no. "
+                android:text="@string/mobile_no"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtlmo"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
+                android:minHeight="55dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/curvebackground"
                 android:backgroundTint="@color/commonw"
                 android:fontFamily="@font/quicksandregular"
                 android:textColor="@color/black"
+                android:inputType="number"
                 android:hint="@string/Labour_mobile_number"
                 android:paddingLeft="20dp"
                 app:hintTextColor="@color/black" />
@@ -95,14 +97,15 @@
                 android:layout_marginLeft="10dp"
                 android:textStyle="bold"
                 android:fontFamily="@font/quicksandsemibold"
-                android:text="Work place "
+                android:text="@string/Place_of_work"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtlplace"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
+                android:minHeight="55dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/curvebackground"
@@ -119,40 +122,15 @@
                 android:layout_marginLeft="10dp"
                 android:textStyle="bold"
                 android:fontFamily="@font/quicksandsemibold"
-                android:text="Experience "
-                android:layout_marginTop="10dp"
-                android:textColor="@color/black"
-                android:textSize="20dp" />
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/expe"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/curvebackground"
-                android:backgroundTint="@color/commonw"
-                android:fontFamily="@font/quicksandregular"
-                android:textColor="@color/black"
-                android:hint="@string/Experience"
-                android:paddingLeft="20dp"
-                app:hintTextColor="@color/black" />
-
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:layout_marginLeft="10dp"
-                android:textStyle="bold"
-                android:fontFamily="@font/quicksandsemibold"
-                android:text="Wages "
+                android:text="@string/Wages"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtlwages"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
+                android:minHeight="55dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/curvebackground"
@@ -163,31 +141,6 @@
                 android:inputType="number"
                 android:paddingLeft="20dp"
                 app:hintTextColor="@color/black" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:layout_marginLeft="10dp"
-                android:textStyle="bold"
-                android:fontFamily="@font/quicksandsemibold"
-                android:text="Education "
-                android:layout_marginTop="10dp"
-                android:textColor="@color/black"
-                android:textSize="20dp" />
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edu"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/curvebackground"
-                android:backgroundTint="@color/commonw"
-                android:fontFamily="@font/quicksandregular"
-                android:textColor="@color/black"
-                android:hint="@string/Education"
-                android:paddingLeft="20dp"
-                app:hintTextColor="@color/black" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
@@ -201,7 +154,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtldes"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
+                android:minHeight="55dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/curvebackground"

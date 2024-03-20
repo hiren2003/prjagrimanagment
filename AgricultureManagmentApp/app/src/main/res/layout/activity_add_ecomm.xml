@@ -76,7 +76,7 @@
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
             android:fontFamily="@font/quicksandsemibold"
-            android:text="Product Name "
+            android:text="@string/Product_Name"
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -84,7 +84,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtpname"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="wrap_content"
+            android:minHeight="55dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/curvebackground"
@@ -101,7 +102,7 @@
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
             android:fontFamily="@font/quicksandsemibold"
-            android:text="Price ( In INR )"
+            android:text="@string/Price2"
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -109,7 +110,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtprc"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="wrap_content"
+            android:minHeight="55dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/curvebackground"
@@ -126,7 +128,7 @@
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
             android:fontFamily="@font/quicksandsemibold"
-            android:text="CGST "
+            android:text="CGST"
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -134,7 +136,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtcgst"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="wrap_content"
+            android:minHeight="55dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:inputType="numberSigned"
@@ -161,7 +164,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtsgst"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="wrap_content"
+            android:minHeight="55dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:fontFamily="@font/quicksandregular"
@@ -180,7 +184,7 @@
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
             android:fontFamily="@font/quicksandsemibold"
-            android:text="Discount "
+            android:text="@string/Discount"
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -188,7 +192,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtdiscount"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="wrap_content"
+            android:minHeight="55dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/curvebackground"
@@ -207,7 +212,7 @@
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
             android:fontFamily="@font/quicksandsemibold"
-            android:text="Product Description "
+            android:text="@string/Product_Description"
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -215,7 +220,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtdes"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="wrap_content"
+            android:minHeight="55dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/curvebackground"
@@ -232,7 +238,7 @@
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
             android:fontFamily="@font/quicksandsemibold"
-            android:text="Specification "
+            android:text="@string/Specification"
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -240,12 +246,13 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtspe"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/curvebackground"
             android:backgroundTint="@color/commonw"
             android:textColor="@color/black"
+            android:minHeight="55dp"
             android:hint="@string/Specification"
             android:fontFamily="@font/quicksandregular"
             android:paddingLeft="20dp"
@@ -261,7 +268,7 @@
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
             android:fontFamily="@font/quicksandsemibold"
-            android:text="Recommandation "
+            android:text="@string/Recommandation"
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -269,8 +276,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtrecom"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:minHeight="55dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/curvebackground"
             android:backgroundTint="@color/commonw"

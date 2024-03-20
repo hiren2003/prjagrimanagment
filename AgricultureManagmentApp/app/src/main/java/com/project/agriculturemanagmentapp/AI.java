@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.ai.client.generativeai.GenerativeModel;
 import com.google.ai.client.generativeai.java.GenerativeModelFutures;
@@ -84,7 +85,10 @@ ProgressBar prgbar;
                 GenerativeModel gm;
                 GenerativeModelFutures generativeModelFutures;
                 Content content;
-                if (img==null){
+               if(img==null&&edtquery.getText().toString().trim().isEmpty()){
+                   Toast.makeText(AI.this, getString(R.string.Invalid_query), Toast.LENGTH_SHORT).show();
+               }
+                else if (img==null){
                     gm = new GenerativeModel("gemini-pro",apikey);
                     generativeModelFutures=GenerativeModelFutures.from(gm);
                     content  = new Content.Builder()

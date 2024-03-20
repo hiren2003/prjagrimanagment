@@ -91,7 +91,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtpname"
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="55dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/curvebackground"
@@ -114,7 +115,7 @@
                     android:layout_marginLeft="10dp"
                     android:textStyle="bold"
                     android:fontFamily="@font/quicksandsemibold"
-                    android:text="specie "
+                    android:text="@string/specie"
                     android:layout_marginTop="10dp"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
@@ -122,7 +123,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtspecie"
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="55dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/curvebackground"
@@ -136,8 +138,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="110dp"
-                android:layout_marginRight="10dp"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -150,7 +151,7 @@
                         android:layout_marginLeft="10dp"
                         android:textStyle="bold"
                         android:fontFamily="@font/quicksandsemibold"
-                        android:text="Quantity "
+                        android:text="Qauntity"
                         android:layout_marginTop="10dp"
                         android:textColor="@color/black"
                         android:textSize="20dp" />
@@ -158,7 +159,8 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtqty"
                         android:layout_width="170dp"
-                        android:layout_height="60dp"
+                        android:layout_height="wrap_content"
+                        android:minHeight="55dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:background="@drawable/curvebackground"
@@ -172,7 +174,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="170dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
@@ -182,7 +184,7 @@
                         android:layout_marginLeft="10dp"
                         android:textStyle="bold"
                         android:fontFamily="@font/quicksandsemibold"
-                        android:text="Price "
+                        android:text="@string/Price2"
                         android:layout_marginTop="10dp"
                         android:textColor="@color/black"
                         android:textSize="20dp" />
@@ -190,11 +192,11 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtprc"
                         android:layout_width="wrap_content"
-                        android:layout_height="60dp"
+                        android:layout_height="wrap_content"
+                        android:minHeight="55dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:inputType="number"
-
                         android:background="@drawable/curvebackground"
                         android:backgroundTint="@color/commonw"
                         android:fontFamily="@font/quicksandregular"
@@ -224,7 +226,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtsellername"
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="55dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/curvebackground"
@@ -247,7 +250,7 @@
                     android:layout_marginLeft="10dp"
                     android:textStyle="bold"
                     android:fontFamily="@font/quicksandsemibold"
-                    android:text="Mobile no. "
+                    android:text="@string/mobile_no"
                     android:layout_marginTop="10dp"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
@@ -255,7 +258,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtmo"
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="55dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/curvebackground"
@@ -269,13 +273,13 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="110dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
@@ -284,7 +288,7 @@
                         android:layout_marginLeft="10dp"
                         android:textStyle="bold"
                         android:fontFamily="@font/quicksandsemibold"
-                        android:text="State "
+                        android:text="@string/State"
                         android:layout_marginTop="10dp"
                         android:textColor="@color/black"
                         android:textSize="20dp" />
@@ -292,7 +296,8 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtstate"
                         android:layout_width="170dp"
-                        android:layout_height="55dp"
+                        android:layout_height="wrap_content"
+                        android:minHeight="55dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:background="@drawable/curvebackground"
@@ -314,7 +319,7 @@
                         android:layout_marginLeft="10dp"
                         android:textStyle="bold"
                         android:fontFamily="@font/quicksandsemibold"
-                        android:text="District "
+                        android:text="@string/District"
                         android:layout_marginTop="10dp"
                         android:textColor="@color/black"
                         android:textSize="20dp" />
@@ -322,7 +327,8 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtdist"
                         android:layout_width="170dp"
-                        android:layout_height="55dp"
+                        android:layout_height="wrap_content"
+                        android:minHeight="55dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:background="@drawable/curvebackground"
@@ -353,7 +359,7 @@
                         android:layout_marginLeft="10dp"
                         android:textStyle="bold"
                         android:fontFamily="@font/quicksandsemibold"
-                        android:text="Tehsil "
+                        android:text="@string/Tehsil"
                         android:layout_marginTop="10dp"
                         android:textColor="@color/black"
                         android:textSize="20dp" />
@@ -361,7 +367,8 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edttehsil"
                         android:layout_width="170dp"
-                        android:layout_height="55dp"
+                        android:layout_height="wrap_content"
+                        android:minHeight="55dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:background="@drawable/curvebackground"
@@ -383,7 +390,7 @@
                         android:layout_marginLeft="10dp"
                         android:textStyle="bold"
                         android:fontFamily="@font/quicksandsemibold"
-                        android:text="City  "
+                        android:text="@string/city_town_village"
                         android:layout_marginTop="10dp"
                         android:textColor="@color/black"
                         android:textSize="20dp" />
@@ -391,8 +398,9 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtvlg"
                         android:layout_width="170dp"
-                        android:layout_height="55dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
+                        android:minHeight="55dp"
                         android:layout_marginRight="10dp"
                         android:background="@drawable/curvebackground"
                         android:backgroundTint="@color/commonw"
@@ -417,7 +425,7 @@
                     android:layout_marginLeft="10dp"
                     android:textStyle="bold"
                     android:fontFamily="@font/quicksandsemibold"
-                    android:text="Description "
+                    android:text="@string/Description"
                     android:layout_marginTop="10dp"
                     android:textColor="@color/black"
                     android:textSize="20dp" />
@@ -425,7 +433,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtdes"
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="55dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/curvebackground"
@@ -472,5 +481,5 @@
                 android:text="@string/Save_Detail"
                 />
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

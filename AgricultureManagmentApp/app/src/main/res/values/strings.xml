@@ -324,6 +324,7 @@
         <item>West Bengal</item>
     </string-array>
     <string-array name="arrcategory">
+        <item>All</item>
         <item>Seeds</item>
         <item>Plants</item>
         <item>Fertilizer</item>

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -24,6 +25,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 public class Navigation extends AppCompatActivity {
 ImageView imgprfpc,back;
@@ -103,12 +106,41 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvtc,rvnews,rvsave,profile,img
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Navigation.this, govermentScheme.class));
-                finish();            }
+                finish();
+            }
         });
         rvtc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Navigation.this, Term_Conditions.class));
+                sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+                String lang=sharedPreferences.getString("getlen","");
+                String lnk="";
+                if (lang.equals("en")){
+                    lnk="https://drive.google.com/file/d/1OP4qrbVIu0jcNq_AplUeWgTpWQVP-VbR/view?usp=sharing";
+                } else if (lang.equals("hi")) {
+                    lnk="https://drive.google.com/file/d/1OF_FW-pl-AwWx2i5kLeeNzhTlXWlusdx/view?usp=sharing";
+                } else if (lang.equals("gu")) {
+                    lnk="https://drive.google.com/file/d/1OGo4N_joMxxqtuut4mH_3SXMFT06xSBH/view?usp=sharing";
+                } else if (lang.equals("kn")) {
+                    lnk="https://drive.google.com/file/d/1OAyZCGD4b7eilzh1QmSOKewU2THRMOPO/view?usp=sharing";
+                } else if (lang.equals("ml")) {
+                    lnk="https://drive.google.com/file/d/1OADNWYnRGm5gPGel30YyDa-XjD5RY2m0/view?usp=sharing";
+                } else if (lang.equals("pa")) {
+                    lnk="https://drive.google.com/file/d/1OTzUCS_ViZAXAJ7ZapD3s8hp_7HaDR4S/view?usp=sharing";
+                } else if (lang.equals("ta")) {
+                    lnk="https://drive.google.com/file/d/1OTemw9w8XpIkKIVIlHo1hms4iNxiPETr/view?usp=sharing";
+                } else if (lang.equals("te")) {
+                    lnk="https://drive.google.com/file/d/1OQovHsqOVrDtNyYDSh73OkIZ7x3TqwnC/view?usp=sharing";
+                } else if (lang.equals("ur")) {
+                    lnk="https://drive.google.com/file/d/1OLe3ecB_sotptNOHI9SDe5NXMdvllnh9/view?usp=sharing";
+                } else if (lang.equals("bn")) {
+                    lnk="https://drive.google.com/file/d/1OKRICTBVPl2kI5Yi4xDUQrZRRl6f4E5w/view?usp=sharing";
+                } else if (lang.equals("mr")) {
+                    lnk="https://drive.google.com/file/d/1O8KiQMFS6jboqEB_k4B3evMQPjT2T3R4/view?usp=sharing";
+                }
+                Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse(lnk));
+                intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
             }
         });
         rvloout.setOnClickListener(new View.OnClickListener() {

@@ -95,9 +95,9 @@ public class Other_vacancy extends Fragment {
             }
 
             @Override
-            public boolean onQueryTextChange(String newText) {
+            public boolean onQueryTextChange(String text) {
                 ArrayList<clsVacancyModel> filteredlist = new ArrayList<>();
-
+String newText=text.toString().toLowerCase().trim();
                     for(clsVacancyModel model:vacancyModelArrayList) {
                         if (model.getDistrict().trim().toLowerCase().contains(newText) || model.getEamt().trim().toLowerCase().contains(newText) ||
                                 model.getOname().trim().toLowerCase().contains(newText) || model.getOcan().trim().toLowerCase().contains(newText) ||

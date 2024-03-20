@@ -39,8 +39,6 @@ public class E_commrce extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     ArrayList<clsEcommModel> originalecommModelArrayList;
-    ArrayList<clsEcommModel> currentecommModelArrayList;
-    ArrayList<clsEcommModel> updatedecommModelArrayList;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -74,25 +72,62 @@ public class E_commrce extends Fragment {
         View view= inflater.inflate(R.layout.fragment_e_commrce, container, false);
         RecyclerView rcprdt=view.findViewById(R.id.rccprdt);
         Spinner spntype=view.findViewById(R.id.category);
-        Query query=FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All");
         FloatingActionButton filter=view.findViewById(R.id.addecomm);
-        SearchView searchView=view.findViewById(R.id.searchvacancy);
+        SearchView searchView=view.findViewById(R.id.srhitem);
+        String arr[]=getResources().getStringArray(R.array.arrcategory);
+        spntype.setAdapter(new ArrayAdapter<String>(getContext(),com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item,arr));
         originalecommModelArrayList=new ArrayList<>();
-        FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").addValueEventListener(new ValueEventListener() {
+
+        spntype.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ArrayList<clsEcommModel> originalecommModelArrayList=new ArrayList<>();
-                for (DataSnapshot datasnapshot:
-                        snapshot.getChildren()) {
-                    originalecommModelArrayList.add(datasnapshot.getValue(clsEcommModel.class));
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position!=0){
+                    FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            originalecommModelArrayList=new ArrayList<>();
+                            for (DataSnapshot datasnapshot:
+                                    snapshot.getChildren()) {
+                                clsEcommModel model=datasnapshot.getValue(clsEcommModel.class);
+                                if (model.getType().trim().equals(arr[position])){
+                                    originalecommModelArrayList.add(model);
+                                }
+                            }
+                            rcEcommAdapter=new RcEcommAdapter(getContext(),1,originalecommModelArrayList);
+                            rcprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                            rcprdt.setAdapter(rcEcommAdapter);
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+                }else{
+                    FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            originalecommModelArrayList=new ArrayList<>();
+                            for (DataSnapshot datasnapshot:
+                                    snapshot.getChildren()) {
+                                originalecommModelArrayList.add(datasnapshot.getValue(clsEcommModel.class));
+                            }
+                            rcEcommAdapter=new RcEcommAdapter(getContext(),1,originalecommModelArrayList);
+                            rcprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                            rcprdt.setAdapter(rcEcommAdapter);
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
                 }
-                rcEcommAdapter=new RcEcommAdapter(getContext(),1,originalecommModelArrayList);
-                rcprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-                rcprdt.setAdapter(rcEcommAdapter);
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onNothingSelected(AdapterView<?> parent) {
 
             }
         });
@@ -103,90 +138,20 @@ public class E_commrce extends Fragment {
             }
 
             @Override
-            public boolean onQueryTextChange(String newText) {
-                    updatedecommModelArrayList = new ArrayList<>();
-                    for (clsEcommModel model:
-                         originalecommModelArrayList) {
-                        if(model.getType().toLowerCase().trim().contains(newText)||model.getKey().toLowerCase().trim().contains(newText)||model.getPname().toLowerCase().trim().contains(newText)){
-                            updatedecommModelArrayList.add(model);
-                        }
+            public boolean onQueryTextChange(String txt) {
+                String newText=txt.toString().trim().toLowerCase();
+                ArrayList<clsEcommModel> filterlist=new ArrayList<>();
+                for (clsEcommModel model:originalecommModelArrayList){
+                    if (model.getPname().toString().toLowerCase().contains(newText)||model.getKey().toString().toLowerCase().contains(newText)||
+                    model.getDes().toString().toLowerCase().contains(newText)||model.getDpec().toString().toLowerCase().contains(newText)||
+                            model.getRecomm().toString().toLowerCase().contains(newText)){
+                        filterlist.add(model);
                     }
-                    RcEcommAdapter rcEcommAdapter2=new RcEcommAdapter(getContext(),1,updatedecommModelArrayList);
-                    rcprdt.setAdapter(rcEcommAdapter2);
-
-
+                }
+                rcEcommAdapter=new RcEcommAdapter(getContext(),1,filterlist);
+                rcprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                rcprdt.setAdapter(rcEcommAdapter);
                 return false;
-            }
-        });
-
-        filter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                View view1=LayoutInflater.from(getContext()).inflate(R.layout.lyt_ecom_filter,null,false);
-                Spinner spinner=view1.findViewById(R.id.category);
-                String[] arr = getResources().getStringArray(R.array.arrcategory2);
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item, arr);
-                spinner.setAdapter(adapter);
-                SearchView searchView=view1.findViewById(R.id.searchvacancy);
-                TextInputEditText from=view1.findViewById(R.id.from);
-                TextInputEditText to=view1.findViewById(R.id.to);
-                AppCompatButton apply=view1.findViewById(R.id.btnapply);
-                AppCompatButton clear=view1.findViewById(R.id.btnclear);
-                BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(getContext());
-                bottomSheetDialog.setContentView(view1);
-                bottomSheetDialog.show();
-                clear.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        rcEcommAdapter=new RcEcommAdapter(getContext(),1,originalecommModelArrayList);
-                        rcprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-                        rcprdt.setAdapter(rcEcommAdapter);
-                        Toast.makeText(getContext(), "Cleared", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                apply.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        updatedecommModelArrayList=new ArrayList<>();
-                        String type="";
-                        int start=0;
-                        int end=0;
-                        for (int i = 0; i < arr.length; i++) {
-                            if (arr[i].equals(spinner.getSelectedItem())){
-                                type=arr[i];
-                                break;
-                            }
-                        }
-                        if(!from.getText().toString().trim().isEmpty()){
-                            start=Integer.parseInt(from.getText().toString());
-                        }
-                        else{
-                            start=Integer.MIN_VALUE;
-                        }
-                        if(!to.getText().toString().trim().isEmpty()){
-                            end=Integer.parseInt(to.getText().toString());
-                        }
-                        else{
-                            end=Integer.MAX_VALUE;
-                        }
-                        for (clsEcommModel model:originalecommModelArrayList){
-                            if (type.trim().isEmpty()){
-                                if (start>=Integer.parseInt(model.getPrice())&&start<=Integer.parseInt(model.getPrice())){
-                                    updatedecommModelArrayList.add(model);
-                                }
-                            }
-                            else{
-                                if (start>=Integer.parseInt(model.getPrice())&&start<=Integer.parseInt(model.getPrice())&&model.getType().equals(type)){
-                                    updatedecommModelArrayList.add(model);
-                                }
-                            }
-                        }
-                        rcEcommAdapter=new RcEcommAdapter(getContext(),1,updatedecommModelArrayList);
-                        rcprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-                        rcprdt.setAdapter(rcEcommAdapter);
-                    }
-                });
-
             }
         });
         return  view;

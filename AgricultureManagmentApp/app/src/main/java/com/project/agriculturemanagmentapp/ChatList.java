@@ -3,6 +3,7 @@ package com.project.agriculturemanagmentapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
@@ -36,35 +37,35 @@ public class ChatList extends AppCompatActivity {
         searchView=findViewById(R.id.search);
         sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
         umo=sharedPreferences.getString("mo","");
-        FirebaseDatabase.getInstance().getReference().child("User").child(umo.toString()).child("RecentChats").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("/User/"+umo+"/Chats").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ArrayList<String> arrayList=new ArrayList<>();
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    if (!arrayList.contains(dataSnapshot.getValue().toString())){
-                        arrayList.add(dataSnapshot.getValue().toString());
-                        System.out.println(dataSnapshot.getValue().toString());
+                        arrayList.add(dataSnapshot.getKey().toString());
+                        System.out.println(dataSnapshot.getKey().toString());
+                }
+                FirebaseDatabase.getInstance().getReference("/Users_List").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        userModelArrayList=new ArrayList<>();
+                        for (DataSnapshot datasnapshot:
+                             snapshot.getChildren()) {
+                            clsUserModel model=datasnapshot.getValue(clsUserModel.class);
+                            if (arrayList.contains(model.getMo())){
+                                userModelArrayList.add(model);
+                            }
+                        }
+                        rcchatlist.setLayoutManager(new LinearLayoutManager(ChatList.this));
+                        RcuserAdapter rcuserAdapter1=new RcuserAdapter(ChatList.this,userModelArrayList,false,true);
+                        rcchatlist.setAdapter(rcuserAdapter1);
                     }
-                }
-                userModelArrayList=new ArrayList<>();
-                for (String str:
-                        arrayList) {
-                    FirebaseDatabase.getInstance().getReference().child("Users_List").child(str).addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            userModelArrayList.add(snapshot.getValue(clsUserModel.class));
-                            rcuserAdapter = new RcuserAdapter( getBaseContext(),userModelArrayList,false,true);
-                            rcchatlist.setLayoutManager(new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL));
-                            rcchatlist.setAdapter(rcuserAdapter);
-                        }
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                        }
-                    });
-                }
-
+                    }
+                });
             }
 
             @Override

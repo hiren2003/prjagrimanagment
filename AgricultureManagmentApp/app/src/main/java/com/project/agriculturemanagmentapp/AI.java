@@ -40,7 +40,7 @@ public class AI extends AppCompatActivity {
 TextInputEditText edtquery;
 ImageView submitquery,chooseimage;
 Bitmap img=null;
-String apikey= "AIzaSyBkUCekHYOn8vS0cHnzKCm7A2QTFvx9NB0";
+String apikey= "AIzaSyA-kKjqQcNczyyUIQwuLrVQkmbOxjGNMPQ";
 RecyclerView rcconv;
 RcAiConversationAdapter rcAiConversationAdapter;
 ArrayList<clsaiconversation> clsaiconversationArrayList;

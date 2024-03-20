@@ -1,68 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".E_commrce">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:layout_margin="10dp"
-        android:orientation="horizontal">
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:visibility="gone"
-            android:src="@drawable/baseline_close_24" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Marketplace"
-            android:fontFamily="@font/quicksandsemibold"
-            android:textColor="@color/black"
-            android:layout_marginLeft="10dp"
-            android:textStyle="bold"
-            android:textSize="25dp"
-            android:layout_marginStart="10dp"
-            />
-    </LinearLayout>
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/searchvacancy"
-        android:layout_width="match_parent"
-        android:minHeight="50dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/searchviewback"
-        android:layout_margin="10dp"
-        android:visibility="gone"
-        android:fontFamily="@font/quicksandregular"
-        />
-    <Spinner
-        android:id="@+id/category"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:visibility="gone"
-        android:background="@drawable/border_green"
-        android:fontFamily="@font/quicksandregular"
-        android:minHeight="30dp"
-        android:padding="5dp" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rccprdt"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_below="@id/category"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp" />
+        android:background="#fff"
+        android:fitsSystemWindows="true">
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            app:toolbarId="@+id/toolbar">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:fitsSystemWindows="true"
+                app:contentScrim="#66000000"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:titleEnabled="false">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <Spinner
+                        android:id="@+id/category"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:minWidth="200dp"
+                        android:background="@drawable/border_green"
+                        android:fontFamily="@font/quicksandregular"
+                        android:minHeight="30dp"
+                        android:padding="5dp" />
+                    <androidx.appcompat.widget.SearchView
+                        android:id="@+id/srhitem"
+                        android:layout_width="350dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/searchviewback"
+                        android:layout_margin="10dp"
+                        android:minHeight="55dp"
+                        app:queryBackground="@android:color/transparent"
+                        app:searchPrefixText="@string/Search_here"
+                        android:fontFamily="@font/quicksandregular"
+                        app:searchIcon="@drawable/green_search"
+                        app:closeIcon="@drawable/green_close"
+                        app:searchHintIcon="@null"
+                        />
+
+                </LinearLayout>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rccprdt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="#ffffff"
+                />
+        </com.google.android.material.appbar.AppBarLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addecomm"
         android:layout_width="wrap_content"
@@ -76,4 +85,4 @@
         android:layout_marginBottom="120dp"
         android:src="@android:drawable/ic_input_add"
        />
-</LinearLayout>
+</RelativeLayout>

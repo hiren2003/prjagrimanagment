@@ -55,6 +55,7 @@ public class RcVacancyAdapter extends RecyclerView.Adapter<RcVacancyAdapter.View
         holder.txtdate.setText(context.getResources().getString(R.string.date)+" : "+vacancyModelArrayList.get(position).getDate());
         holder.txtdes.setText(vacancyModelArrayList.get(position).getDes());
         holder.txtWage.setText("₹"+vacancyModelArrayList.get(position).getEamt());
+        holder.txtoname.setText(vacancyModelArrayList.get(position).getOname());
         FirebaseDatabase.getInstance().getReference().child("Users_List").child(vacancyModelArrayList.get(position).getUmo()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -156,6 +157,7 @@ public class RcVacancyAdapter extends RecyclerView.Adapter<RcVacancyAdapter.View
             txtWage=itemView.findViewById(R.id.txtWages);
             imgwhat=itemView.findViewById(R.id.imgwhatsapp);
             imgcall=itemView.findViewById(R.id.imgcall);
+            txtoname=itemView.findViewById(R.id.txtoname);
             prfpc=itemView.findViewById(R.id.profilepc);
             txtuname=itemView.findViewById(R.id.txtuname);
             imgdlt=itemView.findViewById(R.id.imgdlt);

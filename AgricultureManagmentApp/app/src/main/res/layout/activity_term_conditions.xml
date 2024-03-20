@@ -36,7 +36,7 @@
                 android:fontFamily="@font/quicksandregular"
                 android:textSize="15dp"
                 android:text="
-1.Account Creation
+1.Account Creation  
 \n-Users must create account to access the app's features.
 \n-They must Provide accurate and up-to-date information during the registration process.
 \n-Users are responsible for maintaining the confidentiality of their account credential.

@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 
 public class Cart extends AppCompatActivity {
     ArrayList<String> CartList;
+    LottieAnimationView loty;
 RcEcommAdapter rcEcommAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ RcEcommAdapter rcEcommAdapter;
         window.setStatusBarColor(this.getResources().getColor(R.color.white));
         RecyclerView rcprdt=findViewById(R.id.rccprdt);
         CartList=new ArrayList<>();
+        loty=findViewById(R.id.loty3);
         SharedPreferences sharedPreferences=getSharedPreferences("data",MODE_PRIVATE);
         FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo","1234567890")).child("Cart").addValueEventListener(new ValueEventListener() {
             @Override
@@ -50,13 +53,19 @@ RcEcommAdapter rcEcommAdapter;
                                 ecommModelArrayList.add(datasnapshot.getValue(clsEcommModel.class));
                             }
                         }
-                        ArrayList<clsEcommModel> reversedlist=new ArrayList<>();
-                        for (int i = ecommModelArrayList.size() - 1; i >= 0; i--) {
-                            reversedlist.add(ecommModelArrayList.get(i));
+                        if (ecommModelArrayList.isEmpty()){
+                            loty.setVisibility(View.VISIBLE);
                         }
-                        rcEcommAdapter=new RcEcommAdapter(Cart.this,2,reversedlist);
-                        rcprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-                        rcprdt.setAdapter(rcEcommAdapter);
+                        else{
+                            ArrayList<clsEcommModel> reversedlist=new ArrayList<>();
+                            for (int i = ecommModelArrayList.size() - 1; i >= 0; i--) {
+                                reversedlist.add(ecommModelArrayList.get(i));
+                            }
+                            rcEcommAdapter=new RcEcommAdapter(Cart.this,2,reversedlist);
+                            rcprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                            rcprdt.setAdapter(rcEcommAdapter);
+                        }
+
                     }
 
                     @Override

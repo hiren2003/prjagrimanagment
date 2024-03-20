@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,6 +22,7 @@ public class admin_animal extends AppCompatActivity {
 RcAnimalAdapter rcAnimalAdapter;
 RecyclerView rcanimal;
 ArrayList<clsAnimalModel> arrayList;
+LottieAnimationView lottieAnimationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +30,7 @@ ArrayList<clsAnimalModel> arrayList;
         Window window = this.getWindow();
         window.setStatusBarColor(this.getResources().getColor(R.color.white));
         rcanimal=findViewById(R.id.rcanimal);
+        lottieAnimationView=findViewById(R.id.loty3);
         arrayList=new ArrayList<>();
         FirebaseDatabase.getInstance().getReference().child("animals").addValueEventListener(new ValueEventListener() {
             @Override
@@ -34,9 +38,15 @@ ArrayList<clsAnimalModel> arrayList;
                for (DataSnapshot dataSnapshot:snapshot.getChildren()) {
                     arrayList.add(dataSnapshot.getValue(clsAnimalModel.class));
                 }
-                rcanimal.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-                rcAnimalAdapter=new RcAnimalAdapter(admin_animal.this,false,true,arrayList);
-                rcanimal.setAdapter(rcAnimalAdapter);
+               if (arrayList.isEmpty()){
+                   lottieAnimationView.setVisibility(View.VISIBLE);
+               }else{
+                   lottieAnimationView.setVisibility(View.GONE);
+                   rcanimal.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                   rcAnimalAdapter=new RcAnimalAdapter(admin_animal.this,false,true,arrayList);
+                   rcanimal.setAdapter(rcAnimalAdapter);
+               }
+
             }
 
             @Override

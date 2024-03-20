@@ -262,9 +262,10 @@ OTP extends AppCompatActivity {
 
                                 }
                             });
-                            if (isUser){
+                            if (!isUser){
                                 firebaseDatabase.getReference().child("Users_List").child(Mobile).setValue(new clsUserModel(Uname,Mobile,url," "," "," "," "," "));
                             }
+
                             startActivity(intent);
                             show_toast(getResources().getString(R.string.Login_SuccessFully),true);
                             finish();

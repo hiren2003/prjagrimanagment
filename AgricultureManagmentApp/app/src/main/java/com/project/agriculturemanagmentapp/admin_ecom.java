@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,9 +36,17 @@ RecyclerView rcprdt;
                      snapshot.getChildren()) {
                     ecommModelArrayList.add(datasnapshot.getValue(clsEcommModel.class));
                 }
-                rcEcommAdapter=new RcEcommAdapter(admin_ecom.this,4,ecommModelArrayList);
-                rcprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-                rcprdt.setAdapter(rcEcommAdapter);
+                LottieAnimationView loty=findViewById(R.id.loty3);
+                if (ecommModelArrayList.isEmpty()){
+                    loty.setVisibility(View.VISIBLE);
+                }
+                else{
+                    loty.setVisibility(View.GONE);
+                    rcEcommAdapter=new RcEcommAdapter(admin_ecom.this,4,ecommModelArrayList);
+                    rcprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                    rcprdt.setAdapter(rcEcommAdapter);
+                }
+
             }
 
             @Override

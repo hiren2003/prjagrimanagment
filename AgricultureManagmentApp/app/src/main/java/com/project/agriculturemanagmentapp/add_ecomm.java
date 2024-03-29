@@ -46,7 +46,7 @@ public class add_ecomm extends AppCompatActivity {
     boolean isEdit;
     String key;
     String[] arr;
-
+TextView txttitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +63,7 @@ public class add_ecomm extends AppCompatActivity {
         edtprice = findViewById(R.id.edtprc);
         edtcgst=findViewById(R.id.edtcgst);
         edtsgst=findViewById(R.id.edtsgst);
+        txttitle=findViewById(R.id.txttitle);
         edtdiscount=findViewById(R.id.edtdiscount);
          arr = getResources().getStringArray(R.array.arrcategory);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item, arr);
@@ -71,6 +72,10 @@ public class add_ecomm extends AppCompatActivity {
          isEdit=intent.getBooleanExtra("IsEdit",false);
          key=intent.getStringExtra("key");
         if (isEdit){
+            txttitle.setText("Update item");
+            btnsavedata.setText("Update item"
+
+            );
          FirebaseDatabase.getInstance().getReference("/ECommerce/All/"+key).addValueEventListener(new ValueEventListener() {
              @Override
              public void onDataChange(@NonNull DataSnapshot snapshot) {

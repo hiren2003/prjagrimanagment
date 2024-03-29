@@ -30,23 +30,42 @@ LottieAnimationView lottieAnimationView;
         FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "134567890")).child("Saved").child("Feed").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ArrayList<clsFeedModel> feedModelArrayList = new ArrayList<>();
+                ArrayList<String> arrayList = new ArrayList<>();
                 for (DataSnapshot datasnapshot:
                         snapshot.getChildren()) {
-                    feedModelArrayList.add(datasnapshot.getValue(clsFeedModel.class));
+                    arrayList.add(datasnapshot.getValue().toString());
                 }
-                if (feedModelArrayList.isEmpty()){
-                    lottieAnimationView.setVisibility(View.VISIBLE);
-                }
-                else{
-                    lottieAnimationView.setVisibility(View.GONE);
-                    LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getApplicationContext());
-                    linearLayoutManager.setReverseLayout(true);
-                    linearLayoutManager.setStackFromEnd(true);
-                    rcsv.setLayoutManager(linearLayoutManager);
-                    RcFeedAdapter rcFeedAdapter =new RcFeedAdapter(Saved.this,false,false,feedModelArrayList);
-                    rcsv.setAdapter(rcFeedAdapter);
-                }
+                FirebaseDatabase.getInstance().getReference().child("Feed").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        ArrayList<clsFeedModel> feedModelArrayList = new ArrayList<>();
+                        for (DataSnapshot datasnapshot:
+                                snapshot.getChildren()) {
+                            clsFeedModel model=datasnapshot.getValue(clsFeedModel.class);
+                            if (arrayList.contains(model.getKey())){
+                                feedModelArrayList.add(model);
+                            }
+                        }
+                        if (feedModelArrayList.isEmpty()){
+                            lottieAnimationView.setVisibility(View.VISIBLE);
+                        }
+                        else{
+                            lottieAnimationView.setVisibility(View.GONE);
+                            LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getApplicationContext());
+                            linearLayoutManager.setReverseLayout(true);
+                            linearLayoutManager.setStackFromEnd(true);
+                            rcsv.setLayoutManager(linearLayoutManager);
+                            RcFeedAdapter rcFeedAdapter =new RcFeedAdapter(Saved.this,false,false,feedModelArrayList);
+                            rcsv.setAdapter(rcFeedAdapter);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
 
             }
 

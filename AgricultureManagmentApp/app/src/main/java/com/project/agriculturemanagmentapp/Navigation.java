@@ -105,7 +105,7 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvtc,rvnews,rvsave,profile,img
         rvgv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Navigation.this, govermentScheme.class));
+                startActivity(new Intent(Navigation.this, govermentScheme.class).putExtra("type",0));
                 finish();
             }
         });

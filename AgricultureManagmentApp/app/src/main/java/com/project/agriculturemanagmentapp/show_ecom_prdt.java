@@ -113,7 +113,7 @@ public class show_ecom_prdt extends AppCompatActivity implements PaymentResultWi
                 txtkey.setText(model.getKey());
                 txtcgst.setText(model.getCgst()+"%");
                 txtsgst.setText(model.getSgst()+"%");
-                txtdiscount.setText(model.getDiscount()+"%sh");
+                txtdiscount.setText(model.getDiscount()+"%");
             }
 
             @Override

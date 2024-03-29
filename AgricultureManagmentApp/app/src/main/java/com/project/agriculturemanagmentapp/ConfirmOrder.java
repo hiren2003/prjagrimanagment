@@ -65,6 +65,7 @@ boolean IsOrder=false;
 boolean isAdmin=false;
     boolean isCancelled=false;
 clsOrderModel clsOrderModel;
+float payable;
 String date;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -144,10 +145,6 @@ String date;
                     qty=Float.parseFloat(clsOrderModel.getQty());
                     price=Float.parseFloat(clsOrderModel.getClsEcommModel().getPrice());
                     txtamount.setText(""+(price*qty));
-                    txtcgst.setText(clsOrderModel.getClsEcommModel().getCgst().toString());
-                    txtsgst.setText(clsOrderModel.getClsEcommModel().getSgst().toString());
-                    txtdis.setText(clsOrderModel.getClsEcommModel().getDiscount().toString());
-                    txtshpgcharges.setText("120");
                     txtoid.setText(clsOrderModel.getKey());
                     txtpid.setText(clsOrderModel.getPaymentId());
                     txtpmod.setText(clsOrderModel.getPaymentMode());
@@ -159,7 +156,15 @@ String date;
                     float cgst=Float.parseFloat(clsOrderModel.getClsEcommModel().getCgst().toString());
                     float Discount=Float.parseFloat(clsOrderModel.getClsEcommModel().getDiscount().toString());
                     float amt=price*qty;
-                    float payable=((price*qty)+((sgst/100)*amt)+((cgst/100)*amt)+120)-((Discount/100)*amt);
+                    float s=(sgst/100)*amt;
+                    float c=(cgst/100)*amt;
+                    float d=(Discount/100)*amt;
+                    txtcgst.setText(c+"");
+                    txtsgst.setText(s+"");
+                    txtdis.setText(d+"");
+                    txtshpgcharges.setText("120");
+                     payable=((price*qty)+(s)+(c)+120)-(d);
+                    System.out.println("-----------"+s+"-----------"+c+"----------"+d);
                     txtpayableamt.setText(payable+"");
                   AppCompatButton  btncancelorder=findViewById(R.id.btnremoveorder);
                     long time=86400+clsOrderModel.getTime();
@@ -201,15 +206,22 @@ String date;
                     txtdes.setText(clsEcommModel.getDes());
                     txtqty.setText(getString(R.string.qty)+" : "+qty);
                     txtamount.setText(""+(price*qty));
-                    txtcgst.setText(clsEcommModel.getCgst().toString());
-                    txtsgst.setText(clsEcommModel.getSgst().toString());
-                    txtdis.setText(clsEcommModel.getDiscount().toString());
                     txtshpgcharges.setText("120");
                     float sgst=Float.parseFloat(clsEcommModel.getSgst().toString());
                     float cgst=Float.parseFloat(clsEcommModel.getCgst().toString());
                     float Discount=Float.parseFloat(clsEcommModel.getDiscount().toString());
                     float amt=price*qty;
-                    float payable=((price*qty)+((sgst/100)*amt)+((cgst/100)*amt)+120)-((Discount/100)*amt);
+                    txtcgst.setText((amt*cgst)/100+"");
+                    txtsgst.setText((sgst/100)*amt+"");
+                    txtdis.setText((Discount/100)*amt+"");
+                    float s=(sgst/100)*amt;
+                    float c=(cgst/100)*amt;
+                    float d=(Discount/100)*amt;
+                    txtcgst.setText(c+"");
+                    txtsgst.setText(s+"");
+                    txtdis.setText(d+"");
+                    payable=((price*qty)+(s)+(c)+120)-(d);
+                    System.out.println("-----------"+s+"-----------"+c+"----------"+d);
                     txtpayableamt.setText(payable+"");
                 }
 
@@ -279,7 +291,7 @@ String date;
                           options.put("image", R.drawable.logo2);
                           options.put("theme.color", "#3399cc");
                           options.put("currency", "INR");
-                          options.put("amount",(qty*price)*100 );//pass amount in currency subunits
+                          options.put("amount",payable*100 );//pass amount in currency subunits
                           options.put("prefill.contact",sharedPreferences.getString("mo", "1234567890"));
                           JSONObject retryObj = new JSONObject();
                           retryObj.put("enabled", true);
@@ -314,96 +326,7 @@ String date;
             }
         }
     }
-    private void generatePDF() {
-        // creating an object variable
-        // for our PDF document.
-        PdfDocument pdfDocument = new PdfDocument();
 
-        // two variables for paint "paint" is used
-        // for drawing shapes and we will use "title"
-        // for adding text in our PDF file.
-        Paint paint = new Paint();
-        Paint title = new Paint();
-
-        // we are adding page info to our PDF file
-        // in which we will be passing our pageWidth,
-        // pageHeight and number of pages and after that
-        // we are calling it to create our PDF.
-        PdfDocument.PageInfo mypageInfo = new PdfDocument.PageInfo.Builder(1120, 792, 1).create();
-
-        // below line is used for setting
-        // start page for our PDF file.
-        PdfDocument.Page myPage = pdfDocument.startPage(mypageInfo);
-
-        // creating a variable for canvas
-        // from our page of PDF.
-        Canvas canvas = myPage.getCanvas();
-
-        // below line is used to draw our image on our PDF file.
-        // the first parameter of our drawbitmap method is
-        // our bitmap
-        // second parameter is position from left
-        // third parameter is position from top and last
-        // one is our variable for paint.
-        Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.logo);
-        Bitmap scaledbmp = Bitmap.createScaledBitmap(bmp, 140, 140, false);
-        canvas.drawBitmap(scaledbmp, 56, 40, paint);
-
-        // below line is used for adding typeface for
-        // our text which we will be adding in our PDF file.
-        title.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
-
-        // below line is used for setting text size
-        // which we will be displaying in our PDF file.
-        title.setTextSize(15);
-
-        // below line is sued for setting color
-        // of our text inside our PDF file.
-        title.setColor(ContextCompat.getColor(this, R.color.Dark_green));
-
-        // below line is used to draw text in our PDF file.
-        // the first parameter is our text, second parameter
-        // is position from start, third parameter is position from top
-        // and then we are passing our variable of paint which is title.
-        canvas.drawText("A portal for IT professionals.", 209, 100, title);
-        canvas.drawText("Geeks for Geeks", 209, 80, title);
-
-        // similarly we are creating another text and in this
-        // we are aligning this text to center of our PDF file.
-        title.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-        title.setColor(ContextCompat.getColor(this, R.color.Dark_green));
-        title.setTextSize(15);
-
-        // below line is used for setting
-        // our text to center of PDF.
-        title.setTextAlign(Paint.Align.CENTER);
-        canvas.drawText("This is sample document which we have created.", 396, 560, title);
-
-        // after adding all attributes to our
-        // PDF file we will be finishing our page.
-        pdfDocument.finishPage(myPage);
-
-        // below line is used to set the name of
-        // our PDF file and its path.
-        File file = new File(Environment.getExternalStorageDirectory(), "GFG.pdf");
-
-        try {
-            // after creating a file name we will
-            // write our PDF file to that location.
-            pdfDocument.writeTo(new FileOutputStream(file));
-
-            // below line is to print toast message
-            // on completion of PDF generation.
-            Toast.makeText(ConfirmOrder.this, "PDF file generated successfully.", Toast.LENGTH_SHORT).show();
-        } catch (IOException e) {
-            // below line is used
-            // to handle error
-            e.printStackTrace();
-        }
-        // after storing our pdf to that
-        // location we are closing our PDF file.
-        pdfDocument.close();
-    }
     @Override
     protected void onRestart() {
         super.onRestart();

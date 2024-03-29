@@ -221,6 +221,9 @@ public class frghome extends Fragment {
     }
 
     public void getlocation() {
+        if(ActivityCompat.checkSelfPermission(getContext(),SEND_SMS)== PackageManager.PERMISSION_DENIED){
+            ActivityCompat.requestPermissions(getActivity(),new String[]{SEND_SMS},101);
+        }
         if (ActivityCompat.checkSelfPermission(getContext(), ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(getActivity(), new String[]{ACCESS_FINE_LOCATION}, 101);
         }

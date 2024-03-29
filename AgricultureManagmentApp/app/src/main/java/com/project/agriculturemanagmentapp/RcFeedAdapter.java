@@ -489,7 +489,7 @@ public class RcFeedAdapter extends RecyclerView.Adapter<RcFeedAdapter.ViewHolder
                     FirebaseDatabase.getInstance().getReference().child("User").child(Mo).child("Saved").child("Feed").child(key).removeValue();
                 } else {
                     holder.imgsave.setImageDrawable(context.getDrawable(R.drawable.bookmark));
-                    FirebaseDatabase.getInstance().getReference().child("User").child(Mo).child("Saved").child("Feed").child(key).setValue(feedModelArrayList.get(position));
+                    FirebaseDatabase.getInstance().getReference().child("User").child(Mo).child("Saved").child("Feed").child(key).setValue(key);
                 }
             }
 

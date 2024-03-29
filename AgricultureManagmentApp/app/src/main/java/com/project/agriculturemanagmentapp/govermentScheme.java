@@ -37,7 +37,10 @@ public class govermentScheme extends AppCompatActivity {
         addscheme = findViewById(R.id.addscheme);
         Intent intent=getIntent();
         type=intent.getIntExtra("type",0);
-
+        if(type==1){
+        }else{
+            addscheme.setVisibility(View.GONE);
+        }
         FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
         FirebaseDatabase.getInstance().getReference().child("Gov_scheme").addValueEventListener(new ValueEventListener() {
             @Override
@@ -65,9 +68,7 @@ public class govermentScheme extends AppCompatActivity {
 
             }
         });
-        if(type==1){
-            addscheme.setVisibility(View.VISIBLE);
-        }
+
         addscheme.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

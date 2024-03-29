@@ -9,9 +9,11 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -56,9 +58,17 @@ public class ChatList extends AppCompatActivity {
                                 userModelArrayList.add(model);
                             }
                         }
-                        rcchatlist.setLayoutManager(new LinearLayoutManager(ChatList.this));
-                        RcuserAdapter rcuserAdapter1=new RcuserAdapter(ChatList.this,userModelArrayList,false,true);
-                        rcchatlist.setAdapter(rcuserAdapter1);
+                        LottieAnimationView loty=findViewById(R.id.loty3);
+                        if (userModelArrayList.isEmpty()){
+                            loty.setVisibility(View.VISIBLE);
+                        }
+                        else{
+                            loty.setVisibility(View.GONE);
+                            rcchatlist.setLayoutManager(new LinearLayoutManager(ChatList.this));
+                            RcuserAdapter rcuserAdapter1=new RcuserAdapter(ChatList.this,userModelArrayList,false,true);
+                            rcchatlist.setAdapter(rcuserAdapter1);
+                        }
+
                     }
 
                     @Override
@@ -88,10 +98,12 @@ public class ChatList extends AppCompatActivity {
                         filteredlist.add(model);
                     }
                 }
-                if (filteredlist.isEmpty()){
-                    Toast.makeText(ChatList.this, "User Not Exists", Toast.LENGTH_SHORT).show();
+                LottieAnimationView loty=findViewById(R.id.loty3);
+                if (userModelArrayList.isEmpty()){
+                    loty.setVisibility(View.VISIBLE);
                 }
                 else{
+                    loty.setVisibility(View.GONE);
                     rcuserAdapter = new RcuserAdapter( getBaseContext(),filteredlist,false,true);
                     rcchatlist.setLayoutManager(new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL));
                     rcchatlist.setAdapter(rcuserAdapter);                }

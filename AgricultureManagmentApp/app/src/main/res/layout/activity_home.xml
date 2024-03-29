@@ -120,8 +120,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                app:tabIndicatorColor="@color/Dark_green"
-                app:tabIconTint="@color/Dark_green"
+                app:tabIndicatorColor="#006A4E"
+                app:tabIconTint="#006A4E"
                 android:background="@color/white"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
@@ -189,7 +189,7 @@
             android:visibility="invisible"
             android:focusable="true"
             android:layout_margin="10dp"
-            android:src="@drawable/labour" />
+            android:src="@drawable/labourday2" />
 
         <ImageView
             android:id="@+id/floatingActionButton2"
@@ -199,7 +199,7 @@
             android:visibility="invisible"
             android:focusable="true"
             android:layout_margin="10dp"
-            android:src="@drawable/administrator"
+            android:src="@drawable/suitcase"
             />
         <ImageView
             android:id="@+id/floatingActionButton1"

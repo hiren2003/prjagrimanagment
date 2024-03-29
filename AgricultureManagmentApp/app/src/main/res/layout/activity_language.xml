@@ -510,26 +510,24 @@
                    android:layout_gravity="center_vertical"
                    android:id="@+id/tglmrt"/>
            </LinearLayout>
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="20dp"
+               android:layout_gravity="center_horizontal"
+               android:orientation="horizontal">
+               <ImageButton
+                   android:id="@+id/btnsublang"
+                   android:layout_width="60dp"
+                   android:layout_height="60dp"
+                   android:background="@drawable/sendotp"
+                   app:srcCompat="@drawable/baseline_arrow_forward_24"
+                   app:tint="#FFFFFF"
 
+                   />
+           </LinearLayout>
        </LinearLayout>
    </androidx.core.widget.NestedScrollView>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="140dp"
-        android:layout_marginTop="5dp"
 
-        android:orientation="horizontal">
-        <ImageButton
-            android:id="@+id/btnsublang"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="20sp"
-            android:background="@drawable/sendotp"
-            app:srcCompat="@drawable/baseline_arrow_forward_24"
-            app:tint="#FFFFFF"
-
-            />
-    </LinearLayout>
 </LinearLayout>
 

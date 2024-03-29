@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
@@ -15,6 +16,7 @@ import android.widget.DatePicker;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -29,6 +31,7 @@ import java.util.Calendar;
  * create an instance of this fragment.
  */
 public class datewiseorder extends Fragment {
+    LottieAnimationView loty;
     RcorderAdapter rcorderAdapter;
     RecyclerView recyclerView;
     RelativeLayout rldate;
@@ -82,6 +85,7 @@ public class datewiseorder extends Fragment {
         View view= inflater.inflate(R.layout.fragment_datewiseorder, container, false);
         RecyclerView recyclerView=view.findViewById(R.id.rccprdt);
         Calendar calendar = Calendar.getInstance();
+        LottieAnimationView loty=view.findViewById(R.id.loty3);
         int month = calendar.get(Calendar.MONTH);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         int year = calendar.get(Calendar.YEAR);
@@ -100,9 +104,16 @@ public class datewiseorder extends Fragment {
                         orderModelArrayList.add(model);
                     }
                 }
-                rcorderAdapter=new RcorderAdapter(getContext(),orderModelArrayList,true,false);
-                recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-                recyclerView.setAdapter(rcorderAdapter);
+                if (orderModelArrayList.isEmpty()){
+                    loty.setVisibility(View.VISIBLE);
+                }
+                else{
+                    loty.setVisibility(View.GONE);
+                    rcorderAdapter=new RcorderAdapter(getContext(),orderModelArrayList,true,false);
+                    recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                    recyclerView.setAdapter(rcorderAdapter);
+                }
+
             }
 
             @Override
@@ -131,9 +142,15 @@ public class datewiseorder extends Fragment {
                                         orderModelArrayList.add(model);
                                     }
                                 }
-                                rcorderAdapter=new RcorderAdapter(getContext(),orderModelArrayList,true,false);
-                                recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-                                recyclerView.setAdapter(rcorderAdapter);
+                                if (orderModelArrayList.isEmpty()){
+                                    loty.setVisibility(View.VISIBLE);
+                                }
+                                else{
+                                    loty.setVisibility(View.GONE);
+                                    rcorderAdapter=new RcorderAdapter(getContext(),orderModelArrayList,true,false);
+                                    recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                                    recyclerView.setAdapter(rcorderAdapter);
+                                }
                             }
 
                             @Override

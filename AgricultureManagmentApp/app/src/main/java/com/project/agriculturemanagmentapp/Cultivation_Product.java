@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
@@ -65,13 +66,21 @@ public class Cultivation_Product extends Fragment {
                         snapshot.getChildren()) {
                     clsCultivationProductModelArrayList.add(datasnapshot.getValue(ClsCultivationProductModel.class));
                 }
-                ArrayList<ClsCultivationProductModel> reversedlist=new ArrayList<>();
-                for (int i = clsCultivationProductModelArrayList.size() - 1; i >= 0; i--) {
-                    reversedlist.add(clsCultivationProductModelArrayList.get(i));
+                LottieAnimationView loty=view.findViewById(R.id.loty3);
+                if (clsCultivationProductModelArrayList.isEmpty()){
+                    loty.setVisibility(View.VISIBLE);
                 }
-                rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(getContext(),false,false,reversedlist);
-                rccprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-                rccprdt.setAdapter(rcCultivatonPrdtAdpter);
+                else{
+                    loty.setVisibility(View.GONE);
+                    ArrayList<ClsCultivationProductModel> reversedlist=new ArrayList<>();
+                    for (int i = clsCultivationProductModelArrayList.size() - 1; i >= 0; i--) {
+                        reversedlist.add(clsCultivationProductModelArrayList.get(i));
+                    }
+                    rcCultivatonPrdtAdpter=new RcCultivatonPrdtAdpter(getContext(),false,false,reversedlist);
+                    rccprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                    rccprdt.setAdapter(rcCultivatonPrdtAdpter);
+                }
+
             }
 
             @Override

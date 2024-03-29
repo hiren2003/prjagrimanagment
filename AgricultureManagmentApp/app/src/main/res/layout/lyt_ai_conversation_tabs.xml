@@ -28,7 +28,7 @@
           android:orientation="vertical">
           <ImageView
               android:id="@+id/imgbitmap"
-              android:scaleType="centerInside"
+              android:scaleType="fitCenter"
               android:layout_width="380dp"
               android:layout_height="350dp"
               android:visibility="gone"
@@ -86,7 +86,7 @@
             android:orientation="vertical">
             <ImageView
                 android:id="@+id/imgbitmap2"
-                android:scaleType="centerInside"
+                android:scaleType="fitCenter"
                 android:layout_width="380dp"
                 android:layout_height="350dp"
                 android:visibility="gone"

@@ -286,6 +286,7 @@
         <item>Other</item>
     </string-array>
     <string-array name="india_states">
+        <item>All</item>
         <item>Andaman and Nicobar Islands</item>
         <item>Andhra Pradesh</item>
         <item>Arunachal Pradesh</item>

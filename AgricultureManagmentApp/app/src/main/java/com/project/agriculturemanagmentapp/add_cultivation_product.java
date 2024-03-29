@@ -5,6 +5,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 
 import android.app.Dialog;
@@ -46,6 +47,7 @@ public class add_cultivation_product extends AppCompatActivity {
     Button btnchooseimg;
     ImageView imgprdt, imgcat;
     String cat;
+    CardView cardView;
     Button btnsavedata;
     SharedPreferences sharedPreferences;
     Intent intent;
@@ -72,6 +74,7 @@ int mon;
         edtprc = findViewById(R.id.edtprc);
         edtstate = findViewById(R.id.edtstate);
         edtdistrict = findViewById(R.id.edtdist);
+        cardView=findViewById(R.id.cd);
         txtname=findViewById(R.id.txtname);
         edttehsil = findViewById(R.id.edttehsil);
         edtsellername = findViewById(R.id.edtsellername);
@@ -86,6 +89,9 @@ int mon;
         Forupdate=intent.getBooleanExtra("Forupdate",false);
         key=intent.getStringExtra("key");
         if (Forupdate){
+            cardView.setVisibility(View.GONE);
+            imgcat.setVisibility(View.GONE);
+            txtname.setVisibility(View.GONE);
             FirebaseDatabase.getInstance().getReference().child("Resell").child("Cultivation Product").child(key).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {

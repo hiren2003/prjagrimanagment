@@ -21,6 +21,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
@@ -38,6 +39,7 @@ public class E_commrce extends Fragment {
     RcEcommAdapter rcEcommAdapter;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    LottieAnimationView loty;
     ArrayList<clsEcommModel> originalecommModelArrayList;
 
     // TODO: Rename and change types of parameters
@@ -74,6 +76,7 @@ public class E_commrce extends Fragment {
         Spinner spntype=view.findViewById(R.id.category);
         FloatingActionButton filter=view.findViewById(R.id.addecomm);
         SearchView searchView=view.findViewById(R.id.srhitem);
+         loty=view.findViewById(R.id.loty3);
         String arr[]=getResources().getStringArray(R.array.arrcategory);
         spntype.setAdapter(new ArrayAdapter<String>(getContext(),com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item,arr));
         originalecommModelArrayList=new ArrayList<>();
@@ -86,6 +89,7 @@ public class E_commrce extends Fragment {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             originalecommModelArrayList=new ArrayList<>();
+
                             for (DataSnapshot datasnapshot:
                                     snapshot.getChildren()) {
                                 clsEcommModel model=datasnapshot.getValue(clsEcommModel.class);
@@ -93,9 +97,11 @@ public class E_commrce extends Fragment {
                                     originalecommModelArrayList.add(model);
                                 }
                             }
-                            rcEcommAdapter=new RcEcommAdapter(getContext(),1,originalecommModelArrayList);
-                            rcprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-                            rcprdt.setAdapter(rcEcommAdapter);
+
+                                rcEcommAdapter=new RcEcommAdapter(getContext(),1,originalecommModelArrayList);
+                                rcprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                                rcprdt.setAdapter(rcEcommAdapter);
+
                         }
 
                         @Override

@@ -200,17 +200,40 @@ RcEcommAdapter rcEcommAdapter;
             FirebaseDatabase.getInstance().getReference().child("User").child(mo).child("Cart").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    ArrayList<clsEcommModel> ecommModelArrayList=new ArrayList<>();
+                    ArrayList <String>CartList=new ArrayList<>();
                     for (DataSnapshot datasnapshot:
                             snapshot.getChildren()) {
-                        clsEcommModel model=datasnapshot.getValue(clsEcommModel.class);
-                        ecommModelArrayList.add(model);
+                        CartList.add(datasnapshot.getValue().toString());
                     }
-                    rcEcommAdapter=new RcEcommAdapter(User_output.this,2,ecommModelArrayList);
-                    recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-                    recyclerView.setAdapter(rcEcommAdapter);
-                }
+                    FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            ArrayList<clsEcommModel> ecommModelArrayList=new ArrayList<>();
+                            for (DataSnapshot datasnapshot:
+                                    snapshot.getChildren()) {
+                                if (CartList.contains(datasnapshot.getKey().toString())){
+                                    ecommModelArrayList.add(datasnapshot.getValue(clsEcommModel.class));
+                                }
+                            }
 
+                                ArrayList<clsEcommModel> reversedlist=new ArrayList<>();
+                                for (int i = ecommModelArrayList.size() - 1; i >= 0; i--) {
+                                    reversedlist.add(ecommModelArrayList.get(i));
+                                }
+                                rcEcommAdapter=new RcEcommAdapter(User_output.this,2,reversedlist);
+                                recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                                recyclerView.setAdapter(rcEcommAdapter);
+
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+                }
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
 
@@ -226,7 +249,7 @@ RcEcommAdapter rcEcommAdapter;
                     for (DataSnapshot datasnapshot:
                             snapshot.getChildren()) {
                         clsOrderModel model=datasnapshot.getValue(clsOrderModel.class);
-                        if (model.getMo().trim().equals(sharedPreferences.getString("mo",""))){
+                        if (model.getMo().trim().equals(mo)){
                             orderModelArrayList.add(model);
                         }
                     }

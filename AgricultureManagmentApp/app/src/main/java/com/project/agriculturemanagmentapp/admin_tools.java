@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -33,9 +35,17 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
                 for (DataSnapshot dataSnapshot:snapshot.getChildren()) {
                     arrayList.add(dataSnapshot.getValue(clsToolsAccessoriesModel.class));
                 }
-                rctools.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-                rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(admin_tools.this,false,true,arrayList);
-                rctools.setAdapter(rcToolsAccesoriesAdapter);
+                LottieAnimationView loty=findViewById(R.id.loty3);
+                if (arrayList.isEmpty()){
+                    loty.setVisibility(View.VISIBLE);
+                }
+                else{
+                    loty.setVisibility(View.GONE);
+                    rctools.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                    rcToolsAccesoriesAdapter=new RcToolsAccesoriesAdapter(admin_tools.this,false,true,arrayList);
+                    rctools.setAdapter(rcToolsAccesoriesAdapter);
+                }
+
             }
 
             @Override

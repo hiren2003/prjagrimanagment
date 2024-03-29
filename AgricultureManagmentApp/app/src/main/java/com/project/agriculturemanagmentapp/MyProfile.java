@@ -72,8 +72,8 @@ public class MyProfile extends AppCompatActivity {
             viewPager.setAdapter(VpProfileAdapter);
             tabLayout.setupWithViewPager(viewPager);
             tabLayout.getTabAt(0).setIcon(getDrawable(R.drawable.instagram));
-            tabLayout.getTabAt(1).setIcon(getDrawable(R.drawable.suitcase));
-            tabLayout.getTabAt(2).setIcon(getDrawable(R.drawable.labour));
+            tabLayout.getTabAt(1).setIcon(getDrawable(R.drawable.suitcase2));
+            tabLayout.getTabAt(2).setIcon(getDrawable(R.drawable.labourday));
             tabLayout.getTabAt(3).setIcon(getDrawable(R.drawable.resell));
              txtuname.setText(sharedPreferences.getString("uname","null"));
          }
@@ -169,9 +169,17 @@ public class MyProfile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MyProfile.this, Show_Follower.class).putExtra("mo",Mo));
-
             }
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Glide.with(this)
+                .load(sharedPreferences.getString("url","null"))
+                .circleCrop()
+                .error(getDrawable(R.drawable.baseline_warning_24))
+                .into(imgprfpc);
+    }
 }

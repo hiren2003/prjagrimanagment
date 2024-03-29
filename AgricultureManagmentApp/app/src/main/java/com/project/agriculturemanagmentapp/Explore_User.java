@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -39,9 +41,17 @@ public class Explore_User extends AppCompatActivity {
                 for(DataSnapshot dataSnapshot:snapshot.getChildren()){
                     userModelArrayList.add(dataSnapshot.getValue(clsUserModel.class));
                 }
-                rcuserAdapter = new RcuserAdapter( getBaseContext(),userModelArrayList,false,false);
-                rcuser.setLayoutManager(new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL));
-                rcuser.setAdapter(rcuserAdapter);
+                LottieAnimationView loty=findViewById(R.id.loty3);
+                if (userModelArrayList.isEmpty()){
+                    loty.setVisibility(View.VISIBLE);
+                }
+                else{
+                    loty.setVisibility(View.GONE);
+                    rcuserAdapter = new RcuserAdapter( getBaseContext(),userModelArrayList,false,false);
+                    rcuser.setLayoutManager(new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL));
+                    rcuser.setAdapter(rcuserAdapter);
+                }
+
             }
 
             @Override
@@ -66,13 +76,18 @@ public class Explore_User extends AppCompatActivity {
                         filteredlist.add(model);
                     }
                 }
+                LottieAnimationView loty=findViewById(R.id.loty3);
                 if (filteredlist.isEmpty()){
-                    Toast.makeText(Explore_User.this, "User Not Exists", Toast.LENGTH_SHORT).show();
+                    loty.setVisibility(View.VISIBLE);
                 }
                 else{
+                    loty.setVisibility(View.GONE);
                     rcuserAdapter = new RcuserAdapter( getBaseContext(),filteredlist,false,false);
                     rcuser.setLayoutManager(new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL));
-                    rcuser.setAdapter(rcuserAdapter);                }
+                    rcuser.setAdapter(rcuserAdapter);
+                }
+
+
                 return false;
             }
         });

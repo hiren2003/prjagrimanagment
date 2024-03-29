@@ -77,8 +77,8 @@ TabLayout tb;
         vp.setAdapter(vpHomeAdapter);
         tb.setupWithViewPager(vp);
         tb.getTabAt(0).setIcon(R.drawable.instagram);
-        tb.getTabAt(1).setIcon(R.drawable.suitcase);
-        tb.getTabAt(2).setIcon(R.drawable.home2);
+        tb.getTabAt(1).setIcon(R.drawable.suitcase2);
+        tb.getTabAt(2).setIcon(R.drawable.home3);
         tb.getTabAt(3).setIcon(R.drawable.resell);
         tb.getTabAt(4).setIcon(R.drawable.store);
 

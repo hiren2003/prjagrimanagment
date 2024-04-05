@@ -75,6 +75,26 @@ RelativeLayout rvlang,rvgv,rvrate,cous,rvshareapp,rvtc,rvnews,rvsave,profile,img
 
             }
         });
+        rvshareapp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseDatabase.getInstance().getReference("/Share").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+                        intent.putExtra(android.content.Intent.EXTRA_SUBJECT,"AGROCARE");
+                        intent.setType("text/plain");
+                        intent.putExtra(android.content.Intent.EXTRA_TEXT,snapshot.getValue().toString());
+                        startActivity(Intent.createChooser(intent, "Choose App"));
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+        });
         Glide.with(this)
                 .load(sharedPreferences.getString("url","null"))
                 .circleCrop()

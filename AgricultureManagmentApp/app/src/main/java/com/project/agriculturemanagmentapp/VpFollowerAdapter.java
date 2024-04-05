@@ -21,10 +21,10 @@ public class VpFollowerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if (position==1){
-            return new FollowList("Followers",Mo);
+            return new FollowList(context.getString(R.string.Followers),Mo);
         }
         else{
-            return new FollowList("Following",Mo);
+            return new FollowList(context.getString(R.string.Following),Mo);
         }
     }
 

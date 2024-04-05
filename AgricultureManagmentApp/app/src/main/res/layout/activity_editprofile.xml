@@ -62,7 +62,7 @@
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/quicksandsemibold"
-                android:text="Name "
+                android:text="@string/name"
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -87,7 +87,7 @@
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/quicksandsemibold"
-                android:text="E-mail "
+                android:text="E-mail"
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -112,7 +112,7 @@
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/quicksandsemibold"
-                android:text="Mobile number "
+                android:text="@string/mobile_number"
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -139,7 +139,7 @@
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/quicksandsemibold"
-                android:text="Date of birth "
+                android:text="@string/DOB"
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -189,7 +189,7 @@
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/quicksandsemibold"
-                android:text="Gender"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -241,7 +241,7 @@
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/quicksandsemibold"
-                android:text="State"
+                android:text="@string/State"
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:textStyle="bold" />

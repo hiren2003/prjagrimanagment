@@ -32,6 +32,7 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
         FirebaseDatabase.getInstance().getReference().child("Resell").child("Tools&Accessories").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                arrayList=new ArrayList<>();
                 for (DataSnapshot dataSnapshot:snapshot.getChildren()) {
                     arrayList.add(dataSnapshot.getValue(clsToolsAccessoriesModel.class));
                 }

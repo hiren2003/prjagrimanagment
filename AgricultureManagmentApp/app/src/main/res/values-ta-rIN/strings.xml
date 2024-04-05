@@ -242,4 +242,14 @@
     <string name="To">செய்ய</string>
     <string name="Apply">விண்ணப்பிக்கவும்</string>
     <string name="Clear_All">அனைத்தையும் அழி</string>
+    <string name="paste">இணைப்பை இங்கே ஒட்டவும்</string>
+    <string name="Invalid_query">தவறான வினவல்</string>
+    <string name="Invalid_msg">சில செய்திகளை எழுதுங்கள்</string>
+    <string name="Cancel_order">ஆர்டரை ரத்து செய்</string>
+    <string name="store">ஸ்டோர்</string>
+    <string name="Animal">விலங்கு</string>
+    <string name="Equipments">உபகரணங்கள்</string>
+    <string name="Cultivation_Product">சாகுபடி தயாரிப்பு</string>
+    <string name="Gender">பாலினம்</string>
+    <string name="DOB">பிறந்த தேதி</string>
 </resources>

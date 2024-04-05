@@ -244,4 +244,14 @@
     <string name="To">প্রতি</string>
     <string name="Apply">আবেদন করুন</string>
     <string name="Clear_All">সব পরিষ্কার করে দাও</string>
+    <string name="paste">এখানে লিঙ্ক পেস্ট করুন</string>
+    <string name="Invalid_query">অবৈধ ক্যোয়ারী</string>
+    <string name="Invalid_msg">কিছু বার্তা লিখুন</string>
+    <string name="Cancel_order">আদেশ বাতিল</string>
+    <string name="store">দোকান</string>
+    <string name="Animal">পশু</string>
+    <string name="Equipments">যন্ত্রপাতি</string>
+    <string name="Cultivation_Product">চাষের পণ্য</string>
+    <string name="Gender">লিঙ্গ</string>
+    <string name="DOB">জন্ম তারিখ</string>
 </resources>

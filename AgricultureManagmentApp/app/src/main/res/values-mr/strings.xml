@@ -242,4 +242,14 @@
     <string name="To">ला</string>
     <string name="Apply">अर्ज करा</string>
     <string name="Clear_All">सर्व साफ करा</string>
+    <string name="paste">येथे लिंक पेस्ट करा</string>
+    <string name="Invalid_query">अवैध क्वेरी</string>
+    <string name="Invalid_msg">काही संदेश लिहा</string>
+    <string name="Cancel_order">ऑर्डर रद्द करा</string>
+    <string name="store">स्टोअर</string>
+    <string name="Animal">प्राणी</string>
+    <string name="Equipments">उपकरणे</string>
+    <string name="Cultivation_Product">लागवडीचे उत्पादन</string>
+    <string name="Gender">लिंग</string>
+    <string name="DOB">जन्मदिनांक</string>
 </resources>

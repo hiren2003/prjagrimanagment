@@ -42,6 +42,7 @@ RcorderAdapter rcorderAdapter;
             ArrayList<clsOrderModel> reversedlist=new ArrayList<>();
             for (int i = orderModelArrayList.size() - 1; i >= 0; i--) {
                 reversedlist.add(orderModelArrayList.get(i));
+                System.out.println(orderModelArrayList.get(i).getClsEcommModel().getPname()+"  ------------------order");
             }
             rcorderAdapter=new RcorderAdapter(MyOrder.this,reversedlist,false,false);
             rcprdt.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
@@ -67,6 +68,7 @@ RcorderAdapter rcorderAdapter;
             ArrayList<clsOrderModel> reversedlist=new ArrayList<>();
             for (int i = orderModelArrayList.size() - 1; i >= 0; i--) {
                 reversedlist.add(orderModelArrayList.get(i));
+                System.out.println(orderModelArrayList.get(i).getClsEcommModel().getPname()+"  ------------------corder");
             }
             rcorderAdapter=new RcorderAdapter(MyOrder.this,reversedlist,true,true);
             rcCancel.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));

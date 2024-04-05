@@ -51,7 +51,7 @@
                 android:layout_marginLeft="10dp"
                 android:textStyle="bold"
                 android:fontFamily="@font/quicksandsemibold"
-                android:text="Name "
+                android:text="@string/Owner_name"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/black"
                 android:textSize="20dp" />

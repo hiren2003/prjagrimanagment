@@ -243,4 +243,14 @@
     <string name="To">ಗೆ</string>
     <string name="Apply">ಅನ್ವಯಿಸು</string>
     <string name="Clear_All">ಎಲ್ಲವನ್ನೂ ತೆಗೆ</string>
+    <string name="paste">ಲಿಂಕ್ ಅನ್ನು ಇಲ್ಲಿ ಅಂಟಿಸಿ</string>
+    <string name="Invalid_query">ಅಮಾನ್ಯವಾದ ಪ್ರಶ್ನೆ</string>
+    <string name="Invalid_msg">ಕೆಲವು ಸಂದೇಶಗಳನ್ನು ಬರೆಯಿರಿ</string>
+    <string name="Cancel_order">ಆದೇಶವನ್ನು ರದ್ದುಮಾಡಿ</string>
+    <string name="store">ಅಂಗಡಿ</string>
+    <string name="Animal">ಪ್ರಾಣಿ</string>
+    <string name="Equipments">ಸಲಕರಣೆಗಳು</string>
+    <string name="Cultivation_Product">ಕೃಷಿ ಉತ್ಪನ್ನ</string>
+    <string name="Gender">ಲಿಂಗ</string>
+    <string name="DOB">ಹುಟ್ಟಿದ ದಿನಾಂಕ</string>
 </resources>

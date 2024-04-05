@@ -248,6 +248,12 @@
     <string name="Invalid_msg">Write Some Message</string>
     <string name="Cancel_order">Cancel Order</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="store">Store</string>
+    <string name="Animal">Animal</string>
+    <string name="Equipments">Equipments</string>
+    <string name="Cultivation_Product">Cultivation Product</string>
+    <string name="Gender">Gender</string>
+    <string name="DOB">BirthDate</string>
     <string-array name="toolstype">
         <item>Tools</item>
         <item>Accessories</item>

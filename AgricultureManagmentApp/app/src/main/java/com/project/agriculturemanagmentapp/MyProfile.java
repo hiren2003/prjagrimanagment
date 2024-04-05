@@ -76,6 +76,7 @@ public class MyProfile extends AppCompatActivity {
             tabLayout.getTabAt(2).setIcon(getDrawable(R.drawable.labourday));
             tabLayout.getTabAt(3).setIcon(getDrawable(R.drawable.resell));
              txtuname.setText(sharedPreferences.getString("uname","null"));
+            System.out.println("-----------------------------SElf"+ Mo);
          }
          else{
              Mo=intent.getStringExtra("mo");
@@ -86,6 +87,7 @@ public class MyProfile extends AppCompatActivity {
             tabLayout.getTabAt(0).setIcon(getDrawable(R.drawable.instagram));
             tabLayout.getTabAt(1).setIcon(getDrawable(R.drawable.suitcase));
             tabLayout.getTabAt(2).setIcon(getDrawable(R.drawable.resell));
+            System.out.println("---------------------------------------------------MoySElf"+ Mo);
          }
 
              profile.setOnClickListener(new View.OnClickListener() {
@@ -176,10 +178,12 @@ public class MyProfile extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Glide.with(this)
-                .load(sharedPreferences.getString("url","null"))
-                .circleCrop()
-                .error(getDrawable(R.drawable.baseline_warning_24))
-                .into(imgprfpc);
+        if (SelfAccount){
+            Glide.with(this)
+                    .load(sharedPreferences.getString("url","null"))
+                    .circleCrop()
+                    .error(getDrawable(R.drawable.baseline_warning_24))
+                    .into(imgprfpc);
+        }
     }
 }

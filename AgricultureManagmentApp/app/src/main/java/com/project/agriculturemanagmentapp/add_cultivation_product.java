@@ -96,33 +96,35 @@ int mon;
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                  updatedmodel=snapshot.getValue(ClsCultivationProductModel.class);
-                    imgprdt.setVisibility(View.VISIBLE);
-                    Glide.with(add_cultivation_product.this)
-                            .load(updatedmodel.getImg())
-                            .into(imgprdt);
-                    btnchooseimg.setVisibility(View.GONE);
-                    edtpname.setText(updatedmodel.getPname());
-                    edtspeice.setText(updatedmodel.getSpecie());
-                    edtqty.setText(updatedmodel.getQty());
-                    edtprc.setText(updatedmodel.getPrice());
-                    edtstate.setText(updatedmodel.getState());
-                    edttehsil.setText(updatedmodel.getTehsil());
-                    edtdistrict.setText(updatedmodel.getDistrict());
-                    edtsellername.setText(updatedmodel.getSname());
-                    edtvillage.setText(updatedmodel.getVillage());
-                    edtdescription.setText(updatedmodel.getDes());
-                    edtmo.setText(updatedmodel.getMo());
-                    if (updatedmodel.getCategory().equals("Grains")) {
-                        imgcat.setImageDrawable(ContextCompat.getDrawable(add_cultivation_product.this, R.drawable.garins));
-                    } else if (updatedmodel.getCategory().equals("Fruits")) {
-                        imgcat.setImageDrawable(ContextCompat.getDrawable(add_cultivation_product.this, R.drawable.fruits2));
-                    } else if (updatedmodel.getCategory().equals("Pulses")) {
-                        imgcat.setImageDrawable(ContextCompat.getDrawable(add_cultivation_product.this, R.drawable.pulses));
-                    } else if (updatedmodel.getCategory().equals("Vegatable")) {
-                        imgcat.setImageDrawable(ContextCompat.getDrawable(add_cultivation_product.this, R.drawable.vegatable));
-                    } else {
-                        imgcat.setImageDrawable(ContextCompat.getDrawable(add_cultivation_product.this, R.drawable.otherprdt));
-                    }
+                  if (updatedmodel!=null){
+                      imgprdt.setVisibility(View.VISIBLE);
+                      Glide.with(add_cultivation_product.this)
+                              .load(updatedmodel.getImg())
+                              .into(imgprdt);
+                      btnchooseimg.setVisibility(View.GONE);
+                      edtpname.setText(updatedmodel.getPname());
+                      edtspeice.setText(updatedmodel.getSpecie());
+                      edtqty.setText(updatedmodel.getQty());
+                      edtprc.setText(updatedmodel.getPrice());
+                      edtstate.setText(updatedmodel.getState());
+                      edttehsil.setText(updatedmodel.getTehsil());
+                      edtdistrict.setText(updatedmodel.getDistrict());
+                      edtsellername.setText(updatedmodel.getSname());
+                      edtvillage.setText(updatedmodel.getVillage());
+                      edtdescription.setText(updatedmodel.getDes());
+                      edtmo.setText(updatedmodel.getMo());
+                      if (updatedmodel.getCategory().equals("Grains")) {
+                          imgcat.setImageDrawable(ContextCompat.getDrawable(add_cultivation_product.this, R.drawable.garins));
+                      } else if (updatedmodel.getCategory().equals("Fruits")) {
+                          imgcat.setImageDrawable(ContextCompat.getDrawable(add_cultivation_product.this, R.drawable.fruits2));
+                      } else if (updatedmodel.getCategory().equals("Pulses")) {
+                          imgcat.setImageDrawable(ContextCompat.getDrawable(add_cultivation_product.this, R.drawable.pulses));
+                      } else if (updatedmodel.getCategory().equals("Vegatable")) {
+                          imgcat.setImageDrawable(ContextCompat.getDrawable(add_cultivation_product.this, R.drawable.vegatable));
+                      } else {
+                          imgcat.setImageDrawable(ContextCompat.getDrawable(add_cultivation_product.this, R.drawable.otherprdt));
+                      }
+                  }
                     btnsavedata.setText(getResources().getString(R.string.Update));
                 }
                 @Override
@@ -259,7 +261,7 @@ int mon;
                                 public void onSuccess(Void unused) {
                                     show_toast(getResources().getString(R.string.successfullyuploaded), true);
                                     dg.dismiss();
-                                    finish();
+                                    startActivity(new Intent(add_cultivation_product.this,Home.class));
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
@@ -301,7 +303,7 @@ int mon;
                                                 public void onSuccess(Void unused) {
                                                     show_toast(getResources().getString(R.string.successfullyuploaded), true);
                                                     dg.dismiss();
-                                                    finish();
+                                                    startActivity(new Intent(add_cultivation_product.this,Home.class));
                                                 }
                                             }).addOnFailureListener(new OnFailureListener() {
                                                 @Override

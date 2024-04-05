@@ -132,7 +132,7 @@ RcEcommAdapter rcEcommAdapter;
                     for (DataSnapshot datasnapshot:
                          snapshot.getChildren()) {
                         clsAnimalModel model=datasnapshot.getValue(clsAnimalModel.class);
-                        if (model.getMo().toString().trim().equals(mo)){
+                        if (model.getUmo().toString().trim().equals(mo)){
                             animalModelArrayList.add(model);
                         }                    }
                     ArrayList<clsAnimalModel> reversedlist=new ArrayList<>();
@@ -155,9 +155,8 @@ RcEcommAdapter rcEcommAdapter;
                     for (DataSnapshot datasnapshot:
                             snapshot.getChildren()) {
                         ClsCultivationProductModel model=datasnapshot.getValue(ClsCultivationProductModel.class);
-                        if (model.getMo().trim().equals(mo)){
+                        if (model.getUmo().trim().equals(mo)){
                             cultivationProductModelArrayList.add(model);
-
                         }
                     }
                     ArrayList<ClsCultivationProductModel> reversedlist=new ArrayList<>();
@@ -180,7 +179,7 @@ RcEcommAdapter rcEcommAdapter;
                     for (DataSnapshot datasnapshot:
                             snapshot.getChildren()) {
                         clsToolsAccessoriesModel model=datasnapshot.getValue(clsToolsAccessoriesModel.class);
-                        if (model.getMo().equals(mo)){
+                        if (model.getUmo().equals(mo)){
                             toolsAccessoriesModelArrayList.add(model);
                         }                    }
                     ArrayList<clsToolsAccessoriesModel> reversedlist=new ArrayList<>();
@@ -220,7 +219,7 @@ RcEcommAdapter rcEcommAdapter;
                                 for (int i = ecommModelArrayList.size() - 1; i >= 0; i--) {
                                     reversedlist.add(ecommModelArrayList.get(i));
                                 }
-                                rcEcommAdapter=new RcEcommAdapter(User_output.this,2,reversedlist);
+                                rcEcommAdapter=new RcEcommAdapter(User_output.this,4,reversedlist);
                                 recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
                                 recyclerView.setAdapter(rcEcommAdapter);
 
@@ -253,7 +252,7 @@ RcEcommAdapter rcEcommAdapter;
                             orderModelArrayList.add(model);
                         }
                     }
-                    rcorderAdapter=new RcorderAdapter(User_output.this,orderModelArrayList,false,false);
+                    rcorderAdapter=new RcorderAdapter(User_output.this,orderModelArrayList,true,false);
                     recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
                     recyclerView.setAdapter(rcorderAdapter);
                 }

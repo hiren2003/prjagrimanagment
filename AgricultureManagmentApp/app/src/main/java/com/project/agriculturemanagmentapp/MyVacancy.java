@@ -78,14 +78,14 @@ public class MyVacancy extends Fragment {
                 for (DataSnapshot datasnapshot:
                      snapshot.getChildren()) {
                     clsVacancyModel model=datasnapshot.getValue(clsVacancyModel.class);
-                    if (model.umo.equals(mo)){
+                    if (model.umo.equals(Mo)){
                         vacancyModelArrayList.add(model);
                     }
                 }
                 LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
                 linearLayoutManager.setReverseLayout(true);
                 linearLayoutManager.setStackFromEnd(true);
-                rcVacancyAdapter=new RcVacancyAdapter(getContext(),true,vacancyModelArrayList);
+                rcVacancyAdapter=new RcVacancyAdapter(getContext(),SelfAccount,vacancyModelArrayList);
                 rcmy.setLayoutManager(linearLayoutManager);
                 rcmy.setAdapter(rcVacancyAdapter);
             }

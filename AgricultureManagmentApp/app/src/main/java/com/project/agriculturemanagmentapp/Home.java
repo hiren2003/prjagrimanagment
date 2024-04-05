@@ -3,12 +3,14 @@ package com.project.agriculturemanagmentapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
 import androidx.viewpager.widget.ViewPager;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Message;
@@ -22,24 +24,19 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.airbnb.lottie.LottieAnimationView;
 import com.bumptech.glide.Glide;
-import com.gauravk.bubblenavigation.BubbleNavigationLinearView;
-import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.tabs.TabLayout;
-
 import java.util.Locale;
+import static android.Manifest.permission.SEND_SMS;
 
 public class Home extends AppCompatActivity {
     FrameLayout frameLayout;
     RelativeLayout toolbar;
     ImageView prfpc, imgcart,imgmessage;
     TextView txtname;
-    BubbleNavigationLinearView bubbleNavigationLinearView;
     SharedPreferences sharedPreferences;
     ImageView  fltfeed, fltvacancy,fltlbr,fltrsell,fltai,fltsearch;
     boolean clicked = false;
@@ -95,7 +92,11 @@ TabLayout tb;
         fltadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onAddClick();
+                if(ActivityCompat.checkSelfPermission(Home.this,SEND_SMS)== PackageManager.PERMISSION_DENIED){
+                    ActivityCompat.requestPermissions(Home.this,new String[]{SEND_SMS},101);
+                }else{
+                    onAddClick();
+                }
             }
         });
         fltfeed.setOnClickListener(new View.OnClickListener() {

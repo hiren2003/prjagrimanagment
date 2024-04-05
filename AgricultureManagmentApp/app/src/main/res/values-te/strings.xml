@@ -242,4 +242,14 @@
     <string name="To">కు</string>
     <string name="Apply">దరఖాస్తు చేసుకోండి</string>
     <string name="Clear_All">అన్నీ క్లియర్ చేయండి</string>
+    <string name="paste">లింక్‌ని ఇక్కడ అతికించండి</string>
+    <string name="Invalid_query">చెల్లని ప్రశ్న</string>
+    <string name="Invalid_msg">కొంత సందేశాన్ని వ్రాయండి</string>
+    <string name="Cancel_order">ఆర్డర్ రద్దు చేయండి</string>
+    <string name="store">స్టోర్</string>
+    <string name="Animal">జంతువు</string>
+    <string name="Equipments">పరికరాలు</string>
+    <string name="Cultivation_Product">సాగు ఉత్పత్తి</string>
+    <string name="Gender">లింగం</string>
+    <string name="DOB">పుట్టిన తేదీ</string>
 </resources>

@@ -69,12 +69,6 @@ public class Other_vacancy extends Fragment {
                         snapshot.getChildren()) {
                     vacancyModelArrayList.add(datasnapshot.getValue(clsVacancyModel.class));
                 }
-                if (vacancyModelArrayList.isEmpty()){
-                    loty.setVisibility(View.VISIBLE);
-                }
-                else{
-                    loty.setVisibility(View.GONE);
-                }
                 LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
                 linearLayoutManager.setReverseLayout(true);
                 linearLayoutManager.setStackFromEnd(true);

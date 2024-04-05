@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                         for (DataSnapshot dataSnapshot:snapshot.getChildren()){
                             if(dataSnapshot.getKey().toString().equals(s.toString())){
                                 clsUserModel model=dataSnapshot.getValue(clsUserModel.class);
-                                Glide.with(MainActivity.this)
+                                Glide.with(getApplicationContext())
                                         .load(model.getUrl())
                                         .into(prfpc);
                                 edtuname.setText(model.getUname().toString());

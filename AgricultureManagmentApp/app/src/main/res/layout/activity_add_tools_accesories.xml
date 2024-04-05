@@ -41,7 +41,7 @@
           android:layout_marginLeft="10dp"
           android:textStyle="bold"
           android:fontFamily="@font/quicksandsemibold"
-          android:text="Product Name "
+          android:text="@string/Product_Name"
           android:layout_marginTop="10dp"
           android:textColor="@color/black"
           android:textSize="20dp" />
@@ -82,6 +82,7 @@
           android:textColor="@color/black"
           android:hint="@string/month"
           android:paddingLeft="20dp"
+          android:inputType="number"
           app:hintTextColor="@color/black" />
 
 
@@ -91,7 +92,7 @@
           android:layout_marginLeft="10dp"
           android:textStyle="bold"
           android:fontFamily="@font/quicksandsemibold"
-          android:text="Seller name "
+          android:text="@string/Seller_name"
           android:layout_marginTop="10dp"
           android:textColor="@color/black"
           android:textSize="20dp" />
@@ -117,7 +118,7 @@
           android:layout_marginLeft="10dp"
           android:textStyle="bold"
           android:fontFamily="@font/quicksandsemibold"
-          android:text="Mobile no. "
+          android:text="@string/mobile_number"
           android:layout_marginTop="10dp"
           android:textColor="@color/black"
           android:textSize="20dp" />
@@ -133,6 +134,7 @@
           android:fontFamily="@font/quicksandregular"
           android:textColor="@color/black"
           android:hint="@string/mobile_number"
+          android:inputType="number"
           android:paddingLeft="20dp"
           app:hintTextColor="@color/black" />
 
@@ -143,7 +145,7 @@
           android:layout_marginLeft="10dp"
           android:textStyle="bold"
           android:fontFamily="@font/quicksandsemibold"
-          android:text="Price "
+          android:text="@string/Price2"
           android:layout_marginTop="10dp"
           android:textColor="@color/black"
           android:textSize="20dp" />
@@ -159,6 +161,7 @@
           android:fontFamily="@font/quicksandregular"
           android:textColor="@color/black"
           android:hint="@string/Price2"
+          android:inputType="number"
           android:paddingLeft="20dp"
           app:hintTextColor="@color/black" />
 

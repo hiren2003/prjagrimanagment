@@ -100,20 +100,22 @@ public class show_ecom_prdt extends AppCompatActivity implements PaymentResultWi
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 model = snapshot.getValue(clsEcommModel.class);
-                System.out.println("----------------------------"+key);
-                Glide.with(getApplicationContext())
-                        .load(model.getImg())
-                        .into(imageView);
-                txtpname.setText(model.getPname());
-                txtprice.setText("₹" + model.getPrice());
-                txtdes.setText(model.getDes());
-                txtspec.setText(model.getDpec());
-                txtrecom.setText(model.getRecomm());
-                edtqty.setText(model.getQty());
-                txtkey.setText(model.getKey());
-                txtcgst.setText(model.getCgst()+"%");
-                txtsgst.setText(model.getSgst()+"%");
-                txtdiscount.setText(model.getDiscount()+"%");
+                if (model!=null){
+                    Glide.with(getApplicationContext())
+                            .load(model.getImg())
+                            .into(imageView);
+                    txtpname.setText(model.getPname());
+                    txtprice.setText("₹" + model.getPrice());
+                    txtdes.setText(model.getDes());
+                    txtspec.setText(model.getDpec());
+                    txtrecom.setText(model.getRecomm());
+                    edtqty.setText(model.getQty());
+                    txtkey.setText(model.getKey());
+                    txtcgst.setText(model.getCgst()+"%");
+                    txtsgst.setText(model.getSgst()+"%");
+                    txtdiscount.setText(model.getDiscount()+"%");
+                }
+                System.out.println("ECommmmmmmmmmmmmmm----------------------------"+key);
             }
 
             @Override
@@ -151,7 +153,7 @@ public class show_ecom_prdt extends AppCompatActivity implements PaymentResultWi
                 SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
                 FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Cart").child(model.getKey()).removeValue();
                 show_toast(getResources().getString(R.string.remove_cart),true);
-                finish();
+                startActivity(new Intent(show_ecom_prdt.this,Home.class));
             }
         });
         btnorder.setOnClickListener(new View.OnClickListener() {

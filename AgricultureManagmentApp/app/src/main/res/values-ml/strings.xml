@@ -242,4 +242,14 @@
     <string name="To">ലേക്ക്</string>
     <string name="Apply">അപേക്ഷിക്കുക</string>
     <string name="Clear_All">എല്ലാം മായ്ക്കുക</string>
+    <string name="paste">ലിങ്ക് ഇവിടെ ഒട്ടിക്കുക</string>
+    <string name="Invalid_query">അസാധുവായ ചോദ്യം</string>
+    <string name="Invalid_msg">ചില സന്ദേശം എഴുതുക</string>
+    <string name="Cancel_order">ഓർഡർ റദ്ദാക്കാൻ</string>
+    <string name="store">സ്റ്റോർ</string>
+    <string name="Animal">മൃഗം</string>
+    <string name="Equipments">ഉപകരണങ്ങൾ</string>
+    <string name="Cultivation_Product">കൃഷി ഉൽപ്പന്നം</string>
+    <string name="Gender">ലിംഗഭേദം</string>
+    <string name="DOB">ജനനത്തീയതി</string>
 </resources>

@@ -242,4 +242,14 @@
     <string name="To">کو</string>
     <string name="Apply">درخواست دیں</string>
     <string name="Clear_All">تمام کو صاف کریں</string>
+    <string name="paste">لنک یہاں پیسٹ کریں۔</string>
+    <string name="Invalid_query">غلط استفسار</string>
+    <string name="Invalid_msg">کچھ پیغام لکھیں۔</string>
+    <string name="Cancel_order">آرڈر منسوخ کر دیں</string>
+    <string name="store">اسٹور</string>
+    <string name="Animal">جانور</string>
+    <string name="Equipments">سازوسامان</string>
+    <string name="Cultivation_Product">کاشت کی پیداوار</string>
+    <string name="Gender">صنف</string>
+    <string name="DOB">تاریخ پیدائش</string>
 </resources>

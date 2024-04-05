@@ -80,6 +80,7 @@ TextView txttitle;
              @Override
              public void onDataChange(@NonNull DataSnapshot snapshot) {
                  clsEcommModel model=snapshot.getValue(clsEcommModel.class);
+             if (model!=null){
                  edtpname.setText(model.getPname());
                  edtprice.setText(model.getPrice()+"");
                  edtcgst.setText(model.getCgst()+"");
@@ -99,6 +100,8 @@ TextView txttitle;
                          break;
                      }
                  }
+
+             }
              }
 
              @Override

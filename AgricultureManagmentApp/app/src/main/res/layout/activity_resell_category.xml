@@ -22,7 +22,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Category"
+                android:text="@string/Category"
                 android:textColor="#066006"
                 android:textSize="40dp"
                 android:layout_marginTop="20dp"
@@ -37,15 +37,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_height="2dp"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/quicksandsemibold"
-                android:text="Animals"
-                android:textColor="#000000"
-                android:textSize="30dp" />
+
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cdanimal"
@@ -62,14 +54,7 @@
                     android:layout_gravity="center"
                     android:src="@drawable/animals" />
             </androidx.cardview.widget.CardView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Foods"
-                android:textColor="#000000"
-                android:textSize="30dp"
-                android:fontFamily="@font/quicksandsemibold"
-                android:layout_marginLeft="20dp"/>
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/cdagrprdt"
                 android:layout_width="match_parent"
@@ -110,14 +95,7 @@
                         android:src="@drawable/wheat" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Equipments"
-                android:textColor="#000000"
-                android:textSize="30dp"
-                android:fontFamily="@font/quicksandsemibold"
-                android:layout_marginLeft="20dp"/>
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/cdta"
                 android:layout_width="match_parent"

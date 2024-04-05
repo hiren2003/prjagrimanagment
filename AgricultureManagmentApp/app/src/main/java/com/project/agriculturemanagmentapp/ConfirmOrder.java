@@ -131,57 +131,60 @@ String date;
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                      clsOrderModel=snapshot.getValue(com.project.agriculturemanagmentapp.clsOrderModel.class);
-                    if (clsOrderModel.getPaymentMode().equals("COD")){
-                        lnpoption.setVisibility(View.GONE);
-                    }
-                    Glide.with(ConfirmOrder.this)
-                            .load(clsOrderModel.getClsEcommModel().getImg())
-                            .into(imgprdt);
-                    price=Float.parseFloat(clsOrderModel.getClsEcommModel().getPrice());
-                    txtprc.setText(clsOrderModel.getClsEcommModel().getPrice());
-                    txtpname.setText(clsOrderModel.getClsEcommModel().getPname());
-                    txtdes.setText(clsOrderModel.getClsEcommModel().getDes());
-                    txtqty.setText(getString(R.string.qty)+" : "+clsOrderModel.getQty());
-                    qty=Float.parseFloat(clsOrderModel.getQty());
-                    price=Float.parseFloat(clsOrderModel.getClsEcommModel().getPrice());
-                    txtamount.setText(""+(price*qty));
-                    txtoid.setText(clsOrderModel.getKey());
-                    txtpid.setText(clsOrderModel.getPaymentId());
-                    txtpmod.setText(clsOrderModel.getPaymentMode());
-                    txtpstatus.setText(clsOrderModel.getPaymentStatus());
-                    txtcname.setText(clsOrderModel.getName());
-                    txtcmo.setText(clsOrderModel.getMo());
-                    txtcadd.setText(clsOrderModel.getAddress());
-                    float sgst=Float.parseFloat(clsOrderModel.getClsEcommModel().getSgst().toString());
-                    float cgst=Float.parseFloat(clsOrderModel.getClsEcommModel().getCgst().toString());
-                    float Discount=Float.parseFloat(clsOrderModel.getClsEcommModel().getDiscount().toString());
-                    float amt=price*qty;
-                    float s=(sgst/100)*amt;
-                    float c=(cgst/100)*amt;
-                    float d=(Discount/100)*amt;
-                    txtcgst.setText(c+"");
-                    txtsgst.setText(s+"");
-                    txtdis.setText(d+"");
-                    txtshpgcharges.setText("120");
-                     payable=((price*qty)+(s)+(c)+120)-(d);
-                    System.out.println("-----------"+s+"-----------"+c+"----------"+d);
-                    txtpayableamt.setText(payable+"");
-                  AppCompatButton  btncancelorder=findViewById(R.id.btnremoveorder);
-                    long time=86400+clsOrderModel.getTime();
-                    if (Instant.now().getEpochSecond()<time&&isAdmin==false){
-                        btncancelorder.setVisibility(View.VISIBLE);
-                    }
-                    else {
-                        btncancelorder.setVisibility(View.GONE);
-                    }
-                    btncancelorder.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            FirebaseDatabase.getInstance().getReference().child("Cancelled_order").child(clsOrderModel.getKey()).setValue(clsOrderModel);
-                            FirebaseDatabase.getInstance().getReference().child("Orders").child(clsOrderModel.getKey()).removeValue();
-                            finish();
-                        }
-                    });
+                     if (clsOrderModel!=null){
+                         if (clsOrderModel.getPaymentMode().equals("COD")){
+                             lnpoption.setVisibility(View.GONE);
+                         }
+                         Glide.with(ConfirmOrder.this)
+                                 .load(clsOrderModel.getClsEcommModel().getImg())
+                                 .into(imgprdt);
+                         price=Float.parseFloat(clsOrderModel.getClsEcommModel().getPrice());
+                         txtprc.setText(clsOrderModel.getClsEcommModel().getPrice());
+                         txtpname.setText(clsOrderModel.getClsEcommModel().getPname());
+                         txtdes.setText(clsOrderModel.getClsEcommModel().getDes());
+                         txtqty.setText(getString(R.string.qty)+" : "+clsOrderModel.getQty());
+                         qty=Float.parseFloat(clsOrderModel.getQty());
+                         price=Float.parseFloat(clsOrderModel.getClsEcommModel().getPrice());
+                         txtamount.setText(""+(price*qty));
+                         txtoid.setText(clsOrderModel.getKey());
+                         txtpid.setText(clsOrderModel.getPaymentId());
+                         txtpmod.setText(clsOrderModel.getPaymentMode());
+                         txtpstatus.setText(clsOrderModel.getPaymentStatus());
+                         txtcname.setText(clsOrderModel.getName());
+                         txtcmo.setText(clsOrderModel.getMo());
+                         txtcadd.setText(clsOrderModel.getAddress());
+                         float sgst=Float.parseFloat(clsOrderModel.getClsEcommModel().getSgst().toString());
+                         float cgst=Float.parseFloat(clsOrderModel.getClsEcommModel().getCgst().toString());
+                         float Discount=Float.parseFloat(clsOrderModel.getClsEcommModel().getDiscount().toString());
+                         float amt=price*qty;
+                         float s=(sgst/100)*amt;
+                         float c=(cgst/100)*amt;
+                         float d=(Discount/100)*amt;
+                         txtcgst.setText(c+"");
+                         txtsgst.setText(s+"");
+                         txtdis.setText(d+"");
+                         txtshpgcharges.setText("120");
+                         payable=((price*qty)+(s)+(c)+120)-(d);
+                         System.out.println("-----------"+s+"-----------"+c+"----------"+d);
+                         txtpayableamt.setText(payable+"");
+                         AppCompatButton  btncancelorder=findViewById(R.id.btnremoveorder);
+                         long time=86400+clsOrderModel.getTime();
+                         if (Instant.now().getEpochSecond()<time&&isAdmin==false){
+                             btncancelorder.setVisibility(View.VISIBLE);
+                         }
+                         else {
+                             btncancelorder.setVisibility(View.GONE);
+                         }
+                         btncancelorder.setOnClickListener(new View.OnClickListener() {
+                             @Override
+                             public void onClick(View v) {
+                                 FirebaseDatabase.getInstance().getReference().child("Cancelled_order").child(clsOrderModel.getKey()).setValue(clsOrderModel);
+                                 FirebaseDatabase.getInstance().getReference().child("Orders").child(clsOrderModel.getKey()).removeValue();
+                                 finish();
+                             }
+                         });
+                     }
+
                 }
 
                 @Override
@@ -343,8 +346,8 @@ String date;
         clsOrderModel clsOrderModel = new clsOrderModel(clsEcommModel,key,sharedPreferences.getString("uname", "unknown"),sharedPreferences.getString("mo", "1234567890"), sharedPreferences.getString("add", "null"), qty+"", date,time,"COD","","");
         FirebaseDatabase.getInstance().getReference().child("Orders").child(key).setValue(clsOrderModel);
         FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Cart").child(clsEcommModel.getKey()).removeValue();
-        finish();
-    }
+        Intent intent=new Intent(ConfirmOrder.this,MyOrder.class);
+        startActivity(intent);    }
     private boolean checkPermission() {
         // checking of permissions.
         int permission1 = ContextCompat.checkSelfPermission(getApplicationContext(), WRITE_EXTERNAL_STORAGE);
@@ -365,10 +368,7 @@ String date;
         clsOrderModel clsOrderModel = new clsOrderModel(clsEcommModel,key,sharedPreferences.getString("uname", "unknown"),sharedPreferences.getString("mo", "1234567890"), sharedPreferences.getString("add", "null"), qty+"", date,time,"Online",paymentData.getPaymentId().toString(),"Sucess");
         FirebaseDatabase.getInstance().getReference().child("Orders").child(key).setValue(clsOrderModel);
         FirebaseDatabase.getInstance().getReference().child("User").child(sharedPreferences.getString("mo", "1234567890")).child("Cart").child(clsEcommModel.getKey()).removeValue();
-        finish();
-        Intent intent=new Intent(ConfirmOrder.this,ConfirmOrder.class);
-        intent.putExtra("key",key);
-        intent.putExtra("IsOrder",true);
+        Intent intent=new Intent(ConfirmOrder.this,MyOrder.class);
         startActivity(intent);
     }
 

@@ -242,4 +242,14 @@
     <string name="To">પ્રતિ</string>
     <string name="Apply">અરજી કરો</string>
     <string name="Clear_All">બધું સાફ કરો</string>
+    <string name="paste">લિંક અહીં પેસ્ટ કરો</string>
+    <string name="Invalid_query">અમાન્ય ક્વેરી</string>
+    <string name="Invalid_msg">થોડો સંદેશ લખો</string>
+    <string name="Cancel_order">આદેશ રદ</string>
+    <string name="store">દુકાન</string>
+    <string name="Animal">પ્રાણી</string>
+    <string name="Equipments">સાધનો</string>
+    <string name="Cultivation_Product">ખેતી ઉત્પાદન</string>
+    <string name="Gender">જાતિ</string>
+    <string name="DOB">જન્મતારીખ</string>
 </resources>

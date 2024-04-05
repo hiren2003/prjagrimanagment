@@ -96,25 +96,27 @@ clsAnimalModel updatedmodel;
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     clsAnimalModel model=snapshot.getValue(clsAnimalModel.class);
                     updatedmodel=model;
-                    Glide.with(add_animal.this)
-                            .load(model.getImg())
-                            .into(imgprdt);
-                    oldurl=model.getImg();
-                    edtspeice.setText(model.getSpiece());
-                    edtprc.setText(model.getPrice());
-                    edtstate.setText(model.getState());
-                    edttehsil.setText(model.getTehsil());
-                    edtdistrict.setText(model.getDistrict());
-                    edtvillage.setText(model.getVillage());
-                    edtdescription.setText(model.getDes());
-                    edtmo.setText(model.getMo());
-                    edtyear.setText(model.getAgeyear());
-                    edtmonth.setText(model.getAgemonth());
-                    edtmilk.setText(model.getMproduction());
-                    edtweight.setText(model.getWeight());
-                    edtsname.setText(model.getSname());
-                    btnsavedata.setText(getResources().getString(R.string.Update));
-                }
+                  if (model!=null){
+                      Glide.with(add_animal.this)
+                              .load(model.getImg())
+                              .into(imgprdt);
+                      oldurl=model.getImg();
+                      edtspeice.setText(model.getSpiece());
+                      edtprc.setText(model.getPrice());
+                      edtstate.setText(model.getState());
+                      edttehsil.setText(model.getTehsil());
+                      edtdistrict.setText(model.getDistrict());
+                      edtvillage.setText(model.getVillage());
+                      edtdescription.setText(model.getDes());
+                      edtmo.setText(model.getMo());
+                      edtyear.setText(model.getAgeyear());
+                      edtmonth.setText(model.getAgemonth());
+                      edtmilk.setText(model.getMproduction());
+                      edtweight.setText(model.getWeight());
+                      edtsname.setText(model.getSname());
+                      btnsavedata.setText(getResources().getString(R.string.Update));
+
+                  }                }
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
@@ -296,7 +298,7 @@ clsAnimalModel updatedmodel;
                                             public void onSuccess(Void unused) {
                                                 show_toast(getResources().getString(R.string.successfullyuploaded), true);
                                                 dg.dismiss();
-                                                finish();
+                                                startActivity(new Intent(add_animal.this,Home.class));
                                             }
                                         }).addOnFailureListener(new OnFailureListener() {
                                             @Override
@@ -351,7 +353,7 @@ clsAnimalModel updatedmodel;
                             public void onSuccess(Void unused) {
                                 show_toast(getResources().getString(R.string.successfullyuploaded), true);
                                 dg.dismiss();
-                                finish();
+                                startActivity(new Intent(add_animal.this,Home.class));
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override

@@ -95,13 +95,13 @@ public class RcEcommAdapter extends RecyclerView.Adapter<RcEcommAdapter.ViewHold
                                dg.dismiss();
                                dgop.dismiss();
                                FirebaseDatabase.getInstance().getReference().child("ECommerce").child("All").child(ecommModelArrayList.get(position).getKey()).removeValue();
-                               FirebaseStorage.getInstance().getReference().child("Ecommerce").child(ecommModelArrayList.get(position).getKey()).delete();
                                FirebaseDatabase.getInstance().getReference("/User/"+context.getSharedPreferences("data",Context.MODE_PRIVATE).getString("mo","").toString()+"/Cart").addValueEventListener(new ValueEventListener() {
                                    @Override
                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
                                        for (DataSnapshot datasnapshot:
                                                snapshot.getChildren()) {
                                            if (datasnapshot.getKey().toString().trim().equals(ecommModelArrayList.get(position).getKey().toString())){
+                                               System.out.println("------------------"+datasnapshot.getKey().toString());
                                                FirebaseDatabase.getInstance().getReference("/User/"+context.getSharedPreferences("data",Context.MODE_PRIVATE).getString("mo","").toString()+"/Cart/"+datasnapshot.getKey().toString().trim()).removeValue();                                        }
                                        }
                                    }
@@ -111,6 +111,7 @@ public class RcEcommAdapter extends RecyclerView.Adapter<RcEcommAdapter.ViewHold
 
                                    }
                                });
+                               FirebaseStorage.getInstance().getReference().child("Ecommerce").child(ecommModelArrayList.get(position).getKey()).delete();
                            }
                        });
                    }

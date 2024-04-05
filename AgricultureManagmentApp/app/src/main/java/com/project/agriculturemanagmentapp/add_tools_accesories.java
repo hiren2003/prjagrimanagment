@@ -77,23 +77,25 @@ public class add_tools_accesories extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     updatedmodel=snapshot.getValue(clsToolsAccessoriesModel.class);
-                    btnchooseimg.setVisibility(View.GONE);
-                    spncat.setVisibility(View.GONE);
-                    imgprdt.setVisibility(View.VISIBLE);
-                    Glide.with(add_tools_accesories.this)
-                            .load(updatedmodel.getImg())
-                            .into(imgprdt);
-                    edtprc.setText(updatedmodel.getPrice());
-                    edtstate.setText(updatedmodel.getState());
-                    edttehsil.setText(updatedmodel.getTehsil());
-                    edtdistrict.setText(updatedmodel.getDistrict());
-                    edtsellername.setText(updatedmodel.getSname());
-                    edtvillage.setText(updatedmodel.getVillage());
-                    edtdescription.setText(updatedmodel.getDesc());
-                    edtmo.setText(updatedmodel.getMo());
-                    edtmonth.setText(updatedmodel.getMonth());
-                    edtpname.setText(updatedmodel.getPname());
-                    btnsavedata.setText(getResources().getString(R.string.Update));
+                  if (updatedmodel!=null){
+                      btnchooseimg.setVisibility(View.GONE);
+                      spncat.setVisibility(View.GONE);
+                      imgprdt.setVisibility(View.VISIBLE);
+                      Glide.with(add_tools_accesories.this)
+                              .load(updatedmodel.getImg())
+                              .into(imgprdt);
+                      edtprc.setText(updatedmodel.getPrice());
+                      edtstate.setText(updatedmodel.getState());
+                      edttehsil.setText(updatedmodel.getTehsil());
+                      edtdistrict.setText(updatedmodel.getDistrict());
+                      edtsellername.setText(updatedmodel.getSname());
+                      edtvillage.setText(updatedmodel.getVillage());
+                      edtdescription.setText(updatedmodel.getDesc());
+                      edtmo.setText(updatedmodel.getMo());
+                      edtmonth.setText(updatedmodel.getMonth());
+                      edtpname.setText(updatedmodel.getPname());
+                      btnsavedata.setText(getResources().getString(R.string.Update));
+                  }
                 }
 
                 @Override
@@ -201,7 +203,8 @@ public class add_tools_accesories extends AppCompatActivity {
                                 public void onSuccess(Void unused) {
                                     show_toast(getResources().getString(R.string.Upload_Successfully),true);
                                     dg.dismiss();
-                                    finish();
+                                    startActivity(new Intent(add_tools_accesories.this,Home.class));
+
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
@@ -243,7 +246,7 @@ public class add_tools_accesories extends AppCompatActivity {
                                                 public void onSuccess(Void unused) {
                                                     show_toast(getResources().getString(R.string.Upload_Successfully),true);
                                                     dg.dismiss();
-                                                    finish();
+                                                    startActivity(new Intent(add_tools_accesories.this,Home.class));
                                                 }
                                             }).addOnFailureListener(new OnFailureListener() {
                                                 @Override

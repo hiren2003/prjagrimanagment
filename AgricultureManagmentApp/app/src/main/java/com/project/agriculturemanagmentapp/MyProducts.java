@@ -30,7 +30,7 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
     ArrayList<clsAnimalModel> animalModelArrayList;
     ArrayList<clsToolsAccessoriesModel> toolsAccessoriesModelArrayList;
     ArrayList<ClsCultivationProductModel> cultivationProductModelArrayList;
-    String Mo="";
+    String Mo;
     Boolean SelfAccount;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -49,11 +49,7 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
     }
 
     public MyProducts(String Mo,Boolean SelfAccount) {
-        if (Mo.isEmpty()){
-            this.Mo=getContext().getSharedPreferences("data",Context.MODE_PRIVATE).getString("mo","");
-        }else{
             this.Mo=Mo;
-        }
         this.SelfAccount=SelfAccount;
     }
     public MyProducts() {
@@ -79,7 +75,6 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
         TextView txt1=view.findViewById(R.id.txt1);
         TextView txt2=view.findViewById(R.id.txt2);
         TextView txt3=view.findViewById(R.id.txt3);
-        Mo=getContext().getSharedPreferences("data",Context.MODE_PRIVATE).getString("mo","");
 
         SharedPreferences sharedPreferences=getContext().getSharedPreferences("data", Context.MODE_PRIVATE);
         myproduct.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
@@ -93,7 +88,7 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
                 for (DataSnapshot dataSnapshot:
                      snapshot.getChildren()) {
                     clsAnimalModel model=dataSnapshot.getValue(clsAnimalModel.class);
-                    if (model.getMo().toString().trim().equals(Mo)){
+                    if (model.getUmo().toString().trim().equals(Mo)){
                         animalModelArrayList.add(model);
                     }
                 }
@@ -120,7 +115,7 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
                 for (DataSnapshot dataSnapshot:
                         snapshot.getChildren()) {
                     ClsCultivationProductModel model=dataSnapshot.getValue(ClsCultivationProductModel.class);
-                    if (model.getMo().trim().equals(Mo)){
+                    if (model.getUmo().trim().equals(Mo)){
                         cultivationProductModelArrayList.add(model);
 
                     }
@@ -148,7 +143,7 @@ RcToolsAccesoriesAdapter rcToolsAccesoriesAdapter;
                 for (DataSnapshot dataSnapshot:
                         snapshot.getChildren()) {
                     clsToolsAccessoriesModel model=dataSnapshot.getValue(clsToolsAccessoriesModel.class);
-                    if (model.getMo().equals(Mo)){
+                    if (model.getUmo().equals(Mo)){
                         toolsAccessoriesModelArrayList.add(model);
                     }
                 }

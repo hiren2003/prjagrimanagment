@@ -242,4 +242,14 @@
     <string name="To">ਨੂੰ</string>
     <string name="Apply">ਲਾਗੂ ਕਰੋ</string>
     <string name="Clear_All">ਸਾਰਾ ਸਾਫ ਕਰੋ</string>
+    <string name="paste">ਇੱਥੇ ਲਿੰਕ ਪੇਸਟ ਕਰੋ</string>
+    <string name="Invalid_query">ਅਵੈਧ ਪੁੱਛਗਿੱਛ</string>
+    <string name="Invalid_msg">ਕੁਝ ਸੁਨੇਹਾ ਲਿਖੋ</string>
+    <string name="Cancel_order">ਆਰਡਰ ਰੱਦ ਕਰੋ</string>
+    <string name="store">ਸਟੋਰ</string>
+    <string name="Animal">ਜਾਨਵਰ</string>
+    <string name="Equipments">ਉਪਕਰਨ</string>
+    <string name="Cultivation_Product">ਕਾਸ਼ਤ ਉਤਪਾਦ</string>
+    <string name="Gender">ਲਿੰਗ</string>
+    <string name="DOB">ਜਨਮ ਮਿਤੀ</string>
 </resources>

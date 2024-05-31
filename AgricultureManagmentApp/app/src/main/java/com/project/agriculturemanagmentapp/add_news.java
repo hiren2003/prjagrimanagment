@@ -28,7 +28,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-public class add_news extends AppCompatActivity {
+public class
+add_news extends AppCompatActivity {
     Spinner lang;
     Uri selectedimg;
     ImageView imageView;
